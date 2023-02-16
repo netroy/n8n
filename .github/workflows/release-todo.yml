@@ -1,0 +1,44 @@
+name: Draft Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2.2.4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # TODO: reset the versions to the last release, in case the versions have already been bumped in this release branch
+
+      - name: Bump package versions
+        run: node scripts/bump-versions.mjs
+
+      - name: Update Lockfile
+        run: pnpm i --offline --lockfile-only
+
+      - name: Update Changelog
+        run: pnpx conventional-changelog-cli -p angular -i CHANGELOG.md -s -t n8n@
+
+      # TODO: Update the changelog in a release PR
+
+      # TODO: Move everything below to another workflow that's triggered when a release PR is merged
+
+      # TODO: run various tests before making a release
+      - name: Publish Packages
+        run: pnpm publish -r --access public --dry-run --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # TODO: Notify Slack
