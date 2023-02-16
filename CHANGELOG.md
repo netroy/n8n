@@ -1,3 +1,12 @@
+# [0.217.0](https://github.com/netroy/n8n/compare/n8n@0.216.0...n8n@0.217.0) (2023-02-16)
+
+
+### Features
+
+* **core:** Add saml feature flag ([#5494](https://github.com/netroy/n8n/issues/5494)) ([3a9c257](https://github.com/netroy/n8n/commit/3a9c257f55a87890c7456601de13f182cec89fde))
+
+
+
 # [0.216.0](https://github.com/n8n-io/n8n/compare/n8n@0.215.2...n8n@0.216.0) (2023-02-16)
 
 
