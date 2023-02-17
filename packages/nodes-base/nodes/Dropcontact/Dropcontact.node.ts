@@ -1,12 +1,12 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import { dropcontactApiRequest, mapPairedItemsFrom } from './GenericFunction';
 
@@ -102,7 +102,7 @@ export class Dropcontact implements INodeType {
 					},
 				},
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'When off, waits for the contact data before completing. Waiting time can be adjusted with Extend Wait Time option. When on, returns a request_id that can be used later in the Fetch Request operation.',
 			},

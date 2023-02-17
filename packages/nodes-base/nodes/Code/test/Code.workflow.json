@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "3691826c-caf3-4773-b0af-f5fe2eda42bc",
 			"name": "When clicking \"Execute Workflow\"",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [
 				-960,
@@ -18,7 +18,7 @@
 			},
 			"id": "149e8223-20e2-480e-b675-2aeb6a9f9095",
 			"name": "Sample Data",
-			"type": "n8n-nodes-base.code",
+			"type": "@8n8/nodes-base.code",
 			"typeVersion": 1,
 			"position": [
 				-720,
@@ -31,7 +31,7 @@
 			},
 			"id": "2002ec71-fd88-4a5b-b2fe-0071fc5397e4",
 			"name": "Run Once for All Items",
-			"type": "n8n-nodes-base.code",
+			"type": "@8n8/nodes-base.code",
 			"typeVersion": 1,
 			"position": [
 				-460,
@@ -45,7 +45,7 @@
 			},
 			"id": "9adbeb7a-c711-4ff6-881e-96d5e122c2bc",
 			"name": "Run Once for Each Item",
-			"type": "n8n-nodes-base.code",
+			"type": "@8n8/nodes-base.code",
 			"typeVersion": 1,
 			"position": [
 				-460,

@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IPollFunctions,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { getCalendars, googleApiRequest, googleApiRequestAllItems } from './GenericFunctions';
 

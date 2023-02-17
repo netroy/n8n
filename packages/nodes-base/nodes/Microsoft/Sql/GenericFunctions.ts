@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 import type { ITables } from './TableInterface';
 
 /**

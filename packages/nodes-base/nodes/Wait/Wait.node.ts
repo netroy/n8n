@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import { BINARY_ENCODING, WAIT_TIME_UNLIMITED } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
+import { BINARY_ENCODING, WAIT_TIME_UNLIMITED } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -9,8 +9,8 @@ import type {
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import fs from 'fs';
 import stream from 'stream';
@@ -214,7 +214,7 @@ export class Wait implements INodeType {
 			// ----------------------------------
 			{
 				displayName:
-					'The webhook URL will be generated at run time. It can be referenced with the <strong>$execution.resumeUrl</strong> variable. Send it somewhere before getting to this node. <a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait/?utm_source=n8n_app&utm_medium=node_settings_modal-credential_link&utm_campaign=n8n-nodes-base.wait" target="_blank">More info</a>',
+					'The webhook URL will be generated at run time. It can be referenced with the <strong>$execution.resumeUrl</strong> variable. Send it somewhere before getting to this node. <a href="https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.wait/?utm_source=n8n_app&utm_medium=node_settings_modal-credential_link&utm_campaign=@8n8/nodes-base.wait" target="_blank">More info</a>',
 				name: 'webhookNotice',
 				type: 'notice',
 				displayOptions: {
@@ -359,7 +359,7 @@ export class Wait implements INodeType {
 				name: 'limitWaitTime',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'If no webhook call is received, the workflow will automatically resume execution after the specified limit type',
 				displayOptions: {
@@ -528,7 +528,7 @@ export class Wait implements INodeType {
 						},
 						default: '',
 						placeholder: 'application/xml',
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-json
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-json
 						description:
 							'Set a custom content-type to return if another one as the "application/json" should be returned',
 					},

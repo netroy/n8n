@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { getTablePrefix, logMigrationEnd, logMigrationStart } from '@db/utils/migrationHelpers';
 import { NodeTypes } from '@/NodeTypes';
-import { IConnections, INode } from 'n8n-workflow';
+import { IConnections, INode } from '@8n8/workflow';
 import { getLogger } from '@/Logger';
 export class PurgeInvalidWorkflowConnections1675940580449 implements MigrationInterface {
 	name = 'PurgeInvalidWorkflowConnections1675940580449';

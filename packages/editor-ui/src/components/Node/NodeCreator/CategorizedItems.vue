@@ -133,7 +133,7 @@ import camelcase from 'lodash.camelcase';
 
 import { externalHooks } from '@/mixins/externalHooks';
 import useGlobalLinkActions from '@/composables/useGlobalLinkActions';
-import { INodeTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription } from '@8n8/workflow';
 import ItemIterator from './ItemIterator.vue';
 import NoResults from './NoResults.vue';
 import SearchBar from './SearchBar.vue';

@@ -6,7 +6,7 @@ import type {
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { venafiApiRequest } from './GenericFunctions';
 
@@ -39,7 +39,7 @@ export class VenafiTlsProtectCloudTrigger implements INodeType {
 		outputs: ['main'],
 		properties: [
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Resource',
 				name: 'resource',
 				type: 'options',
@@ -53,7 +53,7 @@ export class VenafiTlsProtectCloudTrigger implements INodeType {
 					'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>. Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Trigger On',
 				name: 'triggerOn',
 				type: 'multiOptions',

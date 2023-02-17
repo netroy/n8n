@@ -4,8 +4,8 @@ import type {
 	ILoadOptionsFunctions,
 	INodeExecutionData,
 	INodeListSearchResult,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 import mysql2 from 'mysql2/promise';
 
 /**

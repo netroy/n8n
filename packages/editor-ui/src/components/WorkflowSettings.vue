@@ -348,7 +348,7 @@ import {
 
 import mixins from 'vue-typed-mixins';
 
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from '@8n8/workflow';
 import { mapStores } from 'pinia';
 import { useWorkflowsStore } from '@/stores/workflows';
 import { useSettingsStore } from '@/stores/settings';

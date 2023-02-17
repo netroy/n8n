@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const postOperations: INodeProperties[] = [
 	{
@@ -764,7 +764,7 @@ export const postFields: INodeProperties[] = [
 				description: 'Scope under which the request is made; determines fields present in response',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Exclude Categories',
 				name: 'excludedCategories',
 				type: 'multiOptions',
@@ -776,7 +776,7 @@ export const postFields: INodeProperties[] = [
 					'Limit result set to all items except those that have the specified term assigned in the categories taxonomy. Choose from the list, or specify IDs using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Exclude Tags',
 				name: 'excludedTags',
 				type: 'multiOptions',

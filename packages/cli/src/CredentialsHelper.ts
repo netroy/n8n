@@ -6,7 +6,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import { Credentials, NodeExecuteFunctions } from 'n8n-core';
+import { Credentials, NodeExecuteFunctions } from '@8n8/core';
 import get from 'lodash.get';
 
 import type {
@@ -33,7 +33,7 @@ import type {
 	INodeTypeData,
 	INodeTypes,
 	ICredentialTypes,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ICredentialsHelper,
 	VersionedNodeType,
@@ -42,7 +42,7 @@ import {
 	Workflow,
 	LoggerProxy as Logger,
 	ErrorReporterProxy as ErrorReporter,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import * as Db from '@/Db';
 import type { ICredentialsDb } from '@/Interfaces';
@@ -179,7 +179,7 @@ export class CredentialsHelper extends ICredentialsHelper {
 		// check if the node is the mockup node used for testing
 		// if so, it means this is a credential test and not normal node execution
 		const isTestingCredentials =
-			node?.parameters?.temp === '' && node?.type === 'n8n-nodes-base.noOp';
+			node?.parameters?.temp === '' && node?.type === '@8n8/nodes-base.noOp';
 
 		if (credentialType.preAuthentication) {
 			if (typeof credentialType.preAuthentication === 'function') {
@@ -573,7 +573,7 @@ export class CredentialsHelper extends ICredentialsHelper {
 		if (credentialTestFunction.nodeType) {
 			nodeType = credentialTestFunction.nodeType;
 		} else {
-			nodeType = this.nodeTypes.getByNameAndVersion('n8n-nodes-base.noOp');
+			nodeType = this.nodeTypes.getByNameAndVersion('@8n8/nodes-base.noOp');
 		}
 
 		const node: INode = {

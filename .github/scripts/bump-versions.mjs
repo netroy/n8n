@@ -28,10 +28,10 @@ for (let { name, path, version, private: isPrivate, dependencies } of packages) 
 	packageMap[name] = { path, isDirty, version };
 }
 
-assert.ok(packageMap['n8n'].isDirty, 'No changes found since the last release');
+assert.ok(packageMap['@8n8/cli'].isDirty, 'No changes found since the last release');
 
 // Keep the monorepo version up to date with the released version
-packageMap['monorepo-root'].version = packageMap['n8n'].version;
+packageMap['monorepo-root'].version = packageMap['@8n8/cli'].version;
 
 for (const packageName in packageMap) {
 	const { path, version, isDirty } = packageMap[packageName];
@@ -49,4 +49,4 @@ for (const packageName in packageMap) {
 	await writeFile(packageFile, JSON.stringify(packageJson, null, 2) + '\n');
 }
 
-console.log(packageMap['n8n'].nextVersion);
+console.log(packageMap['@8n8/cli'].nextVersion);

@@ -122,7 +122,7 @@ import {
 	NodeParameterValue,
 	deepCopy,
 	isINodePropertyCollectionList,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { get } from 'lodash';
 

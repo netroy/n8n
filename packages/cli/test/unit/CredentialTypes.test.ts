@@ -1,4 +1,4 @@
-import type { ICredentialTypes, INodesAndCredentials } from 'n8n-workflow';
+import type { ICredentialTypes, INodesAndCredentials } from '@8n8/workflow';
 import { CredentialTypes } from '@/CredentialTypes';
 
 describe('ActiveExecutions', () => {

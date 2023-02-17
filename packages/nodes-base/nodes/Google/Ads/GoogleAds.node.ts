@@ -1,4 +1,4 @@
-import type { INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription } from '@8n8/workflow';
 
 import { campaignFields, campaignOperations } from './CampaignDescription';
 

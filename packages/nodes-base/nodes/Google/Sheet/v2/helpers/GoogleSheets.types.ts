@@ -1,4 +1,4 @@
-import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
+import type { AllEntities, Entity, PropertiesOf } from '@8n8/workflow';
 
 export const ROW_NUMBER = 'row_number';
 

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -8,8 +8,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { jsonParse, NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse, NodeApiError } from '@8n8/workflow';
 
 import type { SortData } from '../GenericFunctions';
 import {

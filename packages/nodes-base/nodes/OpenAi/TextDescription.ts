@@ -1,4 +1,4 @@
-import type { INodeExecutionData, INodeProperties } from 'n8n-workflow';
+import type { INodeExecutionData, INodeProperties } from '@8n8/workflow';
 
 export const textOperations: INodeProperties[] = [
 	{
@@ -90,7 +90,7 @@ const completeOperations: INodeProperties[] = [
 							{
 								type: 'setKeyValue',
 								properties: {
-									// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased-id
+									// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased-id
 									name: '={{$responseItem.id}}',
 									value: '={{$responseItem.id}}',
 								},

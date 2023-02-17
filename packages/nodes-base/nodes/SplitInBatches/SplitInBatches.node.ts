@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 export class SplitInBatches implements INodeType {
 	description: INodeTypeDescription = {

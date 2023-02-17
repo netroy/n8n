@@ -1,4 +1,4 @@
-import { LoggerProxy as Logger } from 'n8n-workflow';
+import { LoggerProxy as Logger } from '@8n8/workflow';
 import type { IPushDataType } from '@/Interfaces';
 import { eventBus } from '../eventbus';
 

@@ -23,7 +23,7 @@ import {
 	INode,
 	INodePropertyOptions,
 	IDataObject,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	ICredentialsResponse,

@@ -1,4 +1,4 @@
-import type { IPollFunctions } from 'n8n-core';
+import type { IPollFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { LoggerProxy as Logger } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy as Logger } from '@8n8/workflow';
 
 import {
 	googleApiRequest,
@@ -63,7 +63,7 @@ export class GmailTrigger implements INodeType {
 				type: 'options',
 				options: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'OAuth2 (recommended)',
 						value: 'oAuth2',
 					},
@@ -136,17 +136,17 @@ export class GmailTrigger implements INodeType {
 						hint: 'Filter emails by whether they have been read or not',
 						options: [
 							{
-								// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+								// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 								name: 'Unread and read emails',
 								value: 'both',
 							},
 							{
-								// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+								// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 								name: 'Unread emails only',
 								value: 'unread',
 							},
 							{
-								// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+								// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 								name: 'Read emails only',
 								value: 'read',
 							},

@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { IExecuteFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -13,9 +13,9 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
-import { NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { channelFields, channelOperations } from './ChannelDescription';
 import { messageFields, messageOperations } from './MessageDescription';

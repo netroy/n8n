@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type {
 	GenericValue,
@@ -6,8 +6,8 @@ import type {
 	ICredentialTestFunctions,
 	IDataObject,
 	IHttpRequestOptions,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 /**
  * Make an API request to Mattermost

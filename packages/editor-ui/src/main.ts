@@ -8,7 +8,7 @@ import 'prismjs/themes/prism.css';
 import 'vue-prism-editor/dist/VuePrismEditor.css';
 import 'vue-json-pretty/lib/styles.css';
 import '@jsplumb/browser-ui/css/jsplumbtoolkit.css';
-import 'n8n-design-system/css/index.scss';
+import '@8n8/design-system/css/index.scss';
 import './n8n-theme.scss';
 import './styles/autocomplete-theme.scss';
 

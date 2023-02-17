@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express from 'express';
-import type { INodeCredentialTestResult } from 'n8n-workflow';
-import { deepCopy, LoggerProxy } from 'n8n-workflow';
+import type { INodeCredentialTestResult } from '@8n8/workflow';
+import { deepCopy, LoggerProxy } from '@8n8/workflow';
 
 import * as GenericHelpers from '@/GenericHelpers';
 import { InternalHooksManager } from '@/InternalHooksManager';

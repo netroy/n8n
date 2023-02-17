@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import type { IBinaryData, IRunData } from 'n8n-workflow';
+import type { IBinaryData, IRunData } from '@8n8/workflow';
 
 import BinaryDataDisplayEmbed from '@/components/BinaryDataDisplayEmbed.vue';
 

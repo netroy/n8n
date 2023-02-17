@@ -1,4 +1,4 @@
-import { loadClassInIsolation } from 'n8n-core';
+import { loadClassInIsolation } from '@8n8/core';
 import type {
 	INodesAndCredentials,
 	INodeType,
@@ -6,8 +6,8 @@ import type {
 	INodeTypes,
 	IVersionedNodeType,
 	LoadedClass,
-} from 'n8n-workflow';
-import { NodeHelpers } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeHelpers } from '@8n8/workflow';
 import { RESPONSE_ERROR_MESSAGES } from './constants';
 
 export class NodeTypesClass implements INodeTypes {

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -8,8 +8,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { pushoverApiRequest } from './GenericFunctions';
 
@@ -95,7 +95,7 @@ export class Pushover implements INodeType {
 				default: '',
 				description: 'Your message',
 			},
-			// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+			// eslint-disable-next-line @8n8/nodes-base/node-param-default-missing
 			{
 				displayName: 'Priority',
 				name: 'priority',
@@ -106,7 +106,7 @@ export class Pushover implements INodeType {
 						operation: ['push'],
 					},
 				},
-				// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 				options: [
 					{
 						name: 'Lowest Priority',

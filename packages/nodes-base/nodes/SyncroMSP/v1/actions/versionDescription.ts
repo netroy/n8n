@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeDescription } from 'n8n-workflow';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { INodeTypeDescription } from '@8n8/workflow';
 
 import * as customer from './customer';
 import * as ticket from './ticket';
@@ -9,7 +9,7 @@ import * as rmm from './rmm';
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'SyncroMSP',
 	name: 'syncroMsp',
-	// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+	// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 	icon: 'file:syncromsp.png',
 	group: ['output'],
 	version: 1,

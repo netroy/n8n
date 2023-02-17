@@ -1,4 +1,4 @@
-import { INode, LoggerProxy } from 'n8n-workflow';
+import { INode, LoggerProxy } from '@8n8/workflow';
 import { WorkflowEntity } from '@db/entities/WorkflowEntity';
 import { CredentialsEntity } from '@db/entities/CredentialsEntity';
 import { getNodesWithInaccessibleCreds, validateWorkflowCredentialUsage } from '@/WorkflowHelpers';
@@ -180,7 +180,7 @@ const nodeWithNoCredentials: INode = {
 	id: NODE_WITH_NO_CRED,
 	name: 'Node with no Credential',
 	typeVersion: 1,
-	type: 'n8n-nodes-base.fakeNode',
+	type: '@8n8/nodes-base.fakeNode',
 	position: [0, 0],
 	credentials: {},
 	parameters: {},

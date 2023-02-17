@@ -1,8 +1,8 @@
 import validator from 'validator';
 import type { Repository } from 'typeorm';
 import { In } from 'typeorm';
-import type { ILogger } from 'n8n-workflow';
-import { ErrorReporterProxy as ErrorReporter } from 'n8n-workflow';
+import type { ILogger } from '@8n8/workflow';
+import { ErrorReporterProxy as ErrorReporter } from '@8n8/workflow';
 import { User } from '@db/entities/User';
 import { SharedCredentials } from '@db/entities/SharedCredentials';
 import { SharedWorkflow } from '@db/entities/SharedWorkflow';

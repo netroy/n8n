@@ -1,6 +1,6 @@
 import { flags } from '@oclif/command';
-import type { INode, INodeCredentialsDetails } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { INode, INodeCredentialsDetails } from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 import fs from 'fs';
 import glob from 'fast-glob';
 import type { EntityManager } from 'typeorm';

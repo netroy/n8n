@@ -1,5 +1,5 @@
 import { NewCredentialsModal } from './../Interface';
-import { INodeParameterResourceLocator } from 'n8n-workflow';
+import { INodeParameterResourceLocator } from '@8n8/workflow';
 import { ICredentialsResponse } from '@/Interface';
 
 /*

@@ -1,5 +1,5 @@
 import express from 'express';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import { In } from 'typeorm';
 
 import * as Db from '@/Db';
@@ -11,7 +11,7 @@ import { randomCredentialPayload } from './shared/random';
 import * as testDb from './shared/testDb';
 import type { AuthAgent, SaveCredentialFunction } from './shared/types';
 import * as utils from './shared/utils';
-import type { IUser } from 'n8n-workflow';
+import type { IUser } from '@8n8/workflow';
 
 let app: express.Application;
 let globalOwnerRole: Role;

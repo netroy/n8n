@@ -35,8 +35,8 @@ import type {
 	NodeOperationError,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
-import { LoggerProxy as Logger, WorkflowOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy as Logger, WorkflowOperationError } from '@8n8/workflow';
 import get from 'lodash.get';
 import * as NodeExecuteFunctions from './NodeExecuteFunctions';
 
@@ -957,7 +957,7 @@ export class WorkflowExecute {
 								nodeSuccessData = runNodeData.data;
 
 								if (runNodeData.closeFunction) {
-									// Explanation why we do this can be found in n8n-workflow/Workflow.ts -> runNode
+									// Explanation why we do this can be found in @8n8/workflow/Workflow.ts -> runNode
 									// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 									closeFunction = runNodeData.closeFunction();
 								}

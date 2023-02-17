@@ -9,7 +9,7 @@ import {
 	getNodeAuthOptions,
 	isAuthRelatedParameter,
 } from '@/utils';
-import { INodeProperties, INodeTypeDescription, NodeParameterValue } from 'n8n-workflow';
+import { INodeProperties, INodeTypeDescription, NodeParameterValue } from '@8n8/workflow';
 import { computed, onMounted, ref } from 'vue';
 import Vue from 'vue';
 

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from '@8n8/core';
 import { cockpitApiRequest } from './GenericFunctions';
 
 export async function getSingleton(

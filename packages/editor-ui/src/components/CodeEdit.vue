@@ -33,7 +33,7 @@ import {
 	IRunExecutionData,
 	IWorkflowDataProxyAdditionalKeys,
 	WorkflowDataProxy,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { PLACEHOLDER_FILLED_AT_EXECUTION_TIME } from '@/constants';
 import { CodeEditor } from './forms';

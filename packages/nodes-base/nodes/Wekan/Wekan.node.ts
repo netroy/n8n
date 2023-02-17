@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { apiRequest } from './GenericFunctions';
 
@@ -30,7 +30,7 @@ export class Wekan implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Wekan',
 		name: 'wekan',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:wekan.png',
 		group: ['transform'],
 		version: 1,

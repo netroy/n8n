@@ -1,4 +1,4 @@
-import type { IUser } from 'n8n-workflow';
+import type { IUser } from '@8n8/workflow';
 import type { SharedWorkflow } from '@db/entities/SharedWorkflow';
 import type { WorkflowEntity } from '@db/entities/WorkflowEntity';
 

@@ -2,7 +2,7 @@ import express from 'express';
 import { readFile } from 'fs/promises';
 import get from 'lodash.get';
 
-import type { INodeTypeDescription, INodeTypeNameVersion } from 'n8n-workflow';
+import type { INodeTypeDescription, INodeTypeNameVersion } from '@8n8/workflow';
 
 import config from '@/config';
 import { NodeTypes } from '@/NodeTypes';

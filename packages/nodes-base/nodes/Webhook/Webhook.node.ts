@@ -1,5 +1,5 @@
-import type { IWebhookFunctions } from 'n8n-core';
-import { BINARY_ENCODING } from 'n8n-core';
+import type { IWebhookFunctions } from '@8n8/core';
+import { BINARY_ENCODING } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -8,8 +8,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import fs from 'fs';
 import stream from 'stream';
@@ -63,7 +63,7 @@ export class Webhook implements INodeType {
 			activationHint:
 				'Once you’ve finished building your workflow, run it without having to click this button by using the production webhook URL.',
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: [],
 		outputs: ['main'],
 		credentials: [
@@ -192,7 +192,7 @@ export class Webhook implements INodeType {
 			},
 			{
 				displayName:
-					'Insert a \'Respond to Webhook\' node to control when and how you respond. <a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.respondtowebhook/" target="_blank">More details</a>',
+					'Insert a \'Respond to Webhook\' node to control when and how you respond. <a href="https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.respondtowebhook/" target="_blank">More details</a>',
 				name: 'webhookNotice',
 				type: 'notice',
 				displayOptions: {
@@ -335,7 +335,7 @@ export class Webhook implements INodeType {
 							},
 						},
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description: 'Raw body (binary)',
 					},
 					{
@@ -366,7 +366,7 @@ export class Webhook implements INodeType {
 						},
 						default: '',
 						placeholder: 'application/xml',
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-json
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-json
 						description:
 							'Set a custom content-type to return if another one as the "application/json" should be returned',
 					},

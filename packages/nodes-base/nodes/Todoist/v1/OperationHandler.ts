@@ -1,5 +1,5 @@
-import type { IDataObject } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 import type { Context } from '../GenericFunctions';
 import { FormatDueDatetime, todoistApiRequest, todoistSyncRequest } from '../GenericFunctions';
 import type { Section, TodoistResponse } from './Service';

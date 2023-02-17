@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.errorTrigger",
+	"node": "@8n8/nodes-base.errorTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"details": "In n8n, when a workflow execution fails, it can start another workflow. This second workflow can be any arbitrary workflow on your n8n instance. Use the Error Trigger node as your Trigger in the Error workflow.",
@@ -7,7 +7,7 @@
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.errortrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.errortrigger/"
 			}
 		],
 		"generic": [

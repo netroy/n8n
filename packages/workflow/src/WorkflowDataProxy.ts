@@ -37,9 +37,9 @@ export function isResourceLocatorValue(value: unknown): value is INodeParameterR
 }
 
 const SCRIPTING_NODE_TYPES = [
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
-	'n8n-nodes-base.code',
+	'@8n8/nodes-base.function',
+	'@8n8/nodes-base.functionItem',
+	'@8n8/nodes-base.code',
 ];
 
 const isScriptingNode = (nodeName: string, workflow: Workflow) => {

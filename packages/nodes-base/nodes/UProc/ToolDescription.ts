@@ -1,5 +1,5 @@
-import type { IDataObject, INodeProperties } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import type { IDataObject, INodeProperties } from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 import { groups } from './Json/Groups';
 

@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { sms77ApiRequest } from './GenericFunctions';
 
@@ -13,7 +13,7 @@ export class Sms77 implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'sms77',
 		name: 'sms77',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:sms77.png',
 		group: ['transform'],
 		version: 1,
@@ -175,7 +175,7 @@ export class Sms77 implements INodeType {
 						name: 'flash',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description: "Send as flash message being displayed directly the receiver's display",
 					},
 					{

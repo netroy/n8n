@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-loop-func */
 import fs from 'fs';
 import { flags } from '@oclif/command';
-import type { ITaskData } from 'n8n-workflow';
-import { sleep } from 'n8n-workflow';
+import type { ITaskData } from '@8n8/workflow';
+import { sleep } from '@8n8/workflow';
 import { sep } from 'path';
 import { diff } from 'json-diff';
 import pick from 'lodash.pick';

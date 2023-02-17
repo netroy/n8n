@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const operationFields: INodeProperties[] = [
 	{
@@ -20,7 +20,7 @@ export const operationFields: INodeProperties[] = [
 				action: 'Delete rows from a table',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many
+				// eslint-disable-next-line @8n8/nodes-base/node-param-option-name-wrong-for-get-many
 				name: 'Get Many Rows',
 				value: 'getAll',
 				description: 'Read rows from a table',

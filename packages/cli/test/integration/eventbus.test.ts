@@ -13,7 +13,7 @@ import {
 	MessageEventBusDestinationSentryOptions,
 	MessageEventBusDestinationSyslogOptions,
 	MessageEventBusDestinationWebhookOptions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { eventBus } from '@/eventbus';
 import { SuperAgentTest } from 'supertest';
 import { EventMessageGeneric } from '@/eventbus/EventMessageClasses/EventMessageGeneric';

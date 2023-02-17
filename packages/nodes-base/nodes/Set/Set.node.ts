@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	INodeExecutionData,
 	INodeParameters,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 import { set } from 'lodash';
 
@@ -61,7 +61,7 @@ export class Set implements INodeType {
 								name: 'value',
 								type: 'boolean',
 								default: false,
-								// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+								// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 								description: 'The boolean value to write in the property',
 							},
 						],
@@ -123,7 +123,7 @@ export class Set implements INodeType {
 						name: 'dotNotation',
 						type: 'boolean',
 						default: true,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description:
 							'<p>By default, dot-notation is used in property names. This means that "a.b" will set the property "b" underneath "a" so { "a": { "b": value} }.<p></p>If that is not intended this can be deactivated, it will then set { "a.b": value } instead.</p>.',
 					},

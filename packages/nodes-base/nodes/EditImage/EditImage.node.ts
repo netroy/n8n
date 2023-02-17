@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	ILoadOptionsFunctions,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { deepCopy, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, NodeOperationError } from '@8n8/workflow';
 import gm from 'gm';
 import { file } from 'tmp-promise';
 import { parse as pathParse } from 'path';

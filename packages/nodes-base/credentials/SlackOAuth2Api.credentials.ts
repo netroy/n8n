@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from '@8n8/workflow';
 
 //https://api.slack.com/authentication/oauth-v2
 const userScopes = [

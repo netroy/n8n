@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const coorganizerOperations: INodeProperties[] = [
 	{
@@ -163,7 +163,7 @@ export const coorganizerFields: INodeProperties[] = [
 				operation: ['delete'],
 			},
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+		// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 		description:
 			"By default only internal co-organizers (with a GoToWebinar account) can be deleted. If you want to use this call for external co-organizers you have to set this parameter to 'true'.",
 	},

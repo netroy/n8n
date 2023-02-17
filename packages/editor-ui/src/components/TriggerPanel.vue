@@ -98,7 +98,7 @@
 <script lang="ts">
 import { EXECUTIONS_MODAL_KEY, WEBHOOK_NODE_TYPE, WORKFLOW_SETTINGS_MODAL_KEY } from '@/constants';
 import { INodeUi } from '@/Interface';
-import { INodeTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription } from '@8n8/workflow';
 import { getTriggerNodeServiceName } from '@/utils';
 import NodeExecuteButton from './NodeExecuteButton.vue';
 import { workflowHelpers } from '@/mixins/workflowHelpers';

@@ -2,7 +2,7 @@ import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
 	INodeCredentialTestResult,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import type { IGoogleAuthCredentials } from '../transport';
 import { getAccessToken } from '../transport';

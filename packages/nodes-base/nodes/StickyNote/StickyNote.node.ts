@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
 
 export class StickyNote implements INodeType {
 	description: INodeTypeDescription = {
@@ -13,9 +13,9 @@ export class StickyNote implements INodeType {
 			name: 'Sticky Note',
 			color: '#FFD233',
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: [],
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-outputs-wrong
 		outputs: [],
 		properties: [
 			{

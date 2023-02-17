@@ -62,7 +62,7 @@ import {
 	INodeTypeDescription,
 	INodeActionTypeDescription,
 	INodeTypeNameVersion,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	INodeCreateElement,
 	IActionItemProps,

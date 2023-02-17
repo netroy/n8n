@@ -4,7 +4,7 @@ import { createHash } from 'crypto';
 
 import { Builder } from 'xml2js';
 
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -12,8 +12,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { bucketFields, bucketOperations } from './BucketDescription';
 

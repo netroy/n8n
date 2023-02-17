@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeDescription } from 'n8n-workflow';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { INodeTypeDescription } from '@8n8/workflow';
 
 /**
  * Options to be displayed
@@ -152,7 +152,7 @@ export const nodeDescription: INodeTypeDescription = {
 						minValue: 1,
 					},
 					default: 0,
-					// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-limit
+					// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-limit
 					description:
 						'Use limit to specify the maximum number of documents or 0 for unlimited documents',
 				},
@@ -225,7 +225,7 @@ export const nodeDescription: INodeTypeDescription = {
 			},
 			default: 'id',
 			required: true,
-			// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+			// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 			description:
 				'Name of the property which decides which rows in the database should be updated. Normally that would be "id".',
 		},

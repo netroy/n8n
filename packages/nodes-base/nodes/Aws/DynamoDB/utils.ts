@@ -1,5 +1,5 @@
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { deepCopy, assert } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
+import { deepCopy, assert } from '@8n8/workflow';
 
 import type {
 	AdjustedPutItem,

@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeListSearchItems,
 	INodePropertyOptions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 import type { GoogleSheet } from './GoogleSheet';
 import type {
 	RangeDetectionOptions,

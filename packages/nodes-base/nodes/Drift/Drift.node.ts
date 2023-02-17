@@ -1,10 +1,10 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { driftApiRequest } from './GenericFunctions';
 import { contactFields, contactOperations } from './ContactDescription';
 import type { IContact } from './ContactInterface';
@@ -13,7 +13,7 @@ export class Drift implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Drift',
 		name: 'drift',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:drift.png',
 		group: ['output'],
 		version: 1,

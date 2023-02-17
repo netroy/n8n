@@ -1,5 +1,5 @@
 import countryCodes from 'currency-codes';
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 import {
 	cleanPhoneNumber,
 	componentsRequest,
@@ -803,7 +803,7 @@ export const messageTypeFields: INodeProperties[] = [
 				description: 'If you have already uploaded the audio to WhatsApp',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'n8n',
 				value: 'useMedian8n',
 				description: 'Use binary data passed into this node',
@@ -835,7 +835,7 @@ export const messageTypeFields: INodeProperties[] = [
 				description: 'You can use an ID if you have already uploaded the document to WhatsApp',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'n8n',
 				value: 'useMedian8n',
 				description: 'Upload a binary file on the item being processed in n8n',
@@ -867,7 +867,7 @@ export const messageTypeFields: INodeProperties[] = [
 				description: 'You can use an ID if you have already uploaded the image to WhatsApp',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'n8n',
 				value: 'useMedian8n',
 				description: 'Upload a binary file on the item being processed in n8n',
@@ -899,7 +899,7 @@ export const messageTypeFields: INodeProperties[] = [
 				description: 'You can use an ID if you have already uploaded the video to WhatsApp',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'n8n',
 				value: 'useMedian8n',
 				description: 'Upload a binary file on the item being processed in n8n',

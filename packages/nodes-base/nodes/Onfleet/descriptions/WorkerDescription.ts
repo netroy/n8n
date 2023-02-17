@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const workerOperations: INodeProperties[] = [
 	{
@@ -146,7 +146,7 @@ const vehicleLicensePlateField = {
 const vehicleColorField = {
 	displayName: 'Color',
 	name: 'color',
-	// eslint-disable-next-line n8n-nodes-base/node-param-color-type-unused
+	// eslint-disable-next-line @8n8/nodes-base/node-param-color-type-unused
 	type: 'string',
 	default: '',
 	description: "The vehicle's color",

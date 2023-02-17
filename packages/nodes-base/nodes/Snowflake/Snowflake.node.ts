@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { connect, copyInputItems, destroy, execute } from './GenericFunctions';
 
@@ -135,7 +135,7 @@ export class Snowflake implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Name of the property which decides which rows in the database should be updated. Normally that would be "id".',
 			},

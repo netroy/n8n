@@ -13,7 +13,7 @@ import type {
 	INodePropertyOptions,
 	INodeTypeDescription,
 	INodeTypeNameVersion,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import axios from 'axios';
 
 export async function getNodeTypes(baseUrl: string) {

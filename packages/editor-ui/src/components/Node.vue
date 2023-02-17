@@ -174,7 +174,7 @@ import { nodeHelpers } from '@/mixins/nodeHelpers';
 import { workflowHelpers } from '@/mixins/workflowHelpers';
 import { pinData } from '@/mixins/pinData';
 
-import { IDataObject, INodeTypeDescription, ITaskData, NodeHelpers } from 'n8n-workflow';
+import { IDataObject, INodeTypeDescription, ITaskData, NodeHelpers } from '@8n8/workflow';
 
 import NodeIcon from '@/components/NodeIcon.vue';
 import TitledList from '@/components/TitledList.vue';

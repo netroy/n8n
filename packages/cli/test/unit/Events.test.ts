@@ -1,4 +1,4 @@
-import { LoggerProxy, WorkflowExecuteMode } from 'n8n-workflow';
+import { LoggerProxy, WorkflowExecuteMode } from '@8n8/workflow';
 import { QueryFailedError } from 'typeorm';
 import config from '@/config';
 import { Db } from '@/index';

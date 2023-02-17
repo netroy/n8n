@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 import { splitTagsPreSendAction, validEmailAndPhonePreSendAction } from '../GenericFunctions';
 
 export const contactOperations: INodeProperties[] = [
@@ -416,7 +416,7 @@ const createProperties: INodeProperties[] = [
 				},
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Timezone',
 				name: 'timezone',
 				type: 'options',
@@ -619,7 +619,7 @@ const updateProperties: INodeProperties[] = [
 				},
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Timezone',
 				name: 'timezone',
 				type: 'options',

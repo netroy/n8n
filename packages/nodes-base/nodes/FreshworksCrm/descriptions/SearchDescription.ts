@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const searchOperations: INodeProperties[] = [
 	{
@@ -216,7 +216,7 @@ export const searchFields: INodeProperties[] = [
 						value: 'sales_account',
 					},
 				],
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-unneeded-backticks
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-unneeded-backticks
 				description:
 					"Use 'entities' to query against related entities. You can include multiple entities at once, provided the field is available in both entities or else you'd receive an error response.",
 			},

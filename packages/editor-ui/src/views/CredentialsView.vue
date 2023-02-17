@@ -53,7 +53,7 @@ import ResourcesListLayout from '@/components/layouts/ResourcesListLayout.vue';
 import PageViewLayout from '@/components/layouts/PageViewLayout.vue';
 import PageViewLayoutList from '@/components/layouts/PageViewLayoutList.vue';
 import CredentialCard from '@/components/CredentialCard.vue';
-import { ICredentialType } from 'n8n-workflow';
+import { ICredentialType } from '@8n8/workflow';
 import TemplateCard from '@/components/TemplateCard.vue';
 import { debounceHelper } from '@/mixins/debounce';
 import ResourceOwnershipSelect from '@/components/forms/ResourceOwnershipSelect.ee.vue';

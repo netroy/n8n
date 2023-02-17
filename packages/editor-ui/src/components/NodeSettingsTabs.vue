@@ -12,7 +12,7 @@ import {
 import { INodeUi, ITab } from '@/Interface';
 import { useNDVStore } from '@/stores/ndv';
 import { useWorkflowsStore } from '@/stores/workflows';
-import { INodeTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription } from '@8n8/workflow';
 import { mapStores } from 'pinia';
 
 import mixins from 'vue-typed-mixins';

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -7,8 +7,8 @@ import type {
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { jsonParse, NodeApiError, NodeOperationError, sleep } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse, NodeApiError, NodeOperationError, sleep } from '@8n8/workflow';
 
 import type { OptionsWithUri } from 'request-promise-native';
 
@@ -344,7 +344,7 @@ export class HttpRequestV3 implements INodeType {
 							value: 'json',
 						},
 						{
-							// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+							// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 							name: 'n8n Binary Data',
 							value: 'binaryData',
 						},
@@ -472,7 +472,7 @@ export class HttpRequestV3 implements INodeType {
 									type: 'options',
 									options: [
 										{
-											// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+											// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 											name: 'n8n Binary Data',
 											value: 'formBinaryData',
 										},
@@ -679,7 +679,7 @@ export class HttpRequestV3 implements INodeType {
 												'Input will be split in batches to throttle requests. -1 for disabled. 0 will be treated as 1.',
 										},
 										{
-											// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+											// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 											displayName: 'Batch Interval (ms)',
 											name: 'batchInterval',
 											type: 'number',
@@ -700,7 +700,7 @@ export class HttpRequestV3 implements INodeType {
 							type: 'boolean',
 							noDataExpression: true,
 							default: false,
-							// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-ignore-ssl-issues
+							// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-ignore-ssl-issues
 							description:
 								'Whether to download the response even if SSL certificate validation is not possible',
 						},
@@ -717,19 +717,19 @@ export class HttpRequestV3 implements INodeType {
 								{
 									name: 'No Brackets',
 									value: 'repeat',
-									// eslint-disable-next-line n8n-nodes-base/node-param-description-lowercase-first-char
+									// eslint-disable-next-line @8n8/nodes-base/node-param-description-lowercase-first-char
 									description: 'e.g. foo=bar&foo=qux',
 								},
 								{
 									name: 'Brackets Only',
 									value: 'brackets',
-									// eslint-disable-next-line n8n-nodes-base/node-param-description-lowercase-first-char
+									// eslint-disable-next-line @8n8/nodes-base/node-param-description-lowercase-first-char
 									description: 'e.g. foo[]=bar&foo[]=qux',
 								},
 								{
 									name: 'Brackets with Indices',
 									value: 'indices',
-									// eslint-disable-next-line n8n-nodes-base/node-param-description-lowercase-first-char
+									// eslint-disable-next-line @8n8/nodes-base/node-param-description-lowercase-first-char
 									description: 'e.g. foo[0]=bar&foo[1]=qux',
 								},
 							],

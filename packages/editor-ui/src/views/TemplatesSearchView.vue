@@ -88,7 +88,7 @@ import {
 	ITemplatesCategory,
 } from '@/Interface';
 import mixins from 'vue-typed-mixins';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { setPageTitle } from '@/utils';
 import { VIEWS } from '@/constants';
 import { debounceHelper } from '@/mixins/debounce';

@@ -1,5 +1,5 @@
 import express from 'express';
-import type { PublicInstalledPackage } from 'n8n-workflow';
+import type { PublicInstalledPackage } from '@8n8/workflow';
 
 import config from '@/config';
 import { InternalHooksManager } from '@/InternalHooksManager';

@@ -3,8 +3,8 @@ import fs from 'fs/promises';
 import path from 'path';
 import { v4 as uuid } from 'uuid';
 import type { Readable } from 'stream';
-import type { BinaryMetadata } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { BinaryMetadata } from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 import type { IBinaryDataConfig, IBinaryDataManager } from '../Interfaces';
 

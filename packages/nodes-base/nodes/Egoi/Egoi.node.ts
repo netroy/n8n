@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { egoiApiRequest, egoiApiRequestAllItems, simplify } from './GenericFunctions';
 
@@ -19,7 +19,7 @@ export class Egoi implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'E-goi',
 		name: 'egoi',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:egoi.png',
 		group: ['output'],
 		version: 1,
@@ -137,7 +137,7 @@ export class Egoi implements INodeType {
 					},
 				},
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default the response just includes the contact ID. If this option gets activated, it will resolve the data automatically.',
 			},

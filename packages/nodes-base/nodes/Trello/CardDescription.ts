@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const cardOperations: INodeProperties[] = [
 	// ----------------------------------
@@ -247,7 +247,7 @@ export const cardFields: INodeProperties[] = [
 				name: 'fields',
 				type: 'string',
 				default: 'all',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-url
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-url
 				description:
 					'Fields to return. Either "all" or a comma-separated list: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idBoard, idChecklists, idLabels, idList, idMembers, idShort, idAttachmentCover, manualCoverAttachment, labels, name, pos, shortUrl, url.',
 			},
@@ -263,7 +263,7 @@ export const cardFields: INodeProperties[] = [
 				name: 'board_fields',
 				type: 'string',
 				default: 'all',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-url
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-url
 				description:
 					'Fields to return. Either "all" or a comma-separated list: name, desc, descData, closed, idOrganization, pinned, url, prefs.',
 			},

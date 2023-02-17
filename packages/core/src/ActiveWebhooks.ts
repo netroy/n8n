@@ -4,7 +4,7 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import * as NodeExecuteFunctions from './NodeExecuteFunctions';
 

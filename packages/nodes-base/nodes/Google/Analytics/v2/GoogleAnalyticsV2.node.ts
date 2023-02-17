@@ -1,11 +1,11 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { IExecuteFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { listSearch, loadOptions } from './methods';
 import { router } from './actions/router';
 import { versionDescription } from './actions/versionDescription';

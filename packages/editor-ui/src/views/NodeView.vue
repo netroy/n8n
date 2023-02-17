@@ -237,7 +237,7 @@ import {
 	NodeHelpers,
 	TelemetryHelpers,
 	Workflow,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ICredentialsResponse,
 	IExecutionResponse,
@@ -828,7 +828,7 @@ export default mixins(
 						'nodeView.refresh',
 					)}</a> ${this.$locale.baseText(
 						'nodeView.toSeeTheLatestStatus',
-					)}.<br/> <a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait/" target="_blank">${this.$locale.baseText(
+					)}.<br/> <a href="https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.wait/" target="_blank">${this.$locale.baseText(
 						'nodeView.moreInfo',
 					)}</a>`,
 					type: 'warning',

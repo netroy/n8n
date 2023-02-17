@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.googleAnalytics",
+	"node": "@8n8/nodes-base.googleAnalytics",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Analytics"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.googleanalytics/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.googleanalytics/"
 			}
 		],
 		"generic": [

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	ILoadOptionsFunctions,
@@ -6,8 +6,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { deepCopy, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, NodeOperationError } from '@8n8/workflow';
 
 import { set } from 'lodash';
 
@@ -142,7 +142,7 @@ export class DateTime implements INodeType {
 						custom: [false],
 					},
 				},
-				// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 				options: [
 					{
 						name: 'MM/DD/YYYY',
@@ -292,7 +292,7 @@ export class DateTime implements INodeType {
 					},
 				},
 				type: 'options',
-				// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 				options: [
 					{
 						name: 'Quarters',
@@ -365,7 +365,7 @@ export class DateTime implements INodeType {
 						type: 'string',
 						default: '',
 						description:
-							'Format for parsing the value as a date. If unrecognized, specify the <a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.datetime/#faqs">format</a> for the value.',
+							'Format for parsing the value as a date. If unrecognized, specify the <a href="https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.datetime/#faqs">format</a> for the value.',
 					},
 				],
 			},

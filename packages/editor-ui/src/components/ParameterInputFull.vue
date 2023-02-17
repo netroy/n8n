@@ -85,7 +85,7 @@ import {
 	isValueExpression,
 } from '@/utils';
 import ParameterInputWrapper from '@/components/ParameterInputWrapper.vue';
-import { INodeParameters, INodeProperties, INodePropertyMode, IParameterLabel } from 'n8n-workflow';
+import { INodeParameters, INodeProperties, INodePropertyMode, IParameterLabel } from '@8n8/workflow';
 import { BaseTextKey } from '@/plugins/i18n';
 import { mapStores } from 'pinia';
 import { useNDVStore } from '@/stores/ndv';

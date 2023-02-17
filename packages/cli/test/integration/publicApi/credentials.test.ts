@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 
 import * as Db from '@/Db';
 import type { Role } from '@db/entities/Role';

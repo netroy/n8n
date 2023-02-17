@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from '@8n8/workflow';
 
 const scopes = [
 	'crm.schemas.deals.read',

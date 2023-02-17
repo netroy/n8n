@@ -3,7 +3,7 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { getSandboxContext, Sandbox } from './Sandbox';
 import { standardizeOutput } from './utils';
 import type { CodeNodeMode } from './utils';
@@ -52,7 +52,7 @@ export class Code implements INodeType {
 				type: 'string',
 				default: '', // set by component
 				description:
-					'JavaScript code to execute.<br><br>Tip: You can use luxon vars like <code>$today</code> for dates and <code>$jmespath</code> for querying JSON structures. <a href="https://docs.n8n.io/nodes/n8n-nodes-base.function">Learn more</a>.',
+					'JavaScript code to execute.<br><br>Tip: You can use luxon vars like <code>$today</code> for dates and <code>$jmespath</code> for querying JSON structures. <a href="https://docs.n8n.io/nodes/@8n8/nodes-base.function">Learn more</a>.',
 				noDataExpression: true,
 			},
 			{

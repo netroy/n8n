@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import { BINARY_ENCODING } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
+import { BINARY_ENCODING } from '@8n8/core';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialsDecrypted,
@@ -9,8 +9,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 import { createWriteStream } from 'fs';
 import { basename, dirname } from 'path';
 import type { Readable } from 'stream';
@@ -362,7 +362,7 @@ export class Ftp implements INodeType {
 				name: 'binaryData',
 				type: 'boolean',
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description: 'The text content of the file to upload',
 			},
 			{

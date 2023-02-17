@@ -1,11 +1,11 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { mailerliteApiRequest } from './GenericFunctions';
 
@@ -13,7 +13,7 @@ export class MailerLiteTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'MailerLite Trigger',
 		name: 'mailerLiteTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:mailerLite.png',
 		group: ['trigger'],
 		version: 1,

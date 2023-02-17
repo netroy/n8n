@@ -1,5 +1,5 @@
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 import type snowflake from 'snowflake-sdk';
 

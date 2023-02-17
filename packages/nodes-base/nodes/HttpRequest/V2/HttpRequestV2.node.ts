@@ -1,12 +1,12 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError, sleep } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError, sleep } from '@8n8/workflow';
 
 import type { OptionsWithUri } from 'request';
 import type { IAuthDataSanitizeKeys } from '../GenericFunctions';
@@ -204,7 +204,7 @@ export class HttpRequestV2 implements INodeType {
 					name: 'allowUnauthorizedCerts',
 					type: 'boolean',
 					default: false,
-					// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-ignore-ssl-issues
+					// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-ignore-ssl-issues
 					description:
 						'Whether to download the response even if SSL certificate validation is not possible',
 				},
@@ -765,7 +765,7 @@ export class HttpRequestV2 implements INodeType {
 							const contentTypesAllowed = ['raw', 'multipart-form-data'];
 
 							if (!contentTypesAllowed.includes(options.bodyContentType as string)) {
-								// As n8n-workflow.NodeHelpers.getParamterResolveOrder can not be changed
+								// As @8n8/workflow.NodeHelpers.getParamterResolveOrder can not be changed
 								// easily to handle parameters in dot.notation simply error for now.
 								throw new NodeOperationError(
 									this.getNode(),

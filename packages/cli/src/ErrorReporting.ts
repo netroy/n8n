@@ -1,5 +1,5 @@
 import config from '@/config';
-import { ErrorReporterProxy } from 'n8n-workflow';
+import { ErrorReporterProxy } from '@8n8/workflow';
 
 let initialized = false;
 

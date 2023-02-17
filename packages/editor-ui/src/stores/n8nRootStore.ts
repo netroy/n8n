@@ -1,6 +1,6 @@
 import { STORES } from '@/constants';
 import { IRestApiContext, RootState } from '@/Interface';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { defineStore } from 'pinia';
 import Vue from 'vue';
 import { useNodeTypesStore } from './nodeTypes';

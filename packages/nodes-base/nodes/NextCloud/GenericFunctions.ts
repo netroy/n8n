@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IHookFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions } from '@8n8/core';
 
 import type { OptionsWithUri } from 'request';
 

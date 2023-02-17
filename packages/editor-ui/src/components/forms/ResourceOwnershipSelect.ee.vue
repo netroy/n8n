@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { IMenuItem } from 'n8n-design-system';
+import { IMenuItem } from '@8n8/design-system';
 
 export default Vue.extend({
 	props: {

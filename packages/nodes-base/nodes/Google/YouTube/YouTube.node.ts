@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import { BINARY_ENCODING } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
+import { BINARY_ENCODING } from '@8n8/core';
 import type {
 	IDataObject,
 	ILoadOptionsFunctions,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 import type { Readable } from 'stream';
 
 import { googleApiRequest, googleApiRequestAllItems } from './GenericFunctions';
@@ -31,7 +31,7 @@ export class YouTube implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'YouTube',
 		name: 'youTube',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:youTube.png',
 		group: ['input'],
 		version: 1,

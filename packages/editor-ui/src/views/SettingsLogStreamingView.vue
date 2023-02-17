@@ -94,7 +94,7 @@ import {
 	deepCopy,
 	defaultMessageEventBusDestinationOptions,
 	MessageEventBusDestinationOptions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import PageViewLayout from '@/components/layouts/PageViewLayout.vue';
 import EventDestinationCard from '@/components/SettingsLogStreaming/EventDestinationCard.ee.vue';
 

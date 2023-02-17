@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const couponOperations: INodeProperties[] = [
 	{
@@ -368,7 +368,7 @@ export const couponFields: INodeProperties[] = [
 				name: 'recurring',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'If the coupon is used on subscription products, this indicates whether the discount should apply to recurring payments after the initial purchase',
 			},
@@ -749,7 +749,7 @@ export const couponFields: INodeProperties[] = [
 				name: 'recurring',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'If the coupon is used on subscription products, this indicates whether the discount should apply to recurring payments after the initial purchase',
 			},

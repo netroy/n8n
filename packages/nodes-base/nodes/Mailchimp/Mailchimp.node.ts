@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	campaignFieldsMetadata,
@@ -425,7 +425,7 @@ export class Mailchimp implements INodeType {
 						name: 'vip',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description: 'Vip status for subscribers',
 					},
 					{
@@ -1133,7 +1133,7 @@ export class Mailchimp implements INodeType {
 						name: 'vip',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description: 'Vip status for subscribers',
 					},
 					{

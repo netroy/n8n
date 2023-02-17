@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import path from 'path';
 import convict from 'convict';
-import { UserSettings } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import { UserSettings } from '@8n8/core';
+import { jsonParse } from '@8n8/workflow';
 
 convict.addFormat({
 	name: 'nodes-list',
@@ -835,7 +835,7 @@ export const schema = {
 		errorTriggerType: {
 			doc: 'Node Type to use as Error Trigger',
 			format: String,
-			default: 'n8n-nodes-base.errorTrigger',
+			default: '@8n8/nodes-base.errorTrigger',
 			env: 'NODES_ERROR_TRIGGER_TYPE',
 		},
 		communityPackages: {

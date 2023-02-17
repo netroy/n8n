@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { IDataObject, INodeExecutionData, JsonObject } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { IDataObject, INodeExecutionData, JsonObject } from '@8n8/workflow';
 import type pgPromise from 'pg-promise';
 import type pg from 'pg-promise/typescript/pg-subset';
 

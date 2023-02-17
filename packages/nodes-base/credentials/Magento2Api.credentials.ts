@@ -3,7 +3,7 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 export class Magento2Api implements ICredentialType {
 	name = 'magento2Api';

@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { lingvaNexApiRequest } from './GenericFunctions';
 
@@ -15,7 +15,7 @@ export class LingvaNex implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'LingvaNex',
 		name: 'lingvaNex',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:lingvanex.png',
 		group: ['output'],
 		version: 1,
@@ -65,7 +65,7 @@ export class LingvaNex implements INodeType {
 				},
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Translate To',
 				name: 'translateTo',
 				type: 'options',
@@ -95,7 +95,7 @@ export class LingvaNex implements INodeType {
 				},
 				options: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 						displayName: 'From',
 						name: 'from',
 						type: 'options',

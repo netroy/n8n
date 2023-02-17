@@ -1,5 +1,5 @@
-import type { ITriggerFunctions } from 'n8n-core';
-import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
+import type { ITriggerFunctions } from '@8n8/core';
+import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from '@8n8/workflow';
 
 import { watch } from 'chokidar';
 
@@ -126,7 +126,7 @@ export class LocalFileTrigger implements INodeType {
 						description:
 							'Files or paths to ignore. The whole path is tested, not just the filename. Supports <a href="https://github.com/micromatch/anymatch">Anymatch</a>- syntax.',
 					},
-					// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+					// eslint-disable-next-line @8n8/nodes-base/node-param-default-missing
 					{
 						displayName: 'Max Folder Depth',
 						name: 'depth',

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.git",
+	"node": "@8n8/nodes-base.git",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Core Nodes", "Development"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.git/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.git/"
 			}
 		]
 	},

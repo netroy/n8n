@@ -1,6 +1,6 @@
 import { IExternalHooks } from '@/Interface';
 import { useWebhooksStore } from '@/stores/webhooks';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { Store } from 'pinia';
 import Vue from 'vue';
 

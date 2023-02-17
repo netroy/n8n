@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const webinarOperations: INodeProperties[] = [
 	{
@@ -194,17 +194,17 @@ export const webinarFields: INodeProperties[] = [
 				type: 'options',
 				options: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'Attendees register once and can attend any of the occurrences',
 						value: 1,
 					},
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'Attendees need to register for every occurrence',
 						value: 2,
 					},
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'Attendees register once and can choose one or more occurrences to attend',
 						value: 3,
 					},

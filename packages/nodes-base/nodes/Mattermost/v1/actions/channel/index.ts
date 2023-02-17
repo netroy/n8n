@@ -5,7 +5,7 @@ import * as restore from './restore';
 import * as addUser from './addUser';
 import * as statistics from './statistics';
 import * as search from './search';
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export { create, del as delete, members, restore, addUser, statistics, search };
 

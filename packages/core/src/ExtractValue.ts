@@ -6,8 +6,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	NodeParameterValueType,
-} from 'n8n-workflow';
-import { NodeOperationError, NodeHelpers, LoggerProxy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError, NodeHelpers, LoggerProxy } from '@8n8/workflow';
 
 function findPropertyFromParameterName(
 	parameterName: string,

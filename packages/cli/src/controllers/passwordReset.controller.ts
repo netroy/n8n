@@ -17,7 +17,7 @@ import {
 import * as UserManagementMailer from '@/UserManagement/email';
 
 import { Response } from 'express';
-import type { ILogger } from 'n8n-workflow';
+import type { ILogger } from '@8n8/workflow';
 import type { Config } from '@/config';
 import type { User } from '@db/entities/User';
 import { PasswordResetRequest } from '@/requests';

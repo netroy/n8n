@@ -162,7 +162,7 @@ import { INodeUi, ITableData, NDVState } from '@/Interface';
 import { getPairedItemId, parseDate } from '@/utils';
 import Vue, { PropType } from 'vue';
 import mixins from 'vue-typed-mixins';
-import { GenericValue, IDataObject, INodeExecutionData } from 'n8n-workflow';
+import { GenericValue, IDataObject, INodeExecutionData } from '@8n8/workflow';
 import Draggable from './Draggable.vue';
 import { shorten } from '@/utils';
 import { externalHooks } from '@/mixins/externalHooks';

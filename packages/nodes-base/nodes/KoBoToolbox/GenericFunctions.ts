@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodeExecutionData,
 	INodePropertyOptions,
 	IWebhookFunctions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import _ from 'lodash';
 

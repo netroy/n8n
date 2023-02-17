@@ -7,7 +7,7 @@ import { useNDVStore } from '@/stores/ndv';
 import { useWebhooksStore } from '@/stores/webhooks';
 import { runExternalHook } from '@/mixins/externalHooks';
 import { telemetry } from '@/plugins/telemetry';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { getSchema, isEmpty, mergeDeep } from '@/utils';
 import { i18n } from '@/plugins/i18n';
 import MappingPill from './MappingPill.vue';

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.koBoToolboxTrigger",
+	"node": "@8n8/nodes-base.koBoToolboxTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication", "Data & Storage"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.kobotoolboxtrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.kobotoolboxtrigger/"
 			}
 		]
 	}

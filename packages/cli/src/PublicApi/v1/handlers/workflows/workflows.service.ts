@@ -1,7 +1,7 @@
 import type { FindManyOptions, UpdateResult } from 'typeorm';
 import { In } from 'typeorm';
 import intersection from 'lodash.intersection';
-import type { INode } from 'n8n-workflow';
+import type { INode } from '@8n8/workflow';
 import { v4 as uuid } from 'uuid';
 
 import * as Db from '@/Db';
@@ -139,7 +139,7 @@ export function getStartNode(): INode {
 		id: uuid(),
 		parameters: {},
 		name: 'Start',
-		type: 'n8n-nodes-base.start',
+		type: '@8n8/nodes-base.start',
 		typeVersion: 1,
 		position: [240, 300],
 	};

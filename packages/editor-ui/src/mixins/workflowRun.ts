@@ -6,7 +6,7 @@ import {
 	IWorkflowBase,
 	NodeHelpers,
 	TelemetryHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { externalHooks } from '@/mixins/externalHooks';
 import { restApi } from '@/mixins/restApi';

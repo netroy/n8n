@@ -6,8 +6,8 @@ import { copyFile, mkdir, readFile, writeFile } from 'fs/promises';
 import { join, dirname, resolve as resolvePath } from 'path';
 import { file as tmpFile } from 'tmp-promise';
 
-import { jsonParse } from 'n8n-workflow';
-import { UserSettings } from 'n8n-core';
+import { jsonParse } from '@8n8/workflow';
+import { UserSettings } from '@8n8/core';
 import type { IBuildOptions } from './Interfaces';
 
 /**
@@ -18,7 +18,7 @@ import type { IBuildOptions } from './Interfaces';
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export async function createCustomTsconfig() {
 	// Get path to simple tsconfig file which should be used for build
-	const tsconfigPath = join(dirname(require.resolve('n8n-node-dev/src')), 'tsconfig-build.json');
+	const tsconfigPath = join(dirname(require.resolve('@8n8/node-dev/src')), 'tsconfig-build.json');
 
 	// Read the tsconfig file
 	const tsConfigString = await readFile(tsconfigPath, { encoding: 'utf8' });
@@ -67,7 +67,7 @@ export async function buildFiles({
 		}),
 	);
 
-	// Supply a node base path so that it finds n8n-core and n8n-workflow
+	// Supply a node base path so that it finds @8n8/core and @8n8/workflow
 	const nodeModulesPath = join(__dirname, '../../node_modules/');
 	let buildCommand = `${tscPath} --p ${
 		tsconfigData.path

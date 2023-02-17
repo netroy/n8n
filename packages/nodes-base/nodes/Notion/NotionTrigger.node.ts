@@ -1,11 +1,11 @@
-import type { IPollFunctions } from 'n8n-core';
+import type { IPollFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { notionApiRequest, simplifyObjects } from './GenericFunctions';
 
@@ -14,7 +14,7 @@ import { getDatabases } from './SearchFunctions';
 
 export class NotionTrigger implements INodeType {
 	description: INodeTypeDescription = {
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-display-name-unsuffixed-trigger-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-display-name-unsuffixed-trigger-node
 		displayName: 'Notion Trigger',
 		name: 'notionTrigger',
 		icon: 'file:notion.svg',

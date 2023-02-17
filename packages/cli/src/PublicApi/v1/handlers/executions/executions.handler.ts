@@ -1,6 +1,6 @@
 import type express from 'express';
 
-import { BinaryDataManager } from 'n8n-core';
+import { BinaryDataManager } from '@8n8/core';
 
 import {
 	getExecutions,

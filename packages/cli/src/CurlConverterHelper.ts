@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import curlconverter from 'curlconverter';
 import get from 'lodash.get';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from '@8n8/workflow';
 
 interface CurlJson {
 	url: string;

@@ -1,4 +1,4 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
 import type {
 	IDataObject,
 	INodeExecutionData,
@@ -8,8 +8,8 @@ import type {
 	IRun,
 	ITriggerFunctions,
 	ITriggerResponse,
-} from 'n8n-workflow';
-import { createDeferredPromise, LoggerProxy as Logger, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { createDeferredPromise, LoggerProxy as Logger, NodeOperationError } from '@8n8/workflow';
 
 import { rabbitDefaultOptions } from './DefaultOptions';
 
@@ -19,7 +19,7 @@ export class RabbitMQTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'RabbitMQ Trigger',
 		name: 'rabbitmqTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:rabbitmq.png',
 		group: ['trigger'],
 		version: 1,
@@ -108,7 +108,7 @@ export class RabbitMQTrigger implements INodeType {
 						default: false,
 						description: 'Whether to return only the content property',
 					},
-					// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+					// eslint-disable-next-line @8n8/nodes-base/node-param-default-missing
 					{
 						displayName: 'Parallel Message Processing Limit',
 						name: 'parallelMessages',

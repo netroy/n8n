@@ -1,12 +1,12 @@
 {
-	"node": "n8n-nodes-base.interval",
+	"node": "@8n8/nodes-base.interval",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Core Nodes"],
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.interval/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.interval/"
 			}
 		],
 		"generic": [
@@ -18,7 +18,7 @@
 			{
 				"label": "Creating triggers for n8n workflows using polling",
 				"icon": "⏲",
-				"url": "https://n8n.io/blog/creating-triggers-for-n8n-workflows-using-polling/"
+				"url": "https://n8n.io/blog/creating-triggers-for-@8n8/workflows-using-polling/"
 			}
 		]
 	},

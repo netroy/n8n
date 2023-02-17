@@ -1,12 +1,12 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { affinityApiRequest, eventsExist, mapResource } from './GenericFunctions';
 
@@ -14,7 +14,7 @@ export class AffinityTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Affinity Trigger',
 		name: 'affinityTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:affinity.png',
 		group: ['trigger'],
 		version: 1,

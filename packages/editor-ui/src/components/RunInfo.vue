@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { ITaskData } from 'n8n-workflow';
+import { ITaskData } from '@8n8/workflow';
 import Vue from 'vue';
 
 export default Vue.extend({

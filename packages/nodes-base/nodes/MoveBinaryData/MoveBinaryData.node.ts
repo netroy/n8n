@@ -1,8 +1,8 @@
 import { get, set, unset } from 'lodash';
 import prettyBytes from 'pretty-bytes';
 
-import type { IExecuteFunctions } from 'n8n-core';
-import { BINARY_ENCODING } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
+import { BINARY_ENCODING } from '@8n8/core';
 
 import type {
 	IBinaryData,
@@ -11,8 +11,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { deepCopy, jsonParse, NodeOperationError, fileTypeFromMimeType } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, jsonParse, NodeOperationError, fileTypeFromMimeType } from '@8n8/workflow';
 
 import iconv from 'iconv-lite';
 iconv.encodingExists('utf8');

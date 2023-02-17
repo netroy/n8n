@@ -86,7 +86,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import { IUpdateInformation } from '@/Interface';
-import { deepCopy, INodeParameters, INodeProperties } from 'n8n-workflow';
+import { deepCopy, INodeParameters, INodeProperties } from '@8n8/workflow';
 import CollectionParameter from '@/components/CollectionParameter.vue';
 import ParameterInputFull from '@/components/ParameterInputFull.vue';
 

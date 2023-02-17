@@ -1,4 +1,4 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -6,8 +6,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { allEvents, eventExists, getId, jiraSoftwareCloudApiRequest } from './GenericFunctions';
 
@@ -44,7 +44,7 @@ export class JiraTrigger implements INodeType {
 				},
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-class-description-credentials-name-unsuffixed
+				// eslint-disable-next-line @8n8/nodes-base/node-class-description-credentials-name-unsuffixed
 				name: 'httpQueryAuth',
 				required: true,
 				displayOptions: {

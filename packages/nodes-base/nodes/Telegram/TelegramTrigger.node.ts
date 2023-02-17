@@ -1,11 +1,11 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { apiRequest, getImageBySize } from './GenericFunctions';
 
@@ -125,7 +125,7 @@ export class TelegramTrigger implements INodeType {
 						name: 'download',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description:
 							"Telegram delivers the image in multiple sizes. By default, just the large image would be downloaded. If you want to change the size, set the field 'Image Size'.",
 					},

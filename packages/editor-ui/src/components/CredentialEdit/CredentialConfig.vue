@@ -128,7 +128,7 @@
 </template>
 
 <script lang="ts">
-import { ICredentialType, INodeTypeDescription } from 'n8n-workflow';
+import { ICredentialType, INodeTypeDescription } from '@8n8/workflow';
 import { getAppNameFromCredType, isCommunityPackageName } from '@/utils';
 
 import Banner from '../Banner.vue';
@@ -222,7 +222,7 @@ export default mixins(restApi).extend({
 
 		this.uiStore.activeCredentialType = this.credentialType.name;
 
-		const key = `n8n-nodes-base.credentials.${this.credentialType.name}`;
+		const key = `@8n8/nodes-base.credentials.${this.credentialType.name}`;
 
 		if (this.$locale.exists(key)) return;
 

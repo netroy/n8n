@@ -1,8 +1,8 @@
 import { existsSync } from 'fs';
 import { mkdir, utimes, open, rm } from 'fs/promises';
 import { join, dirname } from 'path';
-import { UserSettings } from 'n8n-core';
-import { LoggerProxy, sleep } from 'n8n-workflow';
+import { UserSettings } from '@8n8/core';
+import { LoggerProxy, sleep } from '@8n8/workflow';
 import { inProduction } from '@/constants';
 
 export const touchFile = async (filePath: string): Promise<void> => {

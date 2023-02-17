@@ -4,8 +4,8 @@ import type {
 	IN8nHttpFullResponse,
 	INodeExecutionData,
 	INodeProperties,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 export const questionsOperations: INodeProperties[] = [
 	{

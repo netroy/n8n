@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { couponFields, couponOperations } from './CouponDescription';
 
@@ -33,7 +33,7 @@ export class Paddle implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Paddle',
 		name: 'paddle',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:paddle.png',
 		group: ['output'],
 		version: 1,

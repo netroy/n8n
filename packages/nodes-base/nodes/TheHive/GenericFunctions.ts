@@ -1,9 +1,9 @@
 import type { OptionsWithUri } from 'request';
 
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
-import type { IDataObject } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 import moment from 'moment';
 import { Eq } from './QueryFunctions';

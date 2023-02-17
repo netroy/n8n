@@ -146,7 +146,7 @@ import {
 	INodeProperties,
 	INodePropertyMode,
 	NodeParameterValue,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import ExpressionParameterInput from '@/components/ExpressionParameterInput.vue';
 import DraggableTarget from '@/components/DraggableTarget.vue';
 import ExpressionEdit from '@/components/ExpressionEdit.vue';

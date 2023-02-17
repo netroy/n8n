@@ -1,6 +1,6 @@
 import { ICredentialsResponse, IRestApiContext, IShareCredentialsPayload } from '@/Interface';
 import { makeRestApiRequest } from '@/utils';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 
 export async function setCredentialSharedWith(
 	context: IRestApiContext,

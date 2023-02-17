@@ -1,7 +1,7 @@
 import type { Repository } from 'typeorm';
 import type { CookieOptions, Response } from 'express';
 import { anyObject, captor, mock } from 'jest-mock-extended';
-import type { ILogger } from 'n8n-workflow';
+import type { ILogger } from '@8n8/workflow';
 import jwt from 'jsonwebtoken';
 import type { ICredentialsDb, IInternalHooksClass } from '@/Interfaces';
 import type { User } from '@db/entities/User';

@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import { createHash, randomBytes } from 'crypto';
 import { promisify } from 'util';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from '@8n8/workflow';
 import {
 	ENCRYPTION_KEY_ENV_OVERWRITE,
 	EXTENSIONS_SUBDIRECTORY,

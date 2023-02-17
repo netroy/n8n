@@ -16,7 +16,7 @@ export default mergeConfig(
 			lib: {
 				entry: resolve(__dirname, 'src', 'main.js'),
 				name: 'N8nDesignSystem',
-				fileName: (format) => `n8n-design-system.${format}.js`,
+				fileName: (format) => `@8n8/design-system.${format}.js`,
 			},
 			rollupOptions: {
 				// make sure to externalize deps that shouldn't be bundled

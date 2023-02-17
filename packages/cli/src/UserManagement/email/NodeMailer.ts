@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { Transporter } from 'nodemailer';
 import { createTransport } from 'nodemailer';
-import { ErrorReporterProxy as ErrorReporter, LoggerProxy as Logger } from 'n8n-workflow';
+import { ErrorReporterProxy as ErrorReporter, LoggerProxy as Logger } from '@8n8/workflow';
 import config from '@/config';
 import type { MailData, SendEmailResult, UserManagementMailerImplementation } from './Interfaces';
 

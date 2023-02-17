@@ -5,10 +5,10 @@ import type {
 	IExecuteSingleFunctions,
 	IHookFunctions,
 	ILoadOptionsFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, JsonObject } from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, JsonObject } from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { get } from 'lodash';
 

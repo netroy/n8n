@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from '@8n8/workflow';
 
 export class AgileCrmApi implements ICredentialType {
 	name = 'agileCrmApi';

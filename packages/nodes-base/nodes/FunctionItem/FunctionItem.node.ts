@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-loop-func */
 import type { NodeVMOptions, VMRequire } from 'vm2';
 import { NodeVM } from 'vm2';
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IBinaryKeyData,
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { deepCopy, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, NodeOperationError } from '@8n8/workflow';
 
 export class FunctionItem implements INodeType {
 	description: INodeTypeDescription = {
@@ -44,7 +44,7 @@ export class FunctionItem implements INodeType {
 				},
 				type: 'string',
 				default: `// Code here will run once per input item.
-// More info and help: https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.functionitem/
+// More info and help: https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.functionitem/
 // Tip: You can use luxon for dates and $jmespath for querying JSON structures
 
 // Add a new field called 'myNewField' to the JSON of the item

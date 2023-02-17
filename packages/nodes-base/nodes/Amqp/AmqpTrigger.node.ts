@@ -1,15 +1,15 @@
 import type { ContainerOptions, EventContext, Message, ReceiverOptions } from 'rhea';
 import { create_container } from 'rhea';
 
-import type { ITriggerFunctions } from 'n8n-core';
-import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
-import { deepCopy, jsonParse, NodeOperationError } from 'n8n-workflow';
+import type { ITriggerFunctions } from '@8n8/core';
+import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from '@8n8/workflow';
+import { deepCopy, jsonParse, NodeOperationError } from '@8n8/workflow';
 
 export class AmqpTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'AMQP Trigger',
 		name: 'amqpTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:amqp.png',
 		group: ['trigger'],
 		version: 1,

@@ -3,8 +3,8 @@ import type {
 	ILoadOptionsFunctions,
 	INodeListSearchItems,
 	INodeListSearchResult,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 import type { ResourceLocator } from '../helpers/GoogleSheets.types';
 import { getSpreadsheetId } from '../helpers/GoogleSheets.utils';
 import { apiRequest } from '../transport';

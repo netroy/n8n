@@ -7,8 +7,8 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable @typescript-eslint/unbound-method */
 import 'source-map-support/register';
-import type { IProcessMessage } from 'n8n-core';
-import { BinaryDataManager, UserSettings, WorkflowExecute } from 'n8n-core';
+import type { IProcessMessage } from '@8n8/core';
+import { BinaryDataManager, UserSettings, WorkflowExecute } from '@8n8/core';
 
 import type {
 	ExecutionError,
@@ -25,14 +25,14 @@ import type {
 	IWorkflowSettings,
 	NodeOperationError,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy,
 	Workflow,
 	WorkflowHooks,
 	WorkflowOperationError,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { CredentialTypes } from '@/CredentialTypes';
 import { CredentialsOverwrites } from '@/CredentialsOverwrites';
 import * as Db from '@/Db';

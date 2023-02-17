@@ -1,4 +1,4 @@
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 interface ISettingsDb {
