@@ -209,8 +209,8 @@ Once ready to release, simply merge the pull-request.
 This triggers [another workflow](ttps://github.com/n8n-io/n8n/actions/workflows/release-publish.yml), that will
 
 1. Build and publish the packages that have a new version in this release
-2. Merge the squashed release commit back into `master`
-3. Create a new tag, and GitHub release from squashed release commit
+2. Create a new tag, and GitHub release from squashed release commit
+3. Merge the squashed release commit back into `master`
 
 ## Create custom nodes
 
