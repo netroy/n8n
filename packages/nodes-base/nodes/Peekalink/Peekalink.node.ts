@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { peekalinkApiRequest } from './GenericFunctions';
 
@@ -13,7 +13,7 @@ export class Peekalink implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Peekalink',
 		name: 'peekalink',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:peekalink.png',
 		group: ['output'],
 		version: 1,

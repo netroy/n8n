@@ -65,7 +65,7 @@ import {
 	XYPosition,
 } from '@/Interface';
 
-import { IDataObject, INodeTypeDescription } from 'n8n-workflow';
+import { IDataObject, INodeTypeDescription } from '@8n8/workflow';
 import { QUICKSTART_NOTE_NAME } from '@/constants';
 import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';

@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const changeOperations: INodeProperties[] = [
 	{
@@ -54,7 +54,7 @@ export const changeFields: INodeProperties[] = [
 	{
 		displayName: 'Requester Name or ID',
 		name: 'requesterId',
-		// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-dynamic-options
+		// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-dynamic-options
 		description:
 			'ID of the requester of the change. Choose from the list or specify an ID. You can also specify the ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 		type: 'options',
@@ -259,7 +259,7 @@ export const changeFields: INodeProperties[] = [
 				name: 'status',
 				type: 'options',
 				default: 1,
-				// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 				options: [
 					{
 						name: 'Open',
@@ -610,7 +610,7 @@ export const changeFields: INodeProperties[] = [
 				name: 'status',
 				type: 'options',
 				default: 1,
-				// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 				options: [
 					{
 						name: 'Open',

@@ -1,6 +1,6 @@
-import type { ITriggerFunctions } from 'n8n-core';
-import type { INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { ITriggerFunctions } from '@8n8/core';
+import type { INodeType, INodeTypeDescription, ITriggerResponse } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 export class Interval implements INodeType {
 	description: INodeTypeDescription = {
@@ -18,7 +18,7 @@ export class Interval implements INodeType {
 			name: 'Interval',
 			color: '#00FF00',
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: [],
 		outputs: ['main'],
 		properties: [

@@ -5,10 +5,10 @@ import type {
 	IHookFunctions,
 	ILoadOptionsFunctions,
 	IWebhookFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, INodeProperties, INodePropertyOptions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, INodeProperties, INodePropertyOptions } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import type { Address, Filter, FilterGroup, ProductAttribute, Search } from './Types';
 

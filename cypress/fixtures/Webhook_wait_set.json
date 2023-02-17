@@ -8,7 +8,7 @@
       },
       "id": "70d84fe7-e221-4978-a15e-3984f2df645f",
       "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
+      "type": "@8n8/nodes-base.webhook",
       "typeVersion": 1,
       "position": [
         500,
@@ -23,7 +23,7 @@
       },
       "id": "7f15f650-99bc-400b-8db8-67be53003fa3",
       "name": "Wait",
-      "type": "n8n-nodes-base.wait",
+      "type": "@8n8/nodes-base.wait",
       "typeVersion": 1,
       "position": [
         720,
@@ -37,7 +37,7 @@
       },
       "id": "5bdafae4-e297-463f-991f-b8ea14983026",
       "name": "Set",
-      "type": "n8n-nodes-base.set",
+      "type": "@8n8/nodes-base.set",
       "typeVersion": 1,
       "position": [
         940,

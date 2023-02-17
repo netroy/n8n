@@ -8,7 +8,7 @@ import { defineConfig as defineVitestConfig } from 'vitest/config';
 import packageJSON from './package.json';
 
 const vendorChunks = ['vue', 'vue-router'];
-const n8nChunks = ['n8n-workflow', 'n8n-design-system'];
+const n8nChunks = ['@8n8/workflow', '@8n8/design-system'];
 const ignoreChunks = [
 	'vue2-boring-avatars',
 	'vue-template-compiler',
@@ -75,7 +75,7 @@ export default mergeConfig(
 				{ find: '@', replacement: resolve(__dirname, 'src') },
 				{ find: 'stream', replacement: 'stream-browserify' },
 				{
-					find: /^n8n-design-system\//,
+					find: /^@8n8\/design-system\//,
 					replacement: resolve(__dirname, '..', 'design-system', 'src') + '/',
 				},
 				...lodashAliases,

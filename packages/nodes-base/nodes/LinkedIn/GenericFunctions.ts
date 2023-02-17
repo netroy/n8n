@@ -1,7 +1,7 @@
 import type { OptionsWithUrl } from 'request';
 
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
+import { NodeApiError } from '@8n8/workflow';
 
 export async function linkedInApiRequest(
 	this: IHookFunctions | IExecuteFunctions | ILoadOptionsFunctions,

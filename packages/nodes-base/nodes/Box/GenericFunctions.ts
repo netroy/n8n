@@ -5,10 +5,10 @@ import type {
 	IExecuteSingleFunctions,
 	IHookFunctions,
 	ILoadOptionsFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, IOAuth2Options } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, IOAuth2Options } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 export async function boxApiRequest(
 	this: IExecuteFunctions | IExecuteSingleFunctions | ILoadOptionsFunctions | IHookFunctions,

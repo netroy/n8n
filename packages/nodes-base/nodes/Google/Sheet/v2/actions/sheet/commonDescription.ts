@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const dataLocationOnSheet: INodeProperties[] = [
 	{
@@ -167,14 +167,14 @@ export const outputFormatting: INodeProperties[] = [
 						type: 'options',
 						options: [
 							{
-								// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+								// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 								name: 'Values (unformatted)',
 								value: 'UNFORMATTED_VALUE',
 								description:
 									'Numbers stay as numbers, but any currency signs or special formatting is lost',
 							},
 							{
-								// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+								// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 								name: 'Values (formatted)',
 								value: 'FORMATTED_VALUE',
 								description:
@@ -219,13 +219,13 @@ export const cellFormat: INodeProperties[] = [
 		type: 'options',
 		options: [
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'Let n8n format',
 				value: 'RAW',
 				description: 'Cells have the same types as the input data',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'Let Google Sheets format',
 				value: 'USER_ENTERED',
 				description: 'Cells are styled as if you typed the values into Google Sheets directly',
@@ -238,7 +238,7 @@ export const cellFormat: INodeProperties[] = [
 
 export const handlingExtraData: INodeProperties[] = [
 	{
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+		// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 		displayName: 'Handling extra fields in input',
 		name: 'handlingExtraData',
 		type: 'options',

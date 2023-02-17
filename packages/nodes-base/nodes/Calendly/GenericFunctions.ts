@@ -1,6 +1,6 @@
 import type { OptionsWithUri } from 'request';
 
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -8,7 +8,7 @@ import type {
 	IDataObject,
 	IHookFunctions,
 	IWebhookFunctions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 export function getAuthenticationType(data: string): 'accessToken' | 'apiKey' {
 	// The access token is a JWT, so it will always include dots to separate

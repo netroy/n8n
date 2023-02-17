@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
 import type { SheetProperties } from '../../helpers/GoogleSheets.types';
 import type { GoogleSheet } from '../../helpers/GoogleSheet';
 import { getColumnNumber, untilSheetSelected } from '../../helpers/GoogleSheets.utils';

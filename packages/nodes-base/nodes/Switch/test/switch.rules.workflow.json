@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "ec017d65-ca3c-4df3-ba84-e79da16c05b3",
 			"name": "When clicking \"Execute Workflow\"",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [
 				-8460,
@@ -37,7 +37,7 @@
 			},
 			"id": "1a799394-e0a8-459f-b9a6-0b656e315df6",
 			"name": "Set",
-			"type": "n8n-nodes-base.set",
+			"type": "@8n8/nodes-base.set",
 			"typeVersion": 1,
 			"position": [
 				-8280,
@@ -48,7 +48,7 @@
 			"parameters": {},
 			"id": "56138ddd-b0b7-429e-b740-37da602fd250",
 			"name": "Output 0",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				-7640,
@@ -62,7 +62,7 @@
 			},
 			"id": "a2af4a95-866c-44ac-9a58-0eb94fe6a27a",
 			"name": "Item Lists",
-			"type": "n8n-nodes-base.itemLists",
+			"type": "@8n8/nodes-base.itemLists",
 			"typeVersion": 1,
 			"position": [
 				-8100,
@@ -73,7 +73,7 @@
 			"parameters": {},
 			"id": "55dd8064-5ed1-49ab-9c9a-5de8266b0c87",
 			"name": "Output 1",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				-7640,
@@ -84,7 +84,7 @@
 			"parameters": {},
 			"id": "605a11b1-6fe2-48cc-944f-0f8d89cff669",
 			"name": "Output 2",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				-7640,
@@ -95,7 +95,7 @@
 			"parameters": {},
 			"id": "6615c351-46ba-4013-b49b-9f44f5195a2e",
 			"name": "Output 3",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				-7640,
@@ -126,7 +126,7 @@
 			},
 			"id": "176e3656-28fb-45b9-9ac5-385c4c544d9e",
 			"name": "Switch",
-			"type": "n8n-nodes-base.switch",
+			"type": "@8n8/nodes-base.switch",
 			"typeVersion": 1,
 			"position": [
 				-7900,

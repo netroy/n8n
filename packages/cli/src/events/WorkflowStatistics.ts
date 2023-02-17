@@ -1,4 +1,4 @@
-import type { INode, IRun, IWorkflowBase } from 'n8n-workflow';
+import type { INode, IRun, IWorkflowBase } from '@8n8/workflow';
 import * as Db from '@/Db';
 import { InternalHooksManager } from '@/InternalHooksManager';
 import { StatisticsNames } from '@db/entities/WorkflowStatistics';

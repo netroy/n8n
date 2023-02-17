@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { escape, toVariableOption } from '../utils';
 import type { Completion, CompletionContext, CompletionResult } from '@codemirror/autocomplete';
-import type { IDataObject, IPinData, IRunData } from 'n8n-workflow';
+import type { IDataObject, IPinData, IRunData } from '@8n8/workflow';
 import type { CodeNodeEditorMixin } from '../types';
 import { mapStores } from 'pinia';
 import { useWorkflowsStore } from '@/stores/workflows';

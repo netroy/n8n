@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.humanticAi",
+	"node": "@8n8/nodes-base.humanticAi",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Analytics"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.humanticai/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.humanticai/"
 			}
 		],
 		"generic": [

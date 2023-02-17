@@ -8,7 +8,7 @@ import type {
 	IDataObject,
 	IHttpRequestOptions,
 	INodeProperties,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 export const regions = [
 	{
@@ -163,7 +163,7 @@ export class Aws implements ICredentialType {
 		{
 			displayName: 'Temporary Security Credentials',
 			name: 'temporaryCredentials',
-			// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+			// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 			description: 'Support for temporary credentials from AWS STS',
 			type: 'boolean',
 			default: false,

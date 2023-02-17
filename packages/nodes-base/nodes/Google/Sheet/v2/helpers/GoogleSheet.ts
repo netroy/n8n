@@ -1,6 +1,6 @@
-import type { IDataObject, IPollFunctions } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IDataObject, IPollFunctions } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from '@8n8/core';
 import { apiRequest } from '../transport';
 import { utils as xlsxUtils } from 'xlsx';
 import { get } from 'lodash';

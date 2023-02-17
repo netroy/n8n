@@ -133,7 +133,7 @@ describe('Telemetry', () => {
 			expect(execBuffer['1'].manual_error?.count).toBe(2);
 			expect(execBuffer['1'].manual_error?.first).toEqual(execTime1);
 
-			payload.error_node_type = 'n8n-nodes-base.node-type';
+			payload.error_node_type = '@8n8/nodes-base.node-type';
 			fakeJestSystemTime('2022-01-01 13:00:00');
 			await telemetry.trackWorkflowExecution(payload);
 			fakeJestSystemTime('2022-01-01 12:30:00');
@@ -171,7 +171,7 @@ describe('Telemetry', () => {
 			expect(execBuffer['1'].prod_success?.first).toEqual(execTime1);
 
 			// successful execution n8n node
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = '@8n8/nodes-base.merge';
 			payload.workflow_id = '2';
 
 			await telemetry.trackWorkflowExecution(payload);
@@ -190,12 +190,12 @@ describe('Telemetry', () => {
 			expect(execBuffer['2'].prod_success?.first).toEqual(execTime1);
 
 			// additional successful execution
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = '@8n8/nodes-base.merge';
 			payload.workflow_id = '2';
 
 			await telemetry.trackWorkflowExecution(payload);
 
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = '@8n8/nodes-base.merge';
 			payload.workflow_id = '1';
 
 			await telemetry.trackWorkflowExecution(payload);
@@ -243,7 +243,7 @@ describe('Telemetry', () => {
 
 			// failed execution n8n node
 			payload.success = false;
-			payload.error_node_type = 'n8n-nodes-base.merge';
+			payload.error_node_type = '@8n8/nodes-base.merge';
 			await telemetry.trackWorkflowExecution(payload);
 
 			expect(spyTrack).toHaveBeenCalledTimes(1);

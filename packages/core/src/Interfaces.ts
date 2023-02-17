@@ -11,9 +11,9 @@ import type {
 	ITriggerFunctions as ITriggerFunctionsBase,
 	IWebhookFunctions as IWebhookFunctionsBase,
 	BinaryMetadata,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
-// TODO: remove these after removing `n8n-core` dependency from `nodes-bases`
+// TODO: remove these after removing `@8n8/core` dependency from `nodes-bases`
 export type IExecuteFunctions = IExecuteFunctionsBase;
 export type IExecuteSingleFunctions = IExecuteSingleFunctionsBase;
 export type IHookFunctions = IHookFunctionsBase;

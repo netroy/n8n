@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import { mocked } from 'jest-mock';
 
-import { ICredentialTypes, LoggerProxy, NodeOperationError, Workflow } from 'n8n-workflow';
+import { ICredentialTypes, LoggerProxy, NodeOperationError, Workflow } from '@8n8/workflow';
 
 import { ActiveWorkflowRunner } from '@/ActiveWorkflowRunner';
 import * as Db from '@/Db';
@@ -57,7 +57,7 @@ const generateWorkflows = (count: number): WorkflowEntity[] => {
 					},
 					id: uuid(),
 					name: 'Schedule Trigger',
-					type: 'n8n-nodes-base.scheduleTrigger',
+					type: '@8n8/nodes-base.scheduleTrigger',
 					typeVersion: 1,
 					position: [900, 460],
 				},

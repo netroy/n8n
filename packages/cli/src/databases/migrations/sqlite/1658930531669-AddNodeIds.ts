@@ -1,4 +1,4 @@
-import { INode } from 'n8n-workflow';
+import { INode } from '@8n8/workflow';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import config from '@/config';
 import { logMigrationEnd, logMigrationStart } from '@db/utils/migrationHelpers';

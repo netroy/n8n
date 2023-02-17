@@ -13,7 +13,7 @@ import {
 import { AnchorPlacement, ConnectorOptions, Geometry, PaintAxis } from '@jsplumb/common';
 import { BezierSegment } from '@jsplumb/connector-bezier';
 import { isArray } from 'lodash';
-import { deepCopy } from 'n8n-workflow';
+import { deepCopy } from '@8n8/workflow';
 
 export interface N8nConnectorOptions extends ConnectorOptions {}
 interface N8nConnectorPaintGeometry extends PaintGeometry {

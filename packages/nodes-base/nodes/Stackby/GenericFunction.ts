@@ -1,9 +1,9 @@
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type { OptionsWithUri } from 'request';
 
-import type { IDataObject, IPollFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, IPollFunctions } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 /**
  * Make an API request to Airtable

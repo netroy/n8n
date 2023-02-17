@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import { CronJob } from 'cron';
 import express from 'express';
 import set from 'lodash.set';
-import { BinaryDataManager, UserSettings } from 'n8n-core';
+import { BinaryDataManager, UserSettings } from '@8n8/core';
 import {
 	ICredentialType,
 	ICredentialTypes,
@@ -21,7 +21,7 @@ import {
 	NodeHelpers,
 	toCronExpression,
 	TriggerTime,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import superagent from 'superagent';
 import request from 'supertest';
 import { URL } from 'url';
@@ -319,7 +319,7 @@ export async function initLdapManager(): Promise<void> {
  */
 export async function initNodeTypes() {
 	loadNodesAndCredentials.loaded.nodes = {
-		'n8n-nodes-base.start': {
+		'@8n8/nodes-base.start': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -343,7 +343,7 @@ export async function initNodeTypes() {
 				},
 			},
 		},
-		'n8n-nodes-base.cron': {
+		'@8n8/nodes-base.cron': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -417,7 +417,7 @@ export async function initNodeTypes() {
 				},
 			},
 		},
-		'n8n-nodes-base.set': {
+		'@8n8/nodes-base.set': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -778,7 +778,7 @@ export function makeWorkflow(options?: {
 	const node: INode = {
 		id: uuid(),
 		name: 'Cron',
-		type: 'n8n-nodes-base.cron',
+		type: '@8n8/nodes-base.cron',
 		parameters: {},
 		typeVersion: 1,
 		position: [740, 240],

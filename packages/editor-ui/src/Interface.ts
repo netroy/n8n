@@ -1,6 +1,6 @@
 import { CREDENTIAL_EDIT_MODAL_KEY } from './constants';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IMenuItem } from 'n8n-design-system';
+import { IMenuItem } from '@8n8/design-system';
 import {
 	GenericValue,
 	IConnections,
@@ -30,12 +30,12 @@ import {
 	IDisplayOptions,
 	IExecutionsSummary,
 	IAbstractEventMessage,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { FAKE_DOOR_FEATURES } from './constants';
 import { SignInType } from './constants';
 import { BulkCommand, Undoable } from '@/models/history';
 
-export * from 'n8n-design-system/types';
+export * from '@8n8/design-system/types';
 
 export type EndpointStyle = {
 	width?: number;
@@ -167,7 +167,7 @@ export interface IVariableSelectorOption {
 	dataType?: string;
 }
 
-// Simple version of n8n-workflow.Workflow
+// Simple version of @8n8/workflow.Workflow
 export interface IWorkflowData {
 	id?: string;
 	name?: string;

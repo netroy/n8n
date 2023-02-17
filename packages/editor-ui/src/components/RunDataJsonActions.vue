@@ -31,7 +31,7 @@ import { PropType } from 'vue';
 import mixins from 'vue-typed-mixins';
 import jp from 'jsonpath';
 import { INodeUi } from '@/Interface';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { copyPaste } from '@/mixins/copyPaste';
 import { pinData } from '@/mixins/pinData';
 import { nodeHelpers } from '@/mixins/nodeHelpers';

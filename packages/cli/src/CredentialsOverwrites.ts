@@ -1,6 +1,6 @@
 import config from '@/config';
-import type { ICredentialDataDecryptedObject, ICredentialTypes } from 'n8n-workflow';
-import { deepCopy, LoggerProxy as Logger, jsonParse } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, ICredentialTypes } from '@8n8/workflow';
+import { deepCopy, LoggerProxy as Logger, jsonParse } from '@8n8/workflow';
 import type { ICredentialsOverwrite } from '@/Interfaces';
 
 class CredentialsOverwritesClass {

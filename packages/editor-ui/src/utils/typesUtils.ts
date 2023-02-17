@@ -1,5 +1,5 @@
 import dateformat from 'dateformat';
-import { IDataObject, jsonParse } from 'n8n-workflow';
+import { IDataObject, jsonParse } from '@8n8/workflow';
 import { Schema, Optional, Primitives } from '@/Interface';
 import { isObj } from '@/utils/typeGuards';
 import { generatePath } from '@/utils/mappingUtils';

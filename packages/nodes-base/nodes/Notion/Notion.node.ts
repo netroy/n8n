@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from '@8n8/workflow';
+import { VersionedNodeType } from '@8n8/workflow';
 
 import { NotionV1 } from './v1/NotionV1.node';
 import { NotionV2 } from './v2/NotionV2.node';

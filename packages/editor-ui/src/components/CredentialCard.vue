@@ -33,7 +33,7 @@
 <script lang="ts">
 import mixins from 'vue-typed-mixins';
 import { ICredentialsResponse, IUser } from '@/Interface';
-import { ICredentialType } from 'n8n-workflow';
+import { ICredentialType } from '@8n8/workflow';
 import { EnterpriseEditionFeature } from '@/constants';
 import { showMessage } from '@/mixins/showMessage';
 import CredentialIcon from '@/components/CredentialIcon.vue';

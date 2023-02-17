@@ -1,4 +1,4 @@
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import { Command, flags } from '@oclif/command';
 
 import type { IBuildOptions } from '../src';

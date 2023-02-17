@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { LoggerProxy as Logger, NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy as Logger, NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { accountFields, accountOperations } from './AccountDescription';
 

@@ -1,6 +1,6 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
 
 import type { IData } from './Interface';
 
@@ -10,7 +10,7 @@ export class GoogleCloudNaturalLanguage implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Google Cloud Natural Language',
 		name: 'googleCloudNaturalLanguage',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:googlecloudnaturallanguage.png',
 		group: ['input', 'output'],
 		version: 1,

@@ -126,7 +126,7 @@ import {
 	INodeTypeDescription,
 	ITelemetryTrackProperties,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import CredentialIcon from '../CredentialIcon.vue';
 
 import mixins from 'vue-typed-mixins';
@@ -140,10 +140,10 @@ import SaveButton from '../SaveButton.vue';
 import Modal from '../Modal.vue';
 import InlineNameEdit from '../InlineNameEdit.vue';
 import { CREDENTIAL_EDIT_MODAL_KEY, EnterpriseEditionFeature } from '@/constants';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import FeatureComingSoon from '../FeatureComingSoon.vue';
 import { getCredentialPermissions, IPermissions } from '@/permissions';
-import { IMenuItem } from 'n8n-design-system';
+import { IMenuItem } from '@8n8/design-system';
 import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';
 import { useSettingsStore } from '@/stores/settings';

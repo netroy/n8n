@@ -6,14 +6,14 @@ import omit from 'lodash.omit';
 import set from 'lodash.set';
 import split from 'lodash.split';
 import unset from 'lodash.unset';
-import { Credentials, UserSettings } from 'n8n-core';
+import { Credentials, UserSettings } from '@8n8/core';
 import type {
 	WorkflowExecuteMode,
 	INodeCredentialsDetails,
 	ICredentialsEncrypted,
 	IDataObject,
-} from 'n8n-workflow';
-import { LoggerProxy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy } from '@8n8/workflow';
 import { resolve as pathResolve } from 'path';
 
 import * as Db from '@/Db';

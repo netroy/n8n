@@ -8,7 +8,7 @@ import {
 	IDeferredPromise,
 	IExecuteResponsePromiseData,
 	IRun,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { IWorkflowExecutionDataProcess } from '@/Interfaces';
 
 const FAKE_EXECUTION_ID = '15';

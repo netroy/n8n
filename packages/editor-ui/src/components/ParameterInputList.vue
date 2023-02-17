@@ -25,7 +25,7 @@
 			<import-parameter
 				v-else-if="
 					parameter.type === 'curlImport' &&
-					nodeTypeName === 'n8n-nodes-base.httpRequest' &&
+					nodeTypeName === '@8n8/nodes-base.httpRequest' &&
 					nodeTypeVersion >= 3
 				"
 				:isReadOnly="isReadOnly"
@@ -115,7 +115,7 @@
 </template>
 
 <script lang="ts">
-import { deepCopy, INodeParameters, INodeProperties, NodeParameterValue } from 'n8n-workflow';
+import { deepCopy, INodeParameters, INodeProperties, NodeParameterValue } from '@8n8/workflow';
 
 import { INodeUi, IUpdateInformation } from '@/Interface';
 

@@ -11,8 +11,8 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { IProcessMessage } from 'n8n-core';
-import { BinaryDataManager, WorkflowExecute } from 'n8n-core';
+import type { IProcessMessage } from '@8n8/core';
+import { BinaryDataManager, WorkflowExecute } from '@8n8/core';
 
 import type {
 	ExecutionError,
@@ -21,13 +21,13 @@ import type {
 	IRun,
 	WorkflowExecuteMode,
 	WorkflowHooks,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy as Logger,
 	Workflow,
 	WorkflowOperationError,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import PCancelable from 'p-cancelable';
 import { join as pathJoin } from 'path';

@@ -4,8 +4,8 @@ import type {
 	INodeParameters,
 	INodeTypeNameVersion,
 	INodeTypes,
-} from 'n8n-workflow';
-import { Workflow } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { Workflow } from '@8n8/workflow';
 
 const TEMP_NODE_NAME = 'Temp-Node';
 const TEMP_WORKFLOW_NAME = 'Temp-Workflow';

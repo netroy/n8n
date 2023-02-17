@@ -1,6 +1,6 @@
 import type { NodeVMOptions } from 'vm2';
 import { NodeVM } from 'vm2';
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -8,8 +8,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { get, isEmpty, isEqual, isObject, lt, merge, pick, reduce, set, unset } from 'lodash';
 
@@ -195,7 +195,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'A field in the input items to aggregate together',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -255,7 +255,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'The name of a field in the input items to aggregate together',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -347,7 +347,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'A field in the input to exclude from the object in output array',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -384,7 +384,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'Specify fields that will be included in output array',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -456,7 +456,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'A field in the input to exclude from the comparison',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -492,7 +492,7 @@ export class ItemLists implements INodeType {
 								type: 'string',
 								default: '',
 								description: 'A field in the input to add to the comparison',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -549,7 +549,7 @@ export class ItemLists implements INodeType {
 								required: true,
 								default: '',
 								description: 'The field to sort by',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',

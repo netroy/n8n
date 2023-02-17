@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 import { blocks } from './Blocks';
 
@@ -21,7 +21,7 @@ export const blockOperations: INodeProperties[] = [
 				action: 'Append a block',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-get-many
+				// eslint-disable-next-line @8n8/nodes-base/node-param-option-name-wrong-for-get-many
 				name: 'Get Child Blocks',
 				value: 'getAll',
 				description: 'Get many child blocks',

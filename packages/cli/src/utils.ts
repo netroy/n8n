@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { CliWorkflowOperationError, SubworkflowOperationError } from 'n8n-workflow';
-import type { INode } from 'n8n-workflow';
+import { CliWorkflowOperationError, SubworkflowOperationError } from '@8n8/workflow';
+import type { INode } from '@8n8/workflow';
 import { START_NODES } from './constants';
 
 function findWorkflowStart(executionMode: 'integrated' | 'cli') {
 	return function (nodes: INode[]) {
 		const executeWorkflowTriggerNode = nodes.find(
-			(node) => node.type === 'n8n-nodes-base.executeWorkflowTrigger',
+			(node) => node.type === '@8n8/nodes-base.executeWorkflowTrigger',
 		);
 
 		if (executeWorkflowTriggerNode) return executeWorkflowTriggerNode;

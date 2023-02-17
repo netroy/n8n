@@ -3,10 +3,10 @@ import type {
 	IHookFunctions,
 	ILoadOptionsFunctions,
 	IWebhookFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, IHttpRequestOptions, INodeExecutionData } from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+import type { IDataObject, IHttpRequestOptions, INodeExecutionData } from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 import type { IRequestBody } from './types';
 

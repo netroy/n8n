@@ -15,7 +15,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable func-names */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { BinaryDataManager, eventEmitter, UserSettings, WorkflowExecute } from 'n8n-core';
+import { BinaryDataManager, eventEmitter, UserSettings, WorkflowExecute } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -34,13 +34,13 @@ import type {
 	IWorkflowSettings,
 	WorkflowExecuteMode,
 	ExecutionStatus,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy as Logger,
 	Workflow,
 	WorkflowHooks,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import pick from 'lodash.pick';
 import { LessThanOrEqual } from 'typeorm';

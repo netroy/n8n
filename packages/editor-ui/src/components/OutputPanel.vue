@@ -99,7 +99,7 @@
 
 <script lang="ts">
 import { IExecutionResponse, INodeUi } from '@/Interface';
-import { INodeTypeDescription, IRunData, IRunExecutionData, ITaskData } from 'n8n-workflow';
+import { INodeTypeDescription, IRunData, IRunExecutionData, ITaskData } from '@8n8/workflow';
 import Vue from 'vue';
 import RunData, { EnterEditModeArgs } from './RunData.vue';
 import RunInfo from './RunInfo.vue';

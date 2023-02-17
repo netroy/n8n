@@ -1,4 +1,4 @@
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
 
 export namespace PinData {
 	export type Old = { [nodeName: string]: IDataObject[] };

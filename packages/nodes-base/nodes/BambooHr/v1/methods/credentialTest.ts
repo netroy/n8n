@@ -4,7 +4,7 @@ import type {
 	ICredentialTestFunctions,
 	IHttpRequestOptions,
 	INodeCredentialTestResult,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 async function validateCredentials(
 	this: ICredentialTestFunctions,

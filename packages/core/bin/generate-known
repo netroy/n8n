@@ -2,7 +2,7 @@
 
 const path = require('path');
 const glob = require('fast-glob');
-const { LoggerProxy } = require('n8n-workflow');
+const { LoggerProxy } = require('@8n8/workflow');
 const { packageDir, writeJSON } = require('./common');
 const { loadClassInIsolation } = require('../dist/ClassLoader');
 

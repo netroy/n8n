@@ -1,4 +1,4 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { activeCampaignApiRequest, activeCampaignApiRequestAllItems } from './GenericFunctions';
 
@@ -15,7 +15,7 @@ export class ActiveCampaignTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'ActiveCampaign Trigger',
 		name: 'activeCampaignTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:activeCampaign.png',
 		group: ['trigger'],
 		version: 1,

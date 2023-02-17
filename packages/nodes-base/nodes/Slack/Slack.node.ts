@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from '@8n8/workflow';
+import { VersionedNodeType } from '@8n8/workflow';
 
 import { SlackV1 } from './V1/SlackV1.node';
 

@@ -1,20 +1,20 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { brandfetchApiRequest } from './GenericFunctions';
 
 export class Brandfetch implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Brandfetch',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-name-miscased
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-name-miscased
 		name: 'Brandfetch',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:brandfetch.png',
 		group: ['output'],
 		version: 1,
@@ -94,7 +94,7 @@ export class Brandfetch implements INodeType {
 						operation: ['logo'],
 					},
 				},
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description: 'Name of the binary property to which to write the data of the read file',
 			},
 			{

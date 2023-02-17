@@ -29,7 +29,7 @@ import {
 	INodeProperties,
 	INodeTypeDescription,
 	IUser,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { defineStore } from 'pinia';
 import Vue from 'vue';
 import { useRootStore } from './n8nRootStore';

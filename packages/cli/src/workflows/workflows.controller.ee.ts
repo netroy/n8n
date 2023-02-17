@@ -12,7 +12,7 @@ import { isSharingEnabled, rightDiff } from '@/UserManagement/UserManagementHelp
 import { EEWorkflowsService as EEWorkflows } from './workflows.services.ee';
 import { ExternalHooks } from '@/ExternalHooks';
 import { SharedWorkflow } from '@db/entities/SharedWorkflow';
-import { LoggerProxy } from 'n8n-workflow';
+import { LoggerProxy } from '@8n8/workflow';
 import * as TagHelpers from '@/TagHelpers';
 import { EECredentialsService as EECredentials } from '../credentials/credentials.service.ee';
 import type { IExecutionPushResponse } from '@/Interfaces';

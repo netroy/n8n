@@ -9,7 +9,7 @@ import {
 	deepCopy,
 	INodeParameters,
 	INodeActionTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	STORES,
 	MANUAL_TRIGGER_NODE_TYPE,
@@ -35,7 +35,7 @@ const customNodeActionsParsers: {
 		nodeTypeDescription: INodeTypeDescription,
 	) => INodeActionTypeDescription[] | undefined;
 } = {
-	['n8n-nodes-base.hubspotTrigger']: (matchedProperty, nodeTypeDescription) => {
+	['@8n8/nodes-base.hubspotTrigger']: (matchedProperty, nodeTypeDescription) => {
 		const collection = matchedProperty?.options?.[0] as INodePropertyCollection;
 
 		return (collection?.values[0]?.options as INodePropertyOptions[])?.map(

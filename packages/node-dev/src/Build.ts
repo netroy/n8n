@@ -6,8 +6,8 @@ import { copyFile, mkdir, readFile, writeFile } from 'fs/promises';
 import { join, dirname, resolve as resolvePath } from 'path';
 import { file as tmpFile } from 'tmp-promise';
 
-import { jsonParse } from 'n8n-workflow';
-import { UserSettings } from 'n8n-core';
+import { jsonParse } from '@8n8/workflow';
+import { UserSettings } from '@8n8/core';
 import type { IBuildOptions } from './Interfaces';
 
 /**
@@ -67,7 +67,7 @@ export async function buildFiles({
 		}),
 	);
 
-	// Supply a node base path so that it finds n8n-core and n8n-workflow
+	// Supply a node base path so that it finds @8n8/core and @8n8/workflow
 	const nodeModulesPath = join(__dirname, '../../node_modules/');
 	let buildCommand = `${tscPath} --p ${
 		tsconfigData.path

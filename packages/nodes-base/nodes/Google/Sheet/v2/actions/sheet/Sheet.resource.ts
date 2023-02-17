@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 import * as append from './append.operation';
 import * as appendOrUpdate from './appendOrUpdate.operation';
 import * as clear from './clear.operation';
@@ -29,7 +29,7 @@ export const descriptions: INodeProperties[] = [
 				action: 'Append data to a sheet',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-option-name-wrong-for-upsert
+				// eslint-disable-next-line @8n8/nodes-base/node-param-option-name-wrong-for-upsert
 				name: 'Append or Update',
 				value: 'appendOrUpdate',
 				description: 'Append a new row or update the current one if it already exists (upsert)',

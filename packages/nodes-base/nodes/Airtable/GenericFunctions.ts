@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IPollFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IPollFunctions } from '@8n8/core';
 
 import type { OptionsWithUri } from 'request';
 
@@ -7,7 +7,7 @@ import type {
 	IDataObject,
 	ILoadOptionsFunctions,
 	INodeExecutionData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 interface IAttachment {
 	url: string;

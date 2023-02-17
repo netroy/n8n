@@ -7,7 +7,7 @@ import {
 	ITriggerResponse,
 	IVersionedNodeType,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 class NodeTypesClass implements INodeTypes {
 	nodeTypes: INodeTypeData = {
@@ -120,7 +120,7 @@ export function mockNodeTypesData(
 ) {
 	return nodeNames.reduce<INodeTypeData>((acc, nodeName) => {
 		return (
-			(acc[`n8n-nodes-base.${nodeName}`] = {
+			(acc[`@8n8/nodes-base.${nodeName}`] = {
 				sourcePath: '',
 				type: {
 					description: {

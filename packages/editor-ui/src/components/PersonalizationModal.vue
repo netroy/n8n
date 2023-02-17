@@ -144,7 +144,7 @@ import Modal from './Modal.vue';
 import { IFormInputs, IPersonalizationLatestVersion, IUser } from '@/Interface';
 import Vue from 'vue';
 import { getAccountAge } from '@/utils';
-import { GenericValue } from 'n8n-workflow';
+import { GenericValue } from '@8n8/workflow';
 import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';
 import { useSettingsStore } from '@/stores/settings';

@@ -7,15 +7,15 @@
 import { MessageEventBusDestination } from './MessageEventBusDestination.ee';
 import axios from 'axios';
 import type { AxiosRequestConfig, Method } from 'axios';
-import { jsonParse, LoggerProxy, MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+import { jsonParse, LoggerProxy, MessageEventBusDestinationTypeNames } from '@8n8/workflow';
 import type {
 	MessageEventBusDestinationOptions,
 	MessageEventBusDestinationWebhookOptions,
 	MessageEventBusDestinationWebhookParameterItem,
 	MessageEventBusDestinationWebhookParameterOptions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { CredentialsHelper } from '@/CredentialsHelper';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import { Agent as HTTPSAgent } from 'https';
 import config from '@/config';
 import { isLogStreamingEnabled } from '../MessageEventBus/MessageEventBusHelper';

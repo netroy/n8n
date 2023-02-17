@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "b319a78c-ff34-4888-b412-e08609bd84e4",
 			"name": "When clicking \"Execute Workflow\"",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [
 				1040,
@@ -19,7 +19,7 @@
 			},
 			"id": "804f7422-7414-4557-bf3b-0aa0e8f4885e",
 			"name": "Write Binary File",
-			"type": "n8n-nodes-base.writeBinaryFile",
+			"type": "@8n8/nodes-base.writeBinaryFile",
 			"typeVersion": 1,
 			"position": [
 				1540,
@@ -32,7 +32,7 @@
 			},
 			"id": "7bed9527-c0a9-4b03-8f2f-d96d805f7fbc",
 			"name": "Read Binary File",
-			"type": "n8n-nodes-base.readBinaryFile",
+			"type": "@8n8/nodes-base.readBinaryFile",
 			"typeVersion": 1,
 			"position": [
 				1300,

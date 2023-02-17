@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
 import type { GoogleSheet } from '../../helpers/GoogleSheet';
 import {
 	getRangeString,
@@ -32,7 +32,7 @@ export const description: SheetProperties = [
 				name: 'values',
 				values: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 						displayName: 'Column',
 						name: 'lookupColumn',
 						type: 'options',

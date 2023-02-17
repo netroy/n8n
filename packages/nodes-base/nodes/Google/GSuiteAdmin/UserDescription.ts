@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const userOperations: INodeProperties[] = [
 	{
@@ -213,7 +213,7 @@ export const userFields: INodeProperties[] = [
 										value: 'home_fax',
 									},
 									{
-										// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+										// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 										name: 'isdn',
 										value: 'isdn',
 									},
@@ -246,7 +246,7 @@ export const userFields: INodeProperties[] = [
 										value: 'telex',
 									},
 									{
-										// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+										// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 										name: 'tty tdd',
 										value: 'tty_tdd',
 									},

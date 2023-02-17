@@ -1,7 +1,7 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
 import { get } from 'lodash';
 
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	GenericValue,
@@ -10,8 +10,8 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { deepCopy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy } from '@8n8/workflow';
 
 const versionDescription: INodeTypeDescription = {
 	displayName: 'Merge',
@@ -25,7 +25,7 @@ const versionDescription: INodeTypeDescription = {
 		name: 'Merge',
 		color: '#00bbcc',
 	},
-	// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+	// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 	inputs: ['main', 'main'],
 	outputs: ['main'],
 	inputNames: ['Input 1', 'Input 2'],

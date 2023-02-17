@@ -3,7 +3,7 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	NodePropertyTypes,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 export class VenafiTlsProtectCloudApi implements ICredentialType {
 	name = 'venafiTlsProtectCloudApi';

@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "e5fd1ef8-5528-4626-a523-7668969b2123",
 			"name": "When clicking \"Execute Workflow\"",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [880, 400]
 		},
@@ -15,7 +15,7 @@
 			},
 			"id": "9c40a026-fa38-4c91-a4a1-5332f762c3dd",
 			"name": "RSS Read",
-			"type": "n8n-nodes-base.rssFeedRead",
+			"type": "@8n8/nodes-base.rssFeedRead",
 			"typeVersion": 1,
 			"position": [1080, 400]
 		}

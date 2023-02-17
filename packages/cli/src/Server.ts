@@ -33,7 +33,7 @@ import {
 	LoadNodeParameterOptions,
 	LoadNodeListSearch,
 	UserSettings,
-} from 'n8n-core';
+} from '@8n8/core';
 
 import type {
 	INodeCredentials,
@@ -47,8 +47,8 @@ import type {
 	ICredentialTypes,
 	ExecutionStatus,
 	IExecutionsSummary,
-} from 'n8n-workflow';
-import { LoggerProxy, jsonParse } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy, jsonParse } from '@8n8/workflow';
 
 // @ts-ignore
 import timezones from 'google-timezones-json';

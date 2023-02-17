@@ -1,12 +1,12 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 import { elasticsearchApiRequest, elasticsearchApiRequestAllItems } from './GenericFunctions';
 

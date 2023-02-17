@@ -1,9 +1,9 @@
 import type { OptionsWithUri } from 'request';
 
-import type { IExecuteFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
-import type { IDataObject, IHookFunctions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, IHookFunctions } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 export async function pushcutApiRequest(
 	this: IExecuteFunctions | ILoadOptionsFunctions | IHookFunctions,

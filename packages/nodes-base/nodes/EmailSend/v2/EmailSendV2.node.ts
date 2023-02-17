@@ -1,16 +1,16 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { IExecuteFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import * as send from './send.operation';
 
-// eslint-disable-next-line n8n-nodes-base/node-class-description-missing-subtitle
+// eslint-disable-next-line @8n8/nodes-base/node-class-description-missing-subtitle
 const versionDescription: INodeTypeDescription = {
 	displayName: 'Send Email',
 	name: 'emailSend',

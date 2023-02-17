@@ -2,7 +2,7 @@ import { flags } from '@oclif/command';
 import fs from 'fs';
 import path from 'path';
 import type { FindOptionsWhere } from 'typeorm';
-import { Credentials, UserSettings } from 'n8n-core';
+import { Credentials, UserSettings } from '@8n8/core';
 import * as Db from '@/Db';
 import type { ICredentialsDb, ICredentialsDecryptedDb } from '@/Interfaces';
 import { BaseCommand } from '../BaseCommand';

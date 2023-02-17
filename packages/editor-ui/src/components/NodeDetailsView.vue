@@ -125,7 +125,7 @@ import {
 	IRunExecutionData,
 	Workflow,
 	jsonParse,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { IExecutionResponse, INodeUi, IUpdateInformation, TargetItem } from '@/Interface';
 
 import { externalHooks } from '@/mixins/externalHooks';

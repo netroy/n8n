@@ -1,6 +1,6 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
-import type { INodeType, INodeTypeBaseDescription, INodeTypeDescription } from 'n8n-workflow';
+import type { INodeType, INodeTypeBaseDescription, INodeTypeDescription } from '@8n8/workflow';
 
 import { router } from './v1/actions/router';
 import { versionDescription } from './v1/actions/versionDescription';

@@ -1,4 +1,4 @@
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes } from '@8n8/workflow';
 import { InternalHooksClass } from '@/InternalHooks';
 import { Telemetry } from '@/telemetry';
 

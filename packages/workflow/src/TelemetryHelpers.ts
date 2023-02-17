@@ -10,7 +10,7 @@ import type {
 	INodeType,
 } from './Interfaces';
 
-const STICKY_NODE_TYPE = 'n8n-nodes-base.stickyNote';
+const STICKY_NODE_TYPE = '@8n8/nodes-base.stickyNote';
 
 export function getNodeTypeForName(workflow: IWorkflowBase, nodeName: string): INode | undefined {
 	return workflow.nodes.find((node) => node.name === nodeName);
@@ -165,13 +165,13 @@ export function generateNodesGraph(
 				nodeItem.src_node_id = options.nodeIdMap[node.id];
 			}
 
-			if (node.type === 'n8n-nodes-base.httpRequest' && node.typeVersion === 1) {
+			if (node.type === '@8n8/nodes-base.httpRequest' && node.typeVersion === 1) {
 				try {
 					nodeItem.domain = new URL(node.parameters.url as string).hostname;
 				} catch (_) {
 					nodeItem.domain = getDomainBase(node.parameters.url as string);
 				}
-			} else if (node.type === 'n8n-nodes-base.httpRequest' && [2, 3].includes(node.typeVersion)) {
+			} else if (node.type === '@8n8/nodes-base.httpRequest' && [2, 3].includes(node.typeVersion)) {
 				const { authentication } = node.parameters as { authentication: string };
 
 				nodeItem.credential_type = {
@@ -189,7 +189,7 @@ export function generateNodesGraph(
 				nodeItem.domain_base = getDomainBase(url);
 				nodeItem.domain_path = getDomainPath(url);
 				nodeItem.method = node.parameters.requestMethod as string;
-			} else if (node.type === 'n8n-nodes-base.webhook') {
+			} else if (node.type === '@8n8/nodes-base.webhook') {
 				webhookNodeNames.push(node.name);
 			} else {
 				const nodeType = nodeTypes.getByNameAndVersion(node.type);

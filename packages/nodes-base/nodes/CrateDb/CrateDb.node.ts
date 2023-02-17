@@ -1,6 +1,6 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import {
 	generateReturning,
@@ -17,7 +17,7 @@ export class CrateDb implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'CrateDB',
 		name: 'crateDb',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:cratedb.png',
 		group: ['input'],
 		version: 1,
@@ -165,7 +165,7 @@ export class CrateDb implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Comma-separated list of the properties which decides which rows in the database should be updated. Normally that would be "id".',
 			},
@@ -227,7 +227,7 @@ export class CrateDb implements INodeType {
 						],
 						default: 'multiple',
 						description:
-							'The way queries should be sent to database. Can be used in conjunction with <b>Continue on Fail</b>. See <a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.cratedb/">the docs</a> for more examples.',
+							'The way queries should be sent to database. Can be used in conjunction with <b>Continue on Fail</b>. See <a href="https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.cratedb/">the docs</a> for more examples.',
 					},
 					{
 						displayName: 'Query Parameters',

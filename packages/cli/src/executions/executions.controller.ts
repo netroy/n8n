@@ -1,5 +1,5 @@
 import express from 'express';
-import { LoggerProxy } from 'n8n-workflow';
+import { LoggerProxy } from '@8n8/workflow';
 import type {
 	IExecutionFlattedResponse,
 	IExecutionResponse,

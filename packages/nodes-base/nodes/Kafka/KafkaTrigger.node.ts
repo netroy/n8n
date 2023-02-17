@@ -3,10 +3,10 @@ import { Kafka as apacheKafka, logLevel } from 'kafkajs';
 
 import { SchemaRegistry } from '@kafkajs/confluent-schema-registry';
 
-import type { ITriggerFunctions } from 'n8n-core';
+import type { ITriggerFunctions } from '@8n8/core';
 
-import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 export class KafkaTrigger implements INodeType {
 	description: INodeTypeDescription = {

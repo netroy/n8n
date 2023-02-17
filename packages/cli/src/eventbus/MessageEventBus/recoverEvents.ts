@@ -1,6 +1,6 @@
 import { parse, stringify } from 'flatted';
-import type { IRun, IRunExecutionData, ITaskData } from 'n8n-workflow';
-import { NodeOperationError, WorkflowOperationError } from 'n8n-workflow';
+import type { IRun, IRunExecutionData, ITaskData } from '@8n8/workflow';
+import { NodeOperationError, WorkflowOperationError } from '@8n8/workflow';
 import * as Db from '@/Db';
 import type { EventMessageTypes, EventNamesTypes } from '../EventMessageClasses';
 import type { DateTime } from 'luxon';

@@ -1,5 +1,5 @@
 {
-  "name": "n8n",
+  "name": "8n8",
   "version": "0.216.0",
   "private": true,
   "homepage": "https://n8n.io",
@@ -34,7 +34,7 @@
     "test:e2e:all": "cross-env E2E_TESTS=true start-server-and-test start http://localhost:5678/favicon.ico 'cypress run --headless'"
   },
   "dependencies": {
-    "n8n": "workspace:*"
+    "@8n8/cli": "workspace:*"
   },
   "devDependencies": {
     "@n8n_io/eslint-config": "workspace:*",

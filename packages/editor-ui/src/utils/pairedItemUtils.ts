@@ -1,4 +1,4 @@
-import { IPairedItemData, IRunData, ITaskData } from 'n8n-workflow';
+import { IPairedItemData, IRunData, ITaskData } from '@8n8/workflow';
 import { IExecutionResponse, TargetItem } from '../Interface';
 import { isNotNull } from '@/utils';
 

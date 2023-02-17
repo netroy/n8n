@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { rocketchatApiRequest, validateJSON } from './GenericFunctions';
 
@@ -236,7 +236,7 @@ export class Rocketchat implements INodeType {
 						name: 'collapsed',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description:
 							'Causes the image, audio, and video sections to be hiding when collapsed is true',
 					},
@@ -281,7 +281,7 @@ export class Rocketchat implements INodeType {
 						name: 'titleLinkDownload',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description:
 							'When this is true, a download icon appears and clicking this saves the link to file',
 					},

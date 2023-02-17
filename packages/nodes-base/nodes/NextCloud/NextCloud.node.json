@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.nextCloud",
+	"node": "@8n8/nodes-base.nextCloud",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Data & Storage"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.nextcloud/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.nextcloud/"
 			}
 		]
 	}

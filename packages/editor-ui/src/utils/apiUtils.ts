@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, Method } from 'axios';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import type { IRestApiContext } from '@/Interface';
 
 export const NO_NETWORK_ERROR_CODE = 999;

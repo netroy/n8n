@@ -5,14 +5,14 @@ import path from 'path';
 import { mkdir } from 'fs/promises';
 import { createReadStream, createWriteStream, existsSync } from 'fs';
 import localtunnel from 'localtunnel';
-import { TUNNEL_SUBDOMAIN_ENV, UserSettings } from 'n8n-core';
+import { TUNNEL_SUBDOMAIN_ENV, UserSettings } from '@8n8/core';
 import { flags } from '@oclif/command';
 import stream from 'stream';
 import replaceStream from 'replacestream';
 import { promisify } from 'util';
 import glob from 'fast-glob';
 
-import { LoggerProxy, sleep, jsonParse } from 'n8n-workflow';
+import { LoggerProxy, sleep, jsonParse } from '@8n8/workflow';
 import { createHash } from 'crypto';
 import config from '@/config';
 

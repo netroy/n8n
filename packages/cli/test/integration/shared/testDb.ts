@@ -1,4 +1,4 @@
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import {
 	DataSource as Connection,
 	DataSourceOptions as ConnectionOptions,
@@ -415,7 +415,7 @@ export async function createWorkflow(attributes: Partial<WorkflowEntity> = {}, u
 				name: 'Start',
 				parameters: {},
 				position: [-20, 260],
-				type: 'n8n-nodes-base.start',
+				type: '@8n8/nodes-base.start',
 				typeVersion: 1,
 			},
 		],
@@ -458,7 +458,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-1',
 					parameters: {},
 					name: 'Start',
-					type: 'n8n-nodes-base.start',
+					type: '@8n8/nodes-base.start',
 					typeVersion: 1,
 					position: [240, 300],
 				},
@@ -466,7 +466,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-2',
 					parameters: { triggerTimes: { item: [{ mode: 'everyMinute' }] } },
 					name: 'Cron',
-					type: 'n8n-nodes-base.cron',
+					type: '@8n8/nodes-base.cron',
 					typeVersion: 1,
 					position: [500, 300],
 				},
@@ -474,7 +474,7 @@ export async function createWorkflowWithTrigger(
 					id: 'uuid-3',
 					parameters: { options: {} },
 					name: 'Set',
-					type: 'n8n-nodes-base.set',
+					type: '@8n8/nodes-base.set',
 					typeVersion: 1,
 					position: [780, 300],
 				},

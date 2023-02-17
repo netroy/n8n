@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const opportunityOperations: INodeProperties[] = [
 	{
@@ -71,7 +71,7 @@ export const opportunityFields: INodeProperties[] = [
 	/*                                opportunity:create                          */
 	/* -------------------------------------------------------------------------- */
 	{
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+		// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 		displayName: 'Match Against',
 		name: 'externalId',
 		type: 'options',
@@ -644,7 +644,7 @@ export const opportunityFields: INodeProperties[] = [
 								description:
 									'For date, number, or boolean, please use expressions. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 							},
-							// eslint-disable-next-line n8n-nodes-base/node-param-operation-without-no-data-expression
+							// eslint-disable-next-line @8n8/nodes-base/node-param-operation-without-no-data-expression
 							{
 								displayName: 'Operation',
 								name: 'operation',

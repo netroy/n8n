@@ -1,12 +1,12 @@
 {
-	"node": "n8n-nodes-base.graphql",
+	"node": "@8n8/nodes-base.graphql",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Data & Storage", "Development"],
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.graphql/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.graphql/"
 			}
 		],
 		"generic": [
@@ -23,7 +23,7 @@
 			{
 				"label": "How Goomer automated their operations with over 200 n8n workflows",
 				"icon": "🛵",
-				"url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-n8n-workflows/"
+				"url": "https://n8n.io/blog/how-goomer-automated-their-operations-with-over-200-@8n8/workflows/"
 			}
 		]
 	}

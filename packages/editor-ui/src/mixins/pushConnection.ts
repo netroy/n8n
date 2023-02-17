@@ -20,7 +20,7 @@ import {
 	IWorkflowBase,
 	SubworkflowOperationError,
 	TelemetryHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import mixins from 'vue-typed-mixins';
 import { WORKFLOW_SETTINGS_MODAL_KEY } from '@/constants';
@@ -363,7 +363,7 @@ export const pushConnection = mixins(
 					this.$titleSet(workflow.name as string, 'IDLE');
 					this.$showToast({
 						title: 'Workflow started waiting',
-						message: `${action} <a href="https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.wait/" target="_blank">More info</a>`,
+						message: `${action} <a href="https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.wait/" target="_blank">More info</a>`,
 						type: 'success',
 						duration: 0,
 					});

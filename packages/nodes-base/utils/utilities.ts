@@ -1,4 +1,4 @@
-import { IDisplayOptions, INodeProperties } from 'n8n-workflow';
+import { IDisplayOptions, INodeProperties } from '@8n8/workflow';
 
 import { merge } from 'lodash';
 

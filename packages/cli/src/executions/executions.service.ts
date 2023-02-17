@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { validate as jsonSchemaValidate } from 'jsonschema';
-import { BinaryDataManager } from 'n8n-core';
+import { BinaryDataManager } from '@8n8/core';
 import type {
 	IDataObject,
 	IWorkflowBase,
@@ -11,8 +11,8 @@ import type {
 	IRunExecutionData,
 	NodeOperationError,
 	IExecutionsSummary,
-} from 'n8n-workflow';
-import { deepCopy, LoggerProxy, jsonParse, Workflow } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, LoggerProxy, jsonParse, Workflow } from '@8n8/workflow';
 import type { FindOperator, FindOptionsWhere } from 'typeorm';
 import { In, IsNull, LessThanOrEqual, Not, Raw } from 'typeorm';
 import * as ActiveExecutions from '@/ActiveExecutions';

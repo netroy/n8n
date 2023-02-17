@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { IExecuteFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { IExecuteFunctions } from '@8n8/core';
 import * as amqplib from 'amqplib';
 import type {
 	ICredentialsDecrypted,
@@ -10,8 +10,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { rabbitmqConnectExchange, rabbitmqConnectQueue } from './GenericFunctions';
 
@@ -19,7 +19,7 @@ export class RabbitMQ implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'RabbitMQ',
 		name: 'rabbitmq',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:rabbitmq.png',
 		group: ['transform'],
 		version: 1,

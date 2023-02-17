@@ -465,7 +465,7 @@ import {
 	INodeTypeDescription,
 	IRunData,
 	IRunExecutionData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	IExecutionResponse,

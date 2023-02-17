@@ -2,8 +2,8 @@ import type {
 	CredentialInformation,
 	ICredentialDataDecryptedObject,
 	ICredentialsEncrypted,
-} from 'n8n-workflow';
-import { ICredentials } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { ICredentials } from '@8n8/workflow';
 
 import { AES, enc } from 'crypto-js';
 

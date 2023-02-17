@@ -5,7 +5,7 @@ import type {
 	IExecuteSingleFunctions,
 	IHookFunctions,
 	ILoadOptionsFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -14,8 +14,8 @@ import type {
 	INodeExecutionData,
 	INodeProperties,
 	IPollFunctions,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { camelCase, capitalCase, snakeCase } from 'change-case';
 

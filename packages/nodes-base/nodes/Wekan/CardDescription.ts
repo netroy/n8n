@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const cardOperations: INodeProperties[] = [
 	// ----------------------------------
@@ -677,7 +677,7 @@ export const cardFields: INodeProperties[] = [
 				name: 'isOverTime',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description: 'The new over time field of the card',
 			},
 			{

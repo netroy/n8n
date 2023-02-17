@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 import { TLP } from './AnalyzerInterface';
 
@@ -68,7 +68,7 @@ export const responderFields: INodeProperties[] = [
 		name: 'jsonObject',
 		type: 'boolean',
 		default: false,
-		// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+		// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 		description: 'Choose between providing JSON object or seperated attributes',
 		displayOptions: {
 			show: {
@@ -111,7 +111,7 @@ export const responderFields: INodeProperties[] = [
 						name: 'flag',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description: 'Flag of the case default=false',
 					},
 					{

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.microsoftExcel",
+	"node": "@8n8/nodes-base.microsoftExcel",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Data & Storage", "Productivity"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.microsoftexcel/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.microsoftexcel/"
 			}
 		]
 	},

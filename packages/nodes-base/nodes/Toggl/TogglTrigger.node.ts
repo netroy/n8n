@@ -1,11 +1,11 @@
-import type { IPollFunctions } from 'n8n-core';
+import type { IPollFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import moment from 'moment';
 import { togglApiRequest } from './GenericFunctions';
@@ -14,7 +14,7 @@ export class TogglTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Toggl Trigger',
 		name: 'togglTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:toggl.png',
 		group: ['trigger'],
 		version: 1,

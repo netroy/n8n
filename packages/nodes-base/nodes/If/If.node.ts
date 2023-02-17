@@ -1,13 +1,13 @@
 import moment from 'moment';
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	INodeExecutionData,
 	INodeParameters,
 	INodeType,
 	INodeTypeDescription,
 	NodeParameterValue,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 export class If implements INodeType {
 	description: INodeTypeDescription = {
@@ -22,7 +22,7 @@ export class If implements INodeType {
 			color: '#408000',
 		},
 		inputs: ['main'],
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-outputs-wrong
 		outputs: ['main', 'main'],
 		outputNames: ['true', 'false'],
 		properties: [
@@ -47,10 +47,10 @@ export class If implements INodeType {
 								name: 'value1',
 								type: 'boolean',
 								default: false,
-								// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+								// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 								description: 'The value to compare with the second one',
 							},
-							// eslint-disable-next-line n8n-nodes-base/node-param-operation-without-no-data-expression
+							// eslint-disable-next-line @8n8/nodes-base/node-param-operation-without-no-data-expression
 							{
 								displayName: 'Operation',
 								name: 'operation',
@@ -73,7 +73,7 @@ export class If implements INodeType {
 								name: 'value2',
 								type: 'boolean',
 								default: false,
-								// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+								// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 								description: 'The value to compare with the first one',
 							},
 						],
@@ -89,7 +89,7 @@ export class If implements INodeType {
 								default: '',
 								description: 'The value to compare with the second one',
 							},
-							// eslint-disable-next-line n8n-nodes-base/node-param-operation-without-no-data-expression
+							// eslint-disable-next-line @8n8/nodes-base/node-param-operation-without-no-data-expression
 							{
 								displayName: 'Operation',
 								name: 'operation',
@@ -132,7 +132,7 @@ export class If implements INodeType {
 								name: 'operation',
 								type: 'options',
 								noDataExpression: true,
-								// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+								// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 								options: [
 									{
 										name: 'Smaller',
@@ -200,7 +200,7 @@ export class If implements INodeType {
 								name: 'operation',
 								type: 'options',
 								noDataExpression: true,
-								// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+								// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 								options: [
 									{
 										name: 'Contains',

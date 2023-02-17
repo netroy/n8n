@@ -1,6 +1,6 @@
 import { STORES } from '@/constants';
 import { INodeUi, IRunDataDisplayMode, NDVState, NodePanelType, XYPosition } from '@/Interface';
-import { IRunData } from 'n8n-workflow';
+import { IRunData } from '@8n8/workflow';
 import { defineStore } from 'pinia';
 import Vue from 'vue';
 import { useWorkflowsStore } from './workflows';

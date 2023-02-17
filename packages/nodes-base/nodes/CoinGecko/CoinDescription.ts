@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const coinOperations: INodeProperties[] = [
 	{
@@ -301,7 +301,7 @@ export const coinFields: INodeProperties[] = [
 		name: 'days',
 		required: true,
 		type: 'options',
-		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+		// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 		options: [
 			{
 				name: '1',
@@ -476,7 +476,7 @@ export const coinFields: INodeProperties[] = [
 				displayName: 'Price Change Percentage',
 				name: 'price_change_percentage',
 				type: 'multiOptions',
-				// eslint-disable-next-line n8n-nodes-base/node-param-multi-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-multi-options-type-unsorted-items
 				options: [
 					{
 						name: '1h',

@@ -1,5 +1,5 @@
 import type express from 'express';
-import type { IDataObject, ExecutionStatus } from 'n8n-workflow';
+import type { IDataObject, ExecutionStatus } from '@8n8/workflow';
 
 import type { User } from '@db/entities/User';
 

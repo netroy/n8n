@@ -1,8 +1,8 @@
-import type { IExecuteFunctions, IHookFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions } from '@8n8/core';
 
 import { flow, isEmpty, omit } from 'lodash';
 
-import type { IDataObject, ILoadOptionsFunctions, INodePropertyOptions } from 'n8n-workflow';
+import type { IDataObject, ILoadOptionsFunctions, INodePropertyOptions } from '@8n8/workflow';
 
 /**
  * Make an API request to Stripe

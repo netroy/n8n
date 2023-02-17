@@ -41,7 +41,7 @@ export async function getNodeTranslationPath({
 }): Promise<string> {
 	const nodeDir = dirname(nodeSourcePath);
 	const maxVersion = await getMaxVersion(nodeDir);
-	const nodeType = longNodeType.replace('n8n-nodes-base.', '');
+	const nodeType = longNodeType.replace('@8n8/nodes-base.', '');
 
 	return maxVersion
 		? join(nodeDir, `v${maxVersion}`, 'translations', locale, `${nodeType}.json`)

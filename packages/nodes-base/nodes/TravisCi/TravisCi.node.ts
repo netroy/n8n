@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { buildFields, buildOperations } from './BuildDescription';
 
@@ -15,7 +15,7 @@ export class TravisCi implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'TravisCI',
 		name: 'travisCi',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:travisci.png',
 		group: ['output'],
 		version: 1,

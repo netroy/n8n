@@ -1,5 +1,5 @@
-import { LoggerProxy } from 'n8n-workflow';
-import type { PackageDirectoryLoader } from 'n8n-core';
+import { LoggerProxy } from '@8n8/workflow';
+import type { PackageDirectoryLoader } from '@8n8/core';
 import * as Db from '@/Db';
 import { InstalledNodes } from '@db/entities/InstalledNodes';
 import { InstalledPackages } from '@db/entities/InstalledPackages';

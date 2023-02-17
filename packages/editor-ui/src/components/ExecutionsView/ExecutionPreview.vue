@@ -135,7 +135,7 @@ import { VIEWS } from '@/constants';
 import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';
 import { Dropdown as ElDropdown } from 'element-ui';
-import { IAbstractEventMessage } from 'n8n-workflow';
+import { IAbstractEventMessage } from '@8n8/workflow';
 
 export default mixins(restApi, showMessage, executionHelpers).extend({
 	name: 'execution-preview',

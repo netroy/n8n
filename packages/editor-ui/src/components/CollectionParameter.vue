@@ -48,7 +48,7 @@
 <script lang="ts">
 import { INodeUi, IUpdateInformation } from '@/Interface';
 
-import { deepCopy, INodeProperties, INodePropertyOptions } from 'n8n-workflow';
+import { deepCopy, INodeProperties, INodePropertyOptions } from '@8n8/workflow';
 
 import { nodeHelpers } from '@/mixins/nodeHelpers';
 

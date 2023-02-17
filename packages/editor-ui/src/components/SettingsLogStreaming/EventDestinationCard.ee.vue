@@ -57,7 +57,7 @@ import {
 	deepCopy,
 	defaultMessageEventBusDestinationOptions,
 	MessageEventBusDestinationOptions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { BaseTextKey } from '../../plugins/i18n';
 
 export const DESTINATION_LIST_ITEM_ACTIONS = {

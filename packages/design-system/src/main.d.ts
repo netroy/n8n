@@ -8,7 +8,7 @@ declare module 'vue/types/vue' {
 	}
 }
 
-declare module 'n8n-design-system' {
+declare module '@8n8/design-system' {
 	export * from './components';
 	export { N8nUsersList, N8nUserSelect } from './components';
 	export { locale };

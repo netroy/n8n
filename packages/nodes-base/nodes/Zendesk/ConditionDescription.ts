@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const conditionFields: INodeProperties[] = [
 	{
@@ -47,7 +47,7 @@ export const conditionFields: INodeProperties[] = [
 		],
 		default: 'status',
 	},
-	// eslint-disable-next-line n8n-nodes-base/node-param-operation-without-no-data-expression
+	// eslint-disable-next-line @8n8/nodes-base/node-param-operation-without-no-data-expression
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -101,7 +101,7 @@ export const conditionFields: INodeProperties[] = [
 		},
 		default: 'is',
 	},
-	// eslint-disable-next-line n8n-nodes-base/node-param-operation-without-no-data-expression
+	// eslint-disable-next-line @8n8/nodes-base/node-param-operation-without-no-data-expression
 	{
 		displayName: 'Operation',
 		name: 'operation',
@@ -251,7 +251,7 @@ export const conditionFields: INodeProperties[] = [
 		default: 'low',
 	},
 	{
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+		// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 		displayName: 'Value',
 		name: 'value',
 		type: 'options',
@@ -271,7 +271,7 @@ export const conditionFields: INodeProperties[] = [
 		default: '',
 	},
 	{
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+		// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 		displayName: 'Value',
 		name: 'value',
 		type: 'options',

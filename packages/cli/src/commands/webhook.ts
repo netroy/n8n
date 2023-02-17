@@ -1,5 +1,5 @@
 import { flags } from '@oclif/command';
-import { LoggerProxy, sleep } from 'n8n-workflow';
+import { LoggerProxy, sleep } from '@8n8/workflow';
 import config from '@/config';
 import * as ActiveExecutions from '@/ActiveExecutions';
 import { WebhookServer } from '@/WebhookServer';

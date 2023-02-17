@@ -10,8 +10,8 @@ import type {
 	INodeExecutionData,
 	JsonObject,
 	PreSendAction,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 import type { OptionsWithUri } from 'request';
 
 /**

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.haloPSA",
+	"node": "@8n8/nodes-base.haloPSA",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.halopsa/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.halopsa/"
 			}
 		]
 	}

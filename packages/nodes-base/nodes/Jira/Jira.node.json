@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.jira",
+	"node": "@8n8/nodes-base.jira",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Development", "Productivity"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.jira/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.jira/"
 			}
 		],
 		"generic": [

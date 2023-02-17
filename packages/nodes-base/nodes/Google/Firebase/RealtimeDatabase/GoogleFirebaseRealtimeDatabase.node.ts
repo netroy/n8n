@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import { googleApiRequest, googleApiRequestAllItems } from './GenericFunctions';
 
@@ -90,7 +90,7 @@ export class GoogleFirebaseRealtimeDatabase implements INodeType {
 				type: 'string',
 				default: '',
 				placeholder: 'e.g. /app/users',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-json
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-json
 				description: 'Object path on database. Do not append .json.',
 				required: true,
 				displayOptions: {
@@ -105,7 +105,7 @@ export class GoogleFirebaseRealtimeDatabase implements INodeType {
 				type: 'string',
 				default: '',
 				placeholder: 'e.g. /app/users',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-json
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-json
 				description: 'Object path on database. Do not append .json.',
 				hint: 'Leave blank to get a whole database object',
 				displayOptions: {

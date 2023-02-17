@@ -22,7 +22,7 @@ import {
 	INodePropertyOptions,
 	INodeTypeDescription,
 	INodeTypeNameVersion,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { defineStore } from 'pinia';
 import Vue from 'vue';
 import { useCredentialsStore } from './credentials';
@@ -142,7 +142,7 @@ export const useNodeTypesStore = defineStore(STORES.NODE_TYPES, {
 
 			nodesInformation.forEach((nodeInformation) => {
 				if (nodeInformation.translation) {
-					const nodeType = nodeInformation.name.replace('n8n-nodes-base.', '');
+					const nodeType = nodeInformation.name.replace('@8n8/nodes-base.', '');
 
 					addNodeTranslation({ [nodeType]: nodeInformation.translation }, rootStore.defaultLocale);
 				}

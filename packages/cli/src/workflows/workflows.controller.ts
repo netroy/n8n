@@ -2,7 +2,7 @@
 
 import express from 'express';
 import { v4 as uuid } from 'uuid';
-import { LoggerProxy } from 'n8n-workflow';
+import { LoggerProxy } from '@8n8/workflow';
 
 import axios from 'axios';
 import * as Db from '@/Db';
@@ -168,7 +168,7 @@ workflowsController.get(
 			throw new ResponseHelper.BadRequestError('The URL does not point to valid JSON file!');
 		}
 
-		// Do a very basic check if it is really a n8n-workflow-json
+		// Do a very basic check if it is really a @8n8/workflow-json
 		if (
 			workflowData === undefined ||
 			workflowData.nodes === undefined ||

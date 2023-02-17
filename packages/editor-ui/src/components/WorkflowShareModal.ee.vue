@@ -142,7 +142,7 @@ import { useUIStore } from '@/stores/ui';
 import { useUsersStore } from '@/stores/users';
 import { useWorkflowsStore } from '@/stores/workflows';
 import { useWorkflowsEEStore } from '@/stores/workflows.ee';
-import { ITelemetryTrackProperties } from 'n8n-workflow';
+import { ITelemetryTrackProperties } from '@8n8/workflow';
 import { useUsageStore } from '@/stores/usage';
 import { BaseTextKey } from '@/plugins/i18n';
 import { isNavigationFailure } from 'vue-router';

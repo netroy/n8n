@@ -9,7 +9,7 @@ import {
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy as Logger,
 	WorkflowOperationError,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import type { FindManyOptions, ObjectLiteral } from 'typeorm';
 import { Not, LessThanOrEqual } from 'typeorm';
 import { DateUtils } from 'typeorm/util/DateUtils';

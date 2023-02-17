@@ -1,4 +1,4 @@
-import { MessageEventBusDestinationOptions } from 'n8n-workflow';
+import { MessageEventBusDestinationOptions } from '@8n8/workflow';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 import { AbstractEntity, jsonColumnType } from './AbstractEntity';
 

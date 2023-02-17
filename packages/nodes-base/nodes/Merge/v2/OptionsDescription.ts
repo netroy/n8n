@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 const clashHandlingProperties: INodeProperties = {
 	displayName: 'Clash Handling',
@@ -142,7 +142,7 @@ export const optionsDescription: INodeProperties[] = [
 				name: 'includeUnpaired',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'If there are different numbers of items in input 1 and input 2, whether to include the ones at the end with nothing to pair with',
 				displayOptions: {

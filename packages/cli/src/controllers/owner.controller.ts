@@ -10,7 +10,7 @@ import {
 import { issueCookie } from '@/auth/jwt';
 import { Response } from 'express';
 import type { Repository } from 'typeorm';
-import type { ILogger } from 'n8n-workflow';
+import type { ILogger } from '@8n8/workflow';
 import type { Config } from '@/config';
 import { OwnerRequest } from '@/requests';
 import type { IDatabaseCollections, IInternalHooksClass, ICredentialsDb } from '@/Interfaces';

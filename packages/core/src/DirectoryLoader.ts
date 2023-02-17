@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { readFile } from 'fs/promises';
 import glob from 'fast-glob';
-import { jsonParse, getVersionedNodeTypeAll, LoggerProxy as Logger } from 'n8n-workflow';
+import { jsonParse, getVersionedNodeTypeAll, LoggerProxy as Logger } from '@8n8/workflow';
 import type {
 	CodexData,
 	DocumentationLink,
@@ -14,7 +14,7 @@ import type {
 	INodeTypeNameVersion,
 	IVersionedNodeType,
 	KnownNodesAndCredentials,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { CUSTOM_NODES_CATEGORY } from './Constants';
 import type { n8n } from './Interfaces';
 import { loadClassInIsolation } from './ClassLoader';

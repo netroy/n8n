@@ -1,4 +1,4 @@
-import type { ICredentialNodeAccess } from 'n8n-workflow';
+import type { ICredentialNodeAccess } from '@8n8/workflow';
 import { Column, Entity, Generated, Index, OneToMany, PrimaryColumn } from 'typeorm';
 import { IsArray, IsObject, IsString, Length } from 'class-validator';
 import type { SharedCredentials } from './SharedCredentials';

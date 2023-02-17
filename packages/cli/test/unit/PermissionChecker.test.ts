@@ -5,7 +5,7 @@ import {
 	INodeTypes,
 	SubworkflowOperationError,
 	Workflow,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import config from '@/config';
 import * as Db from '@/Db';
@@ -70,7 +70,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Start',
-					type: 'n8n-nodes-base.start',
+					type: '@8n8/nodes-base.start',
 					typeVersion: 1,
 					parameters: {},
 					position: [0, 0],
@@ -94,7 +94,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Action Network',
-					type: 'n8n-nodes-base.actionNetwork',
+					type: '@8n8/nodes-base.actionNetwork',
 					parameters: {},
 					typeVersion: 1,
 					position: [0, 0],
@@ -127,7 +127,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Action Network',
-					type: 'n8n-nodes-base.actionNetwork',
+					type: '@8n8/nodes-base.actionNetwork',
 					parameters: {},
 					typeVersion: 1,
 					position: [0, 0],
@@ -141,7 +141,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Action Network 2',
-					type: 'n8n-nodes-base.actionNetwork',
+					type: '@8n8/nodes-base.actionNetwork',
 					parameters: {},
 					typeVersion: 1,
 					position: [0, 0],
@@ -173,7 +173,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Action Network',
-					type: 'n8n-nodes-base.actionNetwork',
+					type: '@8n8/nodes-base.actionNetwork',
 					parameters: {},
 					typeVersion: 1,
 					position: [0, 0] as [number, number],
@@ -187,7 +187,7 @@ describe('PermissionChecker.check()', () => {
 				{
 					id: uuid(),
 					name: 'Action Network 2',
-					type: 'n8n-nodes-base.actionNetwork',
+					type: '@8n8/nodes-base.actionNetwork',
 					parameters: {},
 					typeVersion: 1,
 					position: [0, 0] as [number, number],

@@ -1,8 +1,8 @@
 import type { OptionsWithUri } from 'request';
 
-import type { IExecuteFunctions, ILoadOptionsFunctions, IPollFunctions } from 'n8n-core';
+import type { IExecuteFunctions, ILoadOptionsFunctions, IPollFunctions } from '@8n8/core';
 
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
 
 export async function clockifyApiRequest(
 	this: ILoadOptionsFunctions | IPollFunctions | IExecuteFunctions,

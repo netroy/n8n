@@ -1,18 +1,18 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import pdf from 'pdf-parse';
 
 export class ReadPDF implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Read PDF',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-name-miscased
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-name-miscased
 		name: 'readPDF',
 		icon: 'fa:file-pdf',
 		group: ['input'],

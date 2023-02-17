@@ -2,7 +2,7 @@ import { join } from 'path';
 import { tmpdir } from 'os';
 import { readFileSync, mkdtempSync } from 'fs';
 
-import { IBinaryData, ITaskDataConnections } from 'n8n-workflow';
+import { IBinaryData, ITaskDataConnections } from '@8n8/workflow';
 import { BinaryDataManager } from '@/BinaryDataManager';
 import * as NodeExecuteFunctions from '@/NodeExecuteFunctions';
 

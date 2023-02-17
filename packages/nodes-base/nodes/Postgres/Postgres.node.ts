@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	ICredentialsDecrypted,
 	ICredentialTestFunctions,
@@ -7,8 +7,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import pgPromise from 'pg-promise';
 
@@ -120,9 +120,9 @@ export class Postgres implements INodeType {
 					},
 				},
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 				placeholder: 'id:int,name:text,description',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Comma-separated list of the properties which should used as columns for the new rows. You can use type casting with colons (:) like id:int.',
 			},
@@ -166,7 +166,7 @@ export class Postgres implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Comma-separated list of the properties which decides which rows in the database should be updated. Normally that would be "id".',
 			},
@@ -181,7 +181,7 @@ export class Postgres implements INodeType {
 				},
 				default: '',
 				placeholder: 'name:text,description',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Comma-separated list of the properties which should used as columns for rows to update. You can use type casting with colons (:) like id:int.',
 			},
@@ -234,7 +234,7 @@ export class Postgres implements INodeType {
 						],
 						default: 'multiple',
 						description:
-							'The way queries should be sent to database. Can be used in conjunction with <b>Continue on Fail</b>. See <a href="https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres/">the docs</a> for more examples',
+							'The way queries should be sent to database. Can be used in conjunction with <b>Continue on Fail</b>. See <a href="https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.postgres/">the docs</a> for more examples',
 					},
 					{
 						displayName: 'Output Large-Format Numbers As',

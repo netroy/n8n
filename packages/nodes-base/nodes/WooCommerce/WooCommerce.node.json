@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.wooCommerce",
+	"node": "@8n8/nodes-base.wooCommerce",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Sales"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.woocommerce/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.woocommerce/"
 			}
 		]
 	}

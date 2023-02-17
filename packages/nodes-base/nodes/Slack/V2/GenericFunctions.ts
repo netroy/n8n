@@ -1,8 +1,8 @@
 import type { OptionsWithUri } from 'request';
-import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from 'n8n-core';
-import type { IDataObject, IOAuth2Options } from 'n8n-workflow';
+import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from '@8n8/core';
+import type { IDataObject, IOAuth2Options } from '@8n8/workflow';
 
-import { NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import _ from 'lodash';
 

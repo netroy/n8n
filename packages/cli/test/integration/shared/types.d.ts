@@ -1,4 +1,4 @@
-import type { ICredentialDataDecryptedObject, ICredentialNodeAccess } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, ICredentialNodeAccess } from '@8n8/workflow';
 import type { SuperAgentTest } from 'supertest';
 
 import type { CredentialsEntity } from '@db/entities/CredentialsEntity';

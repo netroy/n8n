@@ -264,7 +264,7 @@ import {
 	IExecutionsSummary,
 	IWorkflowShortResponse,
 } from '@/Interface';
-import type { ExecutionStatus, IDataObject } from 'n8n-workflow';
+import type { ExecutionStatus, IDataObject } from '@8n8/workflow';
 import { range as _range } from 'lodash';
 import mixins from 'vue-typed-mixins';
 import { mapStores } from 'pinia';

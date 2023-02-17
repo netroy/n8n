@@ -1,12 +1,12 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	ISheetUpdateData,
 	SheetProperties,
 	ValueInputOption,
 	ValueRenderOption,
 } from '../../helpers/GoogleSheets.types';
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 import type { GoogleSheet } from '../../helpers/GoogleSheet';
 import { untilSheetSelected } from '../../helpers/GoogleSheets.utils';
 import { cellFormat, handlingExtraData, locationDefine } from './commonDescription';
@@ -46,7 +46,7 @@ export const description: SheetProperties = [
 		description: 'Whether to insert the input data this node receives in the new row',
 	},
 	{
-		// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased, n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+		// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased, @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 		displayName: 'Column to match on',
 		name: 'columnToMatchOn',
 		type: 'options',
@@ -109,7 +109,7 @@ export const description: SheetProperties = [
 				name: 'values',
 				values: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 						displayName: 'Column',
 						name: 'column',
 						type: 'options',

@@ -13,7 +13,7 @@ describe('Execute Start Node', () => {
 							id: 'uuid-1',
 							parameters: {},
 							name: 'Start',
-							type: 'n8n-nodes-base.start',
+							type: '@8n8/nodes-base.start',
 							typeVersion: 1,
 							position: [100, 300],
 						},

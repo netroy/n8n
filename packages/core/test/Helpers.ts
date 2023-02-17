@@ -23,7 +23,7 @@ import {
 	NodeHelpers,
 	NodeParameterValue,
 	WorkflowHooks,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { Credentials } from '@/Credentials';
 import { IExecuteFunctions } from '@/Interfaces';
 
@@ -73,7 +73,7 @@ export class CredentialsHelper extends ICredentialsHelper {
 
 class NodeTypesClass implements INodeTypes {
 	nodeTypes: INodeTypeData = {
-		'n8n-nodes-base.if': {
+		'@8n8/nodes-base.if': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -409,7 +409,7 @@ class NodeTypesClass implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.merge': {
+		'@8n8/nodes-base.merge': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -506,7 +506,7 @@ class NodeTypesClass implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.noOp': {
+		'@8n8/nodes-base.noOp': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -530,7 +530,7 @@ class NodeTypesClass implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.versionTest': {
+		'@8n8/nodes-base.versionTest': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -589,7 +589,7 @@ class NodeTypesClass implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.set': {
+		'@8n8/nodes-base.set': {
 			sourcePath: '',
 			type: {
 				description: {
@@ -780,7 +780,7 @@ class NodeTypesClass implements INodeTypes {
 				},
 			},
 		},
-		'n8n-nodes-base.start': {
+		'@8n8/nodes-base.start': {
 			sourcePath: '',
 			type: {
 				description: {

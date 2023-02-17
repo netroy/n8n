@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { reactive, computed, toRefs, getCurrentInstance } from 'vue';
-import { INodeTypeDescription, INodeActionTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription, INodeActionTypeDescription } from '@8n8/workflow';
 import { getNewNodePosition, NODE_SIZE } from '@/utils/nodeViewUtils';
 import { IUpdateInformation } from '@/Interface';
 import NodeIcon from '@/components/NodeIcon.vue';

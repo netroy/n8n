@@ -1,5 +1,5 @@
 import { INodeUi } from '@/Interface';
-import { IConnection } from 'n8n-workflow';
+import { IConnection } from '@8n8/workflow';
 import Vue from 'vue';
 import { XYPosition } from '../Interface';
 

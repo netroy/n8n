@@ -192,7 +192,7 @@ import {
 	MessageEventBusDestinationOptions,
 	defaultMessageEventBusDestinationSyslogOptions,
 	defaultMessageEventBusDestinationSentryOptions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import Vue from 'vue';
 import { LOG_STREAM_MODAL_KEY } from '../../constants';
 import Modal from '@/components/Modal.vue';

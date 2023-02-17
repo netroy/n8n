@@ -2,7 +2,7 @@ import type { OptionsWithUri } from 'request';
 
 import { simpleParser } from 'mailparser';
 
-import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -10,8 +10,8 @@ import type {
 	IDataObject,
 	INodeExecutionData,
 	IPollFunctions,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import moment from 'moment-timezone';
 

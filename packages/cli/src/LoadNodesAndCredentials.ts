@@ -1,12 +1,12 @@
 import uniq from 'lodash.uniq';
-import type { DirectoryLoader, Types } from 'n8n-core';
+import type { DirectoryLoader, Types } from '@8n8/core';
 import {
 	CUSTOM_EXTENSION_ENV,
 	UserSettings,
 	CustomDirectoryLoader,
 	PackageDirectoryLoader,
 	LazyPackageDirectoryLoader,
-} from 'n8n-core';
+} from '@8n8/core';
 import type {
 	ICredentialTypes,
 	ILogger,
@@ -14,8 +14,8 @@ import type {
 	KnownNodesAndCredentials,
 	INodeTypeDescription,
 	LoadedNodesAndCredentials,
-} from 'n8n-workflow';
-import { LoggerProxy, ErrorReporterProxy as ErrorReporter } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy, ErrorReporterProxy as ErrorReporter } from '@8n8/workflow';
 
 import { createWriteStream } from 'fs';
 import { access as fsAccess, mkdir, readdir as fsReaddir, stat as fsStat } from 'fs/promises';
@@ -402,13 +402,13 @@ export class LoadNodesAndCredentialsClass implements INodesAndCredentials {
 		// to load the credentials and nodes
 		const checkPaths = [
 			// In case "n8n" package is in same node_modules folder.
-			path.join(CLI_DIR, '..', 'n8n-workflow'),
+			path.join(CLI_DIR, '..', '@8n8/workflow'),
 			// In case "n8n" package is the root and the packages are
 			// in the "node_modules" folder underneath it.
-			path.join(CLI_DIR, 'node_modules', 'n8n-workflow'),
+			path.join(CLI_DIR, 'node_modules', '@8n8/workflow'),
 			// In case "n8n" package is installed using npm/yarn workspaces
 			// the node_modules folder is in the root of the workspace.
-			path.join(CLI_DIR, '..', '..', 'node_modules', 'n8n-workflow'),
+			path.join(CLI_DIR, '..', '..', 'node_modules', '@8n8/workflow'),
 		];
 		for (const checkPath of checkPaths) {
 			try {

@@ -6,7 +6,7 @@
 import type { Request, Response } from 'express';
 import { parse, stringify } from 'flatted';
 import picocolors from 'picocolors';
-import { ErrorReporterProxy as ErrorReporter, NodeApiError } from 'n8n-workflow';
+import { ErrorReporterProxy as ErrorReporter, NodeApiError } from '@8n8/workflow';
 
 import type {
 	IExecutionDb,

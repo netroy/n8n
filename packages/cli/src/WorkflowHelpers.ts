@@ -9,13 +9,13 @@ import type {
 	ITaskData,
 	NodeApiError,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy as Logger,
 	NodeOperationError,
 	Workflow,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { v4 as uuid } from 'uuid';
 import * as Db from '@/Db';
 import type {
@@ -393,7 +393,7 @@ export async function getSharedWorkflowIds(user: User, roles?: string[]): Promis
  */
 export async function isBelowOnboardingThreshold(user: User): Promise<boolean> {
 	let belowThreshold = true;
-	const skippedTypes = ['n8n-nodes-base.start', 'n8n-nodes-base.stickyNote'];
+	const skippedTypes = ['@8n8/nodes-base.start', '@8n8/nodes-base.stickyNote'];
 
 	const workflowOwnerRoleId = await Db.collections.Role.findOne({
 		select: ['id'],

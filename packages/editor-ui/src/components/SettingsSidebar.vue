@@ -26,7 +26,7 @@ import { ABOUT_MODAL_KEY, VERSIONS_MODAL_KEY, VIEWS } from '@/constants';
 import { userHelpers } from '@/mixins/userHelpers';
 import { pushConnection } from '@/mixins/pushConnection';
 import { IFakeDoor } from '@/Interface';
-import { IMenuItem } from 'n8n-design-system';
+import { IMenuItem } from '@8n8/design-system';
 import { BaseTextKey } from '@/plugins/i18n';
 import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';

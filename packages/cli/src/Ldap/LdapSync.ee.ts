@@ -1,5 +1,5 @@
 import type { Entry as LdapUser } from 'ldapts';
-import { LoggerProxy as Logger } from 'n8n-workflow';
+import { LoggerProxy as Logger } from '@8n8/workflow';
 import { QueryFailedError } from 'typeorm/error/QueryFailedError';
 import type { LdapService } from './LdapService.ee';
 import type { LdapConfig } from './types';

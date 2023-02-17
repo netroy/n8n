@@ -1,6 +1,6 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
-import type { INodeType, INodeTypeDescription, IWebhookResponseData } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IWebhookResponseData } from '@8n8/workflow';
 
 import {
 	convertTriggerObjectToStringArray,
@@ -12,7 +12,7 @@ export class PostmarkTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Postmark Trigger',
 		name: 'postmarkTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:postmark.png',
 		group: ['trigger'],
 		version: 1,
@@ -80,7 +80,7 @@ export class PostmarkTrigger implements INodeType {
 			{
 				displayName: 'First Open',
 				name: 'firstOpen',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description: 'Only fires on first open for event "Open"',
 				type: 'boolean',
 				default: false,

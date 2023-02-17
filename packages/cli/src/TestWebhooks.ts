@@ -3,7 +3,7 @@
 /* eslint-disable no-param-reassign */
 import type express from 'express';
 
-import { ActiveWebhooks } from 'n8n-core';
+import { ActiveWebhooks } from '@8n8/core';
 
 import type {
 	IWebhookData,
@@ -12,7 +12,7 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import type { IResponseCallbackData, IWorkflowDb } from '@/Interfaces';
 import type { Push } from '@/push';
 import { getPushInstance } from '@/push';

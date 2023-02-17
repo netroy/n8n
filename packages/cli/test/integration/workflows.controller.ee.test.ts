@@ -1,6 +1,6 @@
 import express from 'express';
 import { v4 as uuid } from 'uuid';
-import { INode } from 'n8n-workflow';
+import { INode } from '@8n8/workflow';
 
 import * as utils from './shared/utils';
 import * as testDb from './shared/testDb';
@@ -163,7 +163,7 @@ describe('GET /workflows', () => {
 					{
 						id: uuid(),
 						name: 'Action Network',
-						type: 'n8n-nodes-base.actionNetwork',
+						type: '@8n8/nodes-base.actionNetwork',
 						parameters: {},
 						typeVersion: 1,
 						position: [0, 0],
@@ -489,7 +489,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					name: 'Start',
 					parameters: {},
 					position: [-20, 260],
-					type: 'n8n-nodes-base.start',
+					type: '@8n8/nodes-base.start',
 					typeVersion: 1,
 					credentials: {
 						default: {
@@ -527,7 +527,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					name: 'Start',
 					parameters: {},
 					position: [-20, 260],
-					type: 'n8n-nodes-base.start',
+					type: '@8n8/nodes-base.start',
 					typeVersion: 1,
 					credentials: {
 						default: {
@@ -552,7 +552,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 						name: 'Start',
 						parameters: {},
 						position: [-20, 260],
-						type: 'n8n-nodes-base.start',
+						type: '@8n8/nodes-base.start',
 						typeVersion: 1,
 						credentials: {
 							default: {
@@ -583,7 +583,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					name: 'Start',
 					parameters: {},
 					position: [-20, 260],
-					type: 'n8n-nodes-base.start',
+					type: '@8n8/nodes-base.start',
 					typeVersion: 1,
 					credentials: {
 						default: {
@@ -608,7 +608,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 						name: 'Start',
 						parameters: {},
 						position: [-20, 260],
-						type: 'n8n-nodes-base.start',
+						type: '@8n8/nodes-base.start',
 						typeVersion: 1,
 						credentials: {},
 					},
@@ -617,7 +617,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 						name: 'Start',
 						parameters: {},
 						position: [-20, 260],
-						type: 'n8n-nodes-base.start',
+						type: '@8n8/nodes-base.start',
 						typeVersion: 1,
 						credentials: {
 							default: {
@@ -646,7 +646,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					firstParam: 123,
 				},
 				position: [-20, 260],
-				type: 'n8n-nodes-base.start',
+				type: '@8n8/nodes-base.start',
 				typeVersion: 1,
 				credentials: {
 					default: {
@@ -665,7 +665,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					firstParam: 456,
 				},
 				position: [-20, 555],
-				type: 'n8n-nodes-base.no-op',
+				type: '@8n8/nodes-base.no-op',
 				typeVersion: 1,
 				credentials: {
 					default: {
@@ -685,7 +685,7 @@ describe('PATCH /workflows/:id - validate credential permissions to user', () =>
 					firstParam: 123,
 				},
 				position: [-20, 555],
-				type: 'n8n-nodes-base.start',
+				type: '@8n8/nodes-base.start',
 				typeVersion: 1,
 				credentials: {
 					default: {

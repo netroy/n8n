@@ -1,6 +1,6 @@
 import moment from 'moment-timezone';
 
-import type { IPollFunctions } from 'n8n-core';
+import type { IPollFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	ILoadOptionsFunctions,
@@ -8,7 +8,7 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { clockifyApiRequest } from './GenericFunctions';
 
@@ -49,7 +49,7 @@ export class ClockifyTrigger implements INodeType {
 				required: true,
 				default: '',
 			},
-			// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+			// eslint-disable-next-line @8n8/nodes-base/node-param-default-missing
 			{
 				displayName: 'Trigger',
 				name: 'watchField',

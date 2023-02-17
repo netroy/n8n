@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.googleDriveTrigger",
+	"node": "@8n8/nodes-base.googleDriveTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Data & Storage"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googledrivetrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.googledrivetrigger/"
 			}
 		],
 		"generic": [

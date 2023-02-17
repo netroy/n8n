@@ -3,9 +3,9 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import { eventDisplay, eventNameField } from './descriptions/OnfleetWebhookDescription';
 

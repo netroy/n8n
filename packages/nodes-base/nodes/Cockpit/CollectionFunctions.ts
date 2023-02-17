@@ -1,6 +1,6 @@
-import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from 'n8n-core';
-import type { IDataObject } from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from '@8n8/core';
+import type { IDataObject } from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 import type { ICollection } from './CollectionInterface';
 import { cockpitApiRequest } from './GenericFunctions';
 

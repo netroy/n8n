@@ -17,45 +17,45 @@ export const RISK_CATEGORIES: Risk.Category[] = [
  */
 
 export const SQL_NODE_TYPES_WITH_QUERY_PARAMS = new Set([
-	'n8n-nodes-base.postgres',
-	'n8n-nodes-base.crateDb',
-	'n8n-nodes-base.questDb',
-	'n8n-nodes-base.timescaleDb',
+	'@8n8/nodes-base.postgres',
+	'@8n8/nodes-base.crateDb',
+	'@8n8/nodes-base.questDb',
+	'@8n8/nodes-base.timescaleDb',
 ]);
 
 export const SQL_NODE_TYPES = new Set([
 	...SQL_NODE_TYPES_WITH_QUERY_PARAMS,
-	'n8n-nodes-base.mySql',
-	'n8n-nodes-base.microsoftSql',
-	'n8n-nodes-base.snowflake',
+	'@8n8/nodes-base.mySql',
+	'@8n8/nodes-base.microsoftSql',
+	'@8n8/nodes-base.snowflake',
 ]);
 
-export const WEBHOOK_NODE_TYPE = 'n8n-nodes-base.webhook';
+export const WEBHOOK_NODE_TYPE = '@8n8/nodes-base.webhook';
 
 export const WEBHOOK_VALIDATOR_NODE_TYPES = new Set([
-	'n8n-nodes-base.if',
-	'n8n-nodes-base.switch',
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
+	'@8n8/nodes-base.if',
+	'@8n8/nodes-base.switch',
+	'@8n8/nodes-base.code',
+	'@8n8/nodes-base.function',
+	'@8n8/nodes-base.functionItem',
 ]);
 
 export const FILESYSTEM_INTERACTION_NODE_TYPES = new Set([
-	'n8n-nodes-base.readPdf',
-	'n8n-nodes-base.readBinaryFile',
-	'n8n-nodes-base.readBinaryFiles',
-	'n8n-nodes-base.spreadsheetFile',
-	'n8n-nodes-base.writeBinaryFile',
+	'@8n8/nodes-base.readPdf',
+	'@8n8/nodes-base.readBinaryFile',
+	'@8n8/nodes-base.readBinaryFiles',
+	'@8n8/nodes-base.spreadsheetFile',
+	'@8n8/nodes-base.writeBinaryFile',
 ]);
 
 export const OFFICIAL_RISKY_NODE_TYPES = new Set([
-	'n8n-nodes-base.executeCommand',
-	'n8n-nodes-base.code',
-	'n8n-nodes-base.function',
-	'n8n-nodes-base.functionItem',
-	'n8n-nodes-base.httpRequest',
-	'n8n-nodes-base.ssh',
-	'n8n-nodes-base.ftp',
+	'@8n8/nodes-base.executeCommand',
+	'@8n8/nodes-base.code',
+	'@8n8/nodes-base.function',
+	'@8n8/nodes-base.functionItem',
+	'@8n8/nodes-base.httpRequest',
+	'@8n8/nodes-base.ssh',
+	'@8n8/nodes-base.ftp',
 ]);
 
 /**
@@ -112,7 +112,7 @@ export const INSTANCE_REPORT = {
 export const ENV_VARS_DOCS_URL = 'https://docs.n8n.io/reference/environment-variables.html';
 
 export const DB_QUERY_PARAMS_DOCS_URL =
-	'https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.postgres#use-query-parameters';
+	'https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.postgres#use-query-parameters';
 
 export const COMMUNITY_NODES_RISKS_URL = 'https://docs.n8n.io/integrations/community-nodes/risks';
 

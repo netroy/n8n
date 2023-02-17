@@ -1,4 +1,4 @@
-import { ExpressionExtensions, NativeMethods, IDataObject, DocMetadata } from 'n8n-workflow';
+import { ExpressionExtensions, NativeMethods, IDataObject, DocMetadata } from '@8n8/workflow';
 import { DateTime } from 'luxon';
 import { i18n } from '@/plugins/i18n';
 import { resolveParameter } from '@/mixins/workflowHelpers';
@@ -16,7 +16,7 @@ import {
 import type { Completion, CompletionContext, CompletionResult } from '@codemirror/autocomplete';
 import type { ExtensionTypeName, FnToDoc, Resolved } from './types';
 import { sanitizeHtml } from '@/utils';
-import { NativeDoc } from 'n8n-workflow/src/Extensions/Extensions';
+import { NativeDoc } from '@8n8/workflow/src/Extensions/Extensions';
 
 type AutocompleteOptionType = 'function' | 'keyword';
 

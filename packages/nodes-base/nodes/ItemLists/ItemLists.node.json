@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.itemLists",
+	"node": "@8n8/nodes-base.itemLists",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"details": "",
@@ -7,7 +7,7 @@
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.itemlists/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.itemlists/"
 			}
 		],
 		"generic": []

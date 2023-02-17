@@ -1,9 +1,9 @@
-import type { INode, Workflow } from 'n8n-workflow';
+import type { INode, Workflow } from '@8n8/workflow';
 import {
 	NodeOperationError,
 	SubworkflowOperationError,
 	WorkflowOperationError,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import type { FindOptionsWhere } from 'typeorm';
 import { In } from 'typeorm';
 import * as Db from '@/Db';

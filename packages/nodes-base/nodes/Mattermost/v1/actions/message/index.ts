@@ -2,7 +2,7 @@ import * as del from './del';
 import * as post from './post';
 import * as postEphemeral from './postEphemeral';
 
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export { del as delete, post, postEphemeral };
 

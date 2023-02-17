@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const channelOperations: INodeProperties[] = [
 	{
@@ -194,7 +194,7 @@ export const channelFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Language Code',
 				name: 'h1',
 				type: 'options',
@@ -413,7 +413,7 @@ export const channelFields: INodeProperties[] = [
 									{
 										displayName: 'Profile Color',
 										name: 'profileColor',
-										// eslint-disable-next-line n8n-nodes-base/node-param-color-type-unused
+										// eslint-disable-next-line @8n8/nodes-base/node-param-color-type-unused
 										type: 'string',
 										default: '',
 										description: "A prominent color that complements the channel's content",

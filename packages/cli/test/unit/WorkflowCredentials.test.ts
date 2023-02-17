@@ -1,5 +1,5 @@
 import { mocked } from 'jest-mock';
-import type { INode, IWorkflowCredentials } from 'n8n-workflow';
+import type { INode, IWorkflowCredentials } from '@8n8/workflow';
 import * as Db from '@/Db';
 import { WorkflowCredentials } from '@/WorkflowCredentials';
 

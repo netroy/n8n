@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable no-param-reassign */
-import type { INode, WebhookHttpMethod } from 'n8n-workflow';
-import { NodeHelpers, Workflow, LoggerProxy as Logger } from 'n8n-workflow';
+import type { INode, WebhookHttpMethod } from '@8n8/workflow';
+import { NodeHelpers, Workflow, LoggerProxy as Logger } from '@8n8/workflow';
 
 import type express from 'express';
 

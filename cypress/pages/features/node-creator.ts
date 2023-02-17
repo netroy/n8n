@@ -1,5 +1,5 @@
 import { BasePage } from '../base';
-import { INodeTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription } from '@8n8/workflow';
 
 export class NodeCreator extends BasePage {
 	url = '/workflow/new';

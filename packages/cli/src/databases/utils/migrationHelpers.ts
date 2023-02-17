@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import { readFileSync, rmSync } from 'fs';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import type { QueryRunner } from 'typeorm/query-runner/QueryRunner';
 import config from '@/config';
 import { getLogger } from '@/Logger';
