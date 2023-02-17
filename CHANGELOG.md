@@ -1,3 +1,13 @@
+# [0.220.0](https://github.com/netroy/n8n/compare/n8n@0.216.0...n8n@0.220.0) (2023-02-17)
+
+
+### Features
+
+* **core:** Add execution runData recovery and status field ([#5112](https://github.com/netroy/n8n/issues/5112)) ([d143f3f](https://github.com/netroy/n8n/commit/d143f3f2ec9ce42cfa4db2b41dab019b7b42f379))
+* **core:** Add saml feature flag ([#5494](https://github.com/netroy/n8n/issues/5494)) ([3a9c257](https://github.com/netroy/n8n/commit/3a9c257f55a87890c7456601de13f182cec89fde))
+
+
+
 # [0.218.0](https://github.com/netroy/n8n/compare/n8n@0.216.0...n8n@0.218.0) (2023-02-17)
 
 
