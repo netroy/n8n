@@ -1,4 +1,4 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
 import { databaseFields, databaseOperations } from '../DatabaseDescription';
 
 import { userFields, userOperations } from '../UserDescription';
@@ -9,7 +9,7 @@ import { blockFields, blockOperations } from '../BlockDescription';
 
 import { databasePageFields, databasePageOperations } from '../DatabasePageDescription';
 
-import type { INodeTypeDescription } from 'n8n-workflow';
+import type { INodeTypeDescription } from '@8n8/workflow';
 
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Notion',

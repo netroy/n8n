@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from '@8n8/workflow';
 
 export class MessageBirdApi implements ICredentialType {
 	name = 'messageBirdApi';

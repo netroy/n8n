@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.bitbucketTrigger",
+	"node": "@8n8/nodes-base.bitbucketTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Development", "Productivity"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.bitbuckettrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.bitbuckettrigger/"
 			}
 		]
 	}

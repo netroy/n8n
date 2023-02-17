@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { ITriggerFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { ITriggerFunctions } from '@8n8/core';
 import type {
 	IBinaryData,
 	IBinaryKeyData,
@@ -13,8 +13,8 @@ import type {
 	INodeTypeBaseDescription,
 	INodeTypeDescription,
 	ITriggerResponse,
-} from 'n8n-workflow';
-import { createDeferredPromise, LoggerProxy as Logger, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { createDeferredPromise, LoggerProxy as Logger, NodeOperationError } from '@8n8/workflow';
 
 import type { ImapSimple, ImapSimpleOptions, Message } from 'imap-simple';
 import { connect as imapConnect, getParts } from 'imap-simple';
@@ -73,7 +73,7 @@ const versionDescription: INodeTypeDescription = {
 		name: 'Email Trigger (IMAP)',
 		color: '#44AA22',
 	},
-	// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+	// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 	inputs: [],
 	outputs: ['main'],
 	credentials: [

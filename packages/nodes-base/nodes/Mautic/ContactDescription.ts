@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const contactOperations: INodeProperties[] = [
 	{
@@ -1261,7 +1261,7 @@ export const contactFields: INodeProperties[] = [
 				name: 'rawData',
 				type: 'boolean',
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default only the data of the fields get returned. If this options gets set the RAW response with all data gets returned.',
 			},

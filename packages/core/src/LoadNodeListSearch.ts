@@ -1,4 +1,4 @@
-import type { INodeListSearchResult, IWorkflowExecuteAdditionalData } from 'n8n-workflow';
+import type { INodeListSearchResult, IWorkflowExecuteAdditionalData } from '@8n8/workflow';
 
 import * as NodeExecuteFunctions from './NodeExecuteFunctions';
 import { LoadNodeDetails } from './LoadNodeDetails';

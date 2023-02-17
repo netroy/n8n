@@ -1,5 +1,5 @@
 import { IRestApiContext } from '@/Interface';
-import { IDataObject } from 'n8n-workflow';
+import { IDataObject } from '@8n8/workflow';
 import { makeRestApiRequest } from '@/utils';
 
 export async function getNewWorkflow(context: IRestApiContext, name?: string) {

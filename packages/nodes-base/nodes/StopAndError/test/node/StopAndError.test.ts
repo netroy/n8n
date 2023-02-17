@@ -2,7 +2,7 @@
 import type { WorkflowTestData } from '../../../../test/nodes/types';
 import { executeWorkflow } from '../../../../test/nodes/ExecuteWorkflow';
 import * as Helpers from '../../../../test/nodes/Helpers';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
 
 describe('Execute Stop and Error Node', () => {
 	const tests: WorkflowTestData[] = [
@@ -15,7 +15,7 @@ describe('Execute Stop and Error Node', () => {
 							parameters: {},
 							id: 'b1dcfb89-3dda-4d18-bdd6-c12d8dee70d2',
 							name: 'When clicking "Execute Workflow"',
-							type: 'n8n-nodes-base.manualTrigger',
+							type: '@8n8/nodes-base.manualTrigger',
 							typeVersion: 1,
 							position: [820, 400],
 						},
@@ -26,7 +26,7 @@ describe('Execute Stop and Error Node', () => {
 							},
 							id: '5dae596a-8956-4149-ba9d-36b6b5e80c4a',
 							name: 'Stop and Error1',
-							type: 'n8n-nodes-base.stopAndError',
+							type: '@8n8/nodes-base.stopAndError',
 							typeVersion: 1,
 							position: [1080, 300],
 							continueOnFail: true,
@@ -37,7 +37,7 @@ describe('Execute Stop and Error Node', () => {
 							},
 							id: '196ca8fe-994d-46aa-a0ed-bd9beeaa490e',
 							name: 'Stop and Error',
-							type: 'n8n-nodes-base.stopAndError',
+							type: '@8n8/nodes-base.stopAndError',
 							typeVersion: 1,
 							position: [1080, 480],
 							continueOnFail: true,

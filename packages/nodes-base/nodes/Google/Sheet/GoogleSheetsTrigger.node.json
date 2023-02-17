@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.googleSheetsTrigger",
+	"node": "@8n8/nodes-base.googleSheetsTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Data & Storage", "Productivity"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.googlesheetstrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.googlesheetstrigger/"
 			}
 		],
 		"generic": []

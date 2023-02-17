@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const taskOperations: INodeProperties[] = [
 	{
@@ -327,7 +327,7 @@ export const taskFields: INodeProperties[] = [
 				name: 'showCompleted',
 				type: 'boolean',
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-unencoded-angle-brackets
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-unencoded-angle-brackets
 				description:
 					"Whether completed tasks are returned in the result. <strong>Show Hidden</strong> must also be True to show tasks completed in first party clients such as the web UI or Google's mobile apps.",
 			},

@@ -1,7 +1,7 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
+import { jsonParse, NodeOperationError } from '@8n8/workflow';
 
 const errorObjectPlaceholder = `{
 	"code": "404",
@@ -21,7 +21,7 @@ export class StopAndError implements INodeType {
 			color: '#ff0000',
 		},
 		inputs: ['main'],
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-outputs-wrong
 		outputs: [],
 		properties: [
 			{

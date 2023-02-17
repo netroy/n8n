@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { vonageApiRequest } from './GenericFunctions';
 
@@ -13,7 +13,7 @@ export class Vonage implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Vonage',
 		name: 'vonage',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:vonage.png',
 		group: ['input'],
 		version: 1,

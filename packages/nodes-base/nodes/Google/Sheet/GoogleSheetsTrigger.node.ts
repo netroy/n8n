@@ -4,8 +4,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IPollFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { apiRequest } from './v2/transport';
 import { sheetsSearch, spreadSheetsSearch } from './v2/methods/listSearch';
@@ -55,7 +55,7 @@ export class GoogleSheetsTrigger implements INodeType {
 				type: 'hidden',
 				options: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'OAuth2 (recommended)',
 						value: 'triggerOAuth2',
 					},

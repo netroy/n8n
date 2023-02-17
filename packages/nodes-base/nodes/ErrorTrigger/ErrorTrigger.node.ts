@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
 
 export class ErrorTrigger implements INodeType {
 	description: INodeTypeDescription = {
@@ -21,7 +21,7 @@ export class ErrorTrigger implements INodeType {
 		properties: [
 			{
 				displayName:
-					'This node will trigger when there is an error in another workflow, as long as that workflow is set up to do so. <a href="https://docs.n8n.io/integrations/core-nodes/n8n-nodes-base.errortrigger" target="_blank">More info<a>',
+					'This node will trigger when there is an error in another workflow, as long as that workflow is set up to do so. <a href="https://docs.n8n.io/integrations/core-nodes/@8n8/nodes-base.errortrigger" target="_blank">More info<a>',
 				name: 'notice',
 				type: 'notice',
 				default: '',

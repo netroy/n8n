@@ -5,10 +5,10 @@ import type {
 	IHookFunctions,
 	ILoadOptionsFunctions,
 	IWebhookFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, IHttpRequestOptions } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IDataObject, IHttpRequestOptions } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import { get } from 'lodash';
 

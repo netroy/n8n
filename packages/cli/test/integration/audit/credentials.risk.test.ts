@@ -23,7 +23,7 @@ test('should report credentials not in any use', async () => {
 		name: 'My Slack Credential',
 		data: 'U2FsdGVkX18WjITBG4IDqrGB1xE/uzVNjtwDAG3lP7E=',
 		type: 'slackApi',
-		nodesAccess: [{ nodeType: 'n8n-nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
+		nodesAccess: [{ nodeType: '@8n8/nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
 	};
 
 	const workflowDetails = {
@@ -35,7 +35,7 @@ test('should report credentials not in any use', async () => {
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.slack',
+				type: '@8n8/nodes-base.slack',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 			},
@@ -67,7 +67,7 @@ test('should report credentials not in active use', async () => {
 		name: 'My Slack Credential',
 		data: 'U2FsdGVkX18WjITBG4IDqrGB1xE/uzVNjtwDAG3lP7E=',
 		type: 'slackApi',
-		nodesAccess: [{ nodeType: 'n8n-nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
+		nodesAccess: [{ nodeType: '@8n8/nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
 	};
 
 	const credential = await Db.collections.Credentials.save(credentialDetails);
@@ -81,7 +81,7 @@ test('should report credentials not in active use', async () => {
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.slack',
+				type: '@8n8/nodes-base.slack',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 			},
@@ -110,7 +110,7 @@ test('should report credential in not recently executed workflow', async () => {
 		name: 'My Slack Credential',
 		data: 'U2FsdGVkX18WjITBG4IDqrGB1xE/uzVNjtwDAG3lP7E=',
 		type: 'slackApi',
-		nodesAccess: [{ nodeType: 'n8n-nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
+		nodesAccess: [{ nodeType: '@8n8/nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
 	};
 
 	const credential = await Db.collections.Credentials.save(credentialDetails);
@@ -124,7 +124,7 @@ test('should report credential in not recently executed workflow', async () => {
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.slack',
+				type: '@8n8/nodes-base.slack',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				credentials: {
@@ -173,7 +173,7 @@ test('should not report credentials in recently executed workflow', async () => 
 		name: 'My Slack Credential',
 		data: 'U2FsdGVkX18WjITBG4IDqrGB1xE/uzVNjtwDAG3lP7E=',
 		type: 'slackApi',
-		nodesAccess: [{ nodeType: 'n8n-nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
+		nodesAccess: [{ nodeType: '@8n8/nodes-base.slack', date: '2022-12-21T11:23:00.561Z' }],
 	};
 
 	const credential = await Db.collections.Credentials.save(credentialDetails);
@@ -187,7 +187,7 @@ test('should not report credentials in recently executed workflow', async () => 
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.slack',
+				type: '@8n8/nodes-base.slack',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 				credentials: {

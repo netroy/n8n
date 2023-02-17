@@ -46,7 +46,7 @@ import {
 	INodeTypeDescription,
 	INodeTypeNameVersion,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import mixins from 'vue-typed-mixins';
 import { restApi } from '@/mixins/restApi';
 import { showMessage } from '@/mixins/showMessage';

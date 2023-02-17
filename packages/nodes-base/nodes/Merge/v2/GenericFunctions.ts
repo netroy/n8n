@@ -4,8 +4,8 @@ import type {
 	IDataObject,
 	INodeExecutionData,
 	IPairedItemData,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 import { assign, assignWith, get, isEqual, isNull, merge, mergeWith } from 'lodash';
 

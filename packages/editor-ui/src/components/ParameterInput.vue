@@ -332,7 +332,7 @@ import {
 	INodeProperties,
 	INodePropertyCollection,
 	NodeParameterValueType,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import CodeEdit from '@/components/CodeEdit.vue';
 import CredentialsSelect from '@/components/CredentialsSelect.vue';
@@ -879,7 +879,7 @@ export default mixins(
 				return;
 			}
 
-			if ((this.node.type as string).startsWith('n8n-nodes-base')) {
+			if ((this.node.type as string).startsWith('@8n8/nodes-base')) {
 				this.$telemetry.track('User opened Expression Editor', {
 					node_type: this.node.type,
 					parameter_name: this.parameter.displayName,

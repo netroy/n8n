@@ -8,7 +8,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { ActiveWorkflows, NodeExecuteFunctions } from 'n8n-core';
+import { ActiveWorkflows, NodeExecuteFunctions } from '@8n8/core';
 
 import type {
 	ExecutionError,
@@ -27,14 +27,14 @@ import type {
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
 	INodeType,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	NodeHelpers,
 	Workflow,
 	WorkflowActivationError,
 	LoggerProxy as Logger,
 	ErrorReporterProxy as ErrorReporter,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import type express from 'express';
 
@@ -608,7 +608,7 @@ export class ActiveWorkflowRunner {
 	}
 
 	/**
-	 * Return poll function which gets the global functions from n8n-core
+	 * Return poll function which gets the global functions from @8n8/core
 	 * and overwrites the emit to be able to start it in subprocess
 	 *
 	 */
@@ -664,7 +664,7 @@ export class ActiveWorkflowRunner {
 	}
 
 	/**
-	 * Return trigger function which gets the global functions from n8n-core
+	 * Return trigger function which gets the global functions from @8n8/core
 	 * and overwrites the emit to be able to start it in subprocess
 	 *
 	 */

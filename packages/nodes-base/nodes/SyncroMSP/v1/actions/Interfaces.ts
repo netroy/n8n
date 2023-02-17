@@ -1,4 +1,4 @@
-import type { AllEntities, Entity, PropertiesOf } from 'n8n-workflow';
+import type { AllEntities, Entity, PropertiesOf } from '@8n8/workflow';
 
 type SyncroMspMap = {
 	contact: 'create' | 'delete' | 'get' | 'getAll' | 'update';

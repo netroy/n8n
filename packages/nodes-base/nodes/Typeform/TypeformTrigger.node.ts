@@ -1,4 +1,4 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	ICredentialsDecrypted,
@@ -9,8 +9,8 @@ import type {
 	INodeTypeDescription,
 	IWebhookResponseData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import type {
 	ITypeformAnswer,
@@ -93,12 +93,12 @@ export class TypeformTrigger implements INodeType {
 					'Form which should trigger workflow on submission. Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code-examples/expressions/">expression</a>.',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-simplify
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-simplify
 				displayName: 'Simplify Answers',
 				name: 'simplifyAnswers',
 				type: 'boolean',
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-simplify
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-simplify
 				description:
 					'Whether to convert the answers to a key:value pair ("FIELD_TITLE":"USER_ANSER") to be easily processable',
 			},

@@ -13,7 +13,7 @@ import {
 	INodeExecutionData,
 	NodeInputConnections,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { EVENT_CONNECTION_MOUSEOUT, EVENT_CONNECTION_MOUSEOVER } from '@jsplumb/browser-ui';
 
 /*

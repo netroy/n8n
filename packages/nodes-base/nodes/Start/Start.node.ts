@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { INodeExecutionData, INodeType, INodeTypeDescription } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { INodeExecutionData, INodeType, INodeTypeDescription } from '@8n8/workflow';
 
 export class Start implements INodeType {
 	description: INodeTypeDescription = {
@@ -15,7 +15,7 @@ export class Start implements INodeType {
 			name: 'Start',
 			color: '#00e000',
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: [],
 		outputs: ['main'],
 		properties: [

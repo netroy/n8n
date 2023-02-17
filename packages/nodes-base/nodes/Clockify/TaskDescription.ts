@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const taskOperations: INodeProperties[] = [
 	{
@@ -97,7 +97,7 @@ export const taskFields: INodeProperties[] = [
 		default: {},
 		options: [
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Assignee Names or IDs',
 				name: 'assigneeIds',
 				type: 'multiOptions',
@@ -277,7 +277,7 @@ export const taskFields: INodeProperties[] = [
 		default: {},
 		options: [
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Assignee Names or IDs',
 				name: 'assigneeIds',
 				type: 'multiOptions',

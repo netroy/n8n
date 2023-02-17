@@ -1,4 +1,4 @@
-import { normalizeItems } from 'n8n-core';
+import { normalizeItems } from '@8n8/core';
 import type { NodeVMOptions } from 'vm2';
 import { NodeVM } from 'vm2';
 import { ValidationError } from './ValidationError';
@@ -6,7 +6,7 @@ import { ExecutionError } from './ExecutionError';
 import type { CodeNodeMode } from './utils';
 import { isObject, REQUIRED_N8N_ITEM_KEYS } from './utils';
 
-import type { IExecuteFunctions, IWorkflowDataProxyData, WorkflowExecuteMode } from 'n8n-workflow';
+import type { IExecuteFunctions, IWorkflowDataProxyData, WorkflowExecuteMode } from '@8n8/workflow';
 
 export class Sandbox extends NodeVM {
 	private jsCode = '';

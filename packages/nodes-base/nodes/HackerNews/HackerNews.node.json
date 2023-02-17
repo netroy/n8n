@@ -1,12 +1,12 @@
 {
-	"node": "n8n-nodes-base.hackerNews",
+	"node": "@8n8/nodes-base.hackerNews",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication", "Marketing & Content"],
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.hackernews/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.hackernews/"
 			}
 		],
 		"generic": [

@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.rabbitmqTrigger",
+	"node": "@8n8/nodes-base.rabbitmqTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Development"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.rabbitmqtrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.rabbitmqtrigger/"
 			}
 		]
 	}

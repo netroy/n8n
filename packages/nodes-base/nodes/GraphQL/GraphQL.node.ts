@@ -1,12 +1,12 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { IExecuteFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import type { OptionsWithUri } from 'request';
 import type { RequestPromiseOptions } from 'request-promise-native';
@@ -15,7 +15,7 @@ export class GraphQL implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'GraphQL',
 		name: 'graphql',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:graphql.png',
 		group: ['input'],
 		version: 1,
@@ -150,7 +150,7 @@ export class GraphQL implements INodeType {
 				name: 'allowUnauthorizedCerts',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-wrong-for-ignore-ssl-issues
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-wrong-for-ignore-ssl-issues
 				description:
 					'Whether to download the response even if SSL certificate validation is not possible',
 			},

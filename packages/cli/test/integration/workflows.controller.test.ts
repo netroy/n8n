@@ -5,7 +5,7 @@ import * as testDb from './shared/testDb';
 import * as UserManagementHelpers from '@/UserManagement/UserManagementHelper';
 
 import type { Role } from '@db/entities/Role';
-import type { IPinData } from 'n8n-workflow';
+import type { IPinData } from '@8n8/workflow';
 import { makeWorkflow, MOCK_PINDATA } from './shared/utils';
 
 let app: express.Application;

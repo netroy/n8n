@@ -1,6 +1,6 @@
 import * as get from './get';
 
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export { get };
 

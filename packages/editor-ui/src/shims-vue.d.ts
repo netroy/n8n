@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import 'n8n-design-system/shims-element-ui';
+import '@8n8/design-system/shims-element-ui';
 
 declare module '*.vue' {
 	import Vue from 'vue';

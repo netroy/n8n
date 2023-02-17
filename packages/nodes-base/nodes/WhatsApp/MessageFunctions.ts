@@ -1,5 +1,5 @@
 import set from 'lodash.set';
-import { BinaryDataManager } from 'n8n-core';
+import { BinaryDataManager } from '@8n8/core';
 import type {
 	IDataObject,
 	IExecuteSingleFunctions,
@@ -7,8 +7,8 @@ import type {
 	IN8nHttpFullResponse,
 	INodeExecutionData,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError, NodeOperationError } from '@8n8/workflow';
 
 import FormData from 'form-data';
 

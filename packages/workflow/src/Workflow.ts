@@ -914,10 +914,10 @@ export class Workflow {
 		}
 
 		const startingNodeTypes = [
-			'n8n-nodes-base.manualTrigger',
-			'n8n-nodes-base.executeWorkflowTrigger',
-			'n8n-nodes-base.errorTrigger',
-			'n8n-nodes-base.start',
+			'@8n8/nodes-base.manualTrigger',
+			'@8n8/nodes-base.executeWorkflowTrigger',
+			'@8n8/nodes-base.errorTrigger',
+			'@8n8/nodes-base.start',
 		];
 
 		const sortedNodeNames = Object.values(this.nodes)

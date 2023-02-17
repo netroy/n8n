@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.emailSend",
+	"node": "@8n8/nodes-base.emailSend",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication", "Core Nodes"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.sendemail/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.sendemail/"
 			}
 		],
 		"generic": [

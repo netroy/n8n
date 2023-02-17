@@ -1,9 +1,9 @@
 import { Command } from '@oclif/command';
 import { ExitError } from '@oclif/errors';
-import type { INodeTypes } from 'n8n-workflow';
-import { LoggerProxy, ErrorReporterProxy as ErrorReporter, sleep } from 'n8n-workflow';
-import type { IUserSettings } from 'n8n-core';
-import { BinaryDataManager, UserSettings } from 'n8n-core';
+import type { INodeTypes } from '@8n8/workflow';
+import { LoggerProxy, ErrorReporterProxy as ErrorReporter, sleep } from '@8n8/workflow';
+import type { IUserSettings } from '@8n8/core';
+import { BinaryDataManager, UserSettings } from '@8n8/core';
 import { getLogger } from '@/Logger';
 import config from '@/config';
 import * as Db from '@/Db';

@@ -8,7 +8,7 @@ import {
 	INodeProperties,
 	INodesAndCredentials,
 	Workflow,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { CredentialsHelper } from '@/CredentialsHelper';
 import { CredentialTypes } from '@/CredentialTypes';
 import * as Helpers from './Helpers';

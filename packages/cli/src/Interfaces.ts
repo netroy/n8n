@@ -22,11 +22,11 @@ import type {
 	WorkflowExecuteMode,
 	ExecutionStatus,
 	IExecutionsSummary,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import type { ActiveWorkflowRunner } from '@/ActiveWorkflowRunner';
 
-import type { WorkflowExecute } from 'n8n-core';
+import type { WorkflowExecute } from '@8n8/core';
 
 import type PCancelable from 'p-cancelable';
 import type { FindOperator, Repository } from 'typeorm';

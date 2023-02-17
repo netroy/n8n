@@ -22,7 +22,7 @@
 						</template>
 						<template #webhookAction>
 							<a
-								href="https://docs.n8n.io/integrations/core-nodes/n8n-nodes-base.webhook/"
+								href="https://docs.n8n.io/integrations/core-nodes/@8n8/nodes-base.webhook/"
 								target="_blank"
 								v-text="$locale.baseText('settings.api.view.info.webhook')"
 							/>

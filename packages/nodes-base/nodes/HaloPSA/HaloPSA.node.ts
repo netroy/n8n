@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -12,7 +12,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	JsonObject,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	clientFields,
@@ -37,7 +37,7 @@ import {
 export class HaloPSA implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'HaloPSA',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-name-miscased
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-name-miscased
 		name: 'haloPSA',
 		icon: 'file:halopsa.svg',
 		group: ['input'],

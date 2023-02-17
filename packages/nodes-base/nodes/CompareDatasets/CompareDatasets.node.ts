@@ -1,10 +1,10 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { checkInput, checkMatchFieldsInput, findMatches } from './GenericFunctions';
 
 export class CompareDatasets implements INodeType {
@@ -16,10 +16,10 @@ export class CompareDatasets implements INodeType {
 		version: 1,
 		description: 'Compare two inputs for changes',
 		defaults: { name: 'Compare Datasets' },
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: ['main', 'main'],
 		inputNames: ['Input A', 'Input B'],
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-outputs-wrong
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-outputs-wrong
 		outputs: ['main', 'main', 'main', 'main'],
 		outputNames: ['In A only', 'Same', 'Different', 'In B only'],
 		properties: [
@@ -49,7 +49,7 @@ export class CompareDatasets implements INodeType {
 								name: 'field1',
 								type: 'string',
 								default: '',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -59,7 +59,7 @@ export class CompareDatasets implements INodeType {
 								name: 'field2',
 								type: 'string',
 								default: '',
-								// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+								// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 								placeholder: 'e.g. id',
 								hint: ' Enter the field name as text',
 								requiresDataPath: 'single',
@@ -120,7 +120,7 @@ export class CompareDatasets implements INodeType {
 				name: 'exceptWhenMix',
 				type: 'string',
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 				placeholder: 'e.g. id, country',
 				hint: 'Enter the names of the input fields as text, separated by commas',
 				displayOptions: {

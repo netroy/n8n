@@ -30,7 +30,7 @@ import {
 	INodeConnection,
 	IWebhookDescription,
 	deepCopy,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	INodeTypesMaxCount,
@@ -57,7 +57,7 @@ import { mapStores } from 'pinia';
 import { useUIStore } from '@/stores/ui';
 import { useWorkflowsStore } from '@/stores/workflows';
 import { useRootStore } from '@/stores/n8nRootStore';
-import { IWorkflowSettings } from 'n8n-workflow';
+import { IWorkflowSettings } from '@8n8/workflow';
 import { useNDVStore } from '@/stores/ndv';
 import { useTemplatesStore } from '@/stores/templates';
 import { useNodeTypesStore } from '@/stores/nodeTypes';

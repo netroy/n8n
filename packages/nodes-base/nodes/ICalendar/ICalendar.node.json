@@ -1,12 +1,12 @@
 {
-	"node": "n8n-nodes-base.iCal",
+	"node": "@8n8/nodes-base.iCal",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Core Nodes", "Productivity"],
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.ical/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.ical/"
 			}
 		]
 	},

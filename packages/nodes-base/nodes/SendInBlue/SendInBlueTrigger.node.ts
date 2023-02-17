@@ -1,11 +1,11 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
 import type {
 	IHookFunctions,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { SendInBlueWebhookApi } from './GenericFunctions';
 
 export class SendInBlueTrigger implements INodeType {

@@ -1,4 +1,4 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type { ICredentialType, INodeProperties } from '@8n8/workflow';
 
 export class HttpBasicAuth implements ICredentialType {
 	name = 'httpBasicAuth';
@@ -9,7 +9,7 @@ export class HttpBasicAuth implements ICredentialType {
 
 	genericAuth = true;
 
-	icon = 'node:n8n-nodes-base.httpRequest';
+	icon = 'node:@8n8/nodes-base.httpRequest';
 
 	properties: INodeProperties[] = [
 		{

@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const eventOperations: INodeProperties[] = [
 	{
@@ -128,7 +128,7 @@ export const eventFields: INodeProperties[] = [
 				name: 'userId',
 				type: 'string',
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-lowercase-first-char
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-lowercase-first-char
 				description: 'userId that was passed into the updateUser call',
 			},
 		],

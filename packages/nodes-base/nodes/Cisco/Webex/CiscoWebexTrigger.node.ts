@@ -1,11 +1,11 @@
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import {
 	getAutomaticSecret,
@@ -21,7 +21,7 @@ export class CiscoWebexTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Webex by Cisco Trigger',
 		name: 'ciscoWebexTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:ciscoWebex.png',
 		group: ['trigger'],
 		version: 1,
@@ -100,7 +100,7 @@ export class CiscoWebexTrigger implements INodeType {
 					},
 				},
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default the response only contain a reference to the data the user inputed. If this option gets activated, it will resolve the data automatically.',
 			},

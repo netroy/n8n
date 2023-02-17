@@ -5,8 +5,8 @@ import syslog from 'syslog-client';
 import type {
 	MessageEventBusDestinationOptions,
 	MessageEventBusDestinationSyslogOptions,
-} from 'n8n-workflow';
-import { LoggerProxy, MessageEventBusDestinationTypeNames } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy, MessageEventBusDestinationTypeNames } from '@8n8/workflow';
 import { MessageEventBusDestination } from './MessageEventBusDestination.ee';
 import { isLogStreamingEnabled } from '../MessageEventBus/MessageEventBusHelper';
 import { eventMessageGenericDestinationTestEvent } from '../EventMessageClasses/EventMessageGeneric';

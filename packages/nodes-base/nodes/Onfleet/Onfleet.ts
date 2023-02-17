@@ -5,8 +5,8 @@ import type {
 	ILoadOptionsFunctions,
 	INodeExecutionData,
 	IWebhookFunctions,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import type {
 	OnfleetAdmins,

@@ -1,5 +1,5 @@
-import type { JsonObject } from 'n8n-workflow';
-import { EventMessageTypeNames } from 'n8n-workflow';
+import type { JsonObject } from '@8n8/workflow';
+import { EventMessageTypeNames } from '@8n8/workflow';
 import { AbstractEventMessage, isEventMessageOptionsWithType } from './AbstractEventMessage';
 import type { AbstractEventPayload } from './AbstractEventPayload';
 import type { AbstractEventMessageOptions } from './AbstractEventMessageOptions';

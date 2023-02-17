@@ -60,7 +60,7 @@ import type {
 	IWebhookFunctions,
 	BinaryMetadata,
 	FileSystemHelperFunctions,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	NodeApiError,
 	NodeHelpers,
@@ -71,7 +71,7 @@ import {
 	deepCopy,
 	fileTypeFromMimeType,
 	ExpressionError,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { Agent } from 'https';
 import { stringify } from 'qs';
@@ -1634,7 +1634,7 @@ export async function getCredentials(
 
 	// Hardcode for now for security reasons that only a single node can access
 	// all credentials
-	const fullAccess = ['n8n-nodes-base.httpRequest'].includes(node.type);
+	const fullAccess = ['@8n8/nodes-base.httpRequest'].includes(node.type);
 
 	let nodeCredentialDescription: INodeCredentialDescription | undefined;
 	if (!fullAccess) {

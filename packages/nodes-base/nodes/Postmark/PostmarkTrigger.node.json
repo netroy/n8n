@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.postmarkTrigger",
+	"node": "@8n8/nodes-base.postmarkTrigger",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Communication", "Development"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.postmarktrigger/"
+				"url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/@8n8/nodes-base.postmarktrigger/"
 			}
 		]
 	}

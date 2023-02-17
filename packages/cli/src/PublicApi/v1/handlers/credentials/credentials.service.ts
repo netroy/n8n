@@ -1,5 +1,5 @@
-import { UserSettings, Credentials } from 'n8n-core';
-import type { IDataObject, INodeProperties, INodePropertyOptions } from 'n8n-workflow';
+import { UserSettings, Credentials } from '@8n8/core';
+import type { IDataObject, INodeProperties, INodePropertyOptions } from '@8n8/workflow';
 import * as Db from '@/Db';
 import type { ICredentialsDb } from '@/Interfaces';
 import { CredentialsEntity } from '@db/entities/CredentialsEntity';
@@ -37,7 +37,7 @@ export async function createCredential(
 	if (!newCredential.nodesAccess || newCredential.nodesAccess.length === 0) {
 		newCredential.nodesAccess = [
 			{
-				nodeType: `n8n-nodes-base.${properties.type?.toLowerCase() ?? 'unknown'}`,
+				nodeType: `@8n8/nodes-base.${properties.type?.toLowerCase() ?? 'unknown'}`,
 				date: new Date(),
 			},
 		];

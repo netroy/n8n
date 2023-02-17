@@ -1,4 +1,4 @@
-import type { IExecuteFunctions, IHookFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -8,8 +8,8 @@ import type {
 	ILoadOptionsFunctions,
 	IPollFunctions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import type { OptionsWithUri } from 'request';
 

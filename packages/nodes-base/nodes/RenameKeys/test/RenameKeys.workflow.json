@@ -5,7 +5,7 @@
       "parameters": {},
       "id": "2057ea8b-4834-425f-8ca5-d810c20628fe",
       "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
+      "type": "@8n8/nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
         240,
@@ -26,7 +26,7 @@
       },
       "id": "c44432e0-47bd-43e9-aefe-819c01920dc0",
       "name": "Rename Keys",
-      "type": "n8n-nodes-base.renameKeys",
+      "type": "@8n8/nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
         700,
@@ -44,7 +44,7 @@
       },
       "id": "2e4f420d-1aac-408f-8585-4c332a68ae48",
       "name": "Set",
-      "type": "n8n-nodes-base.set",
+      "type": "@8n8/nodes-base.set",
       "typeVersion": 1,
       "position": [
         500,
@@ -65,7 +65,7 @@
       },
       "id": "4a8bcf08-d16b-462b-9bb9-f1ab28c0cc88",
       "name": "Set with dot notation",
-      "type": "n8n-nodes-base.set",
+      "type": "@8n8/nodes-base.set",
       "typeVersion": 1,
       "position": [
         500,
@@ -86,7 +86,7 @@
       },
       "id": "3efdd843-74aa-478c-a1d3-66bd36e49b24",
       "name": "Rename Keys with dot notation",
-      "type": "n8n-nodes-base.renameKeys",
+      "type": "@8n8/nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
         700,
@@ -107,7 +107,7 @@
       },
       "id": "3fae3aad-89ad-40c7-a49e-1ae1c4ddf999",
       "name": "Set with undefined",
-      "type": "n8n-nodes-base.set",
+      "type": "@8n8/nodes-base.set",
       "typeVersion": 1,
       "position": [
         500,
@@ -127,7 +127,7 @@
       },
       "id": "7d6f85d3-1847-409b-a0b4-ebbfbaa0dd19",
       "name": "Rename Keys with undefined",
-      "type": "n8n-nodes-base.renameKeys",
+      "type": "@8n8/nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
         700,
@@ -150,7 +150,7 @@
       },
       "id": "748143c8-cf83-4585-9f1c-1ef23911accb",
       "name": "Set with dot notation1",
-      "type": "n8n-nodes-base.set",
+      "type": "@8n8/nodes-base.set",
       "typeVersion": 1,
       "position": [
         500,
@@ -173,7 +173,7 @@
       },
       "id": "e47b7001-8270-43e7-a6ac-6bede047cfac",
       "name": "Rename Keys with Regex",
-      "type": "n8n-nodes-base.renameKeys",
+      "type": "@8n8/nodes-base.renameKeys",
       "typeVersion": 1,
       "position": [
         700,

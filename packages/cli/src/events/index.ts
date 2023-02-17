@@ -1,4 +1,4 @@
-import { eventEmitter } from 'n8n-core';
+import { eventEmitter } from '@8n8/core';
 import { nodeFetchedData, workflowExecutionCompleted } from './WorkflowStatistics';
 
 export function initEvents() {

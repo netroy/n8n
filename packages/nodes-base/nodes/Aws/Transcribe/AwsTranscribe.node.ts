@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { awsApiRequestREST, awsApiRequestRESTAllItems } from './GenericFunctions';
 
@@ -180,7 +180,7 @@ export class AwsTranscribe implements INodeType {
 						name: 'channelIdentification',
 						type: 'boolean',
 						default: false,
-						// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+						// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 						description:
 							"Instructs Amazon Transcribe to process each audiochannel separately and then merge the transcription output of each channel into a single transcription. You can't set both Max Speaker Labels and Channel Identification in the same request. If you set both, your request returns a BadRequestException.",
 					},
@@ -257,7 +257,7 @@ export class AwsTranscribe implements INodeType {
 						operation: ['get'],
 					},
 				},
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default, the response only contains metadata about the transcript. Enable this option to retrieve the transcript instead.',
 			},

@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const tableOperations: INodeProperties[] = [
 	{
@@ -513,7 +513,7 @@ export const tableFields: INodeProperties[] = [
 				name: 'returnAllMatches',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default only the first result gets returned. If options gets set all found matches get returned.',
 			},

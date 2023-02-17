@@ -8,7 +8,7 @@ import type {
 	IPinData,
 	IRunData,
 	IWorkflowSettings,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import type { PublicUser, IExecutionDeleteFilter, IWorkflowDb } from '@/Interfaces';
 import type { Role } from '@db/entities/Role';

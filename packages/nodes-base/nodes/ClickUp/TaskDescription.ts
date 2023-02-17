@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const taskOperations: INodeProperties[] = [
 	{
@@ -220,7 +220,7 @@ export const taskFields: INodeProperties[] = [
 					alwaysOpenEditWindow: true,
 				},
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Custom fields to set as JSON in the format: <code>[ {"id": "", "value": ""} ]</code>',
 			},
@@ -764,7 +764,7 @@ export const taskFields: INodeProperties[] = [
 				name: 'includeClosed',
 				type: 'boolean',
 				default: false,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'The response does by default not include closed tasks. Set this to true and dont send a status filter to include closed tasks.',
 			},
@@ -933,7 +933,7 @@ export const taskFields: INodeProperties[] = [
 			},
 		},
 		default: false,
-		// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+		// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 		description:
 			'The value is JSON and will be parsed as such. Is needed if for example needed for labels which expects the value to be an array.',
 	},

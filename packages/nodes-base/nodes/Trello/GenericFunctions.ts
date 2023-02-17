@@ -1,8 +1,8 @@
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type { OptionsWithUri } from 'request';
 
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
 
 /**
  * Make an API request to Trello

@@ -7,13 +7,13 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 // @ts-ignore
 import type mysql2 from 'mysql2/promise';
 
 import { copyInputItems, createConnection, searchTables } from './GenericFunctions';
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 export class MySql implements INodeType {
 	description: INodeTypeDescription = {
@@ -223,7 +223,7 @@ export class MySql implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Name of the property which decides which rows in the database should be updated. Normally that would be "id".',
 			},

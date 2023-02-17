@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { isEventMessageOptions } from '../EventMessageClasses/AbstractEventMessage';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import path, { parse } from 'path';
 import { Worker } from 'worker_threads';
 import { createReadStream, existsSync, rmSync } from 'fs';
 import readline from 'readline';
-import { jsonParse, LoggerProxy } from 'n8n-workflow';
+import { jsonParse, LoggerProxy } from '@8n8/workflow';
 import remove from 'lodash.remove';
 import config from '@/config';
 import { getEventMessageObjectByType } from '../EventMessageClasses/Helpers';

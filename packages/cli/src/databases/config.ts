@@ -2,7 +2,7 @@ import path from 'path';
 import type { SqliteConnectionOptions } from 'typeorm/driver/sqlite/SqliteConnectionOptions';
 import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import type { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 
 import { entities } from './entities';
 import { mysqlMigrations } from './migrations/mysqldb';

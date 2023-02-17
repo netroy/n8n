@@ -11,7 +11,7 @@ import {
 } from './OperationHandler';
 
 import type { Context } from '../GenericFunctions';
-import type { IDataObject } from 'n8n-workflow';
+import type { IDataObject } from '@8n8/workflow';
 
 export class TodoistService implements Service {
 	async execute(

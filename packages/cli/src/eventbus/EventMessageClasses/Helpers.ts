@@ -4,7 +4,7 @@ import { EventMessageGeneric } from './EventMessageGeneric';
 import type { AbstractEventMessageOptions } from './AbstractEventMessageOptions';
 import type { EventMessageWorkflowOptions } from './EventMessageWorkflow';
 import { EventMessageWorkflow } from './EventMessageWorkflow';
-import { EventMessageTypeNames } from 'n8n-workflow';
+import { EventMessageTypeNames } from '@8n8/workflow';
 import type { EventMessageAuditOptions } from './EventMessageAudit';
 import { EventMessageAudit } from './EventMessageAudit';
 import type { EventMessageNodeOptions } from './EventMessageNode';

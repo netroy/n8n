@@ -3,7 +3,7 @@ import * as get from './get';
 import * as getAll from './getAll';
 import * as update from './update';
 
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export { create, get, getAll, update };
 

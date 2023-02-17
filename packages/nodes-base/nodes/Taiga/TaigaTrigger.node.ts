@@ -6,9 +6,9 @@ import type {
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
-import type { IHookFunctions } from 'n8n-core';
+import type { IHookFunctions } from '@8n8/core';
 
 import { getAutomaticSecret, taigaApiRequest } from './GenericFunctions';
 

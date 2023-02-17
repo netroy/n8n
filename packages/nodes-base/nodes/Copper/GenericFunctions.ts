@@ -8,10 +8,10 @@ import type {
 	IHookFunctions,
 	ILoadOptionsFunctions,
 	IWebhookFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { ICredentialDataDecryptedObject, IDataObject } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { ICredentialDataDecryptedObject, IDataObject } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import { flow, omit } from 'lodash';
 

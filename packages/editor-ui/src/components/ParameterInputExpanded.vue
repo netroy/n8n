@@ -61,7 +61,7 @@ import ParameterOptions from './ParameterOptions.vue';
 import Vue, { PropType } from 'vue';
 import ParameterInputWrapper from './ParameterInputWrapper.vue';
 import { isValueExpression } from '@/utils';
-import { INodeParameterResourceLocator, INodeProperties, IParameterLabel } from 'n8n-workflow';
+import { INodeParameterResourceLocator, INodeProperties, IParameterLabel } from '@8n8/workflow';
 import { mapStores } from 'pinia';
 import { useWorkflowsStore } from '@/stores/workflows';
 

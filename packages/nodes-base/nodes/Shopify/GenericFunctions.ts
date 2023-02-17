@@ -5,9 +5,9 @@ import type {
 	IExecuteSingleFunctions,
 	IHookFunctions,
 	ILoadOptionsFunctions,
-} from 'n8n-core';
+} from '@8n8/core';
 
-import type { IDataObject, IOAuth2Options } from 'n8n-workflow';
+import type { IDataObject, IOAuth2Options } from '@8n8/workflow';
 
 import { snakeCase } from 'change-case';
 

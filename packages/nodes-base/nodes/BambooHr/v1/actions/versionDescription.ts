@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeDescription } from 'n8n-workflow';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { INodeTypeDescription } from '@8n8/workflow';
 
 import * as file from './file';
 import * as employee from './employee';
@@ -20,7 +20,7 @@ export const versionDescription: INodeTypeDescription = {
 	description: 'Consume BambooHR API',
 	displayName: 'BambooHR',
 	group: ['transform'],
-	// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+	// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 	icon: 'file:bambooHr.png',
 	inputs: ['main'],
 	name: 'bambooHr',

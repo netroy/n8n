@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "711fa21c-4ac2-4eed-9c35-a79edf18e8af",
 			"name": "On clicking 'execute'",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [
 				140,
@@ -18,7 +18,7 @@
 			},
 			"id": "c5d906bc-909a-45d9-a990-9ea6279cc807",
 			"name": "Code",
-			"type": "n8n-nodes-base.code",
+			"type": "@8n8/nodes-base.code",
 			"typeVersion": 1,
 			"position": [
 				340,
@@ -38,7 +38,7 @@
 			},
 			"id": "10431f40-d47d-4bd9-8dd6-d4dbb35d626b",
 			"name": "IF Occured After",
-			"type": "n8n-nodes-base.if",
+			"type": "@8n8/nodes-base.if",
 			"typeVersion": 1,
 			"position": [
 				560,
@@ -49,7 +49,7 @@
 			"parameters": {},
 			"id": "2727a2f7-2bda-469b-a548-8df82de433e2",
 			"name": "On False Occured After",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				980,
@@ -60,7 +60,7 @@
 			"parameters": {},
 			"id": "40baaffe-9769-4b15-b09f-3553e37f90a5",
 			"name": "On True Occured After",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				760,
@@ -81,7 +81,7 @@
 			},
 			"id": "29ff421d-d7c5-4cc6-8830-73c0abf1c13f",
 			"name": "IF Occured Before",
-			"type": "n8n-nodes-base.if",
+			"type": "@8n8/nodes-base.if",
 			"typeVersion": 1,
 			"position": [
 				560,
@@ -92,7 +92,7 @@
 			"parameters": {},
 			"id": "3347b52a-e513-4900-ab9a-bbcc7a6ec063",
 			"name": "On True Occured Before",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				760,
@@ -103,7 +103,7 @@
 			"parameters": {},
 			"id": "d8401e15-f6e5-4347-b885-54798494cb1b",
 			"name": "On False Occured Before",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				980,

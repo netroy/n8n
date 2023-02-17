@@ -1,7 +1,7 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { apiRequest } from '../../../transport';
 

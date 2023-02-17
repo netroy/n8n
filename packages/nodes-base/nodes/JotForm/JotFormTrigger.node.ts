@@ -1,6 +1,6 @@
 import * as formidable from 'formidable';
 
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -9,8 +9,8 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	IWebhookResponseData,
-} from 'n8n-workflow';
-import { jsonParse } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse } from '@8n8/workflow';
 
 import { jotformApiRequest } from './GenericFunctions';
 
@@ -23,7 +23,7 @@ export class JotFormTrigger implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'JotForm Trigger',
 		name: 'jotFormTrigger',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:jotform.png',
 		group: ['trigger'],
 		version: 1,
@@ -65,7 +65,7 @@ export class JotFormTrigger implements INodeType {
 				name: 'resolveData',
 				type: 'boolean',
 				default: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 				description:
 					'By default does the webhook-data use internal keys instead of the names. If this option gets activated, it will resolve the keys automatically to the actual names.',
 			},

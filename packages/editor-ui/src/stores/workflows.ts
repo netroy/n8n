@@ -42,7 +42,7 @@ import {
 	ITaskData,
 	IWorkflowSettings,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import Vue from 'vue';
 
 import { useRootStore } from './n8nRootStore';

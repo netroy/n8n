@@ -2,7 +2,7 @@
 import { AES, enc } from 'crypto-js';
 import type { Entry as LdapUser } from 'ldapts';
 import { Filter } from 'ldapts/filters/Filter';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import { validate } from 'jsonschema';
 import * as Db from '@/Db';
 import config from '@/config';
@@ -23,7 +23,7 @@ import {
 } from './constants';
 import type { ConnectionSecurity, LdapConfig } from './types';
 import { InternalHooksManager } from '@/InternalHooksManager';
-import { jsonParse, LoggerProxy as Logger } from 'n8n-workflow';
+import { jsonParse, LoggerProxy as Logger } from '@8n8/workflow';
 import { getLicense } from '@/License';
 
 /**

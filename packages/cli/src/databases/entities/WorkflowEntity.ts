@@ -1,7 +1,7 @@
 import { Length } from 'class-validator';
 
-import { IConnections, IDataObject, IWorkflowSettings } from 'n8n-workflow';
-import type { IBinaryKeyData, INode, IPairedItemData } from 'n8n-workflow';
+import { IConnections, IDataObject, IWorkflowSettings } from '@8n8/workflow';
+import type { IBinaryKeyData, INode, IPairedItemData } from '@8n8/workflow';
 
 import {
 	Column,

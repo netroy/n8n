@@ -1,9 +1,9 @@
-import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from 'n8n-core';
+import type { IExecuteFunctions, IHookFunctions, ILoadOptionsFunctions } from '@8n8/core';
 
 import type { OptionsWithUri } from 'request';
 
-import type { IBinaryKeyData, IDataObject, INodeExecutionData, IPollFunctions } from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+import type { IBinaryKeyData, IDataObject, INodeExecutionData, IPollFunctions } from '@8n8/workflow';
+import { jsonParse, NodeOperationError } from '@8n8/workflow';
 
 interface IAttachment {
 	url: string;

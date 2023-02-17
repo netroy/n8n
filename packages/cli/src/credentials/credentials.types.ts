@@ -1,4 +1,4 @@
-import type { IUser } from 'n8n-workflow';
+import type { IUser } from '@8n8/workflow';
 import type { ICredentialsDb } from '@/Interfaces';
 
 export interface CredentialWithSharings extends ICredentialsDb {

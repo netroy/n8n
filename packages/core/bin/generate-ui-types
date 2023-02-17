@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const { LoggerProxy, NodeHelpers } = require('n8n-workflow');
+const { LoggerProxy, NodeHelpers } = require('@8n8/workflow');
 const { PackageDirectoryLoader } = require('../dist/DirectoryLoader');
 const { packageDir, writeJSON } = require('./common');
 

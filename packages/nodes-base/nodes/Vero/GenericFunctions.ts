@@ -1,7 +1,7 @@
 import type { OptionsWithUri } from 'request';
-import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from 'n8n-core';
-import type { IDataObject } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { IExecuteFunctions, IExecuteSingleFunctions, ILoadOptionsFunctions } from '@8n8/core';
+import type { IDataObject } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 export async function veroApiRequest(
 	this: IExecuteFunctions | IExecuteSingleFunctions | ILoadOptionsFunctions,

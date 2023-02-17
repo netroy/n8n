@@ -1,4 +1,4 @@
-import type { IPollFunctions } from 'n8n-core';
+import type { IPollFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,8 +7,8 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import { extractId, googleApiRequest, googleApiRequestAllItems } from './GenericFunctions';
 
@@ -57,7 +57,7 @@ export class GoogleDriveTrigger implements INodeType {
 				type: 'options',
 				options: [
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+						// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 						name: 'OAuth2 (recommended)',
 						value: 'oAuth2',
 					},
@@ -284,7 +284,7 @@ export class GoogleDriveTrigger implements INodeType {
 				default: '',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-options
 				displayName: 'Drive To Watch',
 				name: 'driveToWatch',
 				type: 'options',

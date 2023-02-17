@@ -1,6 +1,6 @@
-import type { ITriggerFunctions } from 'n8n-core';
-import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+import type { ITriggerFunctions } from '@8n8/core';
+import type { IDataObject, INodeType, INodeTypeDescription, ITriggerResponse } from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { CronJob } from 'cron';
 import moment from 'moment';
@@ -22,7 +22,7 @@ export class ScheduleTrigger implements INodeType {
 			name: 'Schedule Trigger',
 			color: '#31C49F',
 		},
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-inputs-wrong-regular-node
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-inputs-wrong-regular-node
 		inputs: [],
 		outputs: ['main'],
 		properties: [
@@ -58,7 +58,7 @@ export class ScheduleTrigger implements INodeType {
 								name: 'field',
 								type: 'options',
 								default: 'days',
-								// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+								// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 								options: [
 									{
 										name: 'Seconds',

@@ -1,13 +1,13 @@
 /* eslint-disable no-restricted-syntax */
-import { Credentials, UserSettings } from 'n8n-core';
+import { Credentials, UserSettings } from '@8n8/core';
 import type {
 	ICredentialDataDecryptedObject,
 	ICredentialsDecrypted,
 	ICredentialType,
 	INodeCredentialTestResult,
 	INodeProperties,
-} from 'n8n-workflow';
-import { deepCopy, LoggerProxy, NodeHelpers } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { deepCopy, LoggerProxy, NodeHelpers } from '@8n8/workflow';
 import type { FindManyOptions, FindOptionsWhere } from 'typeorm';
 import { In } from 'typeorm';
 

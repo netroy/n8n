@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	ICredentialDataDecryptedObject,
@@ -9,8 +9,8 @@ import type {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 import { chunk, flatten } from '../../../utils/utilities';
 
@@ -97,7 +97,7 @@ export class MicrosoftSql implements INodeType {
 					},
 				},
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 				placeholder: 'SELECT id, name FROM product WHERE id < 40',
 				required: true,
 				description: 'The SQL query to execute',
@@ -129,7 +129,7 @@ export class MicrosoftSql implements INodeType {
 					},
 				},
 				default: '',
-				// eslint-disable-next-line n8n-nodes-base/node-param-placeholder-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-placeholder-miscased-id
 				placeholder: 'id,name,description',
 				description:
 					'Comma-separated list of the properties which should used as columns for the new rows',
@@ -162,7 +162,7 @@ export class MicrosoftSql implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Name of the property which decides which rows in the database should be updated. Normally that would be "id".',
 			},
@@ -208,7 +208,7 @@ export class MicrosoftSql implements INodeType {
 				},
 				default: 'id',
 				required: true,
-				// eslint-disable-next-line n8n-nodes-base/node-param-description-miscased-id
+				// eslint-disable-next-line @8n8/nodes-base/node-param-description-miscased-id
 				description:
 					'Name of the property which decides which rows in the database should be deleted. Normally that would be "id".',
 			},

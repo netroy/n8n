@@ -18,7 +18,7 @@ import type {
 } from './workflows.types';
 import { EECredentialsService as EECredentials } from '@/credentials/credentials.service.ee';
 import { getSharedWorkflowIds } from '@/WorkflowHelpers';
-import { NodeOperationError } from 'n8n-workflow';
+import { NodeOperationError } from '@8n8/workflow';
 
 export class EEWorkflowsService extends WorkflowsService {
 	static async getWorkflowIdsForUser(user: User) {

@@ -4,8 +4,8 @@ import type {
 	IHttpRequestOptions,
 	IWebhookFunctions,
 	JsonObject,
-} from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse, NodeOperationError } from '@8n8/workflow';
 import type { OptionsWithUri } from 'request';
 import MailComposer from 'nodemailer/lib/mail-composer';
 export namespace SendInBlueNode {

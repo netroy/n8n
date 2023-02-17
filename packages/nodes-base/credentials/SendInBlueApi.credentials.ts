@@ -3,7 +3,7 @@ import type {
 	ICredentialTestRequest,
 	ICredentialType,
 	INodeProperties,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 export class SendInBlueApi implements ICredentialType {
 	name = 'sendInBlueApi';

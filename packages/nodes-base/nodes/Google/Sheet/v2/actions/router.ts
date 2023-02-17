@@ -1,5 +1,5 @@
-import type { IExecuteFunctions } from 'n8n-core';
-import type { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import type { IExecuteFunctions } from '@8n8/core';
+import type { IDataObject, INodeExecutionData } from '@8n8/workflow';
 import * as sheet from './sheet/Sheet.resource';
 import * as spreadsheet from './spreadsheet/SpreadSheet.resource';
 import { GoogleSheet } from '../helpers/GoogleSheet';

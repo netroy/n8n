@@ -7,8 +7,8 @@ import type {
 	IRunExecutionData,
 	ITaskDataConnections,
 	IWorkflowExecuteAdditionalData,
-} from 'n8n-workflow';
-import { RoutingNode } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { RoutingNode } from '@8n8/workflow';
 
 import * as NodeExecuteFunctions from './NodeExecuteFunctions';
 import { LoadNodeDetails } from './LoadNodeDetails';

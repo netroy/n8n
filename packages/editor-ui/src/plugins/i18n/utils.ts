@@ -4,7 +4,7 @@
  *
  * Used by `nodeText()` to handle nested params.
  *
- * Location: `n8n-nodes-base.nodes.github.nodeView.<middleKey>.placeholder`
+ * Location: `@8n8/nodes-base.nodes.github.nodeView.<middleKey>.placeholder`
  */
 export function deriveMiddleKey(path: string, parameter: { name: string; type: string }) {
 	let middleKey = parameter.name;

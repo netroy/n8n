@@ -11,7 +11,7 @@ import type {
 	IRunExecutionData,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { validate } from 'class-validator';
 import { Like } from 'typeorm';
 import config from '@/config';

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { INodeExecutionData } from 'n8n-workflow';
+import type { INodeExecutionData } from '@8n8/workflow';
 
 export default {
 	name: 'RunDataHtml',

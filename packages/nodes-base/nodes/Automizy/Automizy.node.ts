@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -8,7 +8,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 	NodeExecutionWithMetadata,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { automizyApiRequest, automizyApiRequestAllItems } from './GenericFunctions';
 
@@ -20,7 +20,7 @@ export class Automizy implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Automizy',
 		name: 'automizy',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:automizy.png',
 		group: ['input'],
 		version: 1,

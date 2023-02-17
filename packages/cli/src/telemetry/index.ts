@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import type RudderStack from '@rudderstack/rudder-sdk-node';
 import type { PostHog } from 'posthog-node';
-import type { ITelemetryTrackProperties } from 'n8n-workflow';
-import { LoggerProxy } from 'n8n-workflow';
+import type { ITelemetryTrackProperties } from '@8n8/workflow';
+import { LoggerProxy } from '@8n8/workflow';
 import config from '@/config';
 import type { IExecutionTrackProperties } from '@/Interfaces';
 import { getLogger } from '@/Logger';
@@ -128,7 +128,7 @@ export class Telemetry {
 				this.executionCountsBuffer[workflowId][key]!.count++;
 			}
 
-			if (!properties.success && properties.error_node_type?.startsWith('n8n-nodes-base')) {
+			if (!properties.success && properties.error_node_type?.startsWith('@8n8/nodes-base')) {
 				void this.track('Workflow execution errored', properties);
 			}
 		}

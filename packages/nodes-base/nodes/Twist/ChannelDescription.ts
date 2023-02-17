@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const channelOperations: INodeProperties[] = [
 	{
@@ -179,7 +179,7 @@ export const channelFields: INodeProperties[] = [
 				default: false,
 				description: 'Whether the channel will be marked as public',
 			},
-			// eslint-disable-next-line n8n-nodes-base/node-param-default-missing
+			// eslint-disable-next-line @8n8/nodes-base/node-param-default-missing
 			{
 				displayName: 'Temp ID',
 				name: 'temp_id',

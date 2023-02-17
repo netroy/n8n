@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync, mkdtempSync } from 'fs';
-import { BinaryDataManager, Credentials, loadClassInIsolation } from 'n8n-core';
+import { BinaryDataManager, Credentials, loadClassInIsolation } from '@8n8/core';
 import {
 	ICredentialDataDecryptedObject,
 	ICredentialsHelper,
@@ -23,7 +23,7 @@ import {
 	LoggerProxy,
 	NodeHelpers,
 	WorkflowHooks,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { executeWorkflow } from './ExecuteWorkflow';
 import { WorkflowTestData } from './types';
 import path from 'path';
@@ -187,10 +187,10 @@ export function setup(testData: Array<WorkflowTestData> | WorkflowTestData) {
 	);
 
 	for (const nodeName of nodeNames) {
-		if (!nodeName.startsWith('n8n-nodes-base.')) {
+		if (!nodeName.startsWith('@8n8/nodes-base.')) {
 			throw new Error(`Unknown node type: ${nodeName}`);
 		}
-		const loadInfo = knownNodes[nodeName.replace('n8n-nodes-base.', '')];
+		const loadInfo = knownNodes[nodeName.replace('@8n8/nodes-base.', '')];
 		if (!loadInfo) {
 			throw new Error(`Unknown node type: ${nodeName}`);
 		}

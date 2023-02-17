@@ -45,7 +45,7 @@ export async function saveManualTriggerWorkflow() {
 			{
 				id: uuid(),
 				name: 'My Node',
-				type: 'n8n-nodes-base.manualTrigger',
+				type: '@8n8/nodes-base.manualTrigger',
 				typeVersion: 1,
 				position: [0, 0] as [number, number],
 			},
@@ -59,7 +59,7 @@ export const MOCK_09990_N8N_VERSION = {
 	name: '0.999.0',
 	nodes: [
 		{
-			name: 'n8n-nodes-base.testNode',
+			name: '@8n8/nodes-base.testNode',
 			displayName: 'Test Node',
 			icon: 'file:testNode.svg',
 			defaults: {

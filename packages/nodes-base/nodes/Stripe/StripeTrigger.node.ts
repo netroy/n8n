@@ -1,8 +1,8 @@
-/* eslint-disable n8n-nodes-base/node-param-description-excess-final-period */
-import type { IHookFunctions, IWebhookFunctions } from 'n8n-core';
+/* eslint-disable @8n8/nodes-base/node-param-description-excess-final-period */
+import type { IHookFunctions, IWebhookFunctions } from '@8n8/core';
 
-import type { INodeType, INodeTypeDescription, IWebhookResponseData } from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+import type { INodeType, INodeTypeDescription, IWebhookResponseData } from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import { stripeApiRequest } from './helpers';
 
@@ -41,7 +41,7 @@ export class StripeTrigger implements INodeType {
 				required: true,
 				default: [],
 				description: 'The event to listen to',
-				// eslint-disable-next-line n8n-nodes-base/node-param-multi-options-type-unsorted-items
+				// eslint-disable-next-line @8n8/nodes-base/node-param-multi-options-type-unsorted-items
 				options: [
 					{
 						name: '*',

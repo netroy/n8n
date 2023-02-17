@@ -5,7 +5,7 @@
 			"parameters": {},
 			"id": "78f64c0f-d6a7-47fb-920d-5471fcd8caa1",
 			"name": "When clicking \"Execute Workflow\"",
-			"type": "n8n-nodes-base.manualTrigger",
+			"type": "@8n8/nodes-base.manualTrigger",
 			"typeVersion": 1,
 			"position": [
 				-2640,
@@ -18,7 +18,7 @@
 			},
 			"id": "90831322-8a73-40ac-ae52-84a6504d3d95",
 			"name": "Crypto Hash into Hex",
-			"type": "n8n-nodes-base.crypto",
+			"type": "@8n8/nodes-base.crypto",
 			"typeVersion": 1,
 			"position": [
 				-2120,
@@ -31,7 +31,7 @@
 			},
 			"id": "9836f128-6798-498e-8752-ba447218ce21",
 			"name": "Crypto Hash into MD5",
-			"type": "n8n-nodes-base.crypto",
+			"type": "@8n8/nodes-base.crypto",
 			"typeVersion": 1,
 			"position": [
 				-2120,
@@ -48,7 +48,7 @@
 			},
 			"id": "4ec3781a-433d-4b68-bc94-3fbe6ed55a0e",
 			"name": "Crypto Sign data with RSA-MDA4",
-			"type": "n8n-nodes-base.crypto",
+			"type": "@8n8/nodes-base.crypto",
 			"typeVersion": 1,
 			"position": [
 				-2120,
@@ -64,7 +64,7 @@
 			},
 			"id": "797ba0d9-28e0-4494-bafd-d0603e85c303",
 			"name": "Crypto Hmac data with MD5",
-			"type": "n8n-nodes-base.crypto",
+			"type": "@8n8/nodes-base.crypto",
 			"typeVersion": 1,
 			"position": [
 				-2120,
@@ -77,7 +77,7 @@
 			},
 			"id": "a6682d88-0842-4884-9869-220597ac3d2a",
 			"name": "Crypto Generate UUID",
-			"type": "n8n-nodes-base.crypto",
+			"type": "@8n8/nodes-base.crypto",
 			"typeVersion": 1,
 			"position": [
 				-2120,
@@ -98,7 +98,7 @@
 			},
 			"id": "89297cfb-e119-45b8-87b4-021a8272534b",
 			"name": "IF",
-			"type": "n8n-nodes-base.if",
+			"type": "@8n8/nodes-base.if",
 			"typeVersion": 1,
 			"position": [
 				-1900,
@@ -109,7 +109,7 @@
 			"parameters": {},
 			"id": "1954d932-2878-403d-ad16-373585dbe9cd",
 			"name": "No Operation, do nothing",
-			"type": "n8n-nodes-base.noOp",
+			"type": "@8n8/nodes-base.noOp",
 			"typeVersion": 1,
 			"position": [
 				-1680,
@@ -122,7 +122,7 @@
 			},
 			"id": "b1154e93-9d39-40c6-8ca6-aadc8103cfbd",
 			"name": "Stop and Error",
-			"type": "n8n-nodes-base.stopAndError",
+			"type": "@8n8/nodes-base.stopAndError",
 			"typeVersion": 1,
 			"position": [
 				-1680,

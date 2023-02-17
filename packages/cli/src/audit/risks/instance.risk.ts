@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UserSettings } from 'n8n-core';
+import { UserSettings } from '@8n8/core';
 import config from '@/config';
 import { toFlaggedNode } from '@/audit/utils';
 import { separate } from '@/utils';

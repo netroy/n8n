@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Entry as LdapUser } from 'ldapts';
-import { jsonParse } from 'n8n-workflow';
+import { jsonParse } from '@8n8/workflow';
 import config from '@/config';
 import * as Db from '@/Db';
 import type { Role } from '@db/entities/Role';

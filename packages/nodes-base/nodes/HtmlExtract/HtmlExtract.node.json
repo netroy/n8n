@@ -1,12 +1,12 @@
 {
-	"node": "n8n-nodes-base.htmlExtract",
+	"node": "@8n8/nodes-base.htmlExtract",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Core Nodes"],
 	"resources": {
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.html/"
+				"url": "https://docs.n8n.io/integrations/builtin/core-nodes/@8n8/nodes-base.html/"
 			}
 		],
 		"generic": [

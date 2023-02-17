@@ -11,7 +11,7 @@
 			},
 			"id": "a898563b-d2a4-4b15-a979-366872e801b0",
 			"name": "Schedule Trigger",
-			"type": "n8n-nodes-base.scheduleTrigger",
+			"type": "@8n8/nodes-base.scheduleTrigger",
 			"typeVersion": 1,
 			"position": [420, 260]
 		},
@@ -21,7 +21,7 @@
 			},
 			"id": "b9a13e3d-bfa5-4873-959f-fd3d67e380d9",
 			"name": "Set",
-			"type": "n8n-nodes-base.set",
+			"type": "@8n8/nodes-base.set",
 			"typeVersion": 1,
 			"position": [640, 260]
 		}

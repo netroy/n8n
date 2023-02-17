@@ -1,9 +1,9 @@
-import { INodeCredentials, INodeParameters, MessageEventBusDestinationOptions } from 'n8n-workflow';
+import { INodeCredentials, INodeParameters, MessageEventBusDestinationOptions } from '@8n8/workflow';
 import { INodeUi } from '../../Interface';
 
 export function destinationToFakeINodeUi(
 	destination: MessageEventBusDestinationOptions,
-	fakeType = 'n8n-nodes-base.stickyNote',
+	fakeType = '@8n8/nodes-base.stickyNote',
 ): INodeUi {
 	return {
 		id: destination.id,

@@ -24,8 +24,8 @@ import { BadRequestError } from '../ResponseHelper';
 import type {
 	MessageEventBusDestinationWebhookOptions,
 	MessageEventBusDestinationOptions,
-} from 'n8n-workflow';
-import { MessageEventBusDestinationTypeNames, EventMessageTypeNames } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { MessageEventBusDestinationTypeNames, EventMessageTypeNames } from '@8n8/workflow';
 import type { User } from '../databases/entities/User';
 import * as ResponseHelper from '@/ResponseHelper';
 import type { EventMessageNodeOptions } from './EventMessageClasses/EventMessageNode';

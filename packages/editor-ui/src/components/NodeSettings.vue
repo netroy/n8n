@@ -165,7 +165,7 @@ import {
 	NodeHelpers,
 	NodeParameterValue,
 	deepCopy,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	ICredentialsResponse,
 	INodeUi,

@@ -11,7 +11,7 @@
 			},
 			"id": "0f7d87ee-19c6-4576-bdff-1f3c4739392c",
 			"name": "Schedule Trigger",
-			"type": "n8n-nodes-base.scheduleTrigger",
+			"type": "@8n8/nodes-base.scheduleTrigger",
 			"typeVersion": 1,
 			"position": [
 				720,
@@ -32,7 +32,7 @@
 			},
 			"id": "2dfc690a-95cf-48c2-85a6-2b3bb8cd1d1d",
 			"name": "Set",
-			"type": "n8n-nodes-base.set",
+			"type": "@8n8/nodes-base.set",
 			"typeVersion": 1,
 			"position": [
 				920,
@@ -42,7 +42,7 @@
 		{
 			"id": "9bee04af-1bfc-4be2-a704-e975cb887ced",
 			"name": "Set1",
-			"type": "n8n-nodes-base.set",
+			"type": "@8n8/nodes-base.set",
 			"typeVersion": 1,
 			"position": [
 				1120,

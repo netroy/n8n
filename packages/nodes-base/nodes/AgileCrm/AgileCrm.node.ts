@@ -1,12 +1,12 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
-import { jsonParse, NodeOperationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { jsonParse, NodeOperationError } from '@8n8/workflow';
 
 import { contactFields, contactOperations } from './ContactDescription';
 
@@ -33,7 +33,7 @@ export class AgileCrm implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Agile CRM',
 		name: 'agileCrm',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:agilecrm.png',
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
 		group: ['transform'],

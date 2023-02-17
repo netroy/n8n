@@ -60,7 +60,7 @@ import {
 import CommunityPackageCard from '@/components/CommunityPackageCard.vue';
 import { showMessage } from '@/mixins/showMessage';
 import mixins from 'vue-typed-mixins';
-import { PublicInstalledPackage } from 'n8n-workflow';
+import { PublicInstalledPackage } from '@8n8/workflow';
 
 import { useCommunityNodesStore } from '@/stores/communityNodes';
 import { useUIStore } from '@/stores/ui';

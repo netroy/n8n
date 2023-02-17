@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeDescription } from 'n8n-workflow';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { INodeTypeDescription } from '@8n8/workflow';
 
 export const versionDescription: INodeTypeDescription = {
 	displayName: 'Google Sheets ',
@@ -63,7 +63,7 @@ export const versionDescription: INodeTypeDescription = {
 			type: 'options',
 			options: [
 				{
-					// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+					// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 					name: 'OAuth2 (recommended)',
 					value: 'oAuth2',
 				},
@@ -487,7 +487,7 @@ export const versionDescription: INodeTypeDescription = {
 							'/operation': ['lookup', 'read'],
 						},
 					},
-					// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+					// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 					description:
 						'By default, the workflow stops executing if the lookup/read does not return values',
 				},
@@ -501,7 +501,7 @@ export const versionDescription: INodeTypeDescription = {
 							'/operation': ['lookup'],
 						},
 					},
-					// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+					// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 					description:
 						'By default only the first result gets returned. If options gets set all found matches get returned.',
 				},

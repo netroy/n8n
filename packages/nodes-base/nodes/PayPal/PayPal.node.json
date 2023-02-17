@@ -1,5 +1,5 @@
 {
-	"node": "n8n-nodes-base.payPal",
+	"node": "@8n8/nodes-base.payPal",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
 	"categories": ["Finance & Accounting", "Sales"],
@@ -11,7 +11,7 @@
 		],
 		"primaryDocumentation": [
 			{
-				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.paypal/"
+				"url": "https://docs.n8n.io/integrations/builtin/app-nodes/@8n8/nodes-base.paypal/"
 			}
 		]
 	}

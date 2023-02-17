@@ -4,9 +4,9 @@ import { promisify } from 'util';
 import { exec } from 'child_process';
 import { access as fsAccess, mkdir as fsMkdir } from 'fs/promises';
 import axios from 'axios';
-import { UserSettings } from 'n8n-core';
-import type { PublicInstalledPackage } from 'n8n-workflow';
-import { LoggerProxy } from 'n8n-workflow';
+import { UserSettings } from '@8n8/core';
+import type { PublicInstalledPackage } from '@8n8/workflow';
+import { LoggerProxy } from '@8n8/workflow';
 
 import {
 	NODE_PACKAGE_PREFIX,

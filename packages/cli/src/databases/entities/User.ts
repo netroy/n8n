@@ -11,7 +11,7 @@ import {
 	BeforeInsert,
 } from 'typeorm';
 import { IsEmail, IsString, Length } from 'class-validator';
-import type { IUser } from 'n8n-workflow';
+import type { IUser } from '@8n8/workflow';
 import { Role } from './Role';
 import type { SharedWorkflow } from './SharedWorkflow';
 import type { SharedCredentials } from './SharedCredentials';

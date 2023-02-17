@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const messageOperations: INodeProperties[] = [
 	{
@@ -1037,7 +1037,7 @@ export const messageFields: INodeProperties[] = [
 										},
 										type: 'boolean',
 										default: false,
-										// eslint-disable-next-line n8n-nodes-base/node-param-description-boolean-without-whether
+										// eslint-disable-next-line @8n8/nodes-base/node-param-description-boolean-without-whether
 										description:
 											'When set to false (as is default) URLs will be auto-converted into links, conversation names will be link-ified, and certain mentions will be automatically parsed',
 									},

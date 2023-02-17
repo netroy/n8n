@@ -10,8 +10,8 @@ import type {
 	IExecuteResponsePromiseData,
 	IRun,
 	ExecutionStatus,
-} from 'n8n-workflow';
-import { createDeferredPromise, LoggerProxy } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { createDeferredPromise, LoggerProxy } from '@8n8/workflow';
 
 import type { ChildProcess } from 'child_process';
 import { stringify } from 'flatted';

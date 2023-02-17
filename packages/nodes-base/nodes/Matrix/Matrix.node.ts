@@ -1,4 +1,4 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
@@ -7,7 +7,7 @@ import type {
 	INodePropertyOptions,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { handleMatrixCall, matrixApiRequest } from './GenericFunctions';
 
@@ -27,7 +27,7 @@ export class Matrix implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Matrix',
 		name: 'matrix',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
+		// eslint-disable-next-line @8n8/nodes-base/node-class-description-icon-not-svg
 		icon: 'file:matrix.png',
 		group: ['output'],
 		version: 1,

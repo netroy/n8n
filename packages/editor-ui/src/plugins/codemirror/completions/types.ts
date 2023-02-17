@@ -1,5 +1,5 @@
 import { resolveParameter } from '@/mixins/workflowHelpers';
-import type { DocMetadata } from 'n8n-workflow';
+import type { DocMetadata } from '@8n8/workflow';
 
 export type Resolved = ReturnType<typeof resolveParameter>;
 

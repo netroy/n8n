@@ -1,5 +1,5 @@
 import { NodeCreator } from '../pages/features/node-creator';
-import { INodeTypeDescription } from 'n8n-workflow';
+import { INodeTypeDescription } from '@8n8/workflow';
 import { DEFAULT_USER_EMAIL, DEFAULT_USER_PASSWORD } from '../constants';
 import { randFirstName, randLastName } from '@ngneat/falso';
 

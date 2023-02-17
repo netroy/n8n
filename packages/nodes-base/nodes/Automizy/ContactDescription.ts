@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const contactOperations: INodeProperties[] = [
 	{
@@ -394,7 +394,7 @@ export const contactFields: INodeProperties[] = [
 				],
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-wrong-for-dynamic-multi-options
 				displayName: 'Remove Tags',
 				name: 'removeTags',
 				type: 'multiOptions',

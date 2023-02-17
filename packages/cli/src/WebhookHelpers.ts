@@ -16,7 +16,7 @@
 import type express from 'express';
 import get from 'lodash.get';
 
-import { BINARY_ENCODING, BinaryDataManager, NodeExecuteFunctions, eventEmitter } from 'n8n-core';
+import { BINARY_ENCODING, BinaryDataManager, NodeExecuteFunctions, eventEmitter } from '@8n8/core';
 
 import type {
 	IBinaryKeyData,
@@ -33,13 +33,13 @@ import type {
 	IWorkflowExecuteAdditionalData,
 	Workflow,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import {
 	createDeferredPromise,
 	ErrorReporterProxy as ErrorReporter,
 	LoggerProxy as Logger,
 	NodeHelpers,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import type {
 	IExecutionDb,

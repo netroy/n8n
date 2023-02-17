@@ -24,7 +24,7 @@ import {
 	WorkflowCallerPolicyDefaultOption,
 	ILdapConfig,
 } from '@/Interface';
-import { ITelemetrySettings } from 'n8n-workflow';
+import { ITelemetrySettings } from '@8n8/workflow';
 import { defineStore } from 'pinia';
 import Vue from 'vue';
 import { useRootStore } from './n8nRootStore';

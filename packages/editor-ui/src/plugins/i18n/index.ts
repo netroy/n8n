@@ -8,12 +8,12 @@ import {
 	normalize,
 	insertOptionsAndValues,
 } from './utils';
-import { locale } from 'n8n-design-system';
+import { locale } from '@8n8/design-system';
 
 import englishBaseText from './locales/en.json';
 import { useUIStore } from '@/stores/ui';
 import { useNDVStore } from '@/stores/ndv';
-import { INodeProperties, INodePropertyCollection, INodePropertyOptions } from 'n8n-workflow';
+import { INodeProperties, INodePropertyCollection, INodePropertyOptions } from '@8n8/workflow';
 
 Vue.use(VueI18n);
 locale.use('en');
@@ -50,7 +50,7 @@ export class I18nClass {
 	}
 
 	shortNodeType(longNodeType: string) {
-		return longNodeType.replace('n8n-nodes-base.', '');
+		return longNodeType.replace('@8n8/nodes-base.', '');
 	}
 
 	// ----------------------------------
@@ -92,7 +92,7 @@ export class I18nClass {
 	credText() {
 		const uiStore = useUIStore();
 		const credentialType = uiStore.activeCredentialType;
-		const credentialPrefix = `n8n-nodes-base.credentials.${credentialType}`;
+		const credentialPrefix = `@8n8/nodes-base.credentials.${credentialType}`;
 		const context = this;
 
 		return {
@@ -179,7 +179,7 @@ export class I18nClass {
 		const ndvStore = useNDVStore();
 		const activeNode = ndvStore.activeNode;
 		const nodeType = activeNode ? this.shortNodeType(activeNode.type as string) : ''; // unused in eventTriggerDescription
-		const initialKey = `n8n-nodes-base.nodes.${nodeType}.nodeView`;
+		const initialKey = `@8n8/nodes-base.nodes.${nodeType}.nodeView`;
 		const context = this;
 
 		return {
@@ -319,7 +319,7 @@ export class I18nClass {
 
 			eventTriggerDescription(nodeType: string, eventTriggerDescription: string) {
 				return context.dynamicRender({
-					key: `n8n-nodes-base.nodes.${nodeType}.nodeView.eventTriggerDescription`,
+					key: `@8n8/nodes-base.nodes.${nodeType}.nodeView.eventTriggerDescription`,
 					fallback: eventTriggerDescription,
 				});
 			},
@@ -541,7 +541,7 @@ export function addNodeTranslation(
 	nodeTranslation: { [nodeType: string]: object },
 	language: string,
 ) {
-	const oldNodesBase = i18nInstance.messages[language]['n8n-nodes-base'] || {};
+	const oldNodesBase = i18nInstance.messages[language]['@8n8/nodes-base'] || {};
 
 	const updatedNodes = {
 		// @ts-ignore
@@ -550,7 +550,7 @@ export function addNodeTranslation(
 	};
 
 	const newNodesBase = {
-		'n8n-nodes-base': Object.assign(oldNodesBase, { nodes: updatedNodes }),
+		'@8n8/nodes-base': Object.assign(oldNodesBase, { nodes: updatedNodes }),
 	};
 
 	i18nInstance.setLocaleMessage(
@@ -566,7 +566,7 @@ export function addCredentialTranslation(
 	nodeCredentialTranslation: { [credentialType: string]: object },
 	language: string,
 ) {
-	const oldNodesBase = i18nInstance.messages[language]['n8n-nodes-base'] || {};
+	const oldNodesBase = i18nInstance.messages[language]['@8n8/nodes-base'] || {};
 
 	const updatedCredentials = {
 		// @ts-ignore
@@ -575,7 +575,7 @@ export function addCredentialTranslation(
 	};
 
 	const newNodesBase = {
-		'n8n-nodes-base': Object.assign(oldNodesBase, { credentials: updatedCredentials }),
+		'@8n8/nodes-base': Object.assign(oldNodesBase, { credentials: updatedCredentials }),
 	};
 
 	i18nInstance.setLocaleMessage(

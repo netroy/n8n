@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import { Strategy } from 'passport-jwt';
-import { LoggerProxy as Logger } from 'n8n-workflow';
+import { LoggerProxy as Logger } from '@8n8/workflow';
 import type { JwtPayload } from '@/Interfaces';
 import type { AuthenticatedRequest } from '@/requests';
 import config from '@/config';

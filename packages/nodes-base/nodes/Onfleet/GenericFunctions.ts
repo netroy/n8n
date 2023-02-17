@@ -6,8 +6,8 @@ import type {
 	INodePropertyOptions,
 	IWebhookFunctions,
 	JsonObject,
-} from 'n8n-workflow';
-import { NodeApiError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { NodeApiError } from '@8n8/workflow';
 
 import type { OptionsWithUri } from 'request';
 

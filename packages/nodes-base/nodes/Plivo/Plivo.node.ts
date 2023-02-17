@@ -1,11 +1,11 @@
-import type { IExecuteFunctions } from 'n8n-core';
+import type { IExecuteFunctions } from '@8n8/core';
 
 import type {
 	IDataObject,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 
 import { smsFields, smsOperations } from './SmsDescription';
 
@@ -47,7 +47,7 @@ export class Plivo implements INodeType {
 						value: 'call',
 					},
 					{
-						// eslint-disable-next-line n8n-nodes-base/node-param-resource-with-plural-option
+						// eslint-disable-next-line @8n8/nodes-base/node-param-resource-with-plural-option
 						name: 'MMS',
 						value: 'mms',
 					},

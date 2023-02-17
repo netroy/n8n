@@ -1,4 +1,4 @@
-import { INodeProperties } from 'n8n-workflow';
+import { INodeProperties } from '@8n8/workflow';
 
 export const webhookModalDescription = [
 	{

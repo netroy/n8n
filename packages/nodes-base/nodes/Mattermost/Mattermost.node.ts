@@ -1,5 +1,5 @@
-import type { INodeTypeBaseDescription, IVersionedNodeType } from 'n8n-workflow';
-import { VersionedNodeType } from 'n8n-workflow';
+import type { INodeTypeBaseDescription, IVersionedNodeType } from '@8n8/workflow';
+import { VersionedNodeType } from '@8n8/workflow';
 
 import { MattermostV1 } from './v1/MattermostV1.node';
 

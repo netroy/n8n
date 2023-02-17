@@ -5,7 +5,7 @@ import { sanitizeUser } from '@/UserManagement/UserManagementHelper';
 import { issueCookie, resolveJwt } from '@/auth/jwt';
 import { AUTH_COOKIE_NAME } from '@/constants';
 import { Request, Response } from 'express';
-import type { ILogger } from 'n8n-workflow';
+import type { ILogger } from '@8n8/workflow';
 import type { User } from '@db/entities/User';
 import { LoginRequest, UserRequest } from '@/requests';
 import type { Repository } from 'typeorm';

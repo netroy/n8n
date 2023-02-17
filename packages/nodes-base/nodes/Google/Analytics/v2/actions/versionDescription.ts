@@ -1,5 +1,5 @@
-/* eslint-disable n8n-nodes-base/node-filename-against-convention */
-import type { INodeTypeDescription } from 'n8n-workflow';
+/* eslint-disable @8n8/nodes-base/node-filename-against-convention */
+import type { INodeTypeDescription } from '@8n8/workflow';
 import * as userActivity from './userActivity/UserActivity.resource';
 import * as report from './report/Report.resource';
 

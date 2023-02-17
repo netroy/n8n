@@ -15,8 +15,8 @@ import type {
 	Workflow,
 	WorkflowActivateMode,
 	WorkflowExecuteMode,
-} from 'n8n-workflow';
-import { LoggerProxy as Logger, toCronExpression, WorkflowActivationError } from 'n8n-workflow';
+} from '@8n8/workflow';
+import { LoggerProxy as Logger, toCronExpression, WorkflowActivationError } from '@8n8/workflow';
 
 import type { IWorkflowData } from './Interfaces';
 

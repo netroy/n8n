@@ -3,9 +3,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { readFileSync } from 'fs';
 import { resolve, join, dirname } from 'path';
-import type { n8n } from 'n8n-core';
-import { RESPONSE_ERROR_MESSAGES as CORE_RESPONSE_ERROR_MESSAGES, UserSettings } from 'n8n-core';
-import { jsonParse } from 'n8n-workflow';
+import type { n8n } from '@8n8/core';
+import { RESPONSE_ERROR_MESSAGES as CORE_RESPONSE_ERROR_MESSAGES, UserSettings } from '@8n8/core';
+import { jsonParse } from '@8n8/workflow';
 
 const { NODE_ENV, E2E_TESTS } = process.env;
 export const inProduction = NODE_ENV === 'production';
@@ -19,13 +19,13 @@ export const CLI_DIR = resolve(__dirname, '..');
 export const TEMPLATES_DIR = join(CLI_DIR, 'templates');
 export const NODES_BASE_DIR = join(CLI_DIR, '..', 'nodes-base');
 export const GENERATED_STATIC_DIR = join(UserSettings.getUserHome(), '.cache/n8n/public');
-export const EDITOR_UI_DIST_DIR = join(dirname(require.resolve('n8n-editor-ui')), 'dist');
+export const EDITOR_UI_DIST_DIR = join(dirname(require.resolve('@8n8/editor-ui')), 'dist');
 
 export function getN8nPackageJson() {
 	return jsonParse<n8n.PackageJson>(readFileSync(join(CLI_DIR, 'package.json'), 'utf8'));
 }
 
-export const START_NODES = ['n8n-nodes-base.start', 'n8n-nodes-base.manualTrigger'];
+export const START_NODES = ['@8n8/nodes-base.start', '@8n8/nodes-base.manualTrigger'];
 
 export const N8N_VERSION = getN8nPackageJson().version;
 

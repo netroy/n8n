@@ -1,4 +1,4 @@
-import type { INodeProperties } from 'n8n-workflow';
+import type { INodeProperties } from '@8n8/workflow';
 
 export const dimensionDropdown: INodeProperties[] = [
 	{
@@ -6,7 +6,7 @@ export const dimensionDropdown: INodeProperties[] = [
 		name: 'listName',
 		type: 'options',
 		default: 'date',
-		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+		// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 		options: [
 			{
 				name: 'Browser',
@@ -49,7 +49,7 @@ export const dimensionDropdown: INodeProperties[] = [
 				value: 'sourceMedium',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'Other dimensions…',
 				value: 'other',
 			},
@@ -80,7 +80,7 @@ export const metricDropdown: INodeProperties[] = [
 		name: 'listName',
 		type: 'options',
 		default: 'totalUsers',
-		// eslint-disable-next-line n8n-nodes-base/node-param-options-type-unsorted-items
+		// eslint-disable-next-line @8n8/nodes-base/node-param-options-type-unsorted-items
 		options: [
 			{
 				name: '1 Day Active Users',
@@ -123,12 +123,12 @@ export const metricDropdown: INodeProperties[] = [
 				value: 'totalUsers',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'Other metrics…',
 				value: 'other',
 			},
 			{
-				// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
+				// eslint-disable-next-line @8n8/nodes-base/node-param-display-name-miscased
 				name: 'Custom metric…',
 				value: 'custom',
 			},

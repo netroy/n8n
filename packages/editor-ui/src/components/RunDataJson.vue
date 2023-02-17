@@ -71,7 +71,7 @@ import { PropType } from 'vue';
 import mixins from 'vue-typed-mixins';
 import VueJsonPretty from 'vue-json-pretty';
 import { LOCAL_STORAGE_MAPPING_FLAG } from '@/constants';
-import { IDataObject, INodeExecutionData } from 'n8n-workflow';
+import { IDataObject, INodeExecutionData } from '@8n8/workflow';
 import Draggable from '@/components/Draggable.vue';
 import { parseDate, executionDataToJson, isString, shorten } from '@/utils';
 import { INodeUi } from '@/Interface';

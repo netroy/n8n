@@ -1,4 +1,4 @@
-import type { INodeExecutionData, INodeProperties } from 'n8n-workflow';
+import type { INodeExecutionData, INodeProperties } from '@8n8/workflow';
 
 export const imageOperations: INodeProperties[] = [
 	{

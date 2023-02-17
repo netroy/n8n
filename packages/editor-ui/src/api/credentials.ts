@@ -6,7 +6,7 @@ import {
 	IDataObject,
 	INodeCredentialTestRequest,
 	INodeCredentialTestResult,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import axios from 'axios';
 
 export async function getCredentialTypes(baseUrl: string): Promise<ICredentialType[]> {

@@ -1,7 +1,7 @@
 import type { User } from '@db/entities/User';
 import { whereClause } from '@/UserManagement/UserManagementHelper';
 import express from 'express';
-import { LoggerProxy } from 'n8n-workflow';
+import { LoggerProxy } from '@8n8/workflow';
 import * as Db from '@/Db';
 import * as ResponseHelper from '@/ResponseHelper';
 import type {

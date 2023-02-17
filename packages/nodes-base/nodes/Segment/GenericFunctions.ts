@@ -5,8 +5,8 @@ import type {
 	IHookFunctions,
 	ILoadOptionsFunctions,
 	IWebhookFunctions,
-} from 'n8n-core';
-import type { IDataObject } from 'n8n-workflow';
+} from '@8n8/core';
+import type { IDataObject } from '@8n8/workflow';
 
 export async function segmentApiRequest(
 	this:

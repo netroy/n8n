@@ -3,10 +3,10 @@ import http from 'http';
 import type PCancelable from 'p-cancelable';
 
 import { flags } from '@oclif/command';
-import { WorkflowExecute } from 'n8n-core';
+import { WorkflowExecute } from '@8n8/core';
 
-import type { ExecutionStatus, IExecuteResponsePromiseData, INodeTypes, IRun } from 'n8n-workflow';
-import { Workflow, NodeOperationError, LoggerProxy, sleep } from 'n8n-workflow';
+import type { ExecutionStatus, IExecuteResponsePromiseData, INodeTypes, IRun } from '@8n8/workflow';
+import { Workflow, NodeOperationError, LoggerProxy, sleep } from '@8n8/workflow';
 
 import * as Db from '@/Db';
 import * as ResponseHelper from '@/ResponseHelper';

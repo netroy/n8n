@@ -1,8 +1,8 @@
 import { promises as fs } from 'fs';
 import { flags } from '@oclif/command';
-import { PLACEHOLDER_EMPTY_WORKFLOW_ID } from 'n8n-core';
-import type { IWorkflowBase } from 'n8n-workflow';
-import { ExecutionBaseError } from 'n8n-workflow';
+import { PLACEHOLDER_EMPTY_WORKFLOW_ID } from '@8n8/core';
+import type { IWorkflowBase } from '@8n8/workflow';
+import { ExecutionBaseError } from '@8n8/workflow';
 
 import * as ActiveExecutions from '@/ActiveExecutions';
 import * as Db from '@/Db';

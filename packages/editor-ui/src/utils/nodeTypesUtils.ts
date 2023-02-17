@@ -35,7 +35,7 @@ import {
 	NodeParameterValueType,
 	INodePropertyOptions,
 	INodePropertyCollection,
-} from 'n8n-workflow';
+} from '@8n8/workflow';
 import { isResourceLocatorValue, isJsonKeyObject } from '@/utils';
 
 /*

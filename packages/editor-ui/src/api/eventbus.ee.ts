@@ -1,6 +1,6 @@
 import { IRestApiContext } from '@/Interface';
 import { makeRestApiRequest } from '@/utils';
-import { IDataObject, MessageEventBusDestinationOptions } from 'n8n-workflow';
+import { IDataObject, MessageEventBusDestinationOptions } from '@8n8/workflow';
 
 export async function saveDestinationToDb(
 	context: IRestApiContext,
