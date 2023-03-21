@@ -811,7 +811,7 @@
     "change-case": "^4.1.1",
     "cheerio": "1.0.0-rc.6",
     "chokidar": "3.5.2",
-    "cron": "~1.7.2",
+    "cron": "~1.8.2",
     "currency-codes": "^2.1.0",
     "eventsource": "^2.0.2",
     "fast-glob": "^3.2.5",
