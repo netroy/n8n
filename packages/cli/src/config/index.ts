@@ -6,6 +6,8 @@ import { join } from 'path';
 import { schema } from './schema';
 import { inTest, inE2ETests } from '@/constants';
 
+console.log('Testing');
+
 if (inE2ETests) {
 	const testsDir = join(tmpdir(), 'n8n-e2e/');
 	mkdirSync(testsDir, { recursive: true });
