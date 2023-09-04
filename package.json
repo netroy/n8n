@@ -18,6 +18,8 @@
     "dev:ai": "turbo run dev --parallel --filter=@n8n/nodes-langchain --filter=n8n --filter=n8n-core",
     "clean": "turbo run clean --parallel",
     "format": "turbo run format && node scripts/format.mjs",
+    "format:backend": "pnpm --filter=!@n8n/chat --filter=!n8n-design-system --filter=!n8n-editor-ui format",
+    "format:frontend": "pnpm --filter=@n8n/chat --filter=n8n-design-system --filter=n8n-editor-ui format",
     "lint": "turbo run lint",
     "lintfix": "turbo run lintfix",
     "optimize-svg": "find ./packages -name '*.svg' ! -name 'pipedrive.svg' -print0 | xargs -0 -P16 -L20 npx svgo",
@@ -42,6 +44,7 @@
     "n8n": "workspace:*"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.6.1",
     "@n8n_io/eslint-config": "workspace:*",
     "@ngneat/falso": "^6.4.0",
     "@types/jest": "^29.5.3",
