@@ -9,7 +9,7 @@ export type PushRequest = Request<{}, {}, {}, { sessionId: string }>;
 export type SSEPushRequest = PushRequest & { ws: undefined; userId: User['id'] };
 export type WebSocketPushRequest = PushRequest & { ws: WebSocket; userId: User['id'] };
 
-export type PushResponse = Response & { req: PushRequest };
+export type PushResponse = Response & { req: PushRequest; flush: () => void };
 
 export type OnPushMessageEvent = {
 	sessionId: string;

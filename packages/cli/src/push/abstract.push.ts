@@ -1,8 +1,14 @@
+import { Service } from 'typedi';
+import { isProxy } from 'util/types';
+import { type Readable } from 'stream';
 import { EventEmitter } from 'events';
-import { assert, jsonStringify } from 'n8n-workflow';
+import { JsonStreamStringify } from 'json-stream-stringify';
 import type { IPushDataType } from '@/Interfaces';
-import type { Logger } from '@/Logger';
+import { Logger } from '@/Logger';
 import type { User } from '@db/entities/User';
+
+const skipProxies = (_: string, value: unknown) =>
+	value && isProxy(value) ? JSON.stringify(value) : value;
 
 /**
  * Abstract class for two-way push communication.
@@ -10,16 +16,22 @@ import type { User } from '@db/entities/User';
  *
  * @emits message when a message is received from a client
  */
+@Service()
 export abstract class AbstractPush<T> extends EventEmitter {
 	protected connections: Record<string, T> = {};
 
 	protected userIdBySessionId: Record<string, string> = {};
 
 	protected abstract close(connection: T): void;
-	protected abstract sendToOne(connection: T, data: string): void;
+	protected abstract sendTo(clients: T[], stream: Readable): Promise<void>;
+	protected abstract pingAll(): void;
+
+	private messageQueue: Array<[T[], Readable]> = [];
 
 	constructor(protected readonly logger: Logger) {
 		super();
+		// Ping all connected clients every 60 seconds
+		setInterval(() => this.pingAll(), 60 * 1000);
 	}
 
 	protected add(sessionId: string, userId: User['id'], connection: T): void {
@@ -46,58 +58,47 @@ export abstract class AbstractPush<T> extends EventEmitter {
 		});
 	}
 
-	protected remove(sessionId?: string): void {
-		if (sessionId !== undefined) {
-			this.logger.debug('Remove editor-UI session', { sessionId });
-			delete this.connections[sessionId];
-			delete this.userIdBySessionId[sessionId];
-		}
-	}
-
-	private sendToSessions<D>(type: IPushDataType, data: D, sessionIds: string[]) {
-		this.logger.debug(`Send data of type "${type}" to editor-UI`, {
-			dataType: type,
-			sessionIds: sessionIds.join(', '),
-		});
-
-		const sendData = jsonStringify({ type, data }, { replaceCircularRefs: true });
-
-		for (const sessionId of sessionIds) {
-			const connection = this.connections[sessionId];
-			assert(connection);
-			this.sendToOne(connection, sendData);
-		}
+	protected remove(sessionId: string): void {
+		this.logger.debug('Remove editor-UI session', { sessionId });
+		delete this.connections[sessionId];
+		delete this.userIdBySessionId[sessionId];
 	}
 
 	broadcast<D>(type: IPushDataType, data?: D) {
-		this.sendToSessions(type, data, Object.keys(this.connections));
+		return this.enqueue(Object.values(this.connections), type, data);
 	}
 
 	send<D>(type: IPushDataType, data: D, sessionId: string) {
 		const { connections } = this;
-		if (connections[sessionId] === undefined) {
+		const connection = connections[sessionId];
+		if (connection === undefined) {
 			this.logger.error(`The session "${sessionId}" is not registered.`, { sessionId });
 			return;
 		}
 
-		this.sendToSessions(type, data, [sessionId]);
+		this.enqueue([connection], type, data);
 	}
 
-	/**
-	 * Sends the given data to given users' connections
-	 */
+	/** Sends the given data to given users' connections */
 	sendToUsers<D>(type: IPushDataType, data: D, userIds: Array<User['id']>) {
 		const { connections } = this;
 		const userSessionIds = Object.keys(connections).filter((sessionId) =>
 			userIds.includes(this.userIdBySessionId[sessionId]),
 		);
 
-		this.sendToSessions(type, data, userSessionIds);
+		this.logger.debug(`Send data of type "${type}" to editor-UI`, {
+			dataType: type,
+			sessionIds: userSessionIds.join(', '),
+		});
+
+		this.enqueue(
+			userSessionIds.map((sessionId) => connections[sessionId]),
+			type,
+			data,
+		);
 	}
 
-	/**
-	 * Closes all push existing connections
-	 */
+	/** Closes all push existing connections */
 	closeAllConnections() {
 		for (const sessionId in this.connections) {
 			// Signal the connection that we want to close it.
@@ -105,6 +106,19 @@ export abstract class AbstractPush<T> extends EventEmitter {
 			// the implementation's responsibility to do so once the connection
 			// has actually closed.
 			this.close(this.connections[sessionId]);
+		}
+	}
+
+	private enqueue<D>(clients: T[], type: IPushDataType, data?: D) {
+		const stream = new JsonStreamStringify({ type, data }, skipProxies, undefined, true);
+		this.messageQueue.push([clients, stream]);
+		setImmediate(async () => this.processQueue());
+	}
+
+	private async processQueue() {
+		while (this.messageQueue.length) {
+			const [clients, stream] = this.messageQueue.shift()!;
+			await this.sendTo(clients, stream);
 		}
 	}
 }

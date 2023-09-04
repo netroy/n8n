@@ -1,6 +1,6 @@
+import type { Readable } from 'stream';
 import type WebSocket from 'ws';
 import { Service } from 'typedi';
-import { Logger } from '@/Logger';
 import { AbstractPush } from './abstract.push';
 import type { User } from '@db/entities/User';
 
@@ -8,15 +8,10 @@ function heartbeat(this: WebSocket) {
 	this.isAlive = true;
 }
 
+const EMPTY_BUFFER = Buffer.alloc(0);
+
 @Service()
 export class WebSocketPush extends AbstractPush<WebSocket> {
-	constructor(logger: Logger) {
-		super(logger);
-
-		// Ping all connected clients every 60 seconds
-		setInterval(() => this.pingAll(), 60 * 1000);
-	}
-
 	add(sessionId: string, userId: User['id'], connection: WebSocket) {
 		connection.isAlive = true;
 		connection.on('pong', heartbeat);
@@ -51,11 +46,21 @@ export class WebSocketPush extends AbstractPush<WebSocket> {
 		connection.close();
 	}
 
-	protected sendToOne(connection: WebSocket, data: string): void {
-		connection.send(data);
+	protected async sendTo(connections: WebSocket[], stream: Readable) {
+		await new Promise<void>((resolve, reject) => {
+			stream
+				.once('error', reject)
+				.on('data', (chunk: Buffer) => {
+					connections.forEach((connection) => connection.send(chunk, { fin: false }));
+				})
+				.once('end', () => {
+					connections.forEach((connection) => connection.send(EMPTY_BUFFER));
+					resolve();
+				});
+		});
 	}
 
-	private pingAll() {
+	protected pingAll() {
 		for (const sessionId in this.connections) {
 			const connection = this.connections[sessionId];
 			// If a connection did not respond with a `PONG` in the last 60 seconds, disconnect
