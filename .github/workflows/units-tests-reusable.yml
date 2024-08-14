@@ -13,7 +13,7 @@ on:
         required: false
         type: string
         default: 20.x
-      cacheKey:
+      cache-key:
         description: Cache key for modules and build artifacts.
         required: false
         default: ''
@@ -54,15 +54,15 @@ jobs:
         uses: rharkor/caching-for-turbo@v1.5
 
       - name: Build
-        if: ${{ inputs.cacheKey == '' }}
+        if: ${{ inputs.cache-key == '' }}
         run: pnpm build
 
       - name: Restore cached build artifacts
-        if: ${{ inputs.cacheKey != '' }}
+        if: ${{ inputs.cache-key != '' }}
         uses: actions/cache/restore@v4.0.0
         with:
           path: ./packages/**/dist
-          key: ${{ inputs.cacheKey }}
+          key: ${{ inputs.cache-key }}
 
       - name: Test Backend
         run: pnpm test:backend
