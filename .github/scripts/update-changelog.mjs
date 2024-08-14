@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 import { pipeline } from 'stream/promises';
 import packageJson from '../../package.json' assert { type: 'json' };
 
+console.log(packageJson.version);
 const baseDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const fullChangelogFile = resolve(baseDir, 'CHANGELOG.md');
 const versionChangelogFile = resolve(baseDir, `CHANGELOG-${packageJson.version}.md`);
