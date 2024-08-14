@@ -53,13 +53,13 @@ jobs:
 
       - name: Push the base branch
         run: |
-          git push -f origin refs/remotes/origin/${{ github.event.inputs.base-branch }}:refs/heads/release/${{ env.NEXT_RELEASE }}
+          git push -f origin refs/remotes/origin/${{ github.event.inputs.base-branch }}:refs/heads/release/v${{ env.NEXT_RELEASE }}
 
       - name: Push the release branch, and Create the PR
         uses: peter-evans/create-pull-request@v5
         with:
-          base: 'release/${{ env.NEXT_RELEASE }}'
-          branch: '${{ env.NEXT_RELEASE }}-pr'
+          base: 'release/v${{ env.NEXT_RELEASE }}'
+          branch: 'release-pr/v${{ env.NEXT_RELEASE }}'
           commit-message: ':rocket: Release ${{ env.NEXT_RELEASE }}'
           delete-branch: true
           labels: 'release'
