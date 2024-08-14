@@ -48,20 +48,35 @@ jobs:
         env:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
 
-      - name: Update Changelog
-        run: node .github/scripts/update-changelog.mjs
-
       - name: Push the base branch
         run: |
           git push -f origin refs/remotes/origin/${{ github.event.inputs.base-branch }}:refs/heads/release/${{ env.NEXT_RELEASE }}
 
       - name: Push the release branch, and Create the PR
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
+        id: create-pull-request
         with:
           base: 'release/${{ env.NEXT_RELEASE }}'
-          branch: '${{ env.NEXT_RELEASE }}-pr'
-          commit-message: ':rocket: Release ${{ env.NEXT_RELEASE }}'
+          branch: 'release-pr/${{ env.NEXT_RELEASE }}'
+          commit-message: 'Bump package versions'
           delete-branch: true
-          labels: 'release'
+          labels: release,release:${{ github.event.inputs.release-type }}
           title: ':rocket: Release ${{ env.NEXT_RELEASE }}'
-          body-path: 'CHANGELOG-${{ env.NEXT_RELEASE }}.md'
+          body: ''
+
+      - name: Switch to the PR branch
+        run: |
+          git checkout release-pr/${{ env.NEXT_RELEASE }}
+
+      - name: Generate Changelog
+        run: node .github/scripts/update-changelog.mjs
+
+      - name: Update PR
+        run: |
+          gh pr edit ${{ steps.create-pull-request.outputs.pull-request-number }} --body-file 'CHANGELOG-${{ env.NEXT_RELEASE }}.md'
+          git config user.name "github-actions[bot]"
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit CHANGELOG.md -m "Changelog for ${{ env.NEXT_RELEASE }}"
+          git push origin release-pr/${{ env.NEXT_RELEASE }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
