@@ -8,7 +8,7 @@ on:
       - synchronize
     branches:
       - '**'
-      - '!release/*'
+      - '!release/v**'
 
 jobs:
   check-pr-title:
