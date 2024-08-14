@@ -1,6 +1,10 @@
 name: Build, unit test and lint branch
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - '**'
+      - '!release/v**'
 
 jobs:
   install-and-build:
@@ -9,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
         with:
-          repository: n8n-io/n8n
           ref: refs/pull/${{ github.event.pull_request.number }}/merge
 
       - run: corepack enable
@@ -31,7 +34,7 @@ jobs:
         run: pnpm typecheck
 
       - name: Cache build artifacts
-        uses: actions/cache/save@v4.0.0
+        uses: actions/cache/save@v4.0.2
         with:
           path: ./packages/**/dist
           key: ${{ github.sha }}-base:build
@@ -42,7 +45,7 @@ jobs:
     needs: install-and-build
     with:
       ref: refs/pull/${{ github.event.pull_request.number }}/merge
-      cacheKey: ${{ github.sha }}-base:build
+      cache-key: ${{ github.sha }}-base:build
 
   lint:
     name: Lint
@@ -50,4 +53,4 @@ jobs:
     needs: install-and-build
     with:
       ref: refs/pull/${{ github.event.pull_request.number }}/merge
-      cacheKey: ${{ github.sha }}-base:build
+      cache-key: ${{ github.sha }}-base:build

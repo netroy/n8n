@@ -13,7 +13,7 @@ on:
         required: false
         type: string
         default: 20.x
-      cacheKey:
+      cache-key:
         description: Cache key for modules and build artifacts.
         required: false
         default: ''
@@ -36,7 +36,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
         with:
-          repository: n8n-io/n8n
           ref: ${{ inputs.ref }}
 
       - run: corepack enable
@@ -54,15 +53,16 @@ jobs:
         uses: rharkor/caching-for-turbo@v1.5
 
       - name: Build
-        if: ${{ inputs.cacheKey == '' }}
+        if: ${{ inputs.cache-key == '' }}
         run: pnpm build
 
       - name: Restore cached build artifacts
-        if: ${{ inputs.cacheKey != '' }}
-        uses: actions/cache/restore@v4.0.0
+        if: ${{ inputs.cache-key != '' }}
+        uses: actions/cache/restore@v4.0.2
         with:
           path: ./packages/**/dist
-          key: ${{ inputs.cacheKey }}
+          key: ${{ inputs.cache-key }}
+          fail-on-cache-miss: true
 
       - name: Test Backend
         run: pnpm test:backend
