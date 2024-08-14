@@ -1,6 +1,10 @@
 name: Build, unit test and lint branch
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - '**'
+      - '!release/v**'
 
 jobs:
   install-and-build:
@@ -42,7 +46,7 @@ jobs:
     needs: install-and-build
     with:
       ref: refs/pull/${{ github.event.pull_request.number }}/merge
-      cacheKey: ${{ github.sha }}-base:build
+      cache-key: ${{ github.sha }}-base:build
 
   lint:
     name: Lint
@@ -50,4 +54,4 @@ jobs:
     needs: install-and-build
     with:
       ref: refs/pull/${{ github.event.pull_request.number }}/merge
-      cacheKey: ${{ github.sha }}-base:build
+      cache-key: ${{ github.sha }}-base:build
