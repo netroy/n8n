@@ -41,11 +41,10 @@ jobs:
 
   e2e-tests:
     name: E2E Tests
-    uses: ./.github/workflows/e2e-reusable.yml
     needs: build
+    uses: ./.github/workflows/e2e-reusable.yml
     with:
-      # reuse the build cache in e2e tests as well
-      # cache-key: ${{ github.sha }}-release-pr:build
+      cache-key: ${{ github.sha }}-release-pr:build
       pr_number: ${{ github.event.pull_request.number }}
       user: ${{ 'Release' }}
     secrets:

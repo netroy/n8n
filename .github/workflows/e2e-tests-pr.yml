@@ -11,13 +11,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.1
+      - run: corepack enable
+      - uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20.x
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Cache build artifacts
+        uses: actions/cache/save@v4.0.0
+        with:
+          path: ./packages/**/dist
+          key: ${{ github.sha }}-e2e
+
   run-e2e-tests:
     name: E2E [Electron/Node 18]
+    needs: build
     uses: ./.github/workflows/e2e-reusable.yml
     if: ${{ github.event.review.state == 'approved' && !contains(github.event.pull_request.labels.*.name, 'community') }}
     with:
       pr_number: ${{ github.event.pull_request.number }}
       user: ${{ github.event.pull_request.user.login || 'PR User' }}
+      cache-key: ${{ github.sha }}-e2e
     secrets:
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
