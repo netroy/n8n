@@ -5,6 +5,7 @@
 	],
 	"compilerOptions": {
 		"paths": {
+			"@test/*": ["./test/*"],
 			"@utils/*": ["./utils/*"]
 		},
 		"tsBuildInfoFile": "dist/typecheck.tsbuildinfo",

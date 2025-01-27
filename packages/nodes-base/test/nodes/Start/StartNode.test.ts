@@ -1,6 +1,7 @@
+import type { WorkflowTestData } from 'n8n-workflow';
+
 import { executeWorkflow } from '../ExecuteWorkflow';
 import * as Helpers from '../Helpers';
-import type { WorkflowTestData } from '../types';
 
 describe('Execute Start Node', () => {
 	const tests: WorkflowTestData[] = [

@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-loop-func */
+import type { WorkflowTestData } from 'n8n-workflow';
+
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import {
 	getResultNodeData,
@@ -6,7 +8,6 @@ import {
 	readJsonFileSync,
 	initBinaryDataService,
 } from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 describe('Execute iCalendar Node', () => {
 	beforeEach(async () => {

@@ -1,10 +1,9 @@
 import { readFileSync } from 'fs';
-import type { IWorkflowBase } from 'n8n-workflow';
+import type { IWorkflowBase, WorkflowTestData } from 'n8n-workflow';
 import path from 'path';
 
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import * as Helpers from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 describe('Execute Spreadsheet File Node', () => {
 	beforeEach(async () => {

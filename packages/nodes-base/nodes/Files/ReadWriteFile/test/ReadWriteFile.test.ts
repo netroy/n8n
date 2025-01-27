@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-loop-func */
+import type { WorkflowTestData } from 'n8n-workflow';
+
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import * as Helpers from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 describe('Test ReadWriteFile Node', () => {
 	beforeEach(async () => {

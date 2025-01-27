@@ -1,8 +1,7 @@
-import { NodeConnectionType } from 'n8n-workflow';
+import { NodeConnectionType, type WorkflowTestData } from 'n8n-workflow';
 
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import * as Helpers from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 import { apiUrl } from '../Peekalink.node';
 

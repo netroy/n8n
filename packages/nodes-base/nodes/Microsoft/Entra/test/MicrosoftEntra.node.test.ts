@@ -3,13 +3,13 @@ import type {
 	IDataObject,
 	IHttpRequestOptions,
 	ILoadOptionsFunctions,
+	WorkflowTestData,
 } from 'n8n-workflow';
 import { NodeConnectionType } from 'n8n-workflow';
 import nock from 'nock';
 
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import * as Helpers from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 import { microsoftEntraApiResponse, microsoftEntraNodeResponse } from './mocks';
 import { FAKE_CREDENTIALS_DATA } from '../../../../test/nodes/FakeCredentialsMap';

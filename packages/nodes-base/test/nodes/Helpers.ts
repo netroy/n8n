@@ -42,7 +42,7 @@ import path from 'path';
 import { executeWorkflow } from './ExecuteWorkflow';
 import { FAKE_CREDENTIALS_DATA } from './FakeCredentialsMap';
 
-const baseDir = path.resolve(__dirname, '../..');
+const currentBaseDir = path.resolve(__dirname, '../..');
 
 const getFakeDecryptedCredentials = (
 	nodeCredentials: INodeCredentialsDetails,
@@ -60,7 +60,7 @@ const getFakeDecryptedCredentials = (
 	return {};
 };
 
-export const readJsonFileSync = <T = any>(filePath: string) =>
+export const readJsonFileSync = <T = any>(filePath: string, baseDir = currentBaseDir) =>
 	JSON.parse(readFileSync(path.join(baseDir, filePath), 'utf-8')) as T;
 
 const knownCredentials = readJsonFileSync<Record<string, CredentialLoadingDetails>>(
@@ -212,7 +212,7 @@ export async function initBinaryDataService(mode: 'default' | 'filesystem' = 'de
 	Container.set(BinaryDataService, binaryDataService);
 }
 
-export function setup(testData: WorkflowTestData[] | WorkflowTestData) {
+export function setup(testData: WorkflowTestData[] | WorkflowTestData, baseDir = currentBaseDir) {
 	if (!Array.isArray(testData)) {
 		testData = [testData];
 	}
@@ -330,12 +330,15 @@ const preparePinData = (pinData: IDataObject) => {
 	);
 	return returnData;
 };
-export const workflowToTests = (workflowFiles: string[]) => {
+
+export const workflowToTests = (workflowFiles: string[], baseDir = currentBaseDir) => {
 	const testCases: WorkflowTestData[] = [];
 	for (const filePath of workflowFiles) {
 		const description = filePath.replace('.json', '');
+		console.log(filePath, baseDir);
 		const workflowData = readJsonFileSync<IWorkflowBase & Pick<WorkflowTestData, 'trigger'>>(
 			filePath,
+			baseDir,
 		);
 		const testDir = path.join(baseDir, path.dirname(filePath));
 		workflowData.nodes.forEach((node) => {
@@ -363,9 +366,9 @@ export const workflowToTests = (workflowFiles: string[]) => {
 	return testCases;
 };
 
-export const testWorkflows = (workflows: string[]) => {
-	const tests = workflowToTests(workflows);
-	const nodeTypes = setup(tests);
+export const testWorkflows = (workflows: string[], baseDir = currentBaseDir) => {
+	const tests = workflowToTests(workflows, baseDir);
+	const nodeTypes = setup(tests, baseDir);
 
 	for (const testData of tests) {
 		test(testData.description, async () => await equalityTest(testData, nodeTypes));

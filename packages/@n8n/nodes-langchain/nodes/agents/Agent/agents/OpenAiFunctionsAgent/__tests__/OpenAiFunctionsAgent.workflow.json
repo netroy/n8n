@@ -1,0 +1,91 @@
+{
+	"name": "Test OpenAiFunctionsAgent",
+	"nodes": [
+		{
+			"parameters": {
+				"agent": "openAiFunctionsAgent",
+				"promptType": "define",
+				"text": "Use the Wikipedia tool to find the capital of Timor-Leste. Also find the country's size in square kilometres.",
+				"options": {}
+			},
+			"type": "@n8n/n8n-nodes-langchain.agent",
+			"typeVersion": 1.7,
+			"position": [220, 0],
+			"id": "687a2900-b99d-4932-a5a0-ace517916602",
+			"name": "AI Agent"
+		},
+		{
+			"parameters": {
+				"options": {}
+			},
+			"type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+			"typeVersion": 1.1,
+			"position": [160, 220],
+			"id": "629f4a7e-1e1e-4c5e-8366-2e2cd67c7dee",
+			"name": "OpenAI Chat Model",
+			"credentials": {
+				"openAiApi": {
+					"id": "1"
+				}
+			}
+		},
+		{
+			"parameters": {},
+			"type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+			"typeVersion": 1,
+			"position": [500, 220],
+			"id": "c44d7173-5ed4-4833-9fbd-c171dd7e356f",
+			"name": "Wikipedia"
+		},
+		{
+			"parameters": {},
+			"type": "n8n-nodes-base.manualTrigger",
+			"typeVersion": 1,
+			"position": [-40, 0],
+			"id": "5fb7eb9f-1ee9-474f-95fb-53a5371827e2",
+			"name": "When clicking ‘Test workflow’"
+		}
+	],
+	"connections": {
+		"OpenAI Chat Model": {
+			"ai_languageModel": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "ai_languageModel",
+						"index": 0
+					}
+				]
+			]
+		},
+		"Wikipedia": {
+			"ai_tool": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "ai_tool",
+						"index": 0
+					}
+				]
+			]
+		},
+		"When clicking ‘Test workflow’": {
+			"main": [
+				[
+					{
+						"node": "AI Agent",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		}
+	},
+	"pinData": {
+		"AI Agent": [
+			{
+				"output": "The capital of Timor-Leste is Dili. The country's size is approximately 14,950 square kilometers."
+			}
+		]
+	}
+}

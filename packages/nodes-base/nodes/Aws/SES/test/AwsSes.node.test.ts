@@ -1,10 +1,9 @@
-import { NodeConnectionType } from 'n8n-workflow';
+import { NodeConnectionType, type WorkflowTestData } from 'n8n-workflow';
 import assert from 'node:assert';
 import qs from 'node:querystring';
 
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import * as Helpers from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 describe('AwsSes Node', () => {
 	const email = 'test+user@example.com';

@@ -1,8 +1,7 @@
-import type { INodeTypes } from 'n8n-workflow';
+import type { INodeTypes, WorkflowTestData } from 'n8n-workflow';
 
 import { executeWorkflow } from '@test/nodes/ExecuteWorkflow';
 import { getResultNodeData, setup, workflowToTests } from '@test/nodes/Helpers';
-import type { WorkflowTestData } from '@test/nodes/types';
 
 const queryMock = jest.fn(async function () {
 	return [{ success: true }];

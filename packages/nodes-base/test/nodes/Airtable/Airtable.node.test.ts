@@ -1,8 +1,8 @@
+import type { WorkflowTestData } from 'n8n-workflow';
 import nock from 'nock';
 
 import { executeWorkflow } from '../ExecuteWorkflow';
 import * as Helpers from '../Helpers';
-import type { WorkflowTestData } from '../types';
 
 const records = [
 	{
