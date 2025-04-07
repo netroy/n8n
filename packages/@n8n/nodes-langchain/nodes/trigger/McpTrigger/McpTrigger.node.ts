@@ -60,7 +60,6 @@ export class McpTrigger extends Node {
 				responseMode: 'onReceived',
 				path: MCP_SSE_MESSAGES_PATH,
 				ndvHideUrl: true,
-				startExecutionEarly: true,
 			},
 		],
 	};

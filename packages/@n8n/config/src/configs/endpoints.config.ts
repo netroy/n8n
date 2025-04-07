@@ -92,6 +92,14 @@ export class EndpointsConfig {
 	@Env('N8N_ENDPOINT_FORM_WAIT')
 	formWaiting: string = 'form-waiting';
 
+	/** Path segment for MCP endpoints. */
+	@Env('N8N_ENDPOINT_MCP')
+	mcp: string = 'mcp';
+
+	/** Path segment for test MCP endpoints. */
+	@Env('N8N_ENDPOINT_MCP_TEST')
+	mcpTest: string = 'mcp-test';
+
 	/** Path segment for webhook endpoints. */
 	@Env('N8N_ENDPOINT_WEBHOOK')
 	webhook: string = 'webhook';
