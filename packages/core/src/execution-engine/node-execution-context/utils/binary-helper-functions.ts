@@ -270,12 +270,8 @@ export async function prepareBinaryData(
 	return await setBinaryDataBuffer(returnData, binaryData, workflowId, executionId);
 }
 
-export function getBinarySignedUrl(binaryDataId: string): string {
-	return Container.get(BinaryDataService).createSignedUrl(binaryDataId);
-}
-
 export const getBinaryHelperFunctions = (
-	{ executionId }: IWorkflowExecuteAdditionalData,
+	{ executionId, restApiUrl }: IWorkflowExecuteAdditionalData,
 	workflowId: string,
 ): BinaryHelperFunctions => ({
 	getBinaryPath,
@@ -283,7 +279,12 @@ export const getBinaryHelperFunctions = (
 	getBinaryMetadata,
 	binaryToBuffer,
 	binaryToString,
-	getBinarySignedUrl,
+	createBinarySignedUrl(binaryData: IBinaryData, expiresIn?: string) {
+		const token = Container.get(BinaryDataService).createSignedToken(binaryData, expiresIn);
+		const url = new URL(restApiUrl);
+		url.search = `token=${token}`;
+		return url.toString();
+	},
 	prepareBinaryData: async (binaryData, filePath, mimeType) =>
 		await prepareBinaryData(binaryData, executionId!, workflowId, filePath, mimeType),
 	setBinaryDataBuffer: async (data, binaryData) =>

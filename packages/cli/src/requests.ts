@@ -305,9 +305,10 @@ export type BinaryDataRequest = AuthenticatedRequest<
 		action: 'view' | 'download';
 		fileName?: string;
 		mimeType?: string;
-		token?: string;
 	}
 >;
+
+export type BinaryDataSignedRequest = AuthlessRequest<{}, {}, {}, { token: string }>;
 
 // ----------------------------------
 //           /variables

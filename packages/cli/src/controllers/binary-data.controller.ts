@@ -2,18 +2,24 @@ import express from 'express';
 import { BinaryDataService, FileNotFoundError, isValidNonDefaultMode } from 'n8n-core';
 
 import { Get, RestController } from '@/decorators';
-import { BinaryDataRequest } from '@/requests';
+import { BinaryDataRequest, BinaryDataSignedRequest } from '@/requests';
 
 @RestController('/binary-data')
 export class BinaryDataController {
 	constructor(private readonly binaryDataService: BinaryDataService) {}
 
-	async getStream(
-		req: BinaryDataRequest,
-		res: express.Response,
-		binaryDataId: string,
-		action: string,
-	) {
+	@Get('/')
+	async get(req: BinaryDataRequest, res: express.Response) {
+		const { id: binaryDataId, action } = req.query;
+
+		if (!binaryDataId) {
+			return res.status(400).end('Missing binary data ID');
+		}
+
+		if (!binaryDataId.includes(':')) {
+			return res.status(400).end('Missing binary data mode');
+		}
+
 		const [mode] = binaryDataId.split(':');
 
 		if (!isValidNonDefaultMode(mode)) {
@@ -54,7 +60,7 @@ export class BinaryDataController {
 	}
 
 	@Get('/signed', { skipAuth: true })
-	async getSigned(req: BinaryDataRequest, res: express.Response) {
+	async getSigned(req: BinaryDataSignedRequest, res: express.Response) {
 		const { token } = req.query;
 
 		if (!token) {
@@ -62,13 +68,6 @@ export class BinaryDataController {
 		}
 
 		const binaryDataId = this.binaryDataService.validateSignedToken(token);
-
-		return await this.getStream(req, res, binaryDataId, 'download');
-	}
-
-	@Get('/')
-	async get(req: BinaryDataRequest, res: express.Response) {
-		const { id: binaryDataId, action } = req.query;
 
 		if (!binaryDataId) {
 			return res.status(400).end('Missing binary data ID');
@@ -78,6 +77,34 @@ export class BinaryDataController {
 			return res.status(400).end('Missing binary data mode');
 		}
 
-		return await this.getStream(req, res, binaryDataId, action);
+		const [mode] = binaryDataId.split(':');
+
+		if (!isValidNonDefaultMode(mode)) {
+			return res.status(400).end('Invalid binary data mode');
+		}
+
+		let fileName, mimeType;
+		try {
+			const metadata = await this.binaryDataService.getMetadata(binaryDataId);
+			fileName = metadata.fileName;
+			mimeType = metadata.mimeType;
+			res.setHeader('Content-Length', metadata.fileSize);
+		} catch {}
+
+		if (mimeType) {
+			res.setHeader('Content-Type', mimeType);
+		}
+
+		try {
+			if (fileName) {
+				const encodedFilename = encodeURIComponent(fileName);
+				res.setHeader('Content-Disposition', `attachment; filename="${encodedFilename}"`);
+			}
+
+			return await this.binaryDataService.getAsStream(binaryDataId);
+		} catch (error) {
+			if (error instanceof FileNotFoundError) return res.status(404).end();
+			else throw error;
+		}
 	}
 }
