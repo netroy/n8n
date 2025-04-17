@@ -1,3 +1,4 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import { Service } from '@n8n/di';
 import type { SecretsHelpersBase } from 'n8n-workflow';
 
@@ -20,23 +21,23 @@ export class SecretsHelper implements SecretsHelpersBase {
 		}
 	}
 
-	getSecret(provider: string, name: string) {
+	getSecret(provider: ExternalSecretsProvider, name: string) {
 		return this.service.getSecret(provider, name);
 	}
 
-	hasSecret(provider: string, name: string): boolean {
+	hasSecret(provider: ExternalSecretsProvider, name: string): boolean {
 		return this.service.hasSecret(provider, name);
 	}
 
-	hasProvider(provider: string): boolean {
+	hasProvider(provider: ExternalSecretsProvider): boolean {
 		return this.service.hasProvider(provider);
 	}
 
-	listProviders(): string[] {
+	listProviders(): ExternalSecretsProvider[] {
 		return this.service.getProviderNames() ?? [];
 	}
 
-	listSecrets(provider: string): string[] {
+	listSecrets(provider: ExternalSecretsProvider): string[] {
 		return this.service.getSecretNames(provider) ?? [];
 	}
 }

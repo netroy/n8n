@@ -63,6 +63,7 @@ import '@/credentials/credentials.controller';
 import '@/eventbus/event-bus.controller';
 import '@/events/events.controller';
 import '@/executions/executions.controller';
+// TODO: load this only when licensed
 import '@/external-secrets.ee/external-secrets.controller.ee';
 import '@/license/license.controller';
 import '@/evaluation.ee/test-definitions.controller.ee';

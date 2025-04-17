@@ -1,22 +1,23 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import type { IDataObject, INodeProperties } from 'n8n-workflow';
 
 import { SecretsProvider } from '@/external-secrets.ee/types';
 import type { SecretsProviderSettings, SecretsProviderState } from '@/external-secrets.ee/types';
 
 export class MockProviders {
-	providers: Record<string, { new (): SecretsProvider }> = {
-		dummy: DummyProvider,
+	providers: Partial<Record<ExternalSecretsProvider, { new (): SecretsProvider }>> = {
+		['dummy' as ExternalSecretsProvider]: DummyProvider,
 	};
 
-	setProviders(providers: Record<string, { new (): SecretsProvider }>) {
+	setProviders(providers: Record<ExternalSecretsProvider, { new (): SecretsProvider }>) {
 		this.providers = providers;
 	}
 
-	getProvider(name: string): { new (): SecretsProvider } | null {
+	getProvider(name: ExternalSecretsProvider): { new (): SecretsProvider } | null {
 		return this.providers[name] ?? null;
 	}
 
-	hasProvider(name: string) {
+	hasProvider(name: ExternalSecretsProvider) {
 		return name in this.providers;
 	}
 
@@ -55,7 +56,7 @@ export class DummyProvider extends SecretsProvider {
 
 	displayName = 'Dummy Provider';
 
-	name = 'dummy';
+	name = 'dummy' as ExternalSecretsProvider;
 
 	state: SecretsProviderState = 'initializing';
 
@@ -94,7 +95,7 @@ export class DummyProvider extends SecretsProvider {
 }
 
 export class AnotherDummyProvider extends DummyProvider {
-	name = 'another_dummy';
+	name = 'another_dummy' as ExternalSecretsProvider;
 }
 
 export class ErrorProvider extends SecretsProvider {
@@ -102,7 +103,7 @@ export class ErrorProvider extends SecretsProvider {
 
 	displayName = 'Error Provider';
 
-	name = 'dummy';
+	name = 'dummy' as ExternalSecretsProvider;
 
 	state: SecretsProviderState = 'initializing';
 
@@ -145,7 +146,7 @@ export class FailedProvider extends SecretsProvider {
 
 	displayName = 'Failed Provider';
 
-	name = 'dummy';
+	name = 'dummy' as ExternalSecretsProvider;
 
 	state: SecretsProviderState = 'initializing';
 
@@ -181,7 +182,7 @@ export class TestFailProvider extends SecretsProvider {
 
 	displayName = 'Test Failed Provider';
 
-	name = 'dummy';
+	name = 'dummy' as ExternalSecretsProvider;
 
 	state: SecretsProviderState = 'initializing';
 

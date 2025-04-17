@@ -1,3 +1,4 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import { Container } from '@n8n/di';
 import { Logger } from 'n8n-core';
 import type { INodeProperties } from 'n8n-workflow';
@@ -9,7 +10,7 @@ import { UnknownAuthTypeError } from '../../errors/unknown-auth-type.error';
 import type { SecretsProvider, SecretsProviderState } from '../../types';
 
 export class AwsSecretsManager implements SecretsProvider {
-	name = 'awsSecretsManager';
+	name = 'awsSecretsManager' as ExternalSecretsProvider;
 
 	displayName = 'AWS Secrets Manager';
 

@@ -1,3 +1,4 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import { Service } from '@n8n/di';
 
 import { AwsSecretsManager } from './providers/aws-secrets/aws-secrets-manager';
@@ -9,7 +10,7 @@ import type { SecretsProvider } from './types';
 
 @Service()
 export class ExternalSecretsProviders {
-	providers: Record<string, { new (): SecretsProvider }> = {
+	providers: Record<ExternalSecretsProvider, { new (): SecretsProvider }> = {
 		awsSecretsManager: AwsSecretsManager,
 		infisical: InfisicalProvider,
 		vault: VaultProvider,
@@ -17,8 +18,8 @@ export class ExternalSecretsProviders {
 		gcpSecretsManager: GcpSecretsManager,
 	};
 
-	getProvider(name: string): { new (): SecretsProvider } | null {
-		return this.providers[name] ?? null;
+	getProvider(name: ExternalSecretsProvider): { new (): SecretsProvider } {
+		return this.providers[name];
 	}
 
 	hasProvider(name: string) {

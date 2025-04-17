@@ -216,7 +216,7 @@ export class VaultProvider extends SecretsProvider {
 
 	displayName = 'HashiCorp Vault';
 
-	name = 'vault';
+	name = 'vault' as const;
 
 	state: SecretsProviderState = 'initializing';
 

@@ -136,15 +136,6 @@ describe('External Secrets Manager', () => {
 		});
 	});
 
-	describe('hasProvider', () => {
-		test('should check if provider exists', async () => {
-			await manager.init();
-
-			expect(manager.hasProvider('dummy')).toBe(true);
-			expect(manager.hasProvider('nonexistent')).toBe(false);
-		});
-	});
-
 	describe('getProviderNames', () => {
 		test('should get provider names', async () => {
 			await manager.init();

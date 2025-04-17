@@ -9,7 +9,7 @@ import { DOCS_HELP_NOTICE, EXTERNAL_SECRETS_NAME_REGEX } from '../../constants';
 import type { SecretsProvider, SecretsProviderState } from '../../types';
 
 export class AzureKeyVault implements SecretsProvider {
-	name = 'azureKeyVault';
+	name = 'azureKeyVault' as const;
 
 	displayName = 'Azure Key Vault';
 

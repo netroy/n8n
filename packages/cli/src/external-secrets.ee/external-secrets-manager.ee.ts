@@ -1,3 +1,4 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import { Service } from '@n8n/di';
 import { Cipher, Logger } from 'n8n-core';
 import { jsonParse, type IDataObject, ensureError, UnexpectedError } from 'n8n-workflow';
@@ -15,7 +16,7 @@ import type { ExternalSecretsSettings, SecretsProvider, SecretsProviderSettings 
 
 @Service()
 export class ExternalSecretsManager {
-	private providers: Record<string, SecretsProvider> = {};
+	private providers: { [provider in ExternalSecretsProvider]?: SecretsProvider } = {};
 
 	private initializingPromise?: Promise<void>;
 
@@ -25,7 +26,7 @@ export class ExternalSecretsManager {
 
 	updateInterval: NodeJS.Timer;
 
-	initRetryTimeouts: Record<string, NodeJS.Timer> = {};
+	private initRetryTimeouts: { [provider in ExternalSecretsProvider]?: NodeJS.Timer } = {};
 
 	constructor(
 		private readonly logger: Logger,
@@ -113,7 +114,8 @@ export class ExternalSecretsManager {
 		const providers: Array<SecretsProvider | null> = (
 			await Promise.allSettled(
 				Object.entries(settings).map(
-					async ([name, providerSettings]) => await this.initProvider(name, providerSettings),
+					async ([name, providerSettings]) =>
+						await this.initProvider(name as ExternalSecretsProvider, providerSettings),
 				),
 			)
 		).map((i) => (i.status === 'rejected' ? null : i.value));
@@ -125,7 +127,7 @@ export class ExternalSecretsManager {
 	}
 
 	private async initProvider(
-		name: string,
+		name: ExternalSecretsProvider,
 		providerSettings: SecretsProviderSettings,
 		currentBackoff = EXTERNAL_SECRETS_INITIAL_BACKOFF,
 	) {
@@ -163,7 +165,7 @@ export class ExternalSecretsManager {
 		return provider;
 	}
 
-	private retryInitWithBackoff(name: string, currentBackoff: number) {
+	private retryInitWithBackoff(name: ExternalSecretsProvider, currentBackoff: number) {
 		if (name in this.initRetryTimeouts) {
 			clearTimeout(this.initRetryTimeouts[name]);
 			delete this.initRetryTimeouts[name];
@@ -196,37 +198,34 @@ export class ExternalSecretsManager {
 		this.logger.debug('External secrets manager updated secrets');
 	}
 
-	getProvider(provider: string): SecretsProvider | undefined {
-		return this.providers[provider];
+	getProvider(provider: ExternalSecretsProvider): SecretsProvider {
+		return this.providers[provider]!;
 	}
 
-	hasProvider(provider: string): boolean {
+	hasProvider(provider: ExternalSecretsProvider): boolean {
 		return provider in this.providers;
 	}
 
-	getProviderNames(): string[] | undefined {
-		return Object.keys(this.providers);
+	getProviderNames(): ExternalSecretsProvider[] {
+		return Object.keys(this.providers) as ExternalSecretsProvider[];
 	}
 
-	getSecret(provider: string, name: string) {
-		return this.getProvider(provider)?.getSecret(name);
+	getSecret(provider: ExternalSecretsProvider, secretName: string) {
+		return this.getProvider(provider)?.getSecret(secretName);
 	}
 
-	hasSecret(provider: string, name: string): boolean {
-		return this.getProvider(provider)?.hasSecret(name) ?? false;
+	hasSecret(provider: ExternalSecretsProvider, secretName: string): boolean {
+		return this.getProvider(provider)?.hasSecret(secretName) ?? false;
 	}
 
-	getSecretNames(provider: string): string[] | undefined {
+	getSecretNames(provider: ExternalSecretsProvider): string[] | undefined {
 		return this.getProvider(provider)?.getSecretNames();
 	}
 
-	getAllSecretNames(): Record<string, string[]> {
+	getAllSecretNames() {
 		return Object.fromEntries(
-			Object.keys(this.providers).map((provider) => [
-				provider,
-				this.getSecretNames(provider) ?? [],
-			]),
-		);
+			this.getProviderNames().map((provider) => [provider, this.getSecretNames(provider) ?? []]),
+		) as Record<ExternalSecretsProvider, string[]>;
 	}
 
 	getProvidersWithSettings(): Array<{
@@ -234,30 +233,28 @@ export class ExternalSecretsManager {
 		settings: SecretsProviderSettings;
 	}> {
 		return Object.entries(this.secretsProviders.getAllProviders()).map(([k, c]) => ({
-			provider: this.getProvider(k) ?? new c(),
+			provider: this.getProvider(k as ExternalSecretsProvider) ?? new c(),
 			settings: this.cachedSettings[k] ?? {},
 		}));
 	}
 
-	getProviderWithSettings(provider: string):
-		| {
-				provider: SecretsProvider;
-				settings: SecretsProviderSettings;
-		  }
-		| undefined {
+	getProviderWithSettings(provider: ExternalSecretsProvider): {
+		provider: SecretsProvider;
+		settings: SecretsProviderSettings;
+	} {
 		const providerConstructor = this.secretsProviders.getProvider(provider);
-		if (!providerConstructor) {
-			return undefined;
-		}
 		return {
 			provider: this.getProvider(provider) ?? new providerConstructor(),
 			settings: this.cachedSettings[provider] ?? {},
 		};
 	}
 
-	async reloadProvider(provider: string, backoff = EXTERNAL_SECRETS_INITIAL_BACKOFF) {
+	async reloadProvider(
+		provider: ExternalSecretsProvider,
+		backoff = EXTERNAL_SECRETS_INITIAL_BACKOFF,
+	) {
 		if (provider in this.providers) {
-			await this.providers[provider].disconnect();
+			await this.providers[provider]?.disconnect();
 			delete this.providers[provider];
 		}
 		const newProvider = await this.initProvider(provider, this.cachedSettings[provider], backoff);
@@ -268,7 +265,7 @@ export class ExternalSecretsManager {
 		this.logger.debug(`External secrets manager reloaded provider ${provider}`);
 	}
 
-	async setProviderSettings(provider: string, data: IDataObject, userId?: string) {
+	async setProviderSettings(provider: ExternalSecretsProvider, data: IDataObject, userId?: string) {
 		let isNewProvider = false;
 		let settings = await this.getDecryptedSettings();
 		if (!settings) {
@@ -291,7 +288,7 @@ export class ExternalSecretsManager {
 		void this.trackProviderSave(provider, isNewProvider, userId);
 	}
 
-	async setProviderConnected(provider: string, connected: boolean) {
+	async setProviderConnected(provider: ExternalSecretsProvider, connected: boolean) {
 		let settings = await this.getDecryptedSettings();
 		if (!settings) {
 			settings = {};
@@ -309,14 +306,18 @@ export class ExternalSecretsManager {
 		this.broadcastReloadExternalSecretsProviders();
 	}
 
-	private async trackProviderSave(vaultType: string, isNew: boolean, userId?: string) {
+	private async trackProviderSave(
+		provider: ExternalSecretsProvider,
+		isNew: boolean,
+		userId?: string,
+	) {
 		let testResult: [boolean] | [boolean, string] | undefined;
 		try {
-			testResult = await this.getProvider(vaultType)?.test();
+			testResult = await this.getProvider(provider)?.test();
 		} catch {}
 		this.eventService.emit('external-secrets-provider-settings-saved', {
 			userId,
-			vaultType,
+			vaultType: provider,
 			isNew,
 			isValid: testResult?.[0] ?? false,
 			errorMessage: testResult?.[1],
@@ -333,7 +334,7 @@ export class ExternalSecretsManager {
 	}
 
 	async testProviderSettings(
-		provider: string,
+		provider: ExternalSecretsProvider,
 		data: IDataObject,
 	): Promise<{
 		success: boolean;
@@ -377,7 +378,7 @@ export class ExternalSecretsManager {
 		}
 	}
 
-	async updateProvider(provider: string): Promise<boolean> {
+	async updateProvider(provider: ExternalSecretsProvider): Promise<boolean> {
 		if (!this.license.isExternalSecretsEnabled()) {
 			return false;
 		}

@@ -12,7 +12,7 @@ import { DOCS_HELP_NOTICE, EXTERNAL_SECRETS_NAME_REGEX } from '../../constants';
 import type { SecretsProvider, SecretsProviderState } from '../../types';
 
 export class GcpSecretsManager implements SecretsProvider {
-	name = 'gcpSecretsManager';
+	name = 'gcpSecretsManager' as const;
 
 	displayName = 'GCP Secrets Manager';
 

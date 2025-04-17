@@ -1,3 +1,4 @@
+import type { ExternalSecretsProvider } from '@n8n/api-types';
 import type { IDataObject, INodeProperties } from 'n8n-workflow';
 
 import type { AuthenticatedRequest } from '@/requests';
@@ -17,7 +18,7 @@ export type SecretsProviderState = 'initializing' | 'connected' | 'error';
 export abstract class SecretsProvider {
 	displayName: string;
 
-	name: string;
+	name: ExternalSecretsProvider;
 
 	properties: INodeProperties[];
 
@@ -43,14 +44,21 @@ export declare namespace ExternalSecretsRequest {
 	};
 
 	type GetProviders = AuthenticatedRequest;
-	type GetProvider = AuthenticatedRequest<{ provider: string }, GetProviderResponse>;
-	type SetProviderSettings = AuthenticatedRequest<{ provider: string }, {}, IDataObject>;
+	type GetProvider = AuthenticatedRequest<
+		{ provider: ExternalSecretsProvider },
+		GetProviderResponse
+	>;
+	type SetProviderSettings = AuthenticatedRequest<
+		{ provider: ExternalSecretsProvider },
+		{},
+		IDataObject
+	>;
 	type TestProviderSettings = SetProviderSettings;
 	type SetProviderConnected = AuthenticatedRequest<
-		{ provider: string },
+		{ provider: ExternalSecretsProvider },
 		{},
 		{ connected: boolean }
 	>;
 
-	type UpdateProvider = AuthenticatedRequest<{ provider: string }>;
+	type UpdateProvider = AuthenticatedRequest<{ provider: ExternalSecretsProvider }>;
 }

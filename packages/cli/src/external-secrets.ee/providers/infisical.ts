@@ -58,7 +58,7 @@ export class InfisicalProvider implements SecretsProvider {
 
 	displayName = 'Infisical';
 
-	name = 'infisical';
+	name = 'infisical' as const;
 
 	state: SecretsProviderState = 'initializing';
 
