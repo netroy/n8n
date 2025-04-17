@@ -91,10 +91,15 @@ export class ExternalSecretsManager {
 		void this.publisher.publishCommand({ command: 'reload-external-secrets-providers' });
 	}
 
-	private decryptSecretsSettings(value: string): ExternalSecretsSettings {
-		const decryptedData = this.cipher.decrypt(value);
+	private async getDecryptedSettings(): Promise<ExternalSecretsSettings | null> {
+		const encryptedSettings = await this.settingsRepo.getEncryptedSecretsProviderSettings();
+		if (encryptedSettings === null) {
+			return null;
+		}
+
+		const decryptedData = this.cipher.decrypt(encryptedSettings);
 		try {
-			return jsonParse(decryptedData);
+			return jsonParse<ExternalSecretsSettings>(decryptedData);
 		} catch (e) {
 			throw new UnexpectedError(
 				'External Secrets Settings could not be decrypted. The likely reason is that a different "encryptionKey" was used to encrypt the data.',
@@ -102,18 +107,8 @@ export class ExternalSecretsManager {
 		}
 	}
 
-	private async getDecryptedSettings(
-		settingsRepo: SettingsRepository,
-	): Promise<ExternalSecretsSettings | null> {
-		const encryptedSettings = await settingsRepo.getEncryptedSecretsProviderSettings();
-		if (encryptedSettings === null) {
-			return null;
-		}
-		return this.decryptSecretsSettings(encryptedSettings);
-	}
-
 	private async internalInit() {
-		const settings = await this.getDecryptedSettings(this.settingsRepo);
+		const settings = await this.getDecryptedSettings();
 		if (!settings) {
 			return;
 		}
@@ -277,7 +272,7 @@ export class ExternalSecretsManager {
 
 	async setProviderSettings(provider: string, data: IDataObject, userId?: string) {
 		let isNewProvider = false;
-		let settings = await this.getDecryptedSettings(this.settingsRepo);
+		let settings = await this.getDecryptedSettings();
 		if (!settings) {
 			settings = {};
 		}
@@ -290,7 +285,7 @@ export class ExternalSecretsManager {
 			settings: data,
 		};
 
-		await this.saveAndSetSettings(settings, this.settingsRepo);
+		await this.saveAndSetSettings(settings);
 		this.cachedSettings = settings;
 		await this.reloadProvider(provider);
 		this.broadcastReloadExternalSecretsProviders();
@@ -299,7 +294,7 @@ export class ExternalSecretsManager {
 	}
 
 	async setProviderConnected(provider: string, connected: boolean) {
-		let settings = await this.getDecryptedSettings(this.settingsRepo);
+		let settings = await this.getDecryptedSettings();
 		if (!settings) {
 			settings = {};
 		}
@@ -309,7 +304,7 @@ export class ExternalSecretsManager {
 			settings: settings[provider]?.settings ?? {},
 		};
 
-		await this.saveAndSetSettings(settings, this.settingsRepo);
+		await this.saveAndSetSettings(settings);
 		this.cachedSettings = settings;
 		await this.reloadProvider(provider);
 		await this.updateSecrets();
@@ -334,9 +329,9 @@ export class ExternalSecretsManager {
 		return this.cipher.encrypt(settings);
 	}
 
-	async saveAndSetSettings(settings: ExternalSecretsSettings, settingsRepo: SettingsRepository) {
+	async saveAndSetSettings(settings: ExternalSecretsSettings) {
 		const encryptedSettings = this.encryptSecretsSettings(settings);
-		await settingsRepo.saveEncryptedSecretsProviderSettings(encryptedSettings);
+		await this.settingsRepo.saveEncryptedSecretsProviderSettings(encryptedSettings);
 	}
 
 	async testProviderSettings(
