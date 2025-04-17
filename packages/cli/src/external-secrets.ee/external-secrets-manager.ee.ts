@@ -3,6 +3,7 @@ import { Cipher, Logger } from 'n8n-core';
 import { jsonParse, type IDataObject, ensureError, UnexpectedError } from 'n8n-workflow';
 
 import { SettingsRepository } from '@/databases/repositories/settings.repository';
+import { OnShutdown } from '@/decorators/on-shutdown';
 import { EventService } from '@/events/event.service';
 import type {
 	ExternalSecretsSettings,
@@ -57,12 +58,13 @@ export class ExternalSecretsManager {
 					);
 				});
 			}
-			return await this.initializingPromise;
+			await this.initializingPromise;
 		}
 
 		this.logger.debug('External secrets manager initialized');
 	}
 
+	@OnShutdown()
 	shutdown() {
 		clearInterval(this.updateInterval);
 		Object.values(this.providers).forEach((p) => {
@@ -87,7 +89,7 @@ export class ExternalSecretsManager {
 		this.logger.debug('External secrets managed reloaded all providers');
 	}
 
-	broadcastReloadExternalSecretsProviders() {
+	private broadcastReloadExternalSecretsProviders() {
 		void this.publisher.publishCommand({ command: 'reload-external-secrets-providers' });
 	}
 
