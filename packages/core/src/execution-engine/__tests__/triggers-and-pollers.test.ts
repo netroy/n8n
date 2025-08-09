@@ -12,7 +12,7 @@ import type {
 	IRun,
 } from 'n8n-workflow';
 
-import { ExecutionLifecycleHooks, type HookExecutionContext } from '../execution-lifecycle-hooks';
+import { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
 import { TriggersAndPollers } from '../triggers-and-pollers';
 
 describe('TriggersAndPollers', () => {
@@ -23,15 +23,14 @@ describe('TriggersAndPollers', () => {
 	});
 	const nodeTypes = mock<INodeTypes>();
 	const workflowInstance = mock<Workflow>({ nodeTypes });
-	const context: HookExecutionContext = {
+	const hooks = new ExecutionLifecycleHooks();
+	const runHook = hooks.withContext({
 		executionId: '123',
 		executionMode: 'internal',
 		workflowData: mock(),
-		workflowInstance,
 		saveSettings: mock(),
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
-	const additionalData = mock<IWorkflowExecuteAdditionalData>({ hooks });
+	});
+	const additionalData = mock<IWorkflowExecuteAdditionalData>({ runHook });
 	const triggersAndPollers = new TriggersAndPollers();
 
 	beforeEach(() => {
@@ -98,7 +97,7 @@ describe('TriggersAndPollers', () => {
 
 				getMockTriggerFunctions()?.emit?.(mockEmitData, responsePromise);
 
-				await hooks.runHook('sendResponse', [{ testResponse: true }]);
+				await additionalData.runHook?.('sendResponse', [{ testResponse: true }]);
 				expect(responsePromise.resolve).toHaveBeenCalledWith({ testResponse: true });
 			});
 
@@ -110,10 +109,10 @@ describe('TriggersAndPollers', () => {
 				await runTriggerHelper('manual');
 				getMockTriggerFunctions()?.emit?.(mockEmitData, responsePromise, donePromise);
 
-				await hooks.runHook('sendResponse', [{ testResponse: true }]);
+				await additionalData.runHook?.('sendResponse', [{ testResponse: true }]);
 				expect(responsePromise.resolve).toHaveBeenCalledWith({ testResponse: true });
 
-				await hooks.runHook('workflowExecuteAfter', [mockRunData]);
+				await additionalData.runHook?.('workflowExecuteAfter', [mockRunData]);
 				expect(donePromise.resolve).toHaveBeenCalledWith(mockRunData);
 			});
 		});

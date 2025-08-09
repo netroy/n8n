@@ -8,6 +8,7 @@ import {
 	InstanceSettings,
 	ExecutionLifecycleHooks,
 	HookExecutionContext,
+	RunHook,
 } from 'n8n-core';
 
 import { EventService } from '@/events/event.service';
@@ -466,17 +467,8 @@ function hookFunctionsSaveWorker(hooks: ExecutionLifecycleHooks) {
  */
 export function getLifecycleHooksForSubExecutions(
 	data: Omit<HookExecutionContext, 'saveSettings'>,
-): ExecutionLifecycleHooks {
-	const { executionId, executionMode, workflowData, userId } = data;
-	const saveSettings = toSaveSettings(workflowData.settings);
-	const context: HookExecutionContext = {
-		executionId,
-		executionMode,
-		workflowData,
-		saveSettings,
-		userId,
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
+): RunHook {
+	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsWorkflowEvents(hooks);
 	hookFunctionsNodeEvents(hooks);
 	hookFunctionsFinalizeExecutionStatus(hooks);
@@ -484,7 +476,15 @@ export function getLifecycleHooksForSubExecutions(
 	hookFunctionsSaveProgress(hooks);
 	hookFunctionsStatistics(hooks);
 	hookFunctionsExternalHooks(hooks);
-	return hooks;
+
+	const { executionId, executionMode, workflowData, userId } = data;
+	return hooks.withContext({
+		executionId,
+		executionMode,
+		workflowData,
+		saveSettings: toSaveSettings(workflowData.settings),
+		userId,
+	});
 }
 
 /**
@@ -492,19 +492,8 @@ export function getLifecycleHooksForSubExecutions(
  */
 export function getLifecycleHooksForScalingWorker(
 	data: Omit<HookExecutionContext, 'saveSettings'>,
-): ExecutionLifecycleHooks {
-	const { executionId, executionMode, workflowData, pushRef, retryOf, userId } = data;
-	const saveSettings = toSaveSettings(workflowData.settings);
-	const context: HookExecutionContext = {
-		executionId,
-		executionMode,
-		workflowData,
-		saveSettings,
-		pushRef,
-		retryOf: retryOf ?? undefined,
-		userId,
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
+): RunHook {
+	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsNodeEvents(hooks);
 	hookFunctionsFinalizeExecutionStatus(hooks);
 	hookFunctionsSaveWorker(hooks);
@@ -512,13 +501,23 @@ export function getLifecycleHooksForScalingWorker(
 	hookFunctionsStatistics(hooks);
 	hookFunctionsExternalHooks(hooks);
 
-	if (executionMode === 'manual' && Container.get(InstanceSettings).isWorker) {
+	// TODO: move these checks inside the handler
+	if (data.executionMode === 'manual' && Container.get(InstanceSettings).isWorker) {
 		hookFunctionsPush(hooks);
 	}
 
 	Container.get(ModulesHooksRegistry).addHooks(hooks);
 
-	return hooks;
+	const { executionId, executionMode, workflowData, pushRef, retryOf, userId } = data;
+	return hooks.withContext({
+		executionId,
+		executionMode,
+		workflowData,
+		saveSettings: toSaveSettings(workflowData.settings),
+		pushRef,
+		retryOf: retryOf ?? undefined,
+		userId,
+	});
 }
 
 /**
@@ -526,19 +525,8 @@ export function getLifecycleHooksForScalingWorker(
  */
 export function getLifecycleHooksForScalingMain(
 	data: Omit<HookExecutionContext, 'saveSettings'>,
-): ExecutionLifecycleHooks {
-	const { executionId, executionMode, workflowData, pushRef, retryOf, userId } = data;
-	const saveSettings = toSaveSettings(workflowData.settings);
-	const context: HookExecutionContext = {
-		executionId,
-		executionMode,
-		workflowData,
-		saveSettings,
-		pushRef,
-		retryOf: retryOf ?? undefined,
-		userId,
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
+): RunHook {
+	const hooks = new ExecutionLifecycleHooks();
 	const executionRepository = Container.get(ExecutionRepository);
 
 	hookFunctionsWorkflowEvents(hooks);
@@ -548,7 +536,7 @@ export function getLifecycleHooksForScalingMain(
 
 	hooks.addHandler(
 		'workflowExecuteAfter',
-		async function ({ executionId, executionMode }, fullRunData) {
+		async function ({ executionId, executionMode, saveSettings }, fullRunData) {
 			// Don't delete executions before they are finished
 			if (!fullRunData.finished) return;
 
@@ -590,7 +578,16 @@ export function getLifecycleHooksForScalingMain(
 
 	Container.get(ModulesHooksRegistry).addHooks(hooks);
 
-	return hooks;
+	const { executionId, executionMode, workflowData, pushRef, retryOf, userId } = data;
+	return hooks.withContext({
+		executionId,
+		executionMode,
+		workflowData,
+		saveSettings: toSaveSettings(workflowData.settings),
+		pushRef,
+		retryOf: retryOf ?? undefined,
+		userId,
+	});
 }
 
 /**
@@ -598,19 +595,8 @@ export function getLifecycleHooksForScalingMain(
  */
 export function getLifecycleHooksForRegularMain(
 	data: Omit<HookExecutionContext, 'saveSettings'>,
-): ExecutionLifecycleHooks {
-	const { executionId, pushRef, retryOf, executionMode, workflowData, userId } = data;
-	const saveSettings = toSaveSettings(workflowData.settings);
-	const context: HookExecutionContext = {
-		executionId,
-		executionMode,
-		workflowData,
-		saveSettings,
-		pushRef,
-		retryOf: retryOf ?? undefined,
-		userId,
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
+): RunHook {
+	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsWorkflowEvents(hooks);
 	hookFunctionsNodeEvents(hooks);
 	hookFunctionsFinalizeExecutionStatus(hooks);
@@ -620,5 +606,15 @@ export function getLifecycleHooksForRegularMain(
 	hookFunctionsStatistics(hooks);
 	hookFunctionsExternalHooks(hooks);
 	Container.get(ModulesHooksRegistry).addHooks(hooks);
-	return hooks;
+
+	const { executionId, pushRef, retryOf, executionMode, workflowData, userId } = data;
+	return hooks.withContext({
+		executionId,
+		executionMode,
+		workflowData,
+		saveSettings: toSaveSettings(workflowData.settings),
+		pushRef,
+		retryOf: retryOf ?? undefined,
+		userId,
+	});
 }

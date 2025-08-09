@@ -55,17 +55,15 @@ export function NodeTypes(nodeTypes: INodeTypeData = predefinedNodesTypes): INod
 export function WorkflowExecuteAdditionalData(
 	waitPromise: IDeferredPromise<IRun>,
 ): IWorkflowExecuteAdditionalData {
-	const context: HookExecutionContext = {
-		executionId: '1',
-		executionMode: 'trigger',
-		workflowData: mock(),
-		workflowInstance: mock(),
-		saveSettings: mock(),
-	};
-	const hooks = new ExecutionLifecycleHooks(context);
+	const hooks = new ExecutionLifecycleHooks();
 	hooks.addHandler('workflowExecuteAfter', (_, fullRunData) => waitPromise.resolve(fullRunData));
 	return mock<IWorkflowExecuteAdditionalData>({
-		hooks,
+		runHook: hooks.withContext({
+			executionId: '1',
+			executionMode: 'trigger',
+			workflowData: mock(),
+			saveSettings: mock(),
+		}),
 		currentNodeExecutionIndex: 0,
 		// Not setting this to undefined would set it to a mock which would trigger
 		// conditions in the WorkflowExecute which only check if a property exists,

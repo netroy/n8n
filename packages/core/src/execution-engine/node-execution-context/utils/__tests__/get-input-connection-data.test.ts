@@ -16,6 +16,7 @@ import type {
 } from 'n8n-workflow';
 import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
+import { RunHook } from '@/execution-engine/execution-lifecycle-hooks';
 import { ExecuteContext } from '../../execute-context';
 import { makeHandleToolInvocation } from '../get-input-connection-data';
 
@@ -43,8 +44,8 @@ describe('getInputConnectionData', () => {
 	const inputData = {} as ITaskDataConnections;
 	const executeData = {} as IExecuteData;
 
-	const hooks = mock<Required<IWorkflowExecuteAdditionalData['hooks']>>();
-	const additionalData = mock<IWorkflowExecuteAdditionalData>({ hooks });
+	const runHook = mock<RunHook>();
+	const additionalData = mock<IWorkflowExecuteAdditionalData>({ runHook });
 
 	let executeContext: ExecuteContext;
 

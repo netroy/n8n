@@ -126,41 +126,42 @@ export class JobProcessor {
 
 		const { pushRef } = job.data;
 
-		const lifecycleHooks = getLifecycleHooksForScalingWorker({
+		const runHook = getLifecycleHooksForScalingWorker({
 			executionId,
 			executionMode: execution.mode,
 			workflowData: execution.workflowData,
 			retryOf: execution.retryOf,
 			pushRef,
 		});
-		additionalData.hooks = lifecycleHooks;
+		additionalData.runHook = runHook;
 
 		if (pushRef) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			additionalData.sendDataToUI = WorkflowExecuteAdditionalData.sendDataToUI.bind({ pushRef });
 		}
 
-		lifecycleHooks.addHandler('sendResponse', async (response): Promise<void> => {
-			const msg: RespondToWebhookMessage = {
-				kind: 'respond-to-webhook',
-				executionId,
-				response: this.encodeWebhookResponse(response),
-				workerId: this.instanceSettings.hostId,
-			};
+		// TODO: move these into the existing ELH factories
+		// lifecycleHooks.addHandler('sendResponse', async (response): Promise<void> => {
+		// 	const msg: RespondToWebhookMessage = {
+		// 		kind: 'respond-to-webhook',
+		// 		executionId,
+		// 		response: this.encodeWebhookResponse(response),
+		// 		workerId: this.instanceSettings.hostId,
+		// 	};
 
-			await job.progress(msg);
-		});
+		// 	await job.progress(msg);
+		// });
 
-		lifecycleHooks.addHandler('sendChunk', async (_, chunk: StructuredChunk): Promise<void> => {
-			const msg: SendChunkMessage = {
-				kind: 'send-chunk',
-				executionId,
-				chunkText: chunk,
-				workerId: this.instanceSettings.hostId,
-			};
+		// lifecycleHooks.addHandler('sendChunk', async (_, chunk: StructuredChunk): Promise<void> => {
+		// 	const msg: SendChunkMessage = {
+		// 		kind: 'send-chunk',
+		// 		executionId,
+		// 		chunkText: chunk,
+		// 		workerId: this.instanceSettings.hostId,
+		// 	};
 
-			await job.progress(msg);
-		});
+		// 	await job.progress(msg);
+		// });
 
 		additionalData.executionId = executionId;
 
@@ -220,7 +221,7 @@ export class JobProcessor {
 						data: { resultData: { error, runData: {} } },
 					};
 
-					await lifecycleHooks.runHook('workflowExecuteAfter', [runData]);
+					await runHook('workflowExecuteAfter', [runData]);
 					return { success: false };
 				}
 				throw error;

@@ -13,7 +13,6 @@ import type {
 	IExecuteResponsePromiseData,
 	IRun,
 } from 'n8n-workflow';
-import assert from 'node:assert';
 
 import type { IGetExecuteTriggerFunctions } from './interfaces';
 
@@ -48,22 +47,13 @@ export class TriggersAndPollers {
 
 			// Add the manual trigger response which resolves when the first time data got emitted
 			triggerResponse!.manualTriggerResponse = new Promise((resolve, reject) => {
-				const { hooks } = additionalData;
-				assert.ok(hooks, 'Execution lifecycle hooks are not defined');
-
 				triggerFunctions.emit = (
 					data: INodeExecutionData[][],
 					responsePromise?: IDeferredPromise<IExecuteResponsePromiseData>,
 					donePromise?: IDeferredPromise<IRun>,
 				) => {
-					if (responsePromise) {
-						hooks.addHandler('sendResponse', (_, response) => responsePromise.resolve(response));
-					}
-
-					if (donePromise) {
-						hooks.addHandler('workflowExecuteAfter', (_, runData) => donePromise.resolve(runData));
-					}
-
+					additionalData.responsePromise = responsePromise;
+					additionalData.donePromise = donePromise;
 					resolve(data);
 				};
 
@@ -71,9 +61,11 @@ export class TriggersAndPollers {
 					error: Error,
 					responsePromise?: IDeferredPromise<IExecuteResponsePromiseData>,
 				) => {
-					if (responsePromise) {
-						hooks.addHandler('sendResponse', () => responsePromise.reject(error));
-					}
+					additionalData.responsePromise = responsePromise;
+					// TODO: reimplement this
+					// if (responsePromise) {
+					// 	hooks.addHandler('sendResponse', () => responsePromise.reject(error));
+					// }
 					reject(error);
 				};
 			});

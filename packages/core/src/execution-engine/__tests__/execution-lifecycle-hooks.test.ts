@@ -6,8 +6,6 @@ import type {
 	IRunExecutionData,
 	ITaskData,
 	ITaskStartedData,
-	IWorkflowBase,
-	Workflow,
 } from 'n8n-workflow';
 
 import type {
@@ -19,20 +17,17 @@ import { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
 
 describe('ExecutionLifecycleHooks', () => {
 	const executionId = '123';
-	const workflowData = mock<IWorkflowBase>();
-	const workflowInstance = mock<Workflow>();
+	const context: HookExecutionContext = {
+		executionId,
+		executionMode: 'internal',
+		workflowData: mock(),
+		saveSettings: mock(),
+	};
 
 	let hooks: ExecutionLifecycleHooks;
 	beforeEach(() => {
 		jest.clearAllMocks();
-		const context: HookExecutionContext = {
-			executionId,
-			executionMode: 'internal',
-			workflowData,
-			workflowInstance,
-			saveSettings: mock(),
-		};
-		hooks = new ExecutionLifecycleHooks(context);
+		hooks = new ExecutionLifecycleHooks();
 	});
 
 	describe('constructor()', () => {
@@ -57,32 +52,34 @@ describe('ExecutionLifecycleHooks', () => {
 
 		const context = {} as HookExecutionContext;
 		const testCases: Array<{
-			hook: ExecutionLifecycleHookName;
+			hookName: ExecutionLifecycleHookName;
 			args: Parameters<
 				ExecutionLifecycleHookHandlers[keyof ExecutionLifecycleHookHandlers][number]
 			>;
 		}> = [
-			{ hook: 'nodeExecuteBefore', args: [context, 'testNode', mock<ITaskStartedData>()] },
+			{ hookName: 'nodeExecuteBefore', args: [context, 'testNode', mock<ITaskStartedData>()] },
 			{
-				hook: 'nodeExecuteAfter',
+				hookName: 'nodeExecuteAfter',
 				args: [context, 'testNode', mock<ITaskData>(), mock<IRunExecutionData>()],
 			},
 			{
-				hook: 'workflowExecuteBefore',
+				hookName: 'workflowExecuteBefore',
 				args: [context],
 			},
-			{ hook: 'workflowExecuteAfter', args: [context, mock<IRun>()] },
-			{ hook: 'sendResponse', args: [context, mock<IExecuteResponsePromiseData>()] },
-			{ hook: 'nodeFetchedData', args: [context, mock<INode>()] },
+			{ hookName: 'workflowExecuteAfter', args: [context, mock<IRun>()] },
+			{ hookName: 'sendResponse', args: [context, mock<IExecuteResponsePromiseData>()] },
+			{ hookName: 'nodeFetchedData', args: [context, mock<INode>()] },
 		];
 
 		test.each(testCases)(
 			'should add handlers to $hook hook and call them',
-			async ({ hook, args }) => {
-				hooks.addHandler(hook, hooksHandlers[hook]);
-				await hooks.runHook(hook, args);
+			async ({ hookName, args }) => {
+				const handler = hooksHandlers[hookName];
+				hooks.addHandler(hookName, handler);
+				const runHook = hooks.withContext(context);
+				await runHook(hookName, args);
 				// eslint-disable-next-line n8n-local-rules/no-argument-spread
-				expect(hooksHandlers[hook]).toHaveBeenCalledWith(expect.anything(), ...args);
+				expect(handler).toHaveBeenCalledWith(expect.anything(), ...args);
 			},
 		);
 	});
@@ -98,7 +95,8 @@ describe('ExecutionLifecycleHooks', () => {
 			});
 
 			hooks.addHandler('nodeExecuteBefore', hook1, hook2);
-			await hooks.runHook('nodeExecuteBefore', ['testNode', mock()]);
+			const runHook = hooks.withContext(context);
+			await runHook('nodeExecuteBefore', ['testNode', mock()]);
 
 			expect(executionOrder).toEqual(['hook1', 'hook2']);
 			expect(hook1).toHaveBeenCalled();
@@ -112,7 +110,8 @@ describe('ExecutionLifecycleHooks', () => {
 			});
 
 			hooks.addHandler('nodeExecuteBefore', hook);
-			await hooks.runHook('nodeExecuteBefore', ['testNode', mock()]);
+			const runHook = hooks.withContext(context);
+			await runHook('nodeExecuteBefore', ['testNode', mock()]);
 
 			expect(hook).toHaveBeenCalled();
 		});
@@ -121,7 +120,8 @@ describe('ExecutionLifecycleHooks', () => {
 			const errorHook = jest.fn().mockRejectedValue(new Error('Hook failed'));
 			hooks.addHandler('nodeExecuteBefore', errorHook);
 
-			await expect(hooks.runHook('nodeExecuteBefore', ['testNode', mock()])).rejects.toThrow(
+			const runHook = hooks.withContext(context);
+			await expect(runHook('nodeExecuteBefore', ['testNode', mock()])).rejects.toThrow(
 				'Hook failed',
 			);
 		});

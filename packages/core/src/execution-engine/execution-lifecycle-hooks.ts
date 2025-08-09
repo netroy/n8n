@@ -68,6 +68,16 @@ s	 */
 
 export type ExecutionLifecycleHookName = keyof ExecutionLifecycleHookHandlers;
 
+export type RunHook = <
+	Hook extends keyof ExecutionLifecycleHookHandlers,
+	Params extends unknown[] = Parameters<
+		Exclude<ExecutionLifecycleHookHandlers[Hook], undefined>[number]
+	>,
+>(
+	hookName: Hook,
+	parameters: Params,
+) => Promise<void>;
+
 /**
  * Contains hooks that trigger at specific events in an execution's lifecycle. Every hook has an array of callbacks to run.
  *
@@ -80,7 +90,7 @@ export type ExecutionLifecycleHookName = keyof ExecutionLifecycleHookHandlers;
  *
  * @example
  * ```typescript
- * const hooks = new ExecutionLifecycleHooks(mode, executionId, workflowData);
+ * const hooks = new ExecutionLifecycleHooks();
  * hooks.add('workflowExecuteAfter, async function(fullRunData) {
  *  await saveToDatabase(executionId, fullRunData);
  *});
@@ -97,11 +107,6 @@ export class ExecutionLifecycleHooks {
 		sendChunk: [],
 	};
 
-	constructor(
-		/** @deprecated this should not be here, so that we can reuse hooks setup across executions */
-		private readonly context: HookExecutionContext,
-	) {}
-
 	addHandler<Hook extends keyof ExecutionLifecycleHookHandlers>(
 		hookName: Hook,
 		...handlers: Array<ExecutionLifecycleHookHandlers[Hook][number]>
@@ -110,20 +115,14 @@ export class ExecutionLifecycleHooks {
 		this.handlers[hookName].push(...handlers);
 	}
 
-	async runHook<
-		Hook extends keyof ExecutionLifecycleHookHandlers,
-		Params extends unknown[] = Parameters<
-			Exclude<ExecutionLifecycleHookHandlers[Hook], undefined>[number]
-		>,
-	>(hookName: Hook, parameters: Params) {
-		const hooks = this.handlers[hookName];
-		for (const hookFunction of hooks) {
-			const typedHookFunction = hookFunction as unknown as (
-				context: HookExecutionContext,
-				...args: Params
-			) => Promise<void>;
-			// eslint-disable-next-line n8n-local-rules/no-argument-spread
-			await typedHookFunction(this.context, ...parameters);
-		}
+	withContext(context: HookExecutionContext): RunHook {
+		return async (hookName, parameters) => {
+			const hooks = this.handlers[hookName];
+			for (const hookFunction of hooks) {
+				// @ts-expect-error
+				// eslint-disable-next-line n8n-local-rules/no-argument-spread
+				await hookFunction(context, ...parameters);
+			}
+		};
 	}
 }

@@ -199,20 +199,26 @@ export class NodeTestHarness {
 			active: false,
 		});
 
-		const hooks = new ExecutionLifecycleHooks('trigger', '1', mock());
+		const hooks = new ExecutionLifecycleHooks();
+		const runHook = hooks.withContext({
+			executionId: '1',
+			executionMode: 'trigger',
+			workflowData: mock(),
+			saveSettings: mock(),
+		});
 
 		const nodeExecutionOrder: string[] = [];
-		hooks.addHandler('nodeExecuteAfter', (nodeName) => {
+		hooks.addHandler('nodeExecuteAfter', (_, nodeName) => {
 			nodeExecutionOrder.push(nodeName);
 		});
 
 		const waitPromise = createDeferredPromise<IRun>();
-		hooks.addHandler('workflowExecuteAfter', (fullRunData) => waitPromise.resolve(fullRunData));
+		hooks.addHandler('workflowExecuteAfter', (_, fullRunData) => waitPromise.resolve(fullRunData));
 
 		const additionalData = mock<IWorkflowExecuteAdditionalData>({
 			executionId: '1',
 			webhookWaitingBaseUrl: 'http://localhost/waiting-webhook',
-			hooks,
+			runHook,
 			// Get from node.parameters
 			currentNodeParameters: undefined,
 		});

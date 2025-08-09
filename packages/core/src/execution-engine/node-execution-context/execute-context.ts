@@ -132,9 +132,8 @@ export class ExecuteContext extends BaseExecuteContext implements IExecuteFuncti
 	}
 
 	isStreaming(): boolean {
-		// Check if we have sendChunk handlers
-		const handlers = this.additionalData.hooks?.handlers?.sendChunk?.length;
-		const hasHandlers = handlers !== undefined && handlers > 0;
+		// Check if we have lifecycle hook handlers
+		const hasHandlers = this.additionalData.runHook !== undefined;
 
 		// Check if streaming was enabled for this execution
 		const streamingEnabled = this.additionalData.streamingEnabled === true;
@@ -168,7 +167,7 @@ export class ExecuteContext extends BaseExecuteContext implements IExecuteFuncti
 			metadata,
 		};
 
-		await this.additionalData.hooks?.runHook('sendChunk', [message]);
+		await this.additionalData.runHook?.('sendChunk', [message]);
 	}
 
 	async startJob<T = unknown, E = unknown>(
@@ -240,7 +239,7 @@ export class ExecuteContext extends BaseExecuteContext implements IExecuteFuncti
 	}
 
 	async sendResponse(response: IExecuteResponsePromiseData): Promise<void> {
-		await this.additionalData.hooks?.runHook('sendResponse', [response]);
+		await this.additionalData.runHook?.('sendResponse', [response]);
 	}
 
 	/** @deprecated use ISupplyDataFunctions.addInputData */

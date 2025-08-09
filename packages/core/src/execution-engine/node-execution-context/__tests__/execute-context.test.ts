@@ -16,8 +16,6 @@ import type {
 } from 'n8n-workflow';
 import { ApplicationError, ExpressionError, NodeConnectionTypes } from 'n8n-workflow';
 
-import type { ExecutionLifecycleHooks } from '@/execution-engine/execution-lifecycle-hooks';
-
 import { describeCommonTests } from './shared-tests';
 import { ExecuteContext } from '../execute-context';
 import * as validateUtil from '../utils/validate-value-against-schema';
@@ -270,12 +268,9 @@ describe('ExecuteContext', () => {
 
 	describe('sendChunk', () => {
 		test('should send call hook with structured chunk', async () => {
-			const hooksMock: ExecutionLifecycleHooks = mock<ExecutionLifecycleHooks>({
-				runHook: jest.fn(),
-			});
 			const additionalDataWithHooks: IWorkflowExecuteAdditionalData = {
 				...additionalData,
-				hooks: hooksMock,
+				runHook: jest.fn(),
 			};
 
 			const testExecuteContext = new ExecuteContext(
@@ -294,7 +289,7 @@ describe('ExecuteContext', () => {
 
 			await testExecuteContext.sendChunk('item', 0, 'test');
 
-			expect(hooksMock.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(additionalDataWithHooks.runHook).toHaveBeenCalledWith('sendChunk', [
 				expect.objectContaining({
 					type: 'item',
 					content: 'test',
@@ -310,12 +305,9 @@ describe('ExecuteContext', () => {
 		});
 
 		test('should send chunk without content when content is undefined', async () => {
-			const hooksMock: ExecutionLifecycleHooks = mock<ExecutionLifecycleHooks>({
-				runHook: jest.fn(),
-			});
 			const additionalDataWithHooks: IWorkflowExecuteAdditionalData = {
 				...additionalData,
-				hooks: hooksMock,
+				runHook: jest.fn(),
 			};
 
 			const testExecuteContext = new ExecuteContext(
@@ -334,7 +326,7 @@ describe('ExecuteContext', () => {
 
 			await testExecuteContext.sendChunk('begin', 0);
 
-			expect(hooksMock.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(additionalDataWithHooks.runHook).toHaveBeenCalledWith('sendChunk', [
 				expect.objectContaining({
 					type: 'begin',
 					content: undefined,

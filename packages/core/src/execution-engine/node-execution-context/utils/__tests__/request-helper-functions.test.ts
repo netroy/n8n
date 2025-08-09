@@ -15,8 +15,6 @@ import type {
 import nock from 'nock';
 import type { SecureContextOptions } from 'tls';
 
-import type { ExecutionLifecycleHooks } from '@/execution-engine/execution-lifecycle-hooks';
-
 import {
 	applyPaginationRequestData,
 	convertN8nRequestToAxios,
@@ -32,12 +30,12 @@ import {
 describe('Request Helper Functions', () => {
 	describe('proxyRequestToAxios', () => {
 		const baseUrl = 'https://example.de';
-		const hooks = mock<ExecutionLifecycleHooks>();
-		const additionalData = mock<IWorkflowExecuteAdditionalData>({ hooks });
+		const runHook = jest.fn();
+		const additionalData = mock<IWorkflowExecuteAdditionalData>({ runHook });
 		const node = mock<INode>();
 
 		beforeEach(() => {
-			hooks.runHook.mockClear();
+			runHook.mockClear();
 		});
 
 		test('should rethrow an error with `status` property', async () => {
@@ -53,7 +51,7 @@ describe('Request Helper Functions', () => {
 		test('should not throw if the response status is 200', async () => {
 			nock(baseUrl).get('/test').reply(200);
 			await proxyRequestToAxios(additionalData, node, `${baseUrl}/test`);
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
+			expect(runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		test('should throw if the response status is 403', async () => {
@@ -73,7 +71,7 @@ describe('Request Helper Functions', () => {
 				expect(error.config).toBeUndefined();
 				expect(error.message).toEqual('403 - "Forbidden"');
 			}
-			expect(hooks.runHook).not.toHaveBeenCalled();
+			expect(runHook).not.toHaveBeenCalled();
 		});
 
 		test('should not throw if the response status is 404, but `simple` option is set to `false`', async () => {
@@ -84,7 +82,7 @@ describe('Request Helper Functions', () => {
 			});
 
 			expect(response).toEqual('Not Found');
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
+			expect(runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		test('should return full response when `resolveWithFullResponse` is set to true', async () => {
@@ -101,7 +99,7 @@ describe('Request Helper Functions', () => {
 				statusCode: 404,
 				statusMessage: 'Not Found',
 			});
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
+			expect(runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		describe('redirects', () => {

@@ -48,7 +48,6 @@ import {
 import * as Helpers from '@test/helpers';
 import { legacyWorkflowExecuteTests, v1WorkflowExecuteTests } from '@test/helpers/constants';
 
-import type { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
 import { DirectedGraph } from '../partial-execution-utils';
 import * as partialExecutionUtils from '../partial-execution-utils';
 import { createNodeData, toITaskData } from '../partial-execution-utils/__tests__/helpers';
@@ -210,7 +209,7 @@ describe('WorkflowExecute', () => {
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
 
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(createDeferredPromise<IRun>());
-			const runHookSpy = jest.spyOn(additionalData.hooks!, 'runHook');
+			const runHookSpy = jest.spyOn(additionalData, 'runHook');
 
 			const workflowExecute = new WorkflowExecute(additionalData, executionMode);
 
@@ -246,7 +245,7 @@ describe('WorkflowExecute', () => {
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
 
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(createDeferredPromise<IRun>());
-			const runHookSpy = jest.spyOn(additionalData.hooks!, 'runHook');
+			const runHookSpy = jest.spyOn(additionalData, 'runHook');
 
 			const workflowExecute = new WorkflowExecute(additionalData, executionMode);
 			jest.spyOn(workflowExecute, 'ensureInputData').mockReturnValue(false);
@@ -287,7 +286,7 @@ describe('WorkflowExecute', () => {
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
 
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(createDeferredPromise<IRun>());
-			const runHookSpy = jest.spyOn(additionalData.hooks!, 'runHook');
+			const runHookSpy = jest.spyOn(additionalData, 'runHook');
 
 			const workflowExecute = new WorkflowExecute(additionalData, executionMode);
 
@@ -323,7 +322,7 @@ describe('WorkflowExecute', () => {
 				.toWorkflow({ name: '', active: false, nodeTypes, settings: { executionOrder } });
 
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(createDeferredPromise<IRun>());
-			const runHookSpy = jest.spyOn(additionalData.hooks!, 'runHook');
+			const runHookSpy = jest.spyOn(additionalData, 'runHook');
 
 			const workflowExecute = new WorkflowExecute(additionalData, executionMode);
 			jest.spyOn(workflowExecute, 'ensureInputData').mockReturnValue(false);
@@ -879,8 +878,7 @@ describe('WorkflowExecute', () => {
 			// ARRANGE
 			const waitPromise = createDeferredPromise<IRun>();
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			additionalData.hooks = mock<ExecutionLifecycleHooks>();
-			jest.spyOn(additionalData.hooks, 'runHook');
+			additionalData.runHook = jest.fn();
 
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
@@ -916,7 +914,7 @@ describe('WorkflowExecute', () => {
 
 			// ASSERT
 			expect(processRunExecutionDataSpy).toHaveBeenCalledTimes(1);
-			expect(additionalData.hooks?.runHook).toHaveBeenCalledWith('nodeExecuteBefore', [
+			expect(additionalData.runHook).toHaveBeenCalledWith('nodeExecuteBefore', [
 				node2.name,
 				expect.objectContaining({ executionIndex: 5 }),
 			]);
@@ -930,8 +928,7 @@ describe('WorkflowExecute', () => {
 			// ARRANGE
 			const waitPromise = createDeferredPromise<IRun>();
 			const additionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			additionalData.hooks = mock<ExecutionLifecycleHooks>();
-			jest.spyOn(additionalData.hooks, 'runHook');
+			additionalData.runHook = jest.fn();
 
 			const workflowExecute = new WorkflowExecute(additionalData, 'manual');
 
@@ -965,7 +962,7 @@ describe('WorkflowExecute', () => {
 
 			// ASSERT
 			expect(processRunExecutionDataSpy).toHaveBeenCalledTimes(1);
-			expect(additionalData.hooks?.runHook).toHaveBeenCalledWith('nodeExecuteBefore', [
+			expect(additionalData.runHook).toHaveBeenCalledWith('nodeExecuteBefore', [
 				node1.name,
 				expect.objectContaining({ executionIndex: 1 }),
 			]);
@@ -1781,11 +1778,10 @@ describe('WorkflowExecute', () => {
 				},
 			};
 			additionalData = mock();
-			additionalData.hooks = mock<ExecutionLifecycleHooks>();
+			additionalData.runHook = jest.fn().mockResolvedValue(undefined);
 
 			workflowExecute = new WorkflowExecute(additionalData, 'manual', runExecutionData);
 
-			jest.spyOn(additionalData.hooks, 'runHook').mockResolvedValue(undefined);
 			jest.spyOn(workflowExecute, 'moveNodeMetadata').mockImplementation();
 		});
 
@@ -1853,7 +1849,7 @@ describe('WorkflowExecute', () => {
 			// Verify static data handling
 			expect(result).toBeDefined();
 			expect(workflowExecute.moveNodeMetadata).toHaveBeenCalled();
-			expect(additionalData.hooks?.runHook).toHaveBeenCalledWith('workflowExecuteAfter', [
+			expect(additionalData.runHook).toHaveBeenCalledWith('workflowExecuteAfter', [
 				result,
 				workflow.staticData,
 			]);
@@ -2159,7 +2155,6 @@ describe('WorkflowExecute', () => {
 		let workflowExecute: WorkflowExecute;
 		let additionalData: IWorkflowExecuteAdditionalData;
 		let runExecutionData: IRunExecutionData;
-		let mockHooks: ExecutionLifecycleHooks;
 
 		beforeEach(() => {
 			runExecutionData = {
@@ -2174,14 +2169,11 @@ describe('WorkflowExecute', () => {
 				},
 			};
 
-			mockHooks = mock<ExecutionLifecycleHooks>();
 			additionalData = mock<IWorkflowExecuteAdditionalData>();
-			additionalData.hooks = mockHooks;
+			additionalData.runHook = jest.fn().mockResolvedValue(undefined);
 			additionalData.currentNodeExecutionIndex = 0;
 
 			workflowExecute = new WorkflowExecute(additionalData, 'manual', runExecutionData);
-
-			jest.spyOn(mockHooks, 'runHook').mockResolvedValue(undefined);
 		});
 
 		test('should send error chunk when workflow execution fails', async () => {
@@ -2224,7 +2216,7 @@ describe('WorkflowExecute', () => {
 
 			const waitPromise = createDeferredPromise<IRun>();
 			const testAdditionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			testAdditionalData.hooks = mockHooks;
+			testAdditionalData.runHook = jest.fn();
 
 			// ACT
 			try {
@@ -2234,7 +2226,7 @@ describe('WorkflowExecute', () => {
 			}
 
 			// ASSERT
-			expect(mockHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(testAdditionalData.runHook).toHaveBeenCalledWith('sendChunk', [
 				{
 					type: 'error',
 					content: 'A detailed error description',
@@ -2288,7 +2280,7 @@ describe('WorkflowExecute', () => {
 
 			const waitPromise = createDeferredPromise<IRun>();
 			const testAdditionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			testAdditionalData.hooks = mockHooks;
+			testAdditionalData.runHook = jest.fn();
 
 			// ACT
 			try {
@@ -2298,7 +2290,7 @@ describe('WorkflowExecute', () => {
 			}
 
 			// ASSERT
-			expect(mockHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(testAdditionalData.runHook).toHaveBeenCalledWith('sendChunk', [
 				{
 					type: 'error',
 					content: 'The API returned an error',
@@ -2349,13 +2341,13 @@ describe('WorkflowExecute', () => {
 
 			const waitPromise = createDeferredPromise<IRun>();
 			const testAdditionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			testAdditionalData.hooks = mockHooks;
+			testAdditionalData.runHook = jest.fn();
 
 			// ACT
 			await workflowExecute.run(workflow, successNode);
 
 			// ASSERT
-			expect(mockHooks.runHook).not.toHaveBeenCalledWith('sendChunk', expect.anything());
+			expect(testAdditionalData.runHook).not.toHaveBeenCalledWith('sendChunk', expect.anything());
 		});
 
 		test('should send error chunk when workflow execution fails with NodeOperationError', async () => {
@@ -2398,7 +2390,7 @@ describe('WorkflowExecute', () => {
 
 			const waitPromise = createDeferredPromise<IRun>();
 			const testAdditionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			testAdditionalData.hooks = mockHooks;
+			testAdditionalData.runHook = jest.fn();
 
 			// ACT
 			try {
@@ -2408,7 +2400,7 @@ describe('WorkflowExecute', () => {
 			}
 
 			// ASSERT
-			expect(mockHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(testAdditionalData.runHook).toHaveBeenCalledWith('sendChunk', [
 				{
 					type: 'error',
 					content: 'Custom error description',
@@ -2461,7 +2453,7 @@ describe('WorkflowExecute', () => {
 
 			const waitPromise = createDeferredPromise<IRun>();
 			const testAdditionalData = Helpers.WorkflowExecuteAdditionalData(waitPromise);
-			testAdditionalData.hooks = mockHooks;
+			testAdditionalData.runHook = jest.fn();
 
 			// ACT
 			try {
@@ -2471,7 +2463,7 @@ describe('WorkflowExecute', () => {
 			}
 
 			// ASSERT
-			expect(mockHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(testAdditionalData.runHook).toHaveBeenCalledWith('sendChunk', [
 				{
 					type: 'error',
 					content: undefined, // When no description is available, content should be undefined

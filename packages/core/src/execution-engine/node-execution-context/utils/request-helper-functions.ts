@@ -698,7 +698,7 @@ export async function proxyRequestToAxios(
 		} else if (body === '') {
 			body = axiosConfig.responseType === 'arraybuffer' ? Buffer.alloc(0) : undefined;
 		}
-		await additionalData?.hooks?.runHook('nodeFetchedData', [node]);
+		await additionalData?.runHook?.('nodeFetchedData', [node]);
 		return configObject.resolveWithFullResponse
 			? {
 					body,
