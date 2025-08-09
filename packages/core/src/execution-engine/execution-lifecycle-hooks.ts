@@ -16,7 +16,7 @@ export type HookExecutionContext = {
 	executionId: string;
 	executionMode: WorkflowExecuteMode;
 	workflowData: IWorkflowBase;
-	workflowInstance: Workflow;
+	workflowInstance?: Workflow;
 	saveSettings: {
 		error: boolean | 'all' | 'none';
 		success: boolean | 'all' | 'none';

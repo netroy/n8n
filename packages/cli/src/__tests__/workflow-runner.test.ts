@@ -70,6 +70,7 @@ describe('processError', () => {
 			executionId: execution.id,
 			executionMode: 'webhook',
 			workflowData: workflow,
+			workflowInstance: mock(),
 			saveSettings: mock(),
 		});
 		hooks.addHandler('workflowExecuteAfter', watcher.workflowExecuteAfter);

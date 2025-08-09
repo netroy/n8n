@@ -270,6 +270,7 @@ describe('Execution Lifecycle Hooks', () => {
 			executionId,
 			executionMode,
 			workflowData,
+			workflowInstance: workflow,
 			pushRef,
 			retryOf,
 			userId,
@@ -568,6 +569,7 @@ describe('Execution Lifecycle Hooks', () => {
 					executionId,
 					executionMode: 'manual',
 					workflowData,
+					workflowInstance: workflow,
 					retryOf,
 				};
 				lifecycleHooks = getLifecycleHooksForRegularMain(context);
@@ -596,6 +598,7 @@ describe('Execution Lifecycle Hooks', () => {
 				executionId,
 				executionMode: 'manual',
 				workflowData,
+				workflowInstance: workflow,
 				pushRef,
 				retryOf,
 				userId,
@@ -636,6 +639,7 @@ describe('Execution Lifecycle Hooks', () => {
 					executionId,
 					executionMode: 'webhook',
 					workflowData,
+					workflowInstance: workflow,
 					pushRef,
 					retryOf,
 				});
@@ -657,6 +661,7 @@ describe('Execution Lifecycle Hooks', () => {
 					executionId,
 					executionMode: 'webhook',
 					workflowData,
+					workflowInstance: workflow,
 					pushRef,
 					retryOf,
 				});
@@ -677,6 +682,7 @@ describe('Execution Lifecycle Hooks', () => {
 				executionId,
 				executionMode,
 				workflowData,
+				workflowInstance: workflow,
 				pushRef,
 				retryOf,
 			});
@@ -775,6 +781,7 @@ describe('Execution Lifecycle Hooks', () => {
 				executionId,
 				executionMode: 'manual',
 				workflowData,
+				workflowInstance: workflow,
 				userId: undefined,
 			});
 		});

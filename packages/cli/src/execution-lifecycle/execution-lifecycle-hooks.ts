@@ -81,7 +81,7 @@ class ModulesHooksRegistry {
 					break;
 
 				case 'workflowExecuteBefore':
-					hooks.addHandler(eventName, async function ({ workflowData }, workflowInstance) {
+					hooks.addHandler(eventName, async function ({ workflowData, workflowInstance }) {
 						const lifecycleEventContext = {
 							type: 'workflowExecuteBefore',
 							workflow: workflowData,
@@ -251,8 +251,8 @@ function hookFunctionsPush(hooks: ExecutionLifecycleHooks) {
 
 function hookFunctionsExternalHooks(hooks: ExecutionLifecycleHooks) {
 	const externalHooks = Container.get(ExternalHooks);
-	hooks.addHandler('workflowExecuteBefore', async function ({ executionMode }, workflow) {
-		await externalHooks.run('workflow.preExecute', [workflow, executionMode]);
+	hooks.addHandler('workflowExecuteBefore', async function ({ executionMode, workflowInstance }) {
+		await externalHooks.run('workflow.preExecute', [workflowInstance, executionMode]);
 	});
 	hooks.addHandler(
 		'workflowExecuteAfter',

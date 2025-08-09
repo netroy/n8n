@@ -5,7 +5,7 @@
 import { Logger } from '@n8n/backend-common';
 import { ExecutionRepository } from '@n8n/db';
 import { Container, Service } from '@n8n/di';
-import type { ExecutionLifecycleHooks } from 'n8n-core';
+import type { ExecutionLifecycleHooks, HookExecutionContext } from 'n8n-core';
 import { ErrorReporter, InstanceSettings, WorkflowExecute } from 'n8n-core';
 import type {
 	ExecutionError,
@@ -268,6 +268,7 @@ export class WorkflowRunner {
 				executionId,
 				...data,
 				retryOf: data.retryOf ?? undefined,
+				workflowInstance: workflow,
 			});
 			additionalData.hooks = lifecycleHooks;
 
@@ -384,7 +385,11 @@ export class WorkflowRunner {
 			await this.scalingService.setupQueue();
 		}
 
-		const context = { executionId, ...data, retryOf: data.retryOf ?? undefined };
+		const context: Omit<HookExecutionContext, 'saveSettings'> = {
+			executionId,
+			...data,
+			retryOf: data.retryOf ?? undefined,
+		};
 
 		// TODO: For realtime jobs should probably also not do retry or not retry if they are older than x seconds.
 		//       Check if they get retried by default and how often.
