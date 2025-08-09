@@ -4,6 +4,7 @@ import type { Project } from '@n8n/db';
 import { ExecutionRepository } from '@n8n/db';
 import { stringify } from 'flatted';
 import { mock } from 'jest-mock-extended';
+import type { HookExecutionContext } from 'n8n-core';
 import {
 	BinaryDataService,
 	ErrorReporter,
@@ -15,7 +16,6 @@ import { ExpressionError } from 'n8n-workflow';
 import type {
 	IRunExecutionData,
 	ITaskData,
-	Workflow,
 	IDataObject,
 	IRun,
 	INode,
@@ -79,7 +79,6 @@ describe('Execution Lifecycle Hooks', () => {
 		createdAt: new Date(),
 		updatedAt: new Date(),
 	};
-	const workflow = mock<Workflow>();
 	const staticData = mock<IDataObject>();
 	const taskStartedData = mock<ITaskStartedData>();
 	const taskData = mock<ITaskData>();
@@ -143,7 +142,7 @@ describe('Execution Lifecycle Hooks', () => {
 	const workflowEventTests = (expectedUserId?: string) => {
 		describe('workflowExecuteBefore', () => {
 			it('should emit workflow-pre-execute events', async () => {
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
 
 				expect(eventService.emit).toHaveBeenCalledWith('workflow-pre-execute', {
 					executionId,
@@ -154,7 +153,7 @@ describe('Execution Lifecycle Hooks', () => {
 
 		describe('workflowExecuteAfter', () => {
 			it('should emit workflow-post-execute events', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(eventService.emit).toHaveBeenCalledWith('workflow-post-execute', {
 					executionId,
@@ -165,16 +164,13 @@ describe('Execution Lifecycle Hooks', () => {
 			});
 
 			it('should not emit workflow-post-execute events for waiting executions', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun]);
 
 				expect(eventService.emit).not.toHaveBeenCalledWith('workflow-post-execute');
 			});
 
 			it('should reset destination node to original destination', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [
-					successfulRunWithRewiredDestination,
-					{},
-				]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRunWithRewiredDestination]);
 
 				expect(eventService.emit).toHaveBeenCalledWith('workflow-post-execute', {
 					executionId,
@@ -224,15 +220,18 @@ describe('Execution Lifecycle Hooks', () => {
 	const externalHooksTests = () => {
 		describe('workflowExecuteBefore', () => {
 			it('should run workflow.preExecute hook', async () => {
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
 
-				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [workflow, 'manual']);
+				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [
+					workflowData,
+					'manual',
+				]);
 			});
 		});
 
 		describe('workflowExecuteAfter', () => {
 			it('should run workflow.postExecute hook', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(externalHooks.run).toHaveBeenCalledWith('workflow.postExecute', [
 					successfulRun,
@@ -246,7 +245,7 @@ describe('Execution Lifecycle Hooks', () => {
 	const statisticsTests = () => {
 		describe('statistics events', () => {
 			it('workflowExecuteAfter should emit workflowExecutionCompleted statistics event', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(workflowStatisticsService.emit).toHaveBeenCalledWith('workflowExecutionCompleted', {
 					workflowData,
@@ -255,7 +254,7 @@ describe('Execution Lifecycle Hooks', () => {
 			});
 
 			it('nodeFetchedData should handle nodeFetchedData statistics event', async () => {
-				await lifecycleHooks.runHook('nodeFetchedData', [workflowId, node]);
+				await lifecycleHooks.runHook('nodeFetchedData', [node]);
 
 				expect(workflowStatisticsService.emit).toHaveBeenCalledWith('nodeFetchedData', {
 					workflowId,
@@ -266,11 +265,18 @@ describe('Execution Lifecycle Hooks', () => {
 	};
 
 	describe('getLifecycleHooksForRegularMain', () => {
-		const createHooks = (executionMode: WorkflowExecuteMode = 'manual') =>
-			getLifecycleHooksForRegularMain(
-				{ executionMode, workflowData, pushRef, retryOf, userId },
-				executionId,
-			);
+		const createContext = (
+			executionMode: WorkflowExecuteMode = 'manual',
+		): Omit<HookExecutionContext, 'saveSettings'> => ({
+			executionId,
+			executionMode,
+			workflowData,
+			pushRef,
+			retryOf,
+			userId,
+		});
+		const createHooks = (context: Omit<HookExecutionContext, 'saveSettings'> = createContext()) =>
+			getLifecycleHooksForRegularMain(context);
 
 		beforeEach(() => {
 			lifecycleHooks = createHooks();
@@ -283,13 +289,10 @@ describe('Execution Lifecycle Hooks', () => {
 
 		it('should setup the correct set of hooks', () => {
 			expect(lifecycleHooks).toBeInstanceOf(ExecutionLifecycleHooks);
-			expect(lifecycleHooks.mode).toBe('manual');
-			expect(lifecycleHooks.executionId).toBe(executionId);
-			expect(lifecycleHooks.workflowData).toEqual(workflowData);
 
 			const { handlers } = lifecycleHooks;
 			expect(handlers.nodeExecuteBefore).toHaveLength(2);
-			expect(handlers.nodeExecuteAfter).toHaveLength(2);
+			expect(handlers.nodeExecuteAfter).toHaveLength(3);
 			expect(handlers.workflowExecuteBefore).toHaveLength(3);
 			expect(handlers.workflowExecuteAfter).toHaveLength(5);
 			expect(handlers.nodeFetchedData).toHaveLength(1);
@@ -336,7 +339,7 @@ describe('Execution Lifecycle Hooks', () => {
 				workflowData.settings = { saveExecutionProgress: false };
 				lifecycleHooks = createHooks();
 
-				expect(lifecycleHooks.handlers.nodeExecuteAfter).toHaveLength(2);
+				expect(lifecycleHooks.handlers.nodeExecuteAfter).toHaveLength(3);
 
 				await lifecycleHooks.runHook('nodeExecuteAfter', [nodeName, taskData, runExecutionData]);
 
@@ -346,7 +349,7 @@ describe('Execution Lifecycle Hooks', () => {
 
 		describe('workflowExecuteBefore', () => {
 			it('should send executionStarted push event', async () => {
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
 
 				expect(push.send).toHaveBeenCalledWith(
 					{
@@ -366,15 +369,18 @@ describe('Execution Lifecycle Hooks', () => {
 			});
 
 			it('should run workflow.preExecute external hook', async () => {
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
 
-				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [workflow, 'manual']);
+				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [
+					workflowData,
+					'manual',
+				]);
 			});
 		});
 
 		describe('workflowExecuteAfter', () => {
 			it('should send executionFinished push event', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 				expect(push.send).toHaveBeenCalledWith(
 					{
 						type: 'executionFinished',
@@ -390,7 +396,7 @@ describe('Execution Lifecycle Hooks', () => {
 			});
 
 			it('should send executionWaiting push event', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun]);
 
 				expect(push.send).toHaveBeenCalledWith(
 					{
@@ -409,7 +415,7 @@ describe('Execution Lifecycle Hooks', () => {
 				});
 
 				it('should save static data for prod executions', async () => {
-					lifecycleHooks = createHooks('trigger');
+					lifecycleHooks = createHooks(createContext('trigger'));
 
 					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, staticData]);
 
@@ -420,7 +426,7 @@ describe('Execution Lifecycle Hooks', () => {
 				});
 
 				it('should handle static data saving errors', async () => {
-					lifecycleHooks = createHooks('trigger');
+					lifecycleHooks = createHooks(createContext('trigger'));
 
 					const error = new Error('Static data save failed');
 					workflowStaticDataService.saveStaticDataById.mockRejectedValueOnce(error);
@@ -433,7 +439,7 @@ describe('Execution Lifecycle Hooks', () => {
 
 			describe('saving execution data', () => {
 				it('should update execution with proper data', async () => {
-					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 					expect(executionRepository.updateExistingExecution).toHaveBeenCalledWith(
 						executionId,
@@ -447,31 +453,33 @@ describe('Execution Lifecycle Hooks', () => {
 				it('should not delete unfinished executions', async () => {
 					const unfinishedRun = mock<IRun>({ finished: false, status: 'running' });
 
-					await lifecycleHooks.runHook('workflowExecuteAfter', [unfinishedRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [unfinishedRun]);
 
 					expect(executionRepository.hardDelete).not.toHaveBeenCalled();
 				});
 
 				it('should not delete waiting executions', async () => {
-					await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun]);
 
 					expect(executionRepository.hardDelete).not.toHaveBeenCalled();
 				});
 
 				it('should soft delete manual executions when manual saving is disabled', async () => {
-					lifecycleHooks.workflowData.settings = { saveManualExecutions: false };
-					lifecycleHooks = createHooks();
+					const context = createContext();
+					context.workflowData.settings = { saveManualExecutions: false };
+					lifecycleHooks = createHooks(context);
 
-					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 					expect(executionRepository.softDelete).toHaveBeenCalledWith(executionId);
 				});
 
 				it('should not soft delete manual executions with waitTill', async () => {
-					lifecycleHooks.workflowData.settings = { saveManualExecutions: false };
-					lifecycleHooks = createHooks();
+					const context = createContext();
+					context.workflowData.settings = { saveManualExecutions: false };
+					lifecycleHooks = createHooks(context);
 
-					await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [waitingRun]);
 
 					expect(executionRepository.softDelete).not.toHaveBeenCalled();
 				});
@@ -479,13 +487,14 @@ describe('Execution Lifecycle Hooks', () => {
 
 			describe('error workflow', () => {
 				it('should not execute error workflow for manual executions', async () => {
-					await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun]);
 
 					expect(workflowExecutionService.executeErrorWorkflow).not.toHaveBeenCalled();
 				});
 
 				it('should execute error workflow for failed non-manual executions', async () => {
-					lifecycleHooks = createHooks('trigger');
+					const context = createContext('trigger');
+					lifecycleHooks = createHooks(context);
 
 					const errorWorkflow = 'error-workflow-id';
 					workflowData.settings = { errorWorkflow };
@@ -494,7 +503,7 @@ describe('Execution Lifecycle Hooks', () => {
 						.calledWith(workflowId)
 						.mockResolvedValue(project);
 
-					await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun]);
 
 					expect(workflowExecutionService.executeErrorWorkflow).toHaveBeenCalledWith(
 						errorWorkflow,
@@ -519,7 +528,8 @@ describe('Execution Lifecycle Hooks', () => {
 
 			it('should restore binary data IDs after workflow execution for webhooks', async () => {
 				mockInstance(BinaryDataConfig, { mode: 'filesystem' });
-				lifecycleHooks = createHooks('webhook');
+				const context = createContext('webhook');
+				lifecycleHooks = createHooks(context);
 
 				(successfulRun.data.resultData.runData = {
 					[nodeName]: [
@@ -547,7 +557,7 @@ describe('Execution Lifecycle Hooks', () => {
 						},
 					],
 				}),
-					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+					await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(binaryDataService.rename).toHaveBeenCalledWith(
 					'workflows/test-workflow-id/executions/temp/binary_data/123',
@@ -558,23 +568,26 @@ describe('Execution Lifecycle Hooks', () => {
 
 		describe("when pushRef isn't set", () => {
 			beforeEach(() => {
-				lifecycleHooks = getLifecycleHooksForRegularMain(
-					{ executionMode: 'manual', workflowData, retryOf },
+				const context: Omit<HookExecutionContext, 'saveSettings'> = {
 					executionId,
-				);
+					executionMode: 'manual',
+					workflowData,
+					retryOf,
+				};
+				lifecycleHooks = getLifecycleHooksForRegularMain(context);
 			});
 
-			it('should not setup any push hooks', async () => {
+			it('should setup push hooks, but not invoke them', async () => {
 				const { handlers } = lifecycleHooks;
-				expect(handlers.nodeExecuteBefore).toHaveLength(1);
-				expect(handlers.nodeExecuteAfter).toHaveLength(1);
-				expect(handlers.workflowExecuteBefore).toHaveLength(2);
-				expect(handlers.workflowExecuteAfter).toHaveLength(4);
+				expect(handlers.nodeExecuteBefore).toHaveLength(2);
+				expect(handlers.nodeExecuteAfter).toHaveLength(3);
+				expect(handlers.workflowExecuteBefore).toHaveLength(3);
+				expect(handlers.workflowExecuteAfter).toHaveLength(5);
 
 				await lifecycleHooks.runHook('nodeExecuteBefore', [nodeName, taskStartedData]);
 				await lifecycleHooks.runHook('nodeExecuteAfter', [nodeName, taskData, runExecutionData]);
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(push.send).not.toHaveBeenCalled();
 			});
@@ -583,16 +596,14 @@ describe('Execution Lifecycle Hooks', () => {
 
 	describe('getLifecycleHooksForScalingMain', () => {
 		beforeEach(() => {
-			lifecycleHooks = getLifecycleHooksForScalingMain(
-				{
-					executionMode: 'manual',
-					workflowData,
-					pushRef,
-					retryOf,
-					userId,
-				},
+			lifecycleHooks = getLifecycleHooksForScalingMain({
 				executionId,
-			);
+				executionMode: 'manual',
+				workflowData,
+				pushRef,
+				retryOf,
+				userId,
+			});
 		});
 
 		workflowEventTests(userId);
@@ -600,9 +611,6 @@ describe('Execution Lifecycle Hooks', () => {
 
 		it('should setup the correct set of hooks', () => {
 			expect(lifecycleHooks).toBeInstanceOf(ExecutionLifecycleHooks);
-			expect(lifecycleHooks.mode).toBe('manual');
-			expect(lifecycleHooks.executionId).toBe(executionId);
-			expect(lifecycleHooks.workflowData).toEqual(workflowData);
 
 			const { handlers } = lifecycleHooks;
 			expect(handlers.nodeExecuteBefore).toHaveLength(0);
@@ -616,9 +624,12 @@ describe('Execution Lifecycle Hooks', () => {
 
 		describe('workflowExecuteBefore', () => {
 			it('should run the workflow.preExecute external hook', async () => {
-				await lifecycleHooks.runHook('workflowExecuteBefore', [workflow, runExecutionData]);
+				await lifecycleHooks.runHook('workflowExecuteBefore', []);
 
-				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [workflow, 'manual']);
+				expect(externalHooks.run).toHaveBeenCalledWith('workflow.preExecute', [
+					workflowData,
+					'manual',
+				]);
 			});
 		});
 
@@ -628,17 +639,15 @@ describe('Execution Lifecycle Hooks', () => {
 					saveDataSuccessExecution: 'none',
 					saveDataErrorExecution: 'all',
 				};
-				const lifecycleHooks = getLifecycleHooksForScalingMain(
-					{
-						executionMode: 'webhook',
-						workflowData,
-						pushRef,
-						retryOf,
-					},
+				const lifecycleHooks = getLifecycleHooksForScalingMain({
 					executionId,
-				);
+					executionMode: 'webhook',
+					workflowData,
+					pushRef,
+					retryOf,
+				});
 
-				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [successfulRun]);
 
 				expect(executionRepository.hardDelete).toHaveBeenCalledWith({
 					workflowId,
@@ -651,17 +660,15 @@ describe('Execution Lifecycle Hooks', () => {
 					saveDataSuccessExecution: 'all',
 					saveDataErrorExecution: 'none',
 				};
-				const lifecycleHooks = getLifecycleHooksForScalingMain(
-					{
-						executionMode: 'webhook',
-						workflowData,
-						pushRef,
-						retryOf,
-					},
+				const lifecycleHooks = getLifecycleHooksForScalingMain({
 					executionId,
-				);
+					executionMode: 'webhook',
+					workflowData,
+					pushRef,
+					retryOf,
+				});
 
-				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun]);
 
 				expect(executionRepository.hardDelete).toHaveBeenCalledWith({
 					workflowId,
@@ -673,10 +680,13 @@ describe('Execution Lifecycle Hooks', () => {
 
 	describe('getLifecycleHooksForScalingWorker', () => {
 		const createHooks = (executionMode: WorkflowExecuteMode = 'manual') =>
-			getLifecycleHooksForScalingWorker(
-				{ executionMode, workflowData, pushRef, retryOf },
+			getLifecycleHooksForScalingWorker({
 				executionId,
-			);
+				executionMode,
+				workflowData,
+				pushRef,
+				retryOf,
+			});
 
 		beforeEach(() => {
 			lifecycleHooks = createHooks();
@@ -688,13 +698,10 @@ describe('Execution Lifecycle Hooks', () => {
 
 		it('should setup the correct set of hooks', () => {
 			expect(lifecycleHooks).toBeInstanceOf(ExecutionLifecycleHooks);
-			expect(lifecycleHooks.mode).toBe('manual');
-			expect(lifecycleHooks.executionId).toBe(executionId);
-			expect(lifecycleHooks.workflowData).toEqual(workflowData);
 
 			const { handlers } = lifecycleHooks;
 			expect(handlers.nodeExecuteBefore).toHaveLength(2);
-			expect(handlers.nodeExecuteAfter).toHaveLength(2);
+			expect(handlers.nodeExecuteAfter).toHaveLength(3);
 			expect(handlers.workflowExecuteBefore).toHaveLength(2);
 			expect(handlers.workflowExecuteAfter).toHaveLength(4);
 			expect(handlers.nodeFetchedData).toHaveLength(1);
@@ -733,7 +740,7 @@ describe('Execution Lifecycle Hooks', () => {
 
 		describe('error workflow', () => {
 			it('should not execute error workflow for manual executions', async () => {
-				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun]);
 
 				expect(workflowExecutionService.executeErrorWorkflow).not.toHaveBeenCalled();
 			});
@@ -745,7 +752,7 @@ describe('Execution Lifecycle Hooks', () => {
 				const project = mock<Project>();
 				ownershipService.getWorkflowProjectCached.calledWith(workflowId).mockResolvedValue(project);
 
-				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun, {}]);
+				await lifecycleHooks.runHook('workflowExecuteAfter', [failedRun]);
 
 				expect(workflowExecutionService.executeErrorWorkflow).toHaveBeenCalledWith(
 					errorWorkflow,
@@ -771,12 +778,12 @@ describe('Execution Lifecycle Hooks', () => {
 
 	describe('getLifecycleHooksForSubExecutions', () => {
 		beforeEach(() => {
-			lifecycleHooks = getLifecycleHooksForSubExecutions(
-				'manual',
+			lifecycleHooks = getLifecycleHooksForSubExecutions({
 				executionId,
+				executionMode: 'manual',
 				workflowData,
-				undefined,
-			);
+				userId: undefined,
+			});
 		});
 
 		workflowEventTests();
@@ -786,13 +793,10 @@ describe('Execution Lifecycle Hooks', () => {
 
 		it('should setup the correct set of hooks', () => {
 			expect(lifecycleHooks).toBeInstanceOf(ExecutionLifecycleHooks);
-			expect(lifecycleHooks.mode).toBe('manual');
-			expect(lifecycleHooks.executionId).toBe(executionId);
-			expect(lifecycleHooks.workflowData).toEqual(workflowData);
 
 			const { handlers } = lifecycleHooks;
 			expect(handlers.nodeExecuteBefore).toHaveLength(1);
-			expect(handlers.nodeExecuteAfter).toHaveLength(1);
+			expect(handlers.nodeExecuteAfter).toHaveLength(2);
 			expect(handlers.workflowExecuteBefore).toHaveLength(2);
 			expect(handlers.workflowExecuteAfter).toHaveLength(4);
 			expect(handlers.nodeFetchedData).toHaveLength(1);

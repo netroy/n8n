@@ -221,12 +221,12 @@ async function startExecution(
 		// Create new additionalData to have different workflow loaded and to call
 		// different webhooks
 		const additionalDataIntegrated = await getBase();
-		additionalDataIntegrated.hooks = getLifecycleHooksForSubExecutions(
-			runData.executionMode,
+		additionalDataIntegrated.hooks = getLifecycleHooksForSubExecutions({
 			executionId,
+			executionMode: runData.executionMode,
 			workflowData,
-			additionalData.userId,
-		);
+			userId: additionalData.userId,
+		});
 		additionalDataIntegrated.executionId = executionId;
 		additionalDataIntegrated.parentCallbackManager = options.parentCallbackManager;
 

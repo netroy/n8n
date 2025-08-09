@@ -6,7 +6,6 @@ import type {
 	ITaskData,
 	ITaskStartedData,
 	IWorkflowBase,
-	Workflow,
 } from 'n8n-workflow';
 
 import type { Class } from '../types';
@@ -17,14 +16,14 @@ export type LifecycleHandlerClass = Class<
 
 export type NodeExecuteBeforeContext = {
 	type: 'nodeExecuteBefore';
-	workflow: IWorkflowBase;
+	workflowData: IWorkflowBase;
 	nodeName: string;
 	taskData: ITaskStartedData;
 };
 
 export type NodeExecuteAfterContext = {
 	type: 'nodeExecuteAfter';
-	workflow: IWorkflowBase;
+	workflowData: IWorkflowBase;
 	nodeName: string;
 	taskData: ITaskData;
 	executionData: IRunExecutionData;
@@ -32,14 +31,12 @@ export type NodeExecuteAfterContext = {
 
 export type WorkflowExecuteBeforeContext = {
 	type: 'workflowExecuteBefore';
-	workflow: IWorkflowBase;
-	workflowInstance: Workflow;
-	executionData?: IRunExecutionData;
+	workflowData: IWorkflowBase;
 };
 
 export type WorkflowExecuteAfterContext = {
 	type: 'workflowExecuteAfter';
-	workflow: IWorkflowBase;
+	workflowData: IWorkflowBase;
 	runData: IRun;
 	newStaticData: IDataObject;
 };

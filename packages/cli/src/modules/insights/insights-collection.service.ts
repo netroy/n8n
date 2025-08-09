@@ -121,8 +121,8 @@ export class InsightsCollectionService {
 		const status = ctx.runData.status === 'success' ? 'success' : 'failure';
 
 		const commonWorkflowData = {
-			workflowId: ctx.workflow.id,
-			workflowName: ctx.workflow.name,
+			workflowId: ctx.workflowData.id,
+			workflowName: ctx.workflowData.name,
 			timestamp: DateTime.utc().toJSDate(),
 		};
 
@@ -144,11 +144,11 @@ export class InsightsCollectionService {
 		}
 
 		// time saved event
-		if (status === 'success' && ctx.workflow.settings?.timeSavedPerExecution) {
+		if (status === 'success' && ctx.workflowData.settings?.timeSavedPerExecution) {
 			this.bufferedInsights.add({
 				...commonWorkflowData,
 				type: 'time_saved_min',
-				value: ctx.workflow.settings.timeSavedPerExecution,
+				value: ctx.workflowData.settings.timeSavedPerExecution,
 			});
 		}
 

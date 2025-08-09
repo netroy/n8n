@@ -11,7 +11,7 @@ import {
 } from '@n8n/db';
 import { Service } from '@n8n/di';
 import { ErrorReporter } from 'n8n-core';
-import type { IRun, IWorkflowBase, Workflow, WorkflowExecuteMode } from 'n8n-workflow';
+import type { IRun, IWorkflowBase, WorkflowExecuteMode } from 'n8n-workflow';
 import { UnexpectedError } from 'n8n-workflow';
 import type clientOAuth1 from 'oauth-1.0a';
 
@@ -74,7 +74,7 @@ type ExternalHooksMap = {
 	'workflow.afterArchive': [workflowId: string];
 	'workflow.afterUnarchive': [workflowId: string];
 
-	'workflow.preExecute': [workflow: Workflow, mode: WorkflowExecuteMode];
+	'workflow.preExecute': [workflowData: IWorkflowBase, mode: WorkflowExecuteMode];
 	'workflow.postExecute': [
 		fullRunData: IRun | undefined,
 		workflowData: IWorkflowBase,

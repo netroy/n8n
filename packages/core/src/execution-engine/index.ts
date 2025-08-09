@@ -15,5 +15,5 @@ export * from './node-execution-context';
 export * from './partial-execution-utils';
 export * from './node-execution-context/utils/execution-metadata';
 export * from './workflow-execute';
-export { ExecutionLifecycleHooks } from './execution-lifecycle-hooks';
+export { ExecutionLifecycleHooks, HookExecutionContext } from './execution-lifecycle-hooks';
 export { ExternalSecretsProxy, type IExternalSecretsManager } from './external-secrets-proxy';

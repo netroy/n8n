@@ -1,13 +1,7 @@
+import type { HookExecutionContext } from 'n8n-core';
 import type { IWorkflowSettings } from 'n8n-workflow';
 
 import config from '@/config';
-
-export type ExecutionSaveSettings = {
-	error: boolean | 'all' | 'none';
-	success: boolean | 'all' | 'none';
-	manual: boolean;
-	progress: boolean;
-};
 
 /**
  * Return whether a workflow execution is configured to be saved or not:
@@ -19,7 +13,7 @@ export type ExecutionSaveSettings = {
  */
 export function toSaveSettings(
 	workflowSettings: IWorkflowSettings | null = {},
-): ExecutionSaveSettings {
+): HookExecutionContext['saveSettings'] {
 	const DEFAULTS = {
 		ERROR: config.getEnv('executions.saveDataOnError'),
 		SUCCESS: config.getEnv('executions.saveDataOnSuccess'),

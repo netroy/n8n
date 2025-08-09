@@ -183,17 +183,13 @@ export class ExecutionRecoveryService {
 	private async runHooks(execution: IExecutionResponse) {
 		execution.data ??= { resultData: { runData: {} } };
 
-		const lifecycleHooks = getLifecycleHooksForRegularMain(
-			{
-				userId: '',
-				workflowData: execution.workflowData,
-				executionMode: execution.mode,
-				executionData: execution.data,
-				runData: execution.data.resultData.runData,
-				retryOf: execution.retryOf ?? undefined,
-			},
-			execution.id,
-		);
+		const lifecycleHooks = getLifecycleHooksForRegularMain({
+			executionId: execution.id,
+			executionMode: execution.mode,
+			workflowData: execution.workflowData,
+			userId: '',
+			retryOf: execution.retryOf ?? undefined,
+		});
 
 		const run: IRun = {
 			data: execution.data,

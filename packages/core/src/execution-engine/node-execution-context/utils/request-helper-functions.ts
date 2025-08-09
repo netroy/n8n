@@ -672,7 +672,6 @@ export async function parseRequestObject(requestObject: IRequestOptions) {
  * @deprecated This is only used by legacy request helpers, that are also deprecated
  */
 export async function proxyRequestToAxios(
-	workflow: Workflow | undefined,
 	additionalData: IWorkflowExecuteAdditionalData | undefined,
 	node: INode | undefined,
 	uriOrObject: string | IRequestOptions,
@@ -699,7 +698,7 @@ export async function proxyRequestToAxios(
 		} else if (body === '') {
 			body = axiosConfig.responseType === 'arraybuffer' ? Buffer.alloc(0) : undefined;
 		}
-		await additionalData?.hooks?.runHook('nodeFetchedData', [workflow?.id, node]);
+		await additionalData?.hooks?.runHook('nodeFetchedData', [node]);
 		return configObject.resolveWithFullResponse
 			? {
 					body,
@@ -1437,7 +1436,7 @@ export async function requestWithAuthentication(
 			workflow,
 			node,
 		)) as IRequestOptions;
-		return await proxyRequestToAxios(workflow, additionalData, node, requestOptions);
+		return await proxyRequestToAxios(additionalData, node, requestOptions);
 	} catch (error) {
 		try {
 			if (credentialsDecrypted !== undefined) {
@@ -1462,7 +1461,7 @@ export async function requestWithAuthentication(
 						node,
 					)) as IRequestOptions;
 					// retry the request
-					return await proxyRequestToAxios(workflow, additionalData, node, requestOptions);
+					return await proxyRequestToAxios(additionalData, node, requestOptions);
 				}
 			}
 			throw error;
@@ -1746,7 +1745,7 @@ export const getRequestHelperFunctions = (
 		},
 
 		request: async (uriOrObject, options) =>
-			await proxyRequestToAxios(workflow, additionalData, node, uriOrObject, options),
+			await proxyRequestToAxios(additionalData, node, uriOrObject, options),
 
 		async requestWithAuthentication(
 			this,

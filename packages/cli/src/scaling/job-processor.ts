@@ -126,15 +126,13 @@ export class JobProcessor {
 
 		const { pushRef } = job.data;
 
-		const lifecycleHooks = getLifecycleHooksForScalingWorker(
-			{
-				executionMode: execution.mode,
-				workflowData: execution.workflowData,
-				retryOf: execution.retryOf,
-				pushRef,
-			},
+		const lifecycleHooks = getLifecycleHooksForScalingWorker({
 			executionId,
-		);
+			executionMode: execution.mode,
+			workflowData: execution.workflowData,
+			retryOf: execution.retryOf,
+			pushRef,
+		});
 		additionalData.hooks = lifecycleHooks;
 
 		if (pushRef) {
@@ -153,7 +151,7 @@ export class JobProcessor {
 			await job.progress(msg);
 		});
 
-		lifecycleHooks.addHandler('sendChunk', async (chunk: StructuredChunk): Promise<void> => {
+		lifecycleHooks.addHandler('sendChunk', async (_, chunk: StructuredChunk): Promise<void> => {
 			const msg: SendChunkMessage = {
 				kind: 'send-chunk',
 				executionId,
