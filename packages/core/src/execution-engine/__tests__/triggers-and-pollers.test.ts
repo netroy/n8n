@@ -12,7 +12,7 @@ import type {
 	IRun,
 } from 'n8n-workflow';
 
-import { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
+import { ExecutionLifecycleHooks, type HookExecutionContext } from '../execution-lifecycle-hooks';
 import { TriggersAndPollers } from '../triggers-and-pollers';
 
 describe('TriggersAndPollers', () => {
@@ -22,8 +22,15 @@ describe('TriggersAndPollers', () => {
 		poll: undefined,
 	});
 	const nodeTypes = mock<INodeTypes>();
-	const workflow = mock<Workflow>({ nodeTypes });
-	const hooks = new ExecutionLifecycleHooks('internal', '123', mock());
+	const workflowInstance = mock<Workflow>({ nodeTypes });
+	const context: HookExecutionContext = {
+		executionId: '123',
+		executionMode: 'internal',
+		workflowData: mock(),
+		workflowInstance,
+		saveSettings: mock(),
+	};
+	const hooks = new ExecutionLifecycleHooks(context);
 	const additionalData = mock<IWorkflowExecuteAdditionalData>({ hooks });
 	const triggersAndPollers = new TriggersAndPollers();
 
@@ -40,7 +47,7 @@ describe('TriggersAndPollers', () => {
 
 		const runTriggerHelper = async (mode: 'manual' | 'trigger' = 'trigger') =>
 			await triggersAndPollers.runTrigger(
-				workflow,
+				workflowInstance,
 				node,
 				getTriggerFunctions,
 				additionalData,
@@ -106,7 +113,7 @@ describe('TriggersAndPollers', () => {
 				await hooks.runHook('sendResponse', [{ testResponse: true }]);
 				expect(responsePromise.resolve).toHaveBeenCalledWith({ testResponse: true });
 
-				await hooks.runHook('workflowExecuteAfter', [mockRunData, {}]);
+				await hooks.runHook('workflowExecuteAfter', [mockRunData]);
 				expect(donePromise.resolve).toHaveBeenCalledWith(mockRunData);
 			});
 		});
@@ -117,7 +124,7 @@ describe('TriggersAndPollers', () => {
 		const pollFn = jest.fn();
 
 		const runPollHelper = async () =>
-			await triggersAndPollers.runPoll(workflow, node, pollFunctions);
+			await triggersAndPollers.runPoll(workflowInstance, node, pollFunctions);
 
 		it('should throw error if node type does not have poll function', async () => {
 			await expect(runPollHelper()).rejects.toThrow(ApplicationError);

@@ -11,7 +11,6 @@ import type {
 	IRequestOptions,
 	IWorkflowExecuteAdditionalData,
 	PaginationOptions,
-	Workflow,
 } from 'n8n-workflow';
 import nock from 'nock';
 import type { SecureContextOptions } from 'tls';
@@ -33,7 +32,6 @@ import {
 describe('Request Helper Functions', () => {
 	describe('proxyRequestToAxios', () => {
 		const baseUrl = 'https://example.de';
-		const workflow = mock<Workflow>();
 		const hooks = mock<ExecutionLifecycleHooks>();
 		const additionalData = mock<IWorkflowExecuteAdditionalData>({ hooks });
 		const node = mock<INode>();
@@ -46,7 +44,7 @@ describe('Request Helper Functions', () => {
 			nock(baseUrl).get('/test').reply(400);
 
 			try {
-				await proxyRequestToAxios(workflow, additionalData, node, `${baseUrl}/test`);
+				await proxyRequestToAxios(additionalData, node, `${baseUrl}/test`);
 			} catch (error) {
 				expect(error.status).toEqual(400);
 			}
@@ -54,15 +52,15 @@ describe('Request Helper Functions', () => {
 
 		test('should not throw if the response status is 200', async () => {
 			nock(baseUrl).get('/test').reply(200);
-			await proxyRequestToAxios(workflow, additionalData, node, `${baseUrl}/test`);
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [workflow.id, node]);
+			await proxyRequestToAxios(additionalData, node, `${baseUrl}/test`);
+			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		test('should throw if the response status is 403', async () => {
 			const headers = { 'content-type': 'text/plain' };
 			nock(baseUrl).get('/test').reply(403, 'Forbidden', headers);
 			try {
-				await proxyRequestToAxios(workflow, additionalData, node, `${baseUrl}/test`);
+				await proxyRequestToAxios(additionalData, node, `${baseUrl}/test`);
 			} catch (error) {
 				expect(error.statusCode).toEqual(403);
 				expect(error.request).toBeUndefined();
@@ -80,18 +78,18 @@ describe('Request Helper Functions', () => {
 
 		test('should not throw if the response status is 404, but `simple` option is set to `false`', async () => {
 			nock(baseUrl).get('/test').reply(404, 'Not Found');
-			const response = await proxyRequestToAxios(workflow, additionalData, node, {
+			const response = await proxyRequestToAxios(additionalData, node, {
 				url: `${baseUrl}/test`,
 				simple: false,
 			});
 
 			expect(response).toEqual('Not Found');
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [workflow.id, node]);
+			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		test('should return full response when `resolveWithFullResponse` is set to true', async () => {
 			nock(baseUrl).get('/test').reply(404, 'Not Found');
-			const response = await proxyRequestToAxios(workflow, additionalData, node, {
+			const response = await proxyRequestToAxios(additionalData, node, {
 				url: `${baseUrl}/test`,
 				resolveWithFullResponse: true,
 				simple: false,
@@ -103,7 +101,7 @@ describe('Request Helper Functions', () => {
 				statusCode: 404,
 				statusMessage: 'Not Found',
 			});
-			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [workflow.id, node]);
+			expect(hooks.runHook).toHaveBeenCalledWith('nodeFetchedData', [node]);
 		});
 
 		describe('redirects', () => {
@@ -115,7 +113,7 @@ describe('Request Helper Functions', () => {
 						return this.req.headers;
 					});
 
-				const response = await proxyRequestToAxios(workflow, additionalData, node, {
+				const response = await proxyRequestToAxios(additionalData, node, {
 					url: `${baseUrl}/redirect`,
 					auth: {
 						username: 'testuser',
@@ -139,7 +137,7 @@ describe('Request Helper Functions', () => {
 					.reply(301, '', { Location: `${baseUrl}/test` });
 				nock(baseUrl).get('/test').reply(200, 'Redirected');
 
-				const response = await proxyRequestToAxios(workflow, additionalData, node, {
+				const response = await proxyRequestToAxios(additionalData, node, {
 					url: `${baseUrl}/redirect`,
 					resolveWithFullResponse: true,
 				});
@@ -158,7 +156,7 @@ describe('Request Helper Functions', () => {
 				nock(baseUrl).get('/test').reply(200, 'Redirected');
 
 				await expect(
-					proxyRequestToAxios(workflow, additionalData, node, {
+					proxyRequestToAxios(additionalData, node, {
 						url: `${baseUrl}/redirect`,
 						resolveWithFullResponse: true,
 						followRedirect: false,

@@ -12,10 +12,26 @@ import type {
 	WorkflowExecuteMode,
 } from 'n8n-workflow';
 
+export type HookExecutionContext = {
+	executionId: string;
+	executionMode: WorkflowExecuteMode;
+	workflowData: IWorkflowBase;
+	workflowInstance: Workflow;
+	saveSettings: {
+		error: boolean | 'all' | 'none';
+		success: boolean | 'all' | 'none';
+		manual: boolean;
+		progress: boolean;
+	};
+	pushRef?: string;
+	retryOf?: string;
+	userId?: string;
+};
+
 export type ExecutionLifecycleHookHandlers = {
 	nodeExecuteBefore: Array<
 		(
-			this: ExecutionLifecycleHooks,
+			context: HookExecutionContext,
 			nodeName: string,
 			data: ITaskStartedData,
 		) => Promise<void> | void
@@ -23,41 +39,33 @@ export type ExecutionLifecycleHookHandlers = {
 
 	nodeExecuteAfter: Array<
 		(
-			this: ExecutionLifecycleHooks,
+			context: HookExecutionContext,
 			nodeName: string,
 			data: ITaskData,
 			executionData: IRunExecutionData,
 		) => Promise<void> | void
 	>;
 
-	workflowExecuteBefore: Array<
-		(
-			this: ExecutionLifecycleHooks,
-			workflow: Workflow,
-			data?: IRunExecutionData,
-		) => Promise<void> | void
-	>;
+	workflowExecuteBefore: Array<(context: HookExecutionContext) => Promise<void> | void>;
 
 	workflowExecuteAfter: Array<
-		(this: ExecutionLifecycleHooks, data: IRun, newStaticData: IDataObject) => Promise<void> | void
+		(context: HookExecutionContext, data: IRun, newStaticData?: IDataObject) => Promise<void> | void
 	>;
 
 	/** Used by trigger and webhook nodes to respond back to the request */
 	sendResponse: Array<
-		(this: ExecutionLifecycleHooks, response: IExecuteResponsePromiseData) => Promise<void> | void
+		(context: HookExecutionContext, response: IExecuteResponsePromiseData) => Promise<void> | void
 	>;
 
 	/** Used by nodes to send chunks to streaming responses */
-	sendChunk: Array<(this: ExecutionLifecycleHooks, chunk: StructuredChunk) => Promise<void> | void>;
+	sendChunk: Array<(context: HookExecutionContext, chunk: StructuredChunk) => Promise<void> | void>;
 
 	/**
 	 * Executed after a node fetches data
 	 * - For a webhook node, after the node had been run.
    * - For a http-request node, or any other node that makes http requests that still use the deprecated request* methods, after every successful http request
 s	 */
-	nodeFetchedData: Array<
-		(this: ExecutionLifecycleHooks, workflowId: string, node: INode) => Promise<void> | void
-	>;
+	nodeFetchedData: Array<(context: HookExecutionContext, node: INode) => Promise<void> | void>;
 };
 
 export type ExecutionLifecycleHookName = keyof ExecutionLifecycleHookHandlers;
@@ -92,9 +100,8 @@ export class ExecutionLifecycleHooks {
 	};
 
 	constructor(
-		readonly mode: WorkflowExecuteMode,
-		readonly executionId: string,
-		readonly workflowData: IWorkflowBase,
+		/** @deprecated this should not be here, so that we can reuse hooks setup across executions */
+		private readonly context: HookExecutionContext,
 	) {}
 
 	addHandler<Hook extends keyof ExecutionLifecycleHookHandlers>(
@@ -114,10 +121,11 @@ export class ExecutionLifecycleHooks {
 		const hooks = this.handlers[hookName];
 		for (const hookFunction of hooks) {
 			const typedHookFunction = hookFunction as unknown as (
-				this: ExecutionLifecycleHooks,
+				context: HookExecutionContext,
 				...args: Params
 			) => Promise<void>;
-			await typedHookFunction.apply(this, parameters);
+			// eslint-disable-next-line n8n-local-rules/no-argument-spread
+			await typedHookFunction(this.context, ...parameters);
 		}
 	}
 }

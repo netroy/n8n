@@ -57,11 +57,11 @@ export class TriggersAndPollers {
 					donePromise?: IDeferredPromise<IRun>,
 				) => {
 					if (responsePromise) {
-						hooks.addHandler('sendResponse', (response) => responsePromise.resolve(response));
+						hooks.addHandler('sendResponse', (_, response) => responsePromise.resolve(response));
 					}
 
 					if (donePromise) {
-						hooks.addHandler('workflowExecuteAfter', (runData) => donePromise.resolve(runData));
+						hooks.addHandler('workflowExecuteAfter', (_, runData) => donePromise.resolve(runData));
 					}
 
 					resolve(data);

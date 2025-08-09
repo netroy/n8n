@@ -66,7 +66,12 @@ describe('processError', () => {
 		jest.clearAllMocks();
 		workflow = await createWorkflow({}, owner);
 		execution = await createExecution({ status: 'success', finished: true }, workflow);
-		hooks = new core.ExecutionLifecycleHooks('webhook', execution.id, workflow);
+		hooks = new core.ExecutionLifecycleHooks({
+			executionId: execution.id,
+			executionMode: 'webhook',
+			workflowData: workflow,
+			saveSettings: mock(),
+		});
 		hooks.addHandler('workflowExecuteAfter', watcher.workflowExecuteAfter);
 	});
 

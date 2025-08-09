@@ -34,7 +34,6 @@ export type WorkflowExecuteBeforeContext = {
 	type: 'workflowExecuteBefore';
 	workflow: IWorkflowBase;
 	workflowInstance: Workflow;
-	executionData?: IRunExecutionData;
 };
 
 export type WorkflowExecuteAfterContext = {

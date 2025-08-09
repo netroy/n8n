@@ -1,6 +1,5 @@
 import { mock } from 'jest-mock-extended';
 import type {
-	IDataObject,
 	IExecuteResponsePromiseData,
 	INode,
 	IRun,
@@ -14,24 +13,30 @@ import type {
 import type {
 	ExecutionLifecycleHookName,
 	ExecutionLifecycleHookHandlers,
+	HookExecutionContext,
 } from '../execution-lifecycle-hooks';
 import { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
 
 describe('ExecutionLifecycleHooks', () => {
 	const executionId = '123';
 	const workflowData = mock<IWorkflowBase>();
+	const workflowInstance = mock<Workflow>();
 
 	let hooks: ExecutionLifecycleHooks;
 	beforeEach(() => {
 		jest.clearAllMocks();
-		hooks = new ExecutionLifecycleHooks('internal', executionId, workflowData);
+		const context: HookExecutionContext = {
+			executionId,
+			executionMode: 'internal',
+			workflowData,
+			workflowInstance,
+			saveSettings: mock(),
+		};
+		hooks = new ExecutionLifecycleHooks(context);
 	});
 
 	describe('constructor()', () => {
 		it('should initialize with correct properties', () => {
-			expect(hooks.mode).toBe('internal');
-			expect(hooks.executionId).toBe(executionId);
-			expect(hooks.workflowData).toBe(workflowData);
 			expect(hooks.handlers).toEqual({
 				nodeExecuteAfter: [],
 				nodeExecuteBefore: [],
@@ -50,21 +55,25 @@ describe('ExecutionLifecycleHooks', () => {
 				[K in keyof ExecutionLifecycleHookHandlers]: ExecutionLifecycleHookHandlers[K][number];
 			}>();
 
+		const context = {} as HookExecutionContext;
 		const testCases: Array<{
 			hook: ExecutionLifecycleHookName;
 			args: Parameters<
 				ExecutionLifecycleHookHandlers[keyof ExecutionLifecycleHookHandlers][number]
 			>;
 		}> = [
-			{ hook: 'nodeExecuteBefore', args: ['testNode', mock<ITaskStartedData>()] },
+			{ hook: 'nodeExecuteBefore', args: [context, 'testNode', mock<ITaskStartedData>()] },
 			{
 				hook: 'nodeExecuteAfter',
-				args: ['testNode', mock<ITaskData>(), mock<IRunExecutionData>()],
+				args: [context, 'testNode', mock<ITaskData>(), mock<IRunExecutionData>()],
 			},
-			{ hook: 'workflowExecuteBefore', args: [mock<Workflow>(), mock<IRunExecutionData>()] },
-			{ hook: 'workflowExecuteAfter', args: [mock<IRun>(), mock<IDataObject>()] },
-			{ hook: 'sendResponse', args: [mock<IExecuteResponsePromiseData>()] },
-			{ hook: 'nodeFetchedData', args: ['workflow123', mock<INode>()] },
+			{
+				hook: 'workflowExecuteBefore',
+				args: [context],
+			},
+			{ hook: 'workflowExecuteAfter', args: [context, mock<IRun>()] },
+			{ hook: 'sendResponse', args: [context, mock<IExecuteResponsePromiseData>()] },
+			{ hook: 'nodeFetchedData', args: [context, mock<INode>()] },
 		];
 
 		test.each(testCases)(
@@ -72,7 +81,8 @@ describe('ExecutionLifecycleHooks', () => {
 			async ({ hook, args }) => {
 				hooks.addHandler(hook, hooksHandlers[hook]);
 				await hooks.runHook(hook, args);
-				expect(hooksHandlers[hook]).toHaveBeenCalledWith(...args);
+				// eslint-disable-next-line n8n-local-rules/no-argument-spread
+				expect(hooksHandlers[hook]).toHaveBeenCalledWith(expect.anything(), ...args);
 			},
 		);
 	});
@@ -95,10 +105,10 @@ describe('ExecutionLifecycleHooks', () => {
 			expect(hook2).toHaveBeenCalled();
 		});
 
-		it('should maintain correct "this" context', async () => {
-			const hook = jest.fn().mockImplementation(async function (this: ExecutionLifecycleHooks) {
-				expect(this.executionId).toBe(executionId);
-				expect(this.mode).toBe('internal');
+		it('should maintain correct the context', async () => {
+			const hook = jest.fn().mockImplementation(async function (context: HookExecutionContext) {
+				expect(context.executionId).toBe(executionId);
+				expect(context.executionMode).toBe('internal');
 			});
 
 			hooks.addHandler('nodeExecuteBefore', hook);
