@@ -183,7 +183,7 @@ export class ExecutionRecoveryService {
 	private async runHooks(execution: IExecutionResponse) {
 		execution.data ??= { resultData: { runData: {} } };
 
-		const lifecycleHooks = getLifecycleHooksForRegularMain({
+		const runExecutionLifecycleHook = getLifecycleHooksForRegularMain({
 			executionId: execution.id,
 			executionMode: execution.mode,
 			workflowData: execution.workflowData,
@@ -201,6 +201,6 @@ export class ExecutionRecoveryService {
 			status: execution.status,
 		};
 
-		await lifecycleHooks.runHook('workflowExecuteAfter', [run]);
+		await runExecutionLifecycleHook('workflowExecuteAfter', [run]);
 	}
 }

@@ -7,8 +7,8 @@ import {
 	ErrorReporter,
 	InstanceSettings,
 	ExecutionLifecycleHooks,
-	HookExecutionContext,
-	RunHook,
+	ExecutionLifecycleHookContext,
+	RunExecutionLifecycleHook,
 } from 'n8n-core';
 
 import { EventService } from '@/events/event.service';
@@ -27,7 +27,6 @@ import {
 	prepareExecutionDataForDbUpdate,
 	updateExistingExecution,
 } from './shared/shared-hook-functions';
-import { toSaveSettings } from './to-save-settings';
 
 @Service()
 class ModulesHooksRegistry {
@@ -466,8 +465,8 @@ function hookFunctionsSaveWorker(hooks: ExecutionLifecycleHooks) {
  * (Workflows which get started inside of another workflow)
  */
 export function getLifecycleHooksForSubExecutions(
-	data: Omit<HookExecutionContext, 'saveSettings'>,
-): RunHook {
+	data: Omit<ExecutionLifecycleHookContext, 'saveSettings'>,
+): RunExecutionLifecycleHook {
 	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsWorkflowEvents(hooks);
 	hookFunctionsNodeEvents(hooks);
@@ -482,7 +481,6 @@ export function getLifecycleHooksForSubExecutions(
 		executionId,
 		executionMode,
 		workflowData,
-		saveSettings: toSaveSettings(workflowData.settings),
 		userId,
 	});
 }
@@ -491,8 +489,8 @@ export function getLifecycleHooksForSubExecutions(
  * Returns ExecutionLifecycleHooks instance for worker in scaling mode.
  */
 export function getLifecycleHooksForScalingWorker(
-	data: Omit<HookExecutionContext, 'saveSettings'>,
-): RunHook {
+	data: Omit<ExecutionLifecycleHookContext, 'saveSettings'>,
+): RunExecutionLifecycleHook {
 	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsNodeEvents(hooks);
 	hookFunctionsFinalizeExecutionStatus(hooks);
@@ -513,7 +511,6 @@ export function getLifecycleHooksForScalingWorker(
 		executionId,
 		executionMode,
 		workflowData,
-		saveSettings: toSaveSettings(workflowData.settings),
 		pushRef,
 		retryOf: retryOf ?? undefined,
 		userId,
@@ -524,8 +521,8 @@ export function getLifecycleHooksForScalingWorker(
  * Returns ExecutionLifecycleHooks instance for main process in scaling mode.
  */
 export function getLifecycleHooksForScalingMain(
-	data: Omit<HookExecutionContext, 'saveSettings'>,
-): RunHook {
+	data: Omit<ExecutionLifecycleHookContext, 'saveSettings'>,
+): RunExecutionLifecycleHook {
 	const hooks = new ExecutionLifecycleHooks();
 	const executionRepository = Container.get(ExecutionRepository);
 
@@ -583,7 +580,6 @@ export function getLifecycleHooksForScalingMain(
 		executionId,
 		executionMode,
 		workflowData,
-		saveSettings: toSaveSettings(workflowData.settings),
 		pushRef,
 		retryOf: retryOf ?? undefined,
 		userId,
@@ -594,8 +590,8 @@ export function getLifecycleHooksForScalingMain(
  * Returns ExecutionLifecycleHooks instance for the main process in regular mode
  */
 export function getLifecycleHooksForRegularMain(
-	data: Omit<HookExecutionContext, 'saveSettings'>,
-): RunHook {
+	data: Omit<ExecutionLifecycleHookContext, 'saveSettings'>,
+): RunExecutionLifecycleHook {
 	const hooks = new ExecutionLifecycleHooks();
 	hookFunctionsWorkflowEvents(hooks);
 	hookFunctionsNodeEvents(hooks);
@@ -612,7 +608,6 @@ export function getLifecycleHooksForRegularMain(
 		executionId,
 		executionMode,
 		workflowData,
-		saveSettings: toSaveSettings(workflowData.settings),
 		pushRef,
 		retryOf: retryOf ?? undefined,
 		userId,

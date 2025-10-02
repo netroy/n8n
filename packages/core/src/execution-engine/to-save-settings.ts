@@ -1,7 +1,8 @@
-import type { HookExecutionContext } from 'n8n-core';
+import { Container } from '@n8n/di';
 import type { IWorkflowSettings } from 'n8n-workflow';
 
-import config from '@/config';
+import { ExecutionLifecycleHookContext } from './execution-lifecycle-hooks';
+import { ExecutionSavingConfig } from './execution-saving.config';
 
 /**
  * Return whether a workflow execution is configured to be saved or not:
@@ -13,12 +14,13 @@ import config from '@/config';
  */
 export function toSaveSettings(
 	workflowSettings: IWorkflowSettings | null = {},
-): HookExecutionContext['saveSettings'] {
+): ExecutionLifecycleHookContext['saveSettings'] {
+	const config = Container.get(ExecutionSavingConfig);
 	const DEFAULTS = {
-		ERROR: config.getEnv('executions.saveDataOnError'),
-		SUCCESS: config.getEnv('executions.saveDataOnSuccess'),
-		MANUAL: config.getEnv('executions.saveDataManualExecutions'),
-		PROGRESS: config.getEnv('executions.saveExecutionProgress'),
+		ERROR: config.saveDataOnError,
+		SUCCESS: config.saveDataOnSuccess,
+		MANUAL: config.saveDataManualExecutions,
+		PROGRESS: config.saveExecutionProgress,
 	};
 
 	const {

@@ -6,7 +6,7 @@ import { Container, Service } from '@n8n/di';
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import uniq from 'lodash/uniq';
-import { BinaryDataConfig, InstanceSettings } from 'n8n-core';
+import { BinaryDataConfig, ExecutionSavingConfig, InstanceSettings } from 'n8n-core';
 import type { ICredentialType, INodeTypeBaseDescription } from 'n8n-workflow';
 import path from 'path';
 
@@ -51,6 +51,7 @@ export class FrontendService {
 		private readonly securityConfig: SecurityConfig,
 		private readonly pushConfig: PushConfig,
 		private readonly binaryDataConfig: BinaryDataConfig,
+		private readonly executionSavingConfig: ExecutionSavingConfig,
 		private readonly licenseState: LicenseState,
 		private readonly moduleRegistry: ModuleRegistry,
 		private readonly mfaService: MfaService,
@@ -116,10 +117,10 @@ export class FrontendService {
 			endpointWebhook: this.globalConfig.endpoints.webhook,
 			endpointWebhookTest: this.globalConfig.endpoints.webhookTest,
 			endpointWebhookWaiting: this.globalConfig.endpoints.webhookWaiting,
-			saveDataErrorExecution: config.getEnv('executions.saveDataOnError'),
-			saveDataSuccessExecution: config.getEnv('executions.saveDataOnSuccess'),
-			saveManualExecutions: config.getEnv('executions.saveDataManualExecutions'),
-			saveExecutionProgress: config.getEnv('executions.saveExecutionProgress'),
+			saveDataErrorExecution: this.executionSavingConfig.saveDataOnError,
+			saveDataSuccessExecution: this.executionSavingConfig.saveDataOnSuccess,
+			saveManualExecutions: this.executionSavingConfig.saveDataManualExecutions,
+			saveExecutionProgress: this.executionSavingConfig.saveExecutionProgress,
 			executionTimeout: config.getEnv('executions.timeout'),
 			maxExecutionTimeout: config.getEnv('executions.maxTimeout'),
 			workflowCallerPolicyDefaultOption: this.globalConfig.workflows.callerPolicyDefaultOption,

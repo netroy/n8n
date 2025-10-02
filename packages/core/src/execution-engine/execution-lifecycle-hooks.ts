@@ -10,8 +10,9 @@ import type {
 	StructuredChunk,
 	WorkflowExecuteMode,
 } from 'n8n-workflow';
+import { toSaveSettings } from './to-save-settings';
 
-export type HookExecutionContext = {
+export type ExecutionLifecycleHookContext = {
 	executionId: string;
 	executionMode: WorkflowExecuteMode;
 	workflowData: IWorkflowBase;
@@ -29,7 +30,7 @@ export type HookExecutionContext = {
 export type ExecutionLifecycleHookHandlers = {
 	nodeExecuteBefore: Array<
 		(
-			context: HookExecutionContext,
+			context: ExecutionLifecycleHookContext,
 			nodeName: string,
 			data: ITaskStartedData,
 		) => Promise<void> | void
@@ -37,38 +38,49 @@ export type ExecutionLifecycleHookHandlers = {
 
 	nodeExecuteAfter: Array<
 		(
-			context: HookExecutionContext,
+			context: ExecutionLifecycleHookContext,
 			nodeName: string,
 			data: ITaskData,
 			executionData: IRunExecutionData,
 		) => Promise<void> | void
 	>;
 
-	workflowExecuteBefore: Array<(context: HookExecutionContext) => Promise<void> | void>;
+	workflowExecuteBefore: Array<(context: ExecutionLifecycleHookContext) => Promise<void> | void>;
 
 	workflowExecuteAfter: Array<
-		(context: HookExecutionContext, data: IRun, newStaticData?: IDataObject) => Promise<void> | void
+		(
+			context: ExecutionLifecycleHookContext,
+			data: IRun,
+			newStaticData?: IDataObject,
+		) => Promise<void> | void
 	>;
 
 	/** Used by trigger and webhook nodes to respond back to the request */
 	sendResponse: Array<
-		(context: HookExecutionContext, response: IExecuteResponsePromiseData) => Promise<void> | void
+		(
+			context: ExecutionLifecycleHookContext,
+			response: IExecuteResponsePromiseData,
+		) => Promise<void> | void
 	>;
 
 	/** Used by nodes to send chunks to streaming responses */
-	sendChunk: Array<(context: HookExecutionContext, chunk: StructuredChunk) => Promise<void> | void>;
+	sendChunk: Array<
+		(context: ExecutionLifecycleHookContext, chunk: StructuredChunk) => Promise<void> | void
+	>;
 
 	/**
 	 * Executed after a node fetches data
 	 * - For a webhook node, after the node had been run.
    * - For a http-request node, or any other node that makes http requests that still use the deprecated request* methods, after every successful http request
 s	 */
-	nodeFetchedData: Array<(context: HookExecutionContext, node: INode) => Promise<void> | void>;
+	nodeFetchedData: Array<
+		(context: ExecutionLifecycleHookContext, node: INode) => Promise<void> | void
+	>;
 };
 
 export type ExecutionLifecycleHookName = keyof ExecutionLifecycleHookHandlers;
 
-export type RunHook = <
+export type RunExecutionLifecycleHook = <
 	Hook extends keyof ExecutionLifecycleHookHandlers,
 	Params extends unknown[] = Parameters<
 		Exclude<ExecutionLifecycleHookHandlers[Hook], undefined>[number]
@@ -115,13 +127,16 @@ export class ExecutionLifecycleHooks {
 		this.handlers[hookName].push(...handlers);
 	}
 
-	withContext(context: HookExecutionContext): RunHook {
+	withContext(
+		context: Omit<ExecutionLifecycleHookContext, 'saveSettings'>,
+	): RunExecutionLifecycleHook {
+		const saveSettings = toSaveSettings(context.workflowData.settings);
 		return async (hookName, parameters) => {
 			const hooks = this.handlers[hookName];
 			for (const hookFunction of hooks) {
 				// @ts-expect-error
 				// eslint-disable-next-line n8n-local-rules/no-argument-spread
-				await hookFunction(context, ...parameters);
+				await hookFunction({ ...context, saveSettings }, ...parameters);
 			}
 		};
 	}

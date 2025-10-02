@@ -270,7 +270,7 @@ describe('ExecuteContext', () => {
 		test('should send call hook with structured chunk', async () => {
 			const additionalDataWithHooks: IWorkflowExecuteAdditionalData = {
 				...additionalData,
-				runHook: jest.fn(),
+				runExecutionLifecycleHook: jest.fn(),
 			};
 
 			const testExecuteContext = new ExecuteContext(
@@ -289,7 +289,7 @@ describe('ExecuteContext', () => {
 
 			await testExecuteContext.sendChunk('item', 0, 'test');
 
-			expect(additionalDataWithHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(additionalDataWithHooks.runExecutionLifecycleHook).toHaveBeenCalledWith('sendChunk', [
 				expect.objectContaining({
 					type: 'item',
 					content: 'test',
@@ -307,7 +307,7 @@ describe('ExecuteContext', () => {
 		test('should send chunk without content when content is undefined', async () => {
 			const additionalDataWithHooks: IWorkflowExecuteAdditionalData = {
 				...additionalData,
-				runHook: jest.fn(),
+				runExecutionLifecycleHook: jest.fn(),
 			};
 
 			const testExecuteContext = new ExecuteContext(
@@ -326,7 +326,7 @@ describe('ExecuteContext', () => {
 
 			await testExecuteContext.sendChunk('begin', 0);
 
-			expect(additionalDataWithHooks.runHook).toHaveBeenCalledWith('sendChunk', [
+			expect(additionalDataWithHooks.runExecutionLifecycleHook).toHaveBeenCalledWith('sendChunk', [
 				expect.objectContaining({
 					type: 'begin',
 					content: undefined,

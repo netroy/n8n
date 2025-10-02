@@ -7,7 +7,7 @@ import {
 } from '@n8n/db';
 import { Service } from '@n8n/di';
 import { snakeCase } from 'change-case';
-import { BinaryDataConfig, InstanceSettings } from 'n8n-core';
+import { BinaryDataConfig, ExecutionSavingConfig, InstanceSettings } from 'n8n-core';
 import type { ExecutionStatus, INodesGraphResult, ITelemetryTrackProperties } from 'n8n-workflow';
 import { TelemetryHelpers } from 'n8n-workflow';
 import os from 'node:os';
@@ -32,6 +32,7 @@ export class TelemetryEventRelay extends EventRelay {
 		private readonly telemetry: Telemetry,
 		private readonly license: License,
 		private readonly globalConfig: GlobalConfig,
+		private readonly executionSavingConfig: ExecutionSavingConfig,
 		private readonly instanceSettings: InstanceSettings,
 		private readonly binaryDataConfig: BinaryDataConfig,
 		private readonly workflowRepository: WorkflowRepository,
@@ -831,12 +832,10 @@ export class TelemetryEventRelay extends EventRelay {
 				executions_mode: config.getEnv('executions.mode'),
 				executions_timeout: config.getEnv('executions.timeout'),
 				executions_timeout_max: config.getEnv('executions.maxTimeout'),
-				executions_data_save_on_error: config.getEnv('executions.saveDataOnError'),
-				executions_data_save_on_success: config.getEnv('executions.saveDataOnSuccess'),
-				executions_data_save_on_progress: config.getEnv('executions.saveExecutionProgress'),
-				executions_data_save_manual_executions: config.getEnv(
-					'executions.saveDataManualExecutions',
-				),
+				executions_data_save_on_error: this.executionSavingConfig.saveDataOnError,
+				executions_data_save_on_success: this.executionSavingConfig.saveDataOnSuccess,
+				executions_data_save_on_progress: this.executionSavingConfig.saveExecutionProgress,
+				executions_data_save_manual_executions: this.executionSavingConfig.saveDataManualExecutions,
 				executions_data_prune: this.globalConfig.executions.pruneData,
 				executions_data_max_age: this.globalConfig.executions.pruneDataMaxAge,
 			},

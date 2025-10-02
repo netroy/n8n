@@ -1,5 +1,3 @@
-import config from '@/config';
-
 import { toSaveSettings } from '../to-save-settings';
 
 afterEach(() => {

@@ -126,14 +126,14 @@ export class JobProcessor {
 
 		const { pushRef } = job.data;
 
-		const runHook = getLifecycleHooksForScalingWorker({
+		const runExecutionLifecycleHook = getLifecycleHooksForScalingWorker({
 			executionId,
 			executionMode: execution.mode,
 			workflowData: execution.workflowData,
 			retryOf: execution.retryOf,
 			pushRef,
 		});
-		additionalData.runHook = runHook;
+		additionalData.runExecutionLifecycleHook = runExecutionLifecycleHook;
 
 		if (pushRef) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -221,7 +221,7 @@ export class JobProcessor {
 						data: { resultData: { error, runData: {} } },
 					};
 
-					await runHook('workflowExecuteAfter', [runData]);
+					await runExecutionLifecycleHook('workflowExecuteAfter', [runData]);
 					return { success: false };
 				}
 				throw error;

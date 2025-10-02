@@ -1,11 +1,11 @@
 import type { IDeferredPromise, IExecuteResponsePromiseData, IRun } from 'n8n-workflow';
-import type { RunHook } from './execution-lifecycle-hooks';
+import type { RunExecutionLifecycleHook } from './execution-lifecycle-hooks';
 import type { ExternalSecretsProxy } from './external-secrets-proxy';
 
 declare module 'n8n-workflow' {
 	interface IWorkflowExecuteAdditionalData {
-		runHook?: RunHook;
 		externalSecretsProxy: ExternalSecretsProxy;
+		runExecutionLifecycleHook?: RunExecutionLifecycleHook;
 		responsePromise?: IDeferredPromise<IExecuteResponsePromiseData>;
 		donePromise?: IDeferredPromise<IRun>;
 	}
@@ -20,7 +20,8 @@ export * from './node-execution-context/utils/execution-metadata';
 export * from './workflow-execute';
 export {
 	ExecutionLifecycleHooks,
-	type HookExecutionContext,
-	type RunHook,
+	type ExecutionLifecycleHookContext,
+	type RunExecutionLifecycleHook,
 } from './execution-lifecycle-hooks';
+export { ExecutionSavingConfig } from './execution-saving.config';
 export { ExternalSecretsProxy, type IExternalSecretsManager } from './external-secrets-proxy';

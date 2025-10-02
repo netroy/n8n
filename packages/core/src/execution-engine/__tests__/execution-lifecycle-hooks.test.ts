@@ -11,13 +11,13 @@ import type {
 import type {
 	ExecutionLifecycleHookName,
 	ExecutionLifecycleHookHandlers,
-	HookExecutionContext,
+	ExecutionLifecycleHookContext,
 } from '../execution-lifecycle-hooks';
 import { ExecutionLifecycleHooks } from '../execution-lifecycle-hooks';
 
 describe('ExecutionLifecycleHooks', () => {
 	const executionId = '123';
-	const context: HookExecutionContext = {
+	const context: ExecutionLifecycleHookContext = {
 		executionId,
 		executionMode: 'internal',
 		workflowData: mock(),
@@ -50,7 +50,7 @@ describe('ExecutionLifecycleHooks', () => {
 				[K in keyof ExecutionLifecycleHookHandlers]: ExecutionLifecycleHookHandlers[K][number];
 			}>();
 
-		const context = {} as HookExecutionContext;
+		const context = {} as ExecutionLifecycleHookContext;
 		const testCases: Array<{
 			hookName: ExecutionLifecycleHookName;
 			args: Parameters<
@@ -76,15 +76,15 @@ describe('ExecutionLifecycleHooks', () => {
 			async ({ hookName, args }) => {
 				const handler = hooksHandlers[hookName];
 				hooks.addHandler(hookName, handler);
-				const runHook = hooks.withContext(context);
-				await runHook(hookName, args);
+				const runExecutionLifecycleHook = hooks.withContext(context);
+				await runExecutionLifecycleHook(hookName, args);
 				// eslint-disable-next-line n8n-local-rules/no-argument-spread
 				expect(handler).toHaveBeenCalledWith(expect.anything(), ...args);
 			},
 		);
 	});
 
-	describe('runHook()', () => {
+	describe('runExecutionLifecycleHook()', () => {
 		it('should execute multiple hooks in order', async () => {
 			const executionOrder: string[] = [];
 			const hook1 = jest.fn().mockImplementation(async () => {
@@ -95,8 +95,8 @@ describe('ExecutionLifecycleHooks', () => {
 			});
 
 			hooks.addHandler('nodeExecuteBefore', hook1, hook2);
-			const runHook = hooks.withContext(context);
-			await runHook('nodeExecuteBefore', ['testNode', mock()]);
+			const runExecutionLifecycleHook = hooks.withContext(context);
+			await runExecutionLifecycleHook('nodeExecuteBefore', ['testNode', mock()]);
 
 			expect(executionOrder).toEqual(['hook1', 'hook2']);
 			expect(hook1).toHaveBeenCalled();
@@ -104,14 +104,16 @@ describe('ExecutionLifecycleHooks', () => {
 		});
 
 		it('should maintain correct the context', async () => {
-			const hook = jest.fn().mockImplementation(async function (context: HookExecutionContext) {
+			const hook = jest.fn().mockImplementation(async function (
+				context: ExecutionLifecycleHookContext,
+			) {
 				expect(context.executionId).toBe(executionId);
 				expect(context.executionMode).toBe('internal');
 			});
 
 			hooks.addHandler('nodeExecuteBefore', hook);
-			const runHook = hooks.withContext(context);
-			await runHook('nodeExecuteBefore', ['testNode', mock()]);
+			const runExecutionLifecycleHook = hooks.withContext(context);
+			await runExecutionLifecycleHook('nodeExecuteBefore', ['testNode', mock()]);
 
 			expect(hook).toHaveBeenCalled();
 		});
@@ -120,10 +122,10 @@ describe('ExecutionLifecycleHooks', () => {
 			const errorHook = jest.fn().mockRejectedValue(new Error('Hook failed'));
 			hooks.addHandler('nodeExecuteBefore', errorHook);
 
-			const runHook = hooks.withContext(context);
-			await expect(runHook('nodeExecuteBefore', ['testNode', mock()])).rejects.toThrow(
-				'Hook failed',
-			);
+			const runExecutionLifecycleHook = hooks.withContext(context);
+			await expect(
+				runExecutionLifecycleHook('nodeExecuteBefore', ['testNode', mock()]),
+			).rejects.toThrow('Hook failed');
 		});
 	});
 });

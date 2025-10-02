@@ -24,13 +24,14 @@ describe('TriggersAndPollers', () => {
 	const nodeTypes = mock<INodeTypes>();
 	const workflowInstance = mock<Workflow>({ nodeTypes });
 	const hooks = new ExecutionLifecycleHooks();
-	const runHook = hooks.withContext({
+	const runExecutionLifecycleHook = hooks.withContext({
 		executionId: '123',
 		executionMode: 'internal',
 		workflowData: mock(),
-		saveSettings: mock(),
 	});
-	const additionalData = mock<IWorkflowExecuteAdditionalData>({ runHook });
+	const additionalData = mock<IWorkflowExecuteAdditionalData>({
+		runExecutionLifecycleHook,
+	});
 	const triggersAndPollers = new TriggersAndPollers();
 
 	beforeEach(() => {
@@ -97,7 +98,7 @@ describe('TriggersAndPollers', () => {
 
 				getMockTriggerFunctions()?.emit?.(mockEmitData, responsePromise);
 
-				await additionalData.runHook?.('sendResponse', [{ testResponse: true }]);
+				await additionalData.runExecutionLifecycleHook?.('sendResponse', [{ testResponse: true }]);
 				expect(responsePromise.resolve).toHaveBeenCalledWith({ testResponse: true });
 			});
 
@@ -109,10 +110,10 @@ describe('TriggersAndPollers', () => {
 				await runTriggerHelper('manual');
 				getMockTriggerFunctions()?.emit?.(mockEmitData, responsePromise, donePromise);
 
-				await additionalData.runHook?.('sendResponse', [{ testResponse: true }]);
+				await additionalData.runExecutionLifecycleHook?.('sendResponse', [{ testResponse: true }]);
 				expect(responsePromise.resolve).toHaveBeenCalledWith({ testResponse: true });
 
-				await additionalData.runHook?.('workflowExecuteAfter', [mockRunData]);
+				await additionalData.runExecutionLifecycleHook?.('workflowExecuteAfter', [mockRunData]);
 				expect(donePromise.resolve).toHaveBeenCalledWith(mockRunData);
 			});
 		});

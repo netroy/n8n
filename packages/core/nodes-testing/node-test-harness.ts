@@ -200,7 +200,7 @@ export class NodeTestHarness {
 		});
 
 		const hooks = new ExecutionLifecycleHooks();
-		const runHook = hooks.withContext({
+		const runExecutionLifecycleHook = hooks.withContext({
 			executionId: '1',
 			executionMode: 'trigger',
 			workflowData: mock(),
@@ -218,11 +218,11 @@ export class NodeTestHarness {
 		const additionalData = mock<IWorkflowExecuteAdditionalData>({
 			executionId: '1',
 			webhookWaitingBaseUrl: 'http://localhost/waiting-webhook',
-			runHook,
+			credentialsHelper,
+			runExecutionLifecycleHook,
 			// Get from node.parameters
 			currentNodeParameters: undefined,
 		});
-		additionalData.credentialsHelper = credentialsHelper;
 
 		let executionData: IRun;
 		const runExecutionData: IRunExecutionData = {

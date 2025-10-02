@@ -221,7 +221,7 @@ async function startExecution(
 		// Create new additionalData to have different workflow loaded and to call
 		// different webhooks
 		const additionalDataIntegrated = await getBase();
-		additionalDataIntegrated.hooks = getLifecycleHooksForSubExecutions({
+		additionalDataIntegrated.runExecutionLifecycleHook = getLifecycleHooksForSubExecutions({
 			executionId,
 			executionMode: runData.executionMode,
 			workflowData,
