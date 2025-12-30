@@ -1,5 +1,6 @@
 import type { IDataObject, ILoadOptionsFunctions, INodeListSearchResult } from 'n8n-workflow';
 
+import type { TheHiveProjectApiCredential } from '@credentials/TheHiveProjectApi.credentials';
 import { theHiveApiRequest } from '../transport';
 
 async function listResource(
@@ -44,7 +45,7 @@ async function listResource(
 		};
 	}
 
-	const credentials = await this.getCredentials('theHiveProjectApi');
+	const credentials = await this.getCredentials<TheHiveProjectApiCredential>('theHiveProjectApi');
 	const url = credentials?.url as string;
 
 	return {

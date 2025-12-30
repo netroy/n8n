@@ -1,44 +1,39 @@
-import type {
-	IAuthenticateGeneric,
-	ICredentialTestRequest,
-	ICredentialType,
-	INodeProperties,
-} from 'n8n-workflow';
+import type { IAuthenticateGeneric, ICredentialTestRequest, ICredentialType } from 'n8n-workflow';
+import z from 'zod/v4';
+import { CredentialClass } from 'n8n-workflow';
 
-export class TheHiveProjectApi implements ICredentialType {
+const TheHiveProjectApiSchema = z.object({
+	ApiKey: z
+		.string()
+		.default('')
+		.meta({
+			displayName: 'API Key',
+			typeOptions: {
+				password: true,
+			},
+		}),
+	url: z.string().default('').meta({
+		displayName: 'URL',
+		description: 'The URL of TheHive instance',
+		placeholder: 'https://localhost:9000',
+	}),
+	allowUnauthorizedCerts: z.boolean().default(false).meta({
+		displayName: 'Ignore SSL Issues (Insecure)',
+		description: 'Whether to connect even if SSL certificate validation is not possible',
+	}),
+});
+
+export type TheHiveProjectApiCredential = z.infer<typeof TheHiveProjectApiSchema>;
+
+export class TheHiveProjectApi
+	extends CredentialClass.fromSchema(TheHiveProjectApiSchema)
+	implements ICredentialType
+{
 	name = 'theHiveProjectApi';
 
 	displayName = 'The Hive 5 API';
 
 	documentationUrl = 'thehive';
-
-	properties: INodeProperties[] = [
-		{
-			displayName: 'API Key',
-			name: 'ApiKey',
-			type: 'string',
-			default: '',
-			typeOptions: {
-				password: true,
-			},
-		},
-		{
-			displayName: 'URL',
-			name: 'url',
-			default: '',
-			type: 'string',
-			description: 'The URL of TheHive instance',
-			placeholder: 'https://localhost:9000',
-		},
-		{
-			displayName: 'Ignore SSL Issues (Insecure)',
-			name: 'allowUnauthorizedCerts',
-			type: 'boolean',
-			description: 'Whether to connect even if SSL certificate validation is not possible',
-			default: false,
-		},
-	];
-
 	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
 		properties: {

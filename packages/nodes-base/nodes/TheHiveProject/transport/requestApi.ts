@@ -1,3 +1,4 @@
+import type { TheHiveProjectApiCredential } from '@credentials/TheHiveProjectApi.credentials';
 import type {
 	IExecuteFunctions,
 	IHookFunctions,
@@ -16,7 +17,7 @@ export async function theHiveApiRequest(
 	uri?: string,
 	option: IDataObject = {},
 ) {
-	const credentials = await this.getCredentials('theHiveProjectApi');
+	const credentials = await this.getCredentials<TheHiveProjectApiCredential>('theHiveProjectApi');
 
 	let options: IHttpRequestOptions = {
 		method,

@@ -9,6 +9,7 @@ import type {
 } from 'n8n-workflow';
 import { ApplicationError, jsonParse } from 'n8n-workflow';
 
+import type { TheHiveApiCredential } from '@credentials/TheHiveApi.credentials';
 import { Eq } from './QueryFunctions';
 
 export async function theHiveApiRequest(
@@ -20,7 +21,7 @@ export async function theHiveApiRequest(
 	uri?: string,
 	option: IDataObject = {},
 ) {
-	const credentials = await this.getCredentials('theHiveApi');
+	const credentials = await this.getCredentials<TheHiveApiCredential>('theHiveApi');
 
 	let options: IRequestOptions = {
 		method,
@@ -123,7 +124,7 @@ export async function prepareCustomFields(
 		}
 	} else if (additionalFields.customFieldsUi) {
 		// Get Custom Field Types from TheHive
-		const credentials = await this.getCredentials('theHiveApi');
+		const credentials = await this.getCredentials<TheHiveApiCredential>('theHiveApi');
 		const version = credentials.apiVersion;
 		const endpoint = version === 'v1' ? '/customField' : '/list/custom_fields';
 
