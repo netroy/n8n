@@ -1,0 +1,27 @@
+{
+  "name": "@n8n/codemods",
+  "version": "1.0.0",
+  "description": "Codemods for n8n nodes and credentials",
+  "keywords": [
+    "n8n",
+    "codemod",
+    "migration",
+    "credentials",
+    "zod"
+  ],
+  "bin": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "watch": "tsc --watch",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "ts-morph": "27.0.2"
+  },
+  "devDependencies": {
+    "@n8n/typescript-config": "workspace:*",
+    "n8n-workflow": "workspace:*",
+    "vitest": "catalog:"
+  }
+}

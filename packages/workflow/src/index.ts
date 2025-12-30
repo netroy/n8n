@@ -84,6 +84,8 @@ export * from './node-parameters/path-utils';
 export * from './evaluation-helpers';
 export * from './workflow-diff';
 
+export { CredentialClass } from './credential-class';
+
 export type {
 	DocMetadata,
 	NativeDoc,
