@@ -81,6 +81,7 @@ import {
 } from './partial-execution-utils';
 import { handleRequest, isEngineRequest, makeEngineResponse } from './requests-response';
 import { RoutingNode } from './routing-node';
+import { ExecutionStateManager } from './state/execution-state-manager';
 import { TriggersAndPollers } from './triggers-and-pollers';
 
 export class WorkflowExecute {
@@ -88,6 +89,8 @@ export class WorkflowExecute {
 
 	private readonly abortController = new AbortController();
 	timedOut: boolean = false;
+
+	private stateManager!: ExecutionStateManager;
 
 	constructor(
 		private readonly additionalData: IWorkflowExecuteAdditionalData,
@@ -1404,6 +1407,7 @@ export class WorkflowExecute {
 	processRunExecutionData(workflow: Workflow): PCancelable<IRun> {
 		Logger.debug('Workflow execution started', { workflowId: workflow.id });
 		const { startedAt, hooks } = this.setupExecution();
+		this.stateManager = new ExecutionStateManager(this.runExecutionData);
 		this.checkForWorkflowIssues(workflow);
 		this.handleWaitingState(workflow);
 
@@ -1479,9 +1483,7 @@ export class WorkflowExecute {
 					throw error;
 				}
 
-				executionLoop: while (
-					this.runExecutionData.executionData!.nodeExecutionStack.length !== 0
-				) {
+				executionLoop: while (this.stateManager.hasNodesToExecute) {
 					if (
 						this.additionalData.executionTimeoutTimestamp !== undefined &&
 						Date.now() >= this.additionalData.executionTimeoutTimestamp
@@ -1498,8 +1500,7 @@ export class WorkflowExecute {
 
 					let nodeSuccessData: INodeExecutionData[][] | null | undefined = null;
 					executionError = undefined;
-					executionData =
-						this.runExecutionData.executionData!.nodeExecutionStack.shift() as IExecuteData;
+					executionData = this.stateManager.getNodeFromStack()!;
 					executionNode = executionData.node;
 
 					const taskStartedData: ITaskStartedData = {
@@ -1732,7 +1733,7 @@ export class WorkflowExecute {
 							nodeSuccessData = this.assignPairedItems(nodeSuccessData, executionData);
 
 							if (nodeSuccessData) {
-								this.runExecutionData.resultData.lastNodeExecuted = executionData.node.name;
+								this.stateManager.setLastNodeExecuted(executionData.node.name);
 							}
 
 							if (!nodeSuccessData?.[0]?.[0]) {
@@ -1762,7 +1763,7 @@ export class WorkflowExecute {
 								}
 							}
 
-							if (nodeSuccessData === null && !this.runExecutionData.waitTill) {
+							if (nodeSuccessData === null && !this.stateManager.isWaiting) {
 								// If null gets returned it means that the node did succeed
 								// but did not have any data. So the branch should end
 								// (meaning the nodes afterwards should not be processed)
@@ -1771,7 +1772,7 @@ export class WorkflowExecute {
 
 							break;
 						} catch (error) {
-							this.runExecutionData.resultData.lastNodeExecuted = executionData.node.name;
+							this.stateManager.setLastNodeExecuted(executionData.node.name);
 
 							let toReport: Error | undefined;
 							if (error instanceof ApplicationError) {
@@ -1814,7 +1815,7 @@ export class WorkflowExecute {
 						...taskStartedData,
 						executionTime: Date.now() - taskStartedData.startTime,
 						metadata: executionData.metadata,
-						executionStatus: this.runExecutionData.waitTill ? 'waiting' : 'success',
+						executionStatus: this.stateManager.isWaiting ? 'waiting' : 'success',
 					};
 
 					if (executionError !== undefined) {
@@ -1873,7 +1874,7 @@ export class WorkflowExecute {
 									this.runExecutionData.resultData.runData[executionNode.name][runIndex];
 								Object.assign(currentTaskData, taskData);
 							} else {
-								this.runExecutionData.resultData.runData[executionNode.name].push(taskData);
+								this.stateManager.addTaskData(executionNode.name, taskData);
 							}
 
 							// Add the execution data again so that it can get restarted
@@ -1937,10 +1938,10 @@ export class WorkflowExecute {
 							this.runExecutionData.resultData.runData[executionNode.name][runIndex];
 						Object.assign(currentTaskData, taskData);
 					} else {
-						this.runExecutionData.resultData.runData[executionNode.name].push(taskData);
+						this.stateManager.addTaskData(executionNode.name, taskData);
 					}
 
-					if (this.runExecutionData.waitTill) {
+					if (this.stateManager.isWaiting) {
 						await hooks.runHook('nodeExecuteAfter', [
 							executionNode.name,
 							taskData,
